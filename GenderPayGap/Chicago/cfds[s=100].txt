@@ -1,0 +1,279 @@
+(Annual Salary Bin) => Gender
+(Annual Salary Bin=140+) => Gender=male
+(Annual Salary Bin=120-139) => Gender=male
+(Annual Salary Bin=100-119) => Gender=male
+(Department=DAIS) => Annual Salary Bin=100-119
+(Department) => Gender
+(Department=TRANSPORTN) => Gender=male
+(Department=DAIS) => Gender=male
+(Department=OEMC) => Gender=female
+(Department=WATER MGMNT) => Gender=male
+(Department=STREETS & SAN) => Gender=male
+(Department=FIRE) => Gender=male
+(Department=AVIATION) => Gender=male
+(Gender, Department=DAIS) => Annual Salary Bin
+(Gender=male, Department=DAIS) => Annual Salary Bin=100-119
+(Annual Salary Bin, Department) => Gender
+(Annual Salary Bin, Department=TRANSPORTN) => Gender
+(Department, Annual Salary Bin=140+) => Gender
+(Annual Salary Bin, Department=DAIS) => Gender
+(Annual Salary Bin, Department=OEMC) => Gender
+(Department, Annual Salary Bin=120-139) => Gender
+(Annual Salary Bin, Department=WATER MGMNT) => Gender
+(Annual Salary Bin, Department=STREETS & SAN) => Gender
+(Annual Salary Bin, Department=FIRE) => Gender
+(Department=FIRE, Annual Salary Bin=140+) => Gender=male
+(Department=FIRE, Annual Salary Bin=120-139) => Gender=male
+(Annual Salary Bin, Department=AVIATION) => Gender
+(Annual Salary Bin=60-79, Department=WATER MGMNT) => Gender=male
+(Annual Salary Bin=60-79, Department=STREETS & SAN) => Gender=male
+(Annual Salary Bin=60-79, Department=FIRE) => Gender=male
+(Annual Salary Bin=60-79, Department=AVIATION) => Gender=male
+(Annual Salary Bin=80-99, Department=OEMC) => Gender=female
+(Annual Salary Bin=80-99, Department=WATER MGMNT) => Gender=male
+(Annual Salary Bin=80-99, Department=FIRE) => Gender=male
+(Department, Annual Salary Bin=100-119) => Gender
+(Annual Salary Bin=100-119, Department=DAIS) => Gender=male
+(Annual Salary Bin=100-119, Department=WATER MGMNT) => Gender=male
+(Annual Salary Bin=100-119, Department=FIRE) => Gender=male
+(Annual Salary Bin=100-119, Department=AVIATION) => Gender=male
+(Department=POLICE, Annual Salary Bin=140+) => Gender=male
+(Department=POLICE, Annual Salary Bin=120-139) => Gender=male
+(Department=POLICE, Annual Salary Bin=100-119) => Gender=male
+(Gender=female, Annual Salary Bin=120-139) => Department=POLICE
+(Job Titles) => Department
+(Job Titles=PLUMBER) => Department=WATER MGMNT
+(Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Department=POLICE
+(Job Titles=POLICE OFFICER (ASSIGNED AS EVIDENCE TECHNICIAN)) => Department=POLICE
+(Job Titles=LIBRARIAN I) => Department=PUBLIC LIBRARY
+(Job Titles=POLICE COMMUNICATIONS OPERATOR I) => Department=OEMC
+(Job Titles=CONSTRUCTION LABORER) => Department=WATER MGMNT
+(Job Titles=GENERAL LABORER - DSS) => Department=STREETS & SAN
+(Job Titles=CAPTAIN-EMT) => Department=FIRE
+(Job Titles=AVIATION SECURITY OFFICER) => Department=AVIATION
+(Job Titles=SANITATION LABORER) => Department=STREETS & SAN
+(Job Titles=MACHINIST (AUTOMOTIVE)) => Department=DAIS
+(Job Titles=FIREFIGHTER-EMT (RECRUIT)) => Department=FIRE
+(Job Titles=PARAMEDIC) => Department=FIRE
+(Job Titles=FIREFIGHTER) => Department=FIRE
+(Job Titles=POLICE COMMUNICATIONS OPERATOR II) => Department=OEMC
+(Job Titles=LIEUTENANT-EMT) => Department=FIRE
+(Job Titles=DETENTION AIDE) => Department=POLICE
+(Job Titles=PARAMEDIC I/C) => Department=FIRE
+(Job Titles=FIREFIGHTER-EMT) => Department=FIRE
+(Job Titles=FIREFIGHTER/PARAMEDIC) => Department=FIRE
+(Job Titles=FIRE ENGINEER-EMT) => Department=FIRE
+(Job Titles=POLICE OFFICER) => Department=POLICE
+(Job Titles=POLICE OFFICER (ASSIGNED AS DETECTIVE)) => Department=POLICE
+(Job Titles=SERGEANT) => Department=POLICE
+(Department=PUBLIC LIBRARY) => Job Titles=LIBRARIAN I
+(Job Titles) => Gender
+(Job Titles=ADMINISTRATIVE ASST II) => Gender=female
+(Job Titles=LIEUTENANT) => Gender=male
+(Job Titles=HOISTING ENGINEER) => Gender=male
+(Job Titles=PLUMBER) => Gender=male
+(Job Titles=OPERATING ENGINEER-GROUP A) => Gender=male
+(Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Gender=male
+(Job Titles=POLICE COMMUNICATIONS OPERATOR I) => Gender=female
+(Job Titles=CONSTRUCTION LABORER) => Gender=male
+(Job Titles=CAPTAIN-EMT) => Gender=male
+(Job Titles=MACHINIST (AUTOMOTIVE)) => Gender=male
+(Job Titles=FIREFIGHTER-EMT (RECRUIT)) => Gender=male
+(Job Titles=FIREFIGHTER) => Gender=male
+(Job Titles=POLICE COMMUNICATIONS OPERATOR II) => Gender=female
+(Job Titles=LIEUTENANT-EMT) => Gender=male
+(Job Titles=MOTOR TRUCK DRIVER) => Gender=male
+(Job Titles=OPERATING ENGINEER-GROUP C) => Gender=male
+(Job Titles=POOL MOTOR TRUCK DRIVER) => Gender=male
+(Job Titles=FIREFIGHTER-EMT) => Gender=male
+(Job Titles=FIREFIGHTER/PARAMEDIC) => Gender=male
+(Job Titles=FIRE ENGINEER-EMT) => Gender=male
+(Job Titles=ELECTRICAL MECHANIC) => Gender=male
+(Job Titles=POLICE OFFICER (ASSIGNED AS DETECTIVE)) => Gender=male
+(Job Titles=SERGEANT) => Gender=male
+(Department, Job Titles) => Gender
+(Department, Job Titles=ADMINISTRATIVE ASST II) => Gender
+(Department, Job Titles=LIEUTENANT) => Gender
+(Department, Job Titles=HOISTING ENGINEER) => Gender
+(Department, Job Titles=PLUMBER) => Gender
+(Job Titles, Department=TRANSPORTN) => Gender
+(Department, Job Titles=OPERATING ENGINEER-GROUP A) => Gender
+(Department, Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Gender
+(Department, Job Titles=POLICE COMMUNICATIONS OPERATOR I) => Gender
+(Department, Job Titles=CONSTRUCTION LABORER) => Gender
+(Department, Job Titles=CAPTAIN-EMT) => Gender
+(Job Titles, Department=DAIS) => Gender
+(Department, Job Titles=MACHINIST (AUTOMOTIVE)) => Gender
+(Job Titles=MACHINIST (AUTOMOTIVE), Department=DAIS) => Gender=male
+(Department, Job Titles=FIREFIGHTER-EMT (RECRUIT)) => Gender
+(Department, Job Titles=FIREFIGHTER) => Gender
+(Job Titles, Department=OEMC) => Gender
+(Department=OEMC, Job Titles=POLICE COMMUNICATIONS OPERATOR I) => Gender=female
+(Department, Job Titles=POLICE COMMUNICATIONS OPERATOR II) => Gender
+(Job Titles=POLICE COMMUNICATIONS OPERATOR II, Department=OEMC) => Gender=female
+(Department, Job Titles=LIEUTENANT-EMT) => Gender
+(Department, Job Titles=MOTOR TRUCK DRIVER) => Gender
+(Job Titles, Department=WATER MGMNT) => Gender
+(Department=WATER MGMNT, Job Titles=HOISTING ENGINEER) => Gender=male
+(Department=WATER MGMNT, Job Titles=PLUMBER) => Gender=male
+(Department=WATER MGMNT, Job Titles=CONSTRUCTION LABORER) => Gender=male
+(Department=WATER MGMNT, Job Titles=MOTOR TRUCK DRIVER) => Gender=male
+(Department, Job Titles=OPERATING ENGINEER-GROUP C) => Gender
+(Job Titles=OPERATING ENGINEER-GROUP C, Department=WATER MGMNT) => Gender=male
+(Job Titles, Department=STREETS & SAN) => Gender
+(Department=STREETS & SAN, Job Titles=MOTOR TRUCK DRIVER) => Gender=male
+(Department, Job Titles=POOL MOTOR TRUCK DRIVER) => Gender
+(Job Titles=POOL MOTOR TRUCK DRIVER, Department=STREETS & SAN) => Gender=male
+(Department, Job Titles=FIREFIGHTER-EMT) => Gender
+(Department, Job Titles=FIREFIGHTER/PARAMEDIC) => Gender
+(Job Titles, Department=FIRE) => Gender
+(Department=FIRE, Job Titles=CAPTAIN-EMT) => Gender=male
+(Department=FIRE, Job Titles=FIREFIGHTER-EMT (RECRUIT)) => Gender=male
+(Department=FIRE, Job Titles=FIREFIGHTER) => Gender=male
+(Department=FIRE, Job Titles=LIEUTENANT-EMT) => Gender=male
+(Department=FIRE, Job Titles=FIREFIGHTER-EMT) => Gender=male
+(Department=FIRE, Job Titles=FIREFIGHTER/PARAMEDIC) => Gender=male
+(Department, Job Titles=FIRE ENGINEER-EMT) => Gender
+(Job Titles=FIRE ENGINEER-EMT, Department=FIRE) => Gender=male
+(Job Titles, Department=AVIATION) => Gender
+(Department=AVIATION, Job Titles=MOTOR TRUCK DRIVER) => Gender=male
+(Department, Job Titles=ELECTRICAL MECHANIC) => Gender
+(Department, Job Titles=POLICE OFFICER (ASSIGNED AS DETECTIVE)) => Gender
+(Department=POLICE, Job Titles=LIEUTENANT) => Gender=male
+(Department=POLICE, Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Gender=male
+(Department=POLICE, Job Titles=POLICE OFFICER (ASSIGNED AS DETECTIVE)) => Gender=male
+(Department, Job Titles=SERGEANT) => Gender
+(Job Titles=SERGEANT, Department=POLICE) => Gender=male
+(Gender, Job Titles) => Department
+(Gender, Job Titles=PLUMBER) => Department
+(Gender, Job Titles=CONSTRUCTION LABORER) => Department
+(Job Titles, Gender=female) => Department
+(Job Titles, Gender=male) => Department
+(Gender=male, Job Titles=CONSTRUCTION LABORER) => Department=WATER MGMNT
+(Gender=male, Job Titles=PLUMBER) => Department=WATER MGMNT
+(Gender, Department=PUBLIC LIBRARY) => Job Titles
+(Job Titles=HOISTING ENGINEER) => Annual Salary Bin=100-119
+(Job Titles=PLUMBER) => Annual Salary Bin=100-119
+(Job Titles=OPERATING ENGINEER-GROUP A) => Annual Salary Bin=100-119
+(Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Annual Salary Bin=80-99
+(Job Titles=CONSTRUCTION LABORER) => Annual Salary Bin=80-99
+(Job Titles=GENERAL LABORER - DSS) => Annual Salary Bin=40-59
+(Job Titles=CAPTAIN-EMT) => Annual Salary Bin=140+
+(Job Titles=SANITATION LABORER) => Annual Salary Bin=80-99
+(Job Titles=MACHINIST (AUTOMOTIVE)) => Annual Salary Bin=100-119
+(Job Titles=LIEUTENANT-EMT) => Annual Salary Bin=120-139
+(Job Titles=MOTOR TRUCK DRIVER) => Annual Salary Bin=60-79
+(Job Titles=OPERATING ENGINEER-GROUP C) => Annual Salary Bin=100-119
+(Job Titles=POOL MOTOR TRUCK DRIVER) => Annual Salary Bin=60-79
+(Job Titles=PARAMEDIC I/C) => Annual Salary Bin=100-119
+(Job Titles=FIRE ENGINEER-EMT) => Annual Salary Bin=100-119
+(Job Titles=ELECTRICAL MECHANIC) => Annual Salary Bin=100-119
+(Gender, Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Annual Salary Bin
+(Gender, Job Titles=MOTOR TRUCK DRIVER) => Annual Salary Bin
+(Gender, Job Titles=POOL MOTOR TRUCK DRIVER) => Annual Salary Bin
+(Gender, Job Titles=PARAMEDIC I/C) => Annual Salary Bin
+(Gender, Job Titles=FIRE ENGINEER-EMT) => Annual Salary Bin
+(Gender=female, Job Titles=ADMINISTRATIVE ASST II) => Annual Salary Bin=60-79
+(Gender=male, Job Titles=FIRE ENGINEER-EMT) => Annual Salary Bin=100-119
+(Gender=male, Job Titles=PARAMEDIC I/C) => Annual Salary Bin=100-119
+(Gender=male, Job Titles=POOL MOTOR TRUCK DRIVER) => Annual Salary Bin=60-79
+(Gender=male, Job Titles=MOTOR TRUCK DRIVER) => Annual Salary Bin=60-79
+(Gender=male, Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Annual Salary Bin=80-99
+(Annual Salary Bin, Job Titles) => Gender
+(Annual Salary Bin, Job Titles=ADMINISTRATIVE ASST II) => Gender
+(Annual Salary Bin, Job Titles=LIEUTENANT) => Gender
+(Annual Salary Bin, Job Titles=HOISTING ENGINEER) => Gender
+(Annual Salary Bin, Job Titles=PLUMBER) => Gender
+(Annual Salary Bin, Job Titles=OPERATING ENGINEER-GROUP A) => Gender
+(Annual Salary Bin, Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Gender
+(Annual Salary Bin, Job Titles=POLICE COMMUNICATIONS OPERATOR I) => Gender
+(Annual Salary Bin, Job Titles=CONSTRUCTION LABORER) => Gender
+(Job Titles, Annual Salary Bin=140+) => Gender
+(Annual Salary Bin=140+, Job Titles=LIEUTENANT) => Gender=male
+(Annual Salary Bin, Job Titles=CAPTAIN-EMT) => Gender
+(Job Titles=CAPTAIN-EMT, Annual Salary Bin=140+) => Gender=male
+(Annual Salary Bin, Job Titles=MACHINIST (AUTOMOTIVE)) => Gender
+(Annual Salary Bin, Job Titles=FIREFIGHTER-EMT (RECRUIT)) => Gender
+(Annual Salary Bin, Job Titles=FIREFIGHTER) => Gender
+(Annual Salary Bin, Job Titles=POLICE COMMUNICATIONS OPERATOR II) => Gender
+(Job Titles, Annual Salary Bin=120-139) => Gender
+(Annual Salary Bin=120-139, Job Titles=LIEUTENANT) => Gender=male
+(Annual Salary Bin, Job Titles=LIEUTENANT-EMT) => Gender
+(Job Titles=LIEUTENANT-EMT, Annual Salary Bin=120-139) => Gender=male
+(Annual Salary Bin, Job Titles=MOTOR TRUCK DRIVER) => Gender
+(Annual Salary Bin, Job Titles=OPERATING ENGINEER-GROUP C) => Gender
+(Annual Salary Bin, Job Titles=POOL MOTOR TRUCK DRIVER) => Gender
+(Annual Salary Bin, Job Titles=FIREFIGHTER-EMT) => Gender
+(Annual Salary Bin, Job Titles=FIREFIGHTER/PARAMEDIC) => Gender
+(Annual Salary Bin, Job Titles=FIRE ENGINEER-EMT) => Gender
+(Annual Salary Bin, Job Titles=ELECTRICAL MECHANIC) => Gender
+(Job Titles, Annual Salary Bin=60-79) => Gender
+(Annual Salary Bin=60-79, Job Titles=FIREFIGHTER-EMT (RECRUIT)) => Gender=male
+(Annual Salary Bin=60-79, Job Titles=MOTOR TRUCK DRIVER) => Gender=male
+(Annual Salary Bin=60-79, Job Titles=POOL MOTOR TRUCK DRIVER) => Gender=male
+(Annual Salary Bin=80-99, Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Gender=male
+(Annual Salary Bin=80-99, Job Titles=CONSTRUCTION LABORER) => Gender=male
+(Annual Salary Bin=80-99, Job Titles=FIREFIGHTER-EMT (RECRUIT)) => Gender=male
+(Annual Salary Bin=80-99, Job Titles=FIREFIGHTER-EMT) => Gender=male
+(Annual Salary Bin, Job Titles=POLICE OFFICER (ASSIGNED AS DETECTIVE)) => Gender
+(Job Titles, Annual Salary Bin=100-119) => Gender
+(Annual Salary Bin=100-119, Job Titles=HOISTING ENGINEER) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=PLUMBER) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=OPERATING ENGINEER-GROUP A) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=MACHINIST (AUTOMOTIVE)) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=FIREFIGHTER) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=OPERATING ENGINEER-GROUP C) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=FIREFIGHTER-EMT) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=FIREFIGHTER/PARAMEDIC) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=FIRE ENGINEER-EMT) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=ELECTRICAL MECHANIC) => Gender=male
+(Annual Salary Bin=100-119, Job Titles=POLICE OFFICER (ASSIGNED AS DETECTIVE)) => Gender=male
+(Annual Salary Bin, Job Titles=SERGEANT) => Gender
+(Job Titles=SERGEANT, Annual Salary Bin=120-139) => Gender=male
+(Job Titles=SERGEANT, Annual Salary Bin=100-119) => Gender=male
+(Job Titles, Department=TRANSPORTN) => Annual Salary Bin
+(Department, Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Annual Salary Bin
+(Job Titles, Department=DAIS) => Annual Salary Bin
+(Department, Job Titles=MOTOR TRUCK DRIVER) => Annual Salary Bin
+(Job Titles, Department=WATER MGMNT) => Annual Salary Bin
+(Department=WATER MGMNT, Job Titles=MOTOR TRUCK DRIVER) => Annual Salary Bin=60-79
+(Job Titles, Department=STREETS & SAN) => Annual Salary Bin
+(Department=STREETS & SAN, Job Titles=MOTOR TRUCK DRIVER) => Annual Salary Bin=60-79
+(Department, Job Titles=POOL MOTOR TRUCK DRIVER) => Annual Salary Bin
+(Job Titles=POOL MOTOR TRUCK DRIVER, Department=STREETS & SAN) => Annual Salary Bin=60-79
+(Department, Job Titles=PARAMEDIC I/C) => Annual Salary Bin
+(Department=FIRE, Job Titles=PARAMEDIC I/C) => Annual Salary Bin=100-119
+(Department, Job Titles=FIRE ENGINEER-EMT) => Annual Salary Bin
+(Job Titles=FIRE ENGINEER-EMT, Department=FIRE) => Annual Salary Bin=100-119
+(Job Titles, Department=AVIATION) => Annual Salary Bin
+(Department=AVIATION, Job Titles=MOTOR TRUCK DRIVER) => Annual Salary Bin=60-79
+(Department=AVIATION, Job Titles=POOL MOTOR TRUCK DRIVER) => Annual Salary Bin=60-79
+(Department=POLICE, Job Titles=POLICE OFFICER / FLD TRNG OFFICER) => Annual Salary Bin=80-99
+(Annual Salary Bin, Job Titles) => Department
+(Annual Salary Bin, Job Titles=PLUMBER) => Department
+(Annual Salary Bin, Job Titles=CONSTRUCTION LABORER) => Department
+(Job Titles, Annual Salary Bin=140+) => Department
+(Annual Salary Bin=140+, Job Titles=LIEUTENANT) => Department=POLICE
+(Job Titles, Annual Salary Bin=120-139) => Department
+(Job Titles, Annual Salary Bin=40-59) => Department
+(Job Titles, Annual Salary Bin=80-99) => Department
+(Annual Salary Bin=80-99, Job Titles=CONSTRUCTION LABORER) => Department=WATER MGMNT
+(Job Titles, Annual Salary Bin=100-119) => Department
+(Annual Salary Bin=100-119, Job Titles=PLUMBER) => Department=WATER MGMNT
+(Annual Salary Bin, Department=PUBLIC LIBRARY) => Job Titles
+(Department, Annual Salary Bin=140+) => Job Titles
+(Department, Annual Salary Bin=120-139) => Job Titles
+(Department, Annual Salary Bin=40-59) => Job Titles
+(Annual Salary Bin=40-59, Department=STREETS & SAN) => Job Titles=GENERAL LABORER - DSS
+(Department=FIRE, Annual Salary Bin=140+) => Job Titles=CAPTAIN-EMT
+(Annual Salary Bin=60-79, Department=WATER MGMNT) => Job Titles=MOTOR TRUCK DRIVER
+(Annual Salary Bin=60-79, Department=FIRE) => Job Titles=FIREFIGHTER-EMT (RECRUIT)
+(Department, Annual Salary Bin=80-99) => Job Titles
+(Annual Salary Bin=80-99, Department=WATER MGMNT) => Job Titles=CONSTRUCTION LABORER
+(Annual Salary Bin=80-99, Department=STREETS & SAN) => Job Titles=SANITATION LABORER
+(Annual Salary Bin, Department=POLICE) => Job Titles
+(Department=POLICE, Annual Salary Bin=140+) => Job Titles=LIEUTENANT
+(Department=POLICE, Annual Salary Bin=120-139) => Job Titles=SERGEANT
+(Department=POLICE, Annual Salary Bin=40-59) => Job Titles=POLICE OFFICER
+(Department=POLICE, Annual Salary Bin=60-79) => Job Titles=POLICE OFFICER
+(Department=POLICE, Annual Salary Bin=80-99) => Job Titles=POLICE OFFICER

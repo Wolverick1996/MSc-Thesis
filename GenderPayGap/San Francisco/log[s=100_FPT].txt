@@ -1,0 +1,418 @@
+--- STATISTICAL ANALYSIS ---
+            Employee Name                       Job Title  Total Pay Status  Gender
+0                Gary Mar  Electrical Transit System Mech  106731.03     FT    male
+1        Kristian C Smock    Stationary Eng, Sewage Plant  106816.03     FT    male
+2           Daniel Aguada             Automotive Mechanic  107086.75     FT    male
+3        Douglas R Murray                     Firefighter  107971.38     FT    male
+4         Clint I Pereyra          Patient Care Assistant  116638.32     FT    male
+...                   ...                             ...        ...    ...     ...
+22991  Richard P Carvalho                          Porter   58742.10     FT    male
+22992       Erika L Lopez     Hospital Eligibility Worker   65195.08     FT  female
+22993   Vilma V Velasquez       Licensed Vocational Nurse   63784.69     PT  female
+22994   Monica A Queirolo                       Custodian   59979.63     FT  female
+22995      Luis F Cardona                     Librarian 1   63130.37     PT    male
+
+[22996 rows x 5 columns] 
+
+Males:  13688 		Females:  9308 
+Number of different Job Titles (total):  81 
+
+       Total Pay  Log Total Pay     Male
+count   22996.00       22996.00 22996.00
+mean    86870.73          10.62     0.60
+std     62399.93           2.02     0.49
+min         0.01          -4.61     0.00
+25%     29228.32          10.28     0.00
+50%     83450.96          11.33     1.00
+75%    133880.00          11.80     1.00
+max    417152.63          12.94     1.00
+
+          average    median       len
+       Total Pay Total Pay Total Pay
+Gender                              
+female  75841.50  71100.98   9308.00
+male    94370.73  94133.26  13688.00
+
+                                         average       len
+                                      Total Pay Total Pay
+Job Title                      Gender                    
+Administrative Analyst         female  83282.16     89.00
+                               male    81709.54    102.00
+Assistant Engineer             female  99238.61     63.00
+                               male   103185.83    100.00
+Assoc Engineer                 female 123409.06     46.00
+                               male   125359.07    123.00
+Attorney (Civil/Criminal)      female 154756.46    190.00
+                               male   162993.18    199.00
+Automotive Mechanic            female  96526.73      1.00
+                               male    98182.72    159.00
+Automotive Service Worker      female  94050.96      3.00
+                               male    77288.95    123.00
+Behavioral Health Clinician    female  77599.23    123.00
+                               male    81235.70     33.00
+Camp Assistant                 female   3897.82     60.00
+                               male     3949.49     48.00
+Clerk                          female  30658.86    185.00
+                               male    33161.03    131.00
+Community Police Services Aide female  65239.48    116.00
+                               male    64528.82    137.00
+Custodian                      female  53326.01    178.00
+                               male    53688.37    364.00
+Deputy Court Clerk II          female  59291.80     61.00
+                               male    66037.24     55.00
+Deputy Sheriff                 female 132142.10     55.00
+                               male   150160.87    363.00
+Deputy Sheriff (SFERS)         female 119821.63     34.00
+                               male   131127.21    153.00
+EMT/Paramedic/Firefighter      female 120021.44     66.00
+                               male   141504.10    336.00
+Electrical Transit System Mech female 122553.30      6.00
+                               male   121662.51    187.00
+Electrician                    female  92603.88      8.00
+                               male    87902.13     94.00
+Electronic Maintenance Tech    female 139247.49      3.00
+                               male   133454.19    147.00
+Engineer                       female 143469.73     36.00
+                               male   155948.76    118.00
+Firefighter                    female 136255.71    116.00
+                               male   135558.18    729.00
+Food Service Worker            female  32546.92     51.00
+                               male    41458.74     82.00
+Gardener                       female  62113.28     61.00
+                               male    64700.15    240.00
+General Laborer                female  64093.73     32.00
+                               male    64149.01    319.00
+HSA Social Worker              female  77144.56     89.00
+                               male    76120.74     30.00
+HSA Sr Eligibility Worker      female  67590.51    336.00
+                               male    69737.27    122.00
+Health Worker 2                female  50073.65    105.00
+                               male    49343.80     44.00
+Health Worker 3                female  59058.44     96.00
+                               male    61106.59     44.00
+Hospital Eligibility Worker    female  61912.35    151.00
+                               male    62084.63     43.00
+IS Business Analyst-Principal  female 133674.80     58.00
+                               male   131063.48     66.00
+IS Business Analyst-Senior     female 111582.78     49.00
+                               male   111857.86     64.00
+IS Engineer-Senior             female 110166.05     18.00
+                               male   149301.31     87.00
+Junior Administrative Analyst  female  59002.43     53.00
+                               male    58229.43     60.00
+Junior Clerk                   female  11826.77    108.00
+                               male     7425.33    106.00
+Librarian 1                    female  60820.24    134.00
+                               male    69667.31     61.00
+Library Page                   female  29232.03    108.00
+                               male    28912.11    108.00
+Licensed Vocational Nurse      female  67332.34    140.00
+                               male    75277.45     50.00
+Lieutenant 3                   female 206673.20     24.00
+                               male   205803.71     86.00
+Lieutenant, Fire Suppression   female 187692.85     29.00
+                               male   184086.24    174.00
+Management Assistant           female  72002.75     78.00
+                               male    79853.82     43.00
+Manager I                      female 126271.40     81.00
+                               male   121353.65     87.00
+Manager II                     female 127436.42    103.00
+                               male   135308.90     85.00
+Manager III                    female 132887.88     89.00
+                               male   147332.48     88.00
+Manager IV                     female 156066.55     59.00
+                               male   147963.89     49.00
+Medical Evaluations Assistant  female  58774.73    159.00
+                               male    59133.49     32.00
+Museum Guard                   female  48554.51     24.00
+                               male    49063.89     86.00
+Nurse Practitioner             female 132749.30    170.00
+                               male   153827.79     28.00
+Nursing Assistant              female  67954.64     98.00
+                               male    73555.51     34.00
+PS Aide to Prof                female  18316.00     55.00
+                               male    18896.92     53.00
+Painter                        female  46465.56      6.00
+                               male    85028.36    120.00
+Parking Control Officer        female  56018.53    115.00
+                               male    71615.97    185.00
+Patient Care Assistant         female  60437.16    271.00
+                               male    62670.39    147.00
+Police Officer                 female  86929.06     69.00
+                               male    94510.44    379.00
+Police Officer 2               female 135092.26     62.00
+                               male   147793.30    348.00
+Police Officer 3               female 148795.55     90.00
+                               male   159340.42    685.00
+Pool Lifeguard                 female   6699.41     47.00
+                               male     8073.83     71.00
+Porter                         female  57687.81     77.00
+                               male    51977.43    178.00
+Pr Administrative Analyst      female 115253.47    117.00
+                               male   121358.88     90.00
+Protective Services Worker     female 100137.00    146.00
+                               male    94776.45     49.00
+Publ Svc Aide-Asst to Prof     female  13318.89     72.00
+                               male    14198.64     48.00
+Public SafetyComm Disp         female  92834.63    126.00
+                               male    89072.70     68.00
+Public Service Trainee         female  10052.65    345.00
+                               male    10776.18    304.00
+Public Svc Aide-Public Works   female  10350.60     56.00
+                               male    11794.04    265.00
+Recreation Leader              female   8358.56    286.00
+                               male     9565.40    339.00
+Registered Nurse               female 137681.76    881.00
+                               male   143438.73    310.00
+School Crossing Guard          female   8631.00     57.00
+                               male     7528.40     62.00
+Senior Account Clerk           female  62819.46     88.00
+                               male    68065.78     30.00
+Senior Administrative Analyst  female  97757.50    156.00
+                               male    99645.64    129.00
+Senior Clerk                   female  50412.62    200.00
+                               male    53461.58     71.00
+Senior Clerk Typist            female  57321.55     99.00
+                               male    58606.35     22.00
+Senior Human Resources Analyst female 103301.01     90.00
+                               male   100069.42     43.00
+Senior Physician Specialist    female 199145.41     52.00
+                               male   195944.00     49.00
+Sergeant 3                     female 181534.87     86.00
+                               male   200659.56    386.00
+Special Nurse                  female  43457.50   1035.00
+                               male    43586.49    354.00
+Stationary Eng, Sewage Plant   female  77879.83      8.00
+                               male   100020.90    122.00
+Stationary Engineer            female 118756.09      4.00
+                               male    85688.17    241.00
+StdntDsgn Train2/Arch/Eng/Plng female  17863.06     39.00
+                               male    16849.82     69.00
+StdntDsgnTrain1, Arch/Eng/Plng female  12785.36     63.00
+                               male    12753.09     83.00
+Transit Car Cleaner            female  78563.12     34.00
+                               male    85106.80     89.00
+Transit Operator               female  56709.53    482.00
+                               male    72035.69   1935.00
+Transit Supervisor             female 116181.37     43.00
+                               male   118200.74    162.00
+Truck Driver                   female  79705.24      9.00
+                               male    86912.60    183.00
+
+Dependent Variable: Log Total Pay
+ +----------------+--------+--------+
+|                |  (1)   |  (2)   |
++----------------+--------+--------+
+|      Male      | 0.304  | -0.050 |
+|   Job Title    |        | 0.108  |
+|     Status     |        | 0.349  |
+|    Constant    | 10.443 | 11.618 |
+|    Controls    |        |        |
+|    - Job Title |   No   |  Yes   |
+|     - Status   |   No   |  Yes   |
+|  Observations  | 22996  | 22996  |
+|      R^2       | 0.005  | 0.476  |
++----------------+--------+--------+ 
+'Unadjusted' pay gap: men on average earn 30.4 % more than women 
+'Adjusted' pay gap: men on average earn -5.0 % more than women (not statistically significant)
+
+
+--- FAIR-DB ---
+            Employee Name                       Job Title  Total Pay Status  Gender  Log Total Pay  Male
+0                Gary Mar  Electrical Transit System Mech  106731.03     FT    male          11.58     1
+1        Kristian C Smock    Stationary Eng, Sewage Plant  106816.03     FT    male          11.58     1
+2           Daniel Aguada             Automotive Mechanic  107086.75     FT    male          11.58     1
+3        Douglas R Murray                     Firefighter  107971.38     FT    male          11.59     1
+4         Clint I Pereyra          Patient Care Assistant  116638.32     FT    male          11.67     1
+...                   ...                             ...        ...    ...     ...            ...   ...
+22991  Richard P Carvalho                          Porter   58742.10     FT    male          10.98     1
+22992       Erika L Lopez     Hospital Eligibility Worker   65195.08     FT  female          11.09     0
+22993   Vilma V Velasquez       Licensed Vocational Nurse   63784.69     PT  female          11.06     0
+22994   Monica A Queirolo                       Custodian   59979.63     FT  female          11.00     0
+22995      Luis F Cardona                     Librarian 1   63130.37     PT    male          11.05     1
+
+[22996 rows x 7 columns]
+
+Total number of tuples in df:  22996 
+
+                        Job Title Status Gender Total Pay Bin
+0  Electrical Transit System Mech     FT   male       100-119
+1    Stationary Eng, Sewage Plant     FT   male       100-119
+2             Automotive Mechanic     FT   male       100-119
+3                     Firefighter     FT   male       100-119
+4          Patient Care Assistant     FT   male       100-119
+
+Total Pay Bin values:  ['100-119' '140+' '120-139' '80-99' '0-39' '40-59' '60-79']
+
+Status values:  ['FT' 'PT']
+
+Total number of dependencies found:  465
+Dependency n. 0 :	 (Total Pay Bin) => Status
+Dependency n. 1 :	 (Total Pay Bin=0-39) => Status=PT
+Dependency n. 2 :	 (Total Pay Bin=80-99) => Status=FT
+Dependency n. 3 :	 (Total Pay Bin=120-139) => Status=FT
+Dependency n. 4 :	 (Total Pay Bin=140+) => Status=FT
+Dependency n. 5 :	 (Total Pay Bin=100-119) => Status=FT
+Dependency n. 6 :	 (Total Pay Bin, Gender) => Status
+Dependency n. 7 :	 (Gender, Total Pay Bin=0-39) => Status
+
+CFDs ([rawLHS, rawRHS]):
+[['Total Pay Bin=0-39'], ['Status=PT']]
+[['Total Pay Bin=80-99'], ['Status=FT']]
+[['Total Pay Bin=120-139'], ['Status=FT']]
+[['Total Pay Bin=140+'], ['Status=FT']]
+[['Total Pay Bin=100-119'], ['Status=FT']]
+[['Gender=female', 'Total Pay Bin=0-39'], ['Status=PT']]
+[['Gender=female', 'Total Pay Bin=80-99'], ['Status=FT']]
+[['Total Pay Bin=140+', 'Gender=female'], ['Status=FT']]
+
+Total number of dependencies in the dictionary:  250
+
+ACFDs ({'lhs', 'rhs'}):
+ACFD n. 0 :	 {'lhs': {'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 1 :	 {'lhs': {'Total Pay Bin': '80-99'}, 'rhs': {'Status': 'FT'}}
+ACFD n. 2 :	 {'lhs': {'Total Pay Bin': '120-139'}, 'rhs': {'Status': 'FT'}}
+ACFD n. 3 :	 {'lhs': {'Total Pay Bin': '140+'}, 'rhs': {'Status': 'FT'}}
+ACFD n. 4 :	 {'lhs': {'Total Pay Bin': '100-119'}, 'rhs': {'Status': 'FT'}}
+ACFD n. 5 :	 {'lhs': {'Gender': 'female', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 6 :	 {'lhs': {'Gender': 'female', 'Total Pay Bin': '80-99'}, 'rhs': {'Status': 'FT'}}
+ACFD n. 7 :	 {'lhs': {'Total Pay Bin': '140+', 'Gender': 'female'}, 'rhs': {'Status': 'FT'}}
+
+Total number of tuples in df2:  115
+                                                                               Rule  Support  Confidence  Diff  GenderDiff
+0   {'lhs': {'Gender': 'female', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}     0.13        1.00  0.60        0.00
+1  {'lhs': {'Gender': 'female', 'Total Pay Bin': '80-99'}, 'rhs': {'Status': 'FT'}}     0.04        0.83  0.23       -0.04
+2   {'lhs': {'Total Pay Bin': '140+', 'Gender': 'female'}, 'rhs': {'Status': 'FT'}}     0.06        0.89  0.30       -0.06
+3    {'lhs': {'Gender': 'male', 'Total Pay Bin': '60-79'}, 'rhs': {'Status': 'FT'}}     0.06        0.82  0.22        0.02
+4     {'lhs': {'Gender': 'male', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}     0.15        0.99  0.59       -0.00
+
+Total number of tuples in df3:  26
+                                                                               Rule  Support  Confidence  Diff  GenderDiff
+0   {'lhs': {'Gender': 'female', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}     0.13        1.00  0.60        0.00
+1  {'lhs': {'Gender': 'female', 'Total Pay Bin': '80-99'}, 'rhs': {'Status': 'FT'}}     0.04        0.83  0.23       -0.04
+2   {'lhs': {'Total Pay Bin': '140+', 'Gender': 'female'}, 'rhs': {'Status': 'FT'}}     0.06        0.89  0.30       -0.06
+3    {'lhs': {'Gender': 'male', 'Total Pay Bin': '60-79'}, 'rhs': {'Status': 'FT'}}     0.06        0.82  0.22        0.02
+4     {'lhs': {'Gender': 'male', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}     0.15        0.99  0.59       -0.00
+
+Total number of combinations found:  160
+ACFD n. 0 :	 {'lhs': {'Gender': 'male', 'Total Pay Bin': '100-119'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 1 :	 {'lhs': {'Gender': 'male', 'Total Pay Bin': '140+'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 2 :	 {'lhs': {'Gender': 'male', 'Total Pay Bin': '120-139'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 3 :	 {'lhs': {'Gender': 'male', 'Total Pay Bin': '80-99'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 4 :	 {'lhs': {'Gender': 'male', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 5 :	 {'lhs': {'Gender': 'male', 'Total Pay Bin': '40-59'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 6 :	 {'lhs': {'Gender': 'male', 'Total Pay Bin': '60-79'}, 'rhs': {'Status': 'PT'}}
+ACFD n. 7 :	 {'lhs': {'Gender': 'female', 'Total Pay Bin': '100-119'}, 'rhs': {'Status': 'PT'}}
+
+Total number of tuples in df4:  160
+                                                                               Rule  Support  Confidence  Diff  GenderDiff
+0  {'lhs': {'Gender': 'male', 'Total Pay Bin': '100-119'}, 'rhs': {'Status': 'PT'}}     0.00        0.06 -0.34       -0.05
+1     {'lhs': {'Gender': 'male', 'Total Pay Bin': '140+'}, 'rhs': {'Status': 'PT'}}     0.00        0.02 -0.38       -0.02
+2  {'lhs': {'Gender': 'male', 'Total Pay Bin': '120-139'}, 'rhs': {'Status': 'PT'}}     0.00        0.05 -0.35       -0.06
+3    {'lhs': {'Gender': 'male', 'Total Pay Bin': '80-99'}, 'rhs': {'Status': 'PT'}}     0.01        0.10 -0.30       -0.03
+4     {'lhs': {'Gender': 'male', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}     0.15        0.99  0.59       -0.00 
+
+/home/corona/PycharmProjects/GenderPayGap/San Francisco/SanFrancisco.py:613: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df4_1['Mean'] = 0
+/home/corona/.local/lib/python3.9/site-packages/pandas/core/indexing.py:1720: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  self._setitem_single_column(loc, value, pi)
+
+Number of original CFDs: 26 
+Number of combinations rules:  160 
+Number of final rules found:  62
+                                                                                                             Rule  Support  Confidence  Diff  GenderDiff  Mean
+151                  {'lhs': {'Total Pay Bin': '40-59', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        1.00  0.86         NaN  0.43
+4                                   {'lhs': {'Gender': 'male', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}     0.15        0.99  0.59       -0.00  0.37
+11                                {'lhs': {'Gender': 'female', 'Total Pay Bin': '0-39'}, 'rhs': {'Status': 'PT'}}     0.13        1.00  0.60        0.00  0.37
+15                                  {'lhs': {'Gender': 'male', 'Total Pay Bin': '140+'}, 'rhs': {'Status': 'FT'}}     0.15        0.98  0.38        0.02  0.26
+16                               {'lhs': {'Gender': 'male', 'Total Pay Bin': '120-139'}, 'rhs': {'Status': 'FT'}}     0.05        0.95  0.35        0.06  0.20
+14                               {'lhs': {'Gender': 'male', 'Total Pay Bin': '100-119'}, 'rhs': {'Status': 'FT'}}     0.06        0.94  0.34        0.05  0.20
+97                {'lhs': {'Total Pay Bin': '60-79', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'female'}}     0.00        0.50  0.37         NaN  0.18
+5                                  {'lhs': {'Gender': 'male', 'Total Pay Bin': '40-59'}, 'rhs': {'Status': 'PT'}}     0.02        0.74  0.34        0.02  0.18
+17                                 {'lhs': {'Gender': 'male', 'Total Pay Bin': '80-99'}, 'rhs': {'Status': 'FT'}}     0.06        0.90  0.30        0.03  0.18
+22                                {'lhs': {'Gender': 'female', 'Total Pay Bin': '140+'}, 'rhs': {'Status': 'FT'}}     0.06        0.89  0.30       -0.06  0.18
+111             {'lhs': {'Total Pay Bin': '60-79', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'female'}}     0.00        0.50  0.35         NaN  0.17
+12                               {'lhs': {'Gender': 'female', 'Total Pay Bin': '40-59'}, 'rhs': {'Status': 'PT'}}     0.02        0.71  0.31       -0.01  0.17
+20                                 {'lhs': {'Gender': 'male', 'Total Pay Bin': '60-79'}, 'rhs': {'Status': 'FT'}}     0.06        0.82  0.22        0.02  0.14
+24                               {'lhs': {'Gender': 'female', 'Total Pay Bin': '80-99'}, 'rhs': {'Status': 'FT'}}     0.04        0.83  0.23       -0.04  0.13
+27                               {'lhs': {'Gender': 'female', 'Total Pay Bin': '60-79'}, 'rhs': {'Status': 'FT'}}     0.05        0.77  0.17       -0.02  0.11
+23                             {'lhs': {'Gender': 'female', 'Total Pay Bin': '120-139'}, 'rhs': {'Status': 'FT'}}     0.02        0.79  0.19       -0.11  0.11
+21                             {'lhs': {'Gender': 'female', 'Total Pay Bin': '100-119'}, 'rhs': {'Status': 'FT'}}     0.03        0.78  0.18       -0.11  0.10
+121     {'lhs': {'Total Pay Bin': '0-39', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.36  0.20         NaN  0.10
+72                 {'lhs': {'Job Title': 'Transit Operator', 'Total Pay Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.00        0.97  0.17         NaN  0.08
+122      {'lhs': {'Total Pay Bin': '40-59', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.16         NaN  0.08
+106                {'lhs': {'Total Pay Bin': '0-39', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.15         NaN  0.08
+108               {'lhs': {'Total Pay Bin': '40-59', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.15         NaN  0.08
+139             {'lhs': {'Total Pay Bin': '60-79', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'female'}}     0.00        0.89  0.15         NaN  0.07
+90                  {'lhs': {'Total Pay Bin': '80-99', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.13         NaN  0.07
+94                  {'lhs': {'Total Pay Bin': '40-59', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.13         NaN  0.07
+67               {'lhs': {'Job Title': 'General Laborer', 'Total Pay Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.00        0.21  0.12         NaN  0.06
+74              {'lhs': {'Job Title': 'Transit Operator', 'Total Pay Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.01        0.91  0.11         NaN  0.06
+133             {'lhs': {'Total Pay Bin': '80-99', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'female'}}     0.00        0.85  0.11         NaN  0.06
+127           {'lhs': {'Total Pay Bin': '100-119', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'female'}}     0.00        0.85  0.11         NaN  0.06
+93                 {'lhs': {'Total Pay Bin': '0-39', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'female'}}     0.00        0.23  0.09         NaN  0.05
+147                  {'lhs': {'Total Pay Bin': '80-99', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.23  0.09         NaN  0.05
+60               {'lhs': {'Job Title': 'General Laborer', 'Total Pay Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.09         NaN  0.05
+58                  {'lhs': {'Job Title': 'General Laborer', 'Total Pay Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.09         NaN  0.05
+99            {'lhs': {'Total Pay Bin': '100-119', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.09         NaN  0.04
+136               {'lhs': {'Total Pay Bin': '40-59', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'male'}}     0.00        0.34  0.08         NaN  0.04
+103           {'lhs': {'Total Pay Bin': '120-139', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'female'}}     0.00        0.23  0.08         NaN  0.04
+117  {'lhs': {'Total Pay Bin': '120-139', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.07         NaN  0.04
+81              {'lhs': {'Job Title': 'Transit Operator', 'Total Pay Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.00        0.27  0.07         NaN  0.04
+79               {'lhs': {'Job Title': 'Transit Operator', 'Total Pay Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.01        0.26  0.06         NaN  0.03
+84                {'lhs': {'Total Pay Bin': '100-119', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'male'}}     0.00        0.93  0.06         NaN  0.03
+100                {'lhs': {'Total Pay Bin': '140+', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'male'}}     0.01        0.90  0.06         NaN  0.03
+153                  {'lhs': {'Total Pay Bin': '60-79', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.20  0.06         NaN  0.03
+114       {'lhs': {'Total Pay Bin': '140+', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'male'}}     0.01        0.89  0.05         NaN  0.03
+51                    {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Total Pay Bin': '120-139'}}     0.00        0.14  0.05        0.05  0.03
+131           {'lhs': {'Total Pay Bin': '120-139', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'female'}}     0.01        0.79  0.05         NaN  0.03
+76                {'lhs': {'Job Title': 'Transit Operator', 'Total Pay Bin': '80-99'}, 'rhs': {'Gender': 'male'}}     0.02        0.83  0.03         NaN  0.03
+140                  {'lhs': {'Total Pay Bin': '100-119', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'male'}}     0.00        0.91  0.04         NaN  0.02
+70              {'lhs': {'Job Title': 'Transit Operator', 'Total Pay Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.01        0.83  0.03         NaN  0.02
+128                {'lhs': {'Total Pay Bin': '140+', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'male'}}     0.01        0.30  0.04         NaN  0.02
+40                  {'lhs': {'Gender': 'female', 'Job Title': 'Junior Clerk'}, 'rhs': {'Total Pay Bin': '40-59'}}     0.00        0.15  0.04        0.04  0.02
+68                 {'lhs': {'Job Title': 'General Laborer', 'Total Pay Bin': '60-79'}, 'rhs': {'Gender': 'male'}}     0.01        0.94  0.04         NaN  0.02
+32                     {'lhs': {'Gender': 'male', 'Job Title': 'Junior Clerk'}, 'rhs': {'Total Pay Bin': '0-39'}}     0.00        0.92  0.04        0.04  0.02
+113  {'lhs': {'Total Pay Bin': '100-119', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.20  0.04         NaN  0.02
+43                         {'lhs': {'Gender': 'male', 'Job Title': 'Engineer'}, 'rhs': {'Total Pay Bin': '140+'}}     0.00        0.89  0.03        0.03  0.02
+53                       {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Total Pay Bin': '0-39'}}     0.00        0.06  0.04        0.04  0.02
+148                     {'lhs': {'Total Pay Bin': '0-39', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'male'}}     0.00        0.90  0.03         NaN  0.02
+89              {'lhs': {'Total Pay Bin': '120-139', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'female'}}     0.00        0.16  0.03         NaN  0.02
+63               {'lhs': {'Job Title': 'General Laborer', 'Total Pay Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.00        0.12  0.03         NaN  0.02
+86                   {'lhs': {'Total Pay Bin': '140+', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'male'}}     0.01        0.89  0.02         NaN  0.02
+83              {'lhs': {'Job Title': 'Transit Operator', 'Total Pay Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.00        0.22  0.02         NaN  0.01
+134                {'lhs': {'Total Pay Bin': '0-39', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'male'}}     0.00        0.28  0.02         NaN  0.01
+54                      {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Total Pay Bin': '40-59'}}     0.00        0.03  0.02        0.02  0.01
+
+Problematic tuples:  227
+     Job Title Status  Gender Total Pay Bin  Marked
+1483  Engineer     PT  female       120-139       1
+4921  Engineer     FT    male          140+       1
+5245  Engineer     FT    male          140+       1
+5253  Engineer     FT    male          140+       1
+5554  Engineer     FT    male          140+       1
+
+Number of tuples interested by the rules:  227 
+Total number of tuples:  22996 
+
+Cumulative Support:  0.010 
+Difference Mean:  0.037
+Gender - Difference Mean:  0.037 
+
+
+Total number of ACFDs selected:  6 
+                                                                                              Rule  Support  Confidence  Diff  GenderDiff  Mean
+51    {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Total Pay Bin': '120-139'}}     0.00        0.14  0.05        0.05  0.03
+40  {'lhs': {'Gender': 'female', 'Job Title': 'Junior Clerk'}, 'rhs': {'Total Pay Bin': '40-59'}}     0.00        0.15  0.04        0.04  0.02
+32     {'lhs': {'Gender': 'male', 'Job Title': 'Junior Clerk'}, 'rhs': {'Total Pay Bin': '0-39'}}     0.00        0.92  0.04        0.04  0.02
+43         {'lhs': {'Gender': 'male', 'Job Title': 'Engineer'}, 'rhs': {'Total Pay Bin': '140+'}}     0.00        0.89  0.03        0.03  0.02
+53       {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Total Pay Bin': '0-39'}}     0.00        0.06  0.04        0.04  0.02
+54      {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Total Pay Bin': '40-59'}}     0.00        0.03  0.02        0.02  0.01
