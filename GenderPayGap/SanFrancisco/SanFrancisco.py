@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import gender_guesser.detector as gender
 
 pd.set_option('display.max_columns', None)
@@ -7,18 +6,17 @@ pd.set_option('max_colwidth', None)
 pd.set_option("expand_frame_repr", False)
 pd.set_option('display.float_format', lambda f: '%.2f' % f)
 
-df = pd.read_csv('Chicago.csv')
+df = pd.read_csv('SanFrancisco.csv')
 
 # Renaming columns and attributes to get the same attributes names among all the CSV files
-df.rename(columns={'Job Titles': 'Job Title', 'Full or Part-Time': 'Status'}, inplace=True)
+df.rename(columns={'Employee Name': 'Name', 'Total Pay': 'Annual Salary'}, inplace=True)
+df["Status"].replace({"FT": "F", "PT": "P"}, inplace=True)
 
-# Estimating Annual Salary for hourly employees
-df['Annual Salary'] = np.where(df['Annual Salary'].isnull(),
-                               df['Typical Hours'] * df['Hourly Rate'] * 52, df['Annual Salary'])
+# Keeping just the tuples related to 2019
+df = df[df['Year'] == 2019]
 
 # Getting First Name of employees
-df['First Name'] = df['Name'].str.split(',').str[1]
-df['First Name'] = df['First Name'].str.split().str[0]
+df['First Name'] = df['Name'].str.split().str[0]
 
 # Inferring Gender
 df['Gender'] = df.index
@@ -49,7 +47,8 @@ for i in range(len(df)):
         #df.loc[i, 'Gender'] = random.choice(['male', 'female'])
 
 # Removing useless columns
-del df['Typical Hours'], df['Hourly Rate'], df['First Name']
+del df['Base Pay'], df['Overtime Pay'], df['Other Pay'], df['Benefits'], df['Total Pay & Benefits'],\
+    df['Year'], df['First Name']
 
 # Removing tuples related to Andy or Unknown names
 df = df[(df['Gender'] != 'andy') & (df['Gender'] != 'unknown')]
@@ -65,8 +64,9 @@ print("Number of different Job Titles (total): ", df['Job Title'].nunique())
 # Removing Job Titles with less than 100 occurrences
 df = df.groupby('Job Title').filter(lambda o: len(o) > 100)
 
-# Removing Part-Time employees (as suggested in the Glassdoor report)
-#df = df[df['Status'] == 'F']
+# Removing the tuples with a NaN Total Pay or Total Pay == 0
+df = df.dropna(how='any', subset=['Annual Salary'])
+df = df[df['Annual Salary'] > 0]
 
 print("\n# Filtered DataFrame (more than 100 Job Title occurrences) #"
       "\nMales: ", len(df[df['Gender'] == 'male']), "\t\tFemales: ", len(df[df['Gender'] == 'female']),
@@ -76,4 +76,4 @@ print("\n# Filtered DataFrame (more than 100 Job Title occurrences) #"
 print(df)
 
 # Exporting CSV
-df.to_csv(r'Chicago_Adjusted.csv', index=False)
+df.to_csv(r'SanFrancisco_Adjusted.csv', index=False)

@@ -1,16 +1,16 @@
---- STATISTICAL ANALYSIS ---
-                        Name                              Job Titles Department Full or Part-Time Salary or Hourly  Annual Salary  Gender
-0          AARON,  JEFFERY M                                SERGEANT     POLICE                 F           Salary      118998.00    male
-1             AARON,  KARINA  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE                 F           Salary       97440.00  female
-2         ABARCA,  FRANCES J                          POLICE OFFICER     POLICE                 F           Salary       72510.00  female
-3          ABASCAL,  REECE E             TRAFFIC CONTROL AIDE-HOURLY       OEMC                 P           Hourly       22474.40    male
-4      ABBATACOLA,  ROBERT J                     ELECTRICAL MECHANIC   AVIATION                 F           Hourly      104000.00    male
-...                      ...                                     ...        ...               ...              ...            ...     ...
-20304   ZYLINSKA,  KATARZYNA                          POLICE OFFICER     POLICE                 F           Salary       84054.00  female
-20305     ZYLINSKA,  KLAUDIA                          POLICE OFFICER     POLICE                 F           Salary       76266.00  female
-20306     ZYMANTAS,  LAURA C                          POLICE OFFICER     POLICE                 F           Salary       80016.00  female
-20307      ZYMANTAS,  MARK E                          POLICE OFFICER     POLICE                 F           Salary       90024.00    male
-20308    ZYRKOWSKI,  CARLO E                          POLICE OFFICER     POLICE                 F           Salary       93354.00    male
+Enter CSV file path:	--- STATISTICAL ANALYSIS ---
+                        Name                               Job Title Department Status Salary or Hourly  Annual Salary  Gender
+0          AARON,  JEFFERY M                                SERGEANT     POLICE      F           Salary      118998.00    male
+1             AARON,  KARINA  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE      F           Salary       97440.00  female
+2         ABARCA,  FRANCES J                          POLICE OFFICER     POLICE      F           Salary       72510.00  female
+3          ABASCAL,  REECE E             TRAFFIC CONTROL AIDE-HOURLY       OEMC      P           Hourly       22474.40    male
+4      ABBATACOLA,  ROBERT J                     ELECTRICAL MECHANIC   AVIATION      F           Hourly      104000.00    male
+...                      ...                                     ...        ...    ...              ...            ...     ...
+20304   ZYLINSKA,  KATARZYNA                          POLICE OFFICER     POLICE      F           Salary       84054.00  female
+20305     ZYLINSKA,  KLAUDIA                          POLICE OFFICER     POLICE      F           Salary       76266.00  female
+20306     ZYMANTAS,  LAURA C                          POLICE OFFICER     POLICE      F           Salary       80016.00  female
+20307      ZYMANTAS,  MARK E                          POLICE OFFICER     POLICE      F           Salary       90024.00    male
+20308    ZYRKOWSKI,  CARLO E                          POLICE OFFICER     POLICE      F           Salary       93354.00    male
 
 [20309 rows x 7 columns] 
 
@@ -35,7 +35,7 @@ male        92022.03      91338.00      16146.00
 
                                                                average           len
                                                         Annual Salary Annual Salary
-Job Titles                                       Gender                            
+Job Title                                        Gender                            
 ADMINISTRATIVE ASST II                           female      67908.82        102.00
                                                  male        61292.00          9.00
 AVIATION SECURITY OFFICER                        female      73178.00         42.00
@@ -108,101 +108,108 @@ TRAFFIC CONTROL AIDE-HOURLY                      female      22474.40        112
                                                  male        22474.40         79.00
 
 Dependent Variable: Log Annual Salary
- +------------------------+--------+--------+
-|                        |  (1)   |  (2)   |
-+------------------------+--------+--------+
-|          Male          | 0.242  | 0.004  |
-|       Job Titles       |        | 0.115  |
-|       Department       |        | 0.726  |
-|   Full or Part-Time    |        | 0.362  |
-|        Constant        | 11.155 | 11.070 |
-|        Controls        |        |        |
-|       - Job Titles     |   No   |  Yes   |
-|       - Department     |   No   |  Yes   |
-|    - Full or Part-Time |   No   |  Yes   |
-|      Observations      | 20309  | 20309  |
-|          R^2           | 0.053  | 0.950  |
-+------------------------+--------+--------+ 
+ +-----------------+--------+--------+
+|                 |  (1)   |  (2)   |
++-----------------+--------+--------+
+|       Male      | 0.242  | 0.004  |
+|    Job Title    |        | 0.115  |
+|    Department   |        | 0.726  |
+|      Status     |        | 0.362  |
+|     Constant    | 11.155 | 11.070 |
+|     Controls    |        |        |
+|     - Job Title |   No   |  Yes   |
+|    - Department |   No   |  Yes   |
+|      - Status   |   No   |  Yes   |
+|   Observations  | 20309  | 20309  |
+|       R^2       | 0.053  | 0.950  |
++-----------------+--------+--------+ 
 'Unadjusted' pay gap: men on average earn 24.2 % more than women 
-'Adjusted' pay gap: men on average earn 0.4 % more than women (not statistically significant)
+'Adjusted' pay gap: men on average earn 0.4 % more than women
+
+Encoding Job Title:
+ {'ADMINISTRATIVE ASST II': 0, 'AVIATION SECURITY OFFICER': 1, 'CAPTAIN-EMT': 2, 'CONSTRUCTION LABORER': 3, 'DETENTION AIDE': 4, 'ELECTRICAL MECHANIC': 5, 'FIRE ENGINEER-EMT': 6, 'FIREFIGHTER': 7, 'FIREFIGHTER-EMT': 8, 'FIREFIGHTER-EMT (RECRUIT)': 9, 'FIREFIGHTER/PARAMEDIC': 10, 'FOSTER GRANDPARENT': 11, 'GENERAL LABORER - DSS': 12, 'HOISTING ENGINEER': 13, 'LIBRARIAN I': 14, 'LIBRARY PAGE': 15, 'LIEUTENANT': 16, 'LIEUTENANT-EMT': 17, 'MACHINIST (AUTOMOTIVE)': 18, 'MOTOR TRUCK DRIVER': 19, 'OPERATING ENGINEER-GROUP A': 20, 'OPERATING ENGINEER-GROUP C': 21, 'PARAMEDIC': 22, 'PARAMEDIC I/C': 23, 'PLUMBER': 24, 'POLICE COMMUNICATIONS OPERATOR I': 25, 'POLICE COMMUNICATIONS OPERATOR II': 26, 'POLICE OFFICER': 27, 'POLICE OFFICER (ASSIGNED AS DETECTIVE)': 28, 'POLICE OFFICER (ASSIGNED AS EVIDENCE TECHNICIAN)': 29, 'POLICE OFFICER / FLD TRNG OFFICER': 30, 'POOL MOTOR TRUCK DRIVER': 31, 'SANITATION LABORER': 32, 'SERGEANT': 33, 'TRAFFIC CONTROL AIDE-HOURLY': 34}
+
+Encoding Department:
+ {'ADMIN HEARNG': 0, 'AVIATION': 1, 'BUILDINGS': 2, 'BUSINESS AFFAIRS': 3, 'CITY CLERK': 4, 'COPA': 5, 'DAIS': 6, 'FAMILY & SUPPORT': 7, 'FINANCE': 8, 'FIRE': 9, 'HEALTH': 10, 'HUMAN RESOURCES': 11, 'LAW': 12, 'OEMC': 13, 'POLICE': 14, 'PUBLIC LIBRARY': 15, 'PUBLIC SAFETY ADMIN': 16, 'STREETS & SAN': 17, 'TRANSPORTN': 18, 'WATER MGMNT': 19}
 
 
 --- FAIR-DB ---
-                        Name                              Job Titles Department Full or Part-Time Salary or Hourly  Annual Salary  Gender  Log Annual Salary  Male
-0          AARON,  JEFFERY M                                SERGEANT     POLICE                 F           Salary      118998.00    male              11.69     1
-1             AARON,  KARINA  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE                 F           Salary       97440.00  female              11.49     0
-2         ABARCA,  FRANCES J                          POLICE OFFICER     POLICE                 F           Salary       72510.00  female              11.19     0
-3          ABASCAL,  REECE E             TRAFFIC CONTROL AIDE-HOURLY       OEMC                 P           Hourly       22474.40    male              10.02     1
-4      ABBATACOLA,  ROBERT J                     ELECTRICAL MECHANIC   AVIATION                 F           Hourly      104000.00    male              11.55     1
-...                      ...                                     ...        ...               ...              ...            ...     ...                ...   ...
-20304   ZYLINSKA,  KATARZYNA                          POLICE OFFICER     POLICE                 F           Salary       84054.00  female              11.34     0
-20305     ZYLINSKA,  KLAUDIA                          POLICE OFFICER     POLICE                 F           Salary       76266.00  female              11.24     0
-20306     ZYMANTAS,  LAURA C                          POLICE OFFICER     POLICE                 F           Salary       80016.00  female              11.29     0
-20307      ZYMANTAS,  MARK E                          POLICE OFFICER     POLICE                 F           Salary       90024.00    male              11.41     1
-20308    ZYRKOWSKI,  CARLO E                          POLICE OFFICER     POLICE                 F           Salary       93354.00    male              11.44     1
+                        Name                               Job Title Department Status Salary or Hourly  Annual Salary  Gender  Log Annual Salary  Male
+0          AARON,  JEFFERY M                                SERGEANT     POLICE      F           Salary      118998.00    male              11.69     1
+1             AARON,  KARINA  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE      F           Salary       97440.00  female              11.49     0
+2         ABARCA,  FRANCES J                          POLICE OFFICER     POLICE      F           Salary       72510.00  female              11.19     0
+3          ABASCAL,  REECE E             TRAFFIC CONTROL AIDE-HOURLY       OEMC      P           Hourly       22474.40    male              10.02     1
+4      ABBATACOLA,  ROBERT J                     ELECTRICAL MECHANIC   AVIATION      F           Hourly      104000.00    male              11.55     1
+...                      ...                                     ...        ...    ...              ...            ...     ...                ...   ...
+20304   ZYLINSKA,  KATARZYNA                          POLICE OFFICER     POLICE      F           Salary       84054.00  female              11.34     0
+20305     ZYLINSKA,  KLAUDIA                          POLICE OFFICER     POLICE      F           Salary       76266.00  female              11.24     0
+20306     ZYMANTAS,  LAURA C                          POLICE OFFICER     POLICE      F           Salary       80016.00  female              11.29     0
+20307      ZYMANTAS,  MARK E                          POLICE OFFICER     POLICE      F           Salary       90024.00    male              11.41     1
+20308    ZYRKOWSKI,  CARLO E                          POLICE OFFICER     POLICE      F           Salary       93354.00    male              11.44     1
 
 [20309 rows x 9 columns]
 
 Total number of tuples in df:  20309 
 
-                               Job Titles Department Full or Part-Time  Gender Annual Salary Bin
-0                                SERGEANT     POLICE                 F    male           100-119
-1  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE                 F  female             80-99
-2                          POLICE OFFICER     POLICE                 F  female             60-79
-3             TRAFFIC CONTROL AIDE-HOURLY       OEMC                 P    male              0-39
-4                     ELECTRICAL MECHANIC   AVIATION                 F    male           100-119
+                                Job Title Department Status Salary or Hourly  Gender Annual Salary Bin
+0                                SERGEANT     POLICE      F           Salary    male           100-119
+1  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE      F           Salary  female             80-99
+2                          POLICE OFFICER     POLICE      F           Salary  female             60-79
+3             TRAFFIC CONTROL AIDE-HOURLY       OEMC      P           Hourly    male              0-39
+4                     ELECTRICAL MECHANIC   AVIATION      F           Hourly    male           100-119
 
 Annual Salary Bin values:  ['100-119' '80-99' '60-79' '0-39' '40-59' '120-139' '140+']
 
-Total number of dependencies found:  502
+Enter path of the file containing the dependencies (obtained applying CFDDiscovery):	
+Total number of dependencies found:  759
 Dependency n. 0 :	 (Annual Salary Bin) => Gender
 Dependency n. 1 :	 (Annual Salary Bin=140+) => Gender=male
 Dependency n. 2 :	 (Annual Salary Bin=120-139) => Gender=male
 Dependency n. 3 :	 (Annual Salary Bin=100-119) => Gender=male
-Dependency n. 4 :	 (Full or Part-Time=P) => Annual Salary Bin=0-39
-Dependency n. 5 :	 (Annual Salary Bin) => Full or Part-Time
-Dependency n. 6 :	 (Annual Salary Bin=140+) => Full or Part-Time=F
-Dependency n. 7 :	 (Annual Salary Bin=120-139) => Full or Part-Time=F
+Dependency n. 4 :	 (Annual Salary Bin) => Salary or Hourly
+Dependency n. 5 :	 (Annual Salary Bin=140+) => Salary or Hourly=Salary
+Dependency n. 6 :	 (Annual Salary Bin=120-139) => Salary or Hourly=Salary
+Dependency n. 7 :	 (Annual Salary Bin=0-39) => Salary or Hourly=Hourly
 
 CFDs ([rawLHS, rawRHS]):
 [['Annual Salary Bin=140+'], ['Gender=male']]
 [['Annual Salary Bin=120-139'], ['Gender=male']]
 [['Annual Salary Bin=100-119'], ['Gender=male']]
-[['Full or Part-Time=P'], ['Annual Salary Bin=0-39']]
-[['Annual Salary Bin=140+'], ['Full or Part-Time=F']]
-[['Annual Salary Bin=120-139'], ['Full or Part-Time=F']]
-[['Annual Salary Bin=40-59'], ['Full or Part-Time=F']]
-[['Annual Salary Bin=0-39'], ['Full or Part-Time=P']]
+[['Annual Salary Bin=140+'], ['Salary or Hourly=Salary']]
+[['Annual Salary Bin=120-139'], ['Salary or Hourly=Salary']]
+[['Annual Salary Bin=0-39'], ['Salary or Hourly=Hourly']]
+[['Annual Salary Bin=80-99'], ['Salary or Hourly=Salary']]
+[['Salary or Hourly=Hourly'], ['Gender=male']]
 
-Total number of dependencies in the dictionary:  297
+Total number of dependencies in the dictionary:  439
 
 ACFDs ({'lhs', 'rhs'}):
 ACFD n. 0 :	 {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}
 ACFD n. 1 :	 {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}
 ACFD n. 2 :	 {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}
-ACFD n. 3 :	 {'lhs': {'Full or Part-Time': 'P'}, 'rhs': {'Annual Salary Bin': '0-39'}}
-ACFD n. 4 :	 {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Full or Part-Time': 'F'}}
-ACFD n. 5 :	 {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Full or Part-Time': 'F'}}
-ACFD n. 6 :	 {'lhs': {'Annual Salary Bin': '40-59'}, 'rhs': {'Full or Part-Time': 'F'}}
-ACFD n. 7 :	 {'lhs': {'Annual Salary Bin': '0-39'}, 'rhs': {'Full or Part-Time': 'P'}}
+ACFD n. 3 :	 {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 4 :	 {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 5 :	 {'lhs': {'Annual Salary Bin': '0-39'}, 'rhs': {'Salary or Hourly': 'Hourly'}}
+ACFD n. 6 :	 {'lhs': {'Annual Salary Bin': '80-99'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 7 :	 {'lhs': {'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}
 
-Total number of tuples in df2:  142
+Total number of tuples in df2:  192
                                                                    Rule  Support  Confidence  Diff  GenderDiff
 0     {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN
 1  {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN
 2  {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.11         NaN
-3        {'lhs': {'Full or Part-Time': 'F'}, 'rhs': {'Gender': 'male'}}     0.78        0.81  0.00         NaN
-4      {'lhs': {'Gender': 'female'}, 'rhs': {'Full or Part-Time': 'F'}}     0.19        0.91 -0.06       -0.06
+3    {'lhs': {'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.16        0.81  0.00         NaN
+4  {'lhs': {'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.81  0.01        0.01
 
-Total number of tuples in df3:  20
-                                                                                             Rule  Support  Confidence  Diff  GenderDiff
-0                               {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN
-1                            {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN
-2                            {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.11         NaN
-6     {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.11         NaN
-7  {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.09         NaN
+Total number of tuples in df3:  32
+                                                                                                 Rule  Support  Confidence  Diff  GenderDiff
+0                                   {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN
+1                                {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN
+2                                {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.11         NaN
+5    {'lhs': {'Annual Salary Bin': '60-79', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.06        0.87  0.06         NaN
+7  {'lhs': {'Annual Salary Bin': '100-119', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.05        0.97  0.16         NaN
 
-Total number of combinations found:  168
+Total number of combinations found:  214
 ACFD n. 0 :	 {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}
 ACFD n. 1 :	 {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'female'}}
 ACFD n. 2 :	 {'lhs': {'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'male'}}
@@ -212,7 +219,7 @@ ACFD n. 5 :	 {'lhs': {'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}
 ACFD n. 6 :	 {'lhs': {'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'male'}}
 ACFD n. 7 :	 {'lhs': {'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}
 
-Total number of tuples in df4:  136
+Total number of tuples in df4:  176
                                                                      Rule  Support  Confidence  Diff  GenderDiff
 0    {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.11         NaN
 1  {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'female'}}     0.02        0.10 -0.11         NaN
@@ -220,7 +227,7 @@ Total number of tuples in df4:  136
 3    {'lhs': {'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.10        0.22  0.01         NaN
 4      {'lhs': {'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'male'}}     0.15        0.76 -0.03         NaN 
 
-/home/corona/PycharmProjects/GenderPayGap/Chicago.py:585: SettingWithCopyWarning: 
+/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py:577: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -233,126 +240,162 @@ Try using .loc[row_indexer,col_indexer] = value instead
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   self._setitem_single_column(loc, value, pi)
 
-Number of original CFDs: 20 
-Number of combinations rules:  136 
-Number of final rules found:  50
-                                                                                                             Rule  Support  Confidence  Diff  GenderDiff  Mean
-38                  {'lhs': {'Gender': 'female', 'Annual Salary Bin': '0-39'}, 'rhs': {'Full or Part-Time': 'P'}}     0.02        1.00  0.97        0.00  0.49
-31                    {'lhs': {'Gender': 'male', 'Annual Salary Bin': '0-39'}, 'rhs': {'Full or Part-Time': 'P'}}     0.01        0.99  0.96       -0.00  0.49
-79              {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        1.00  0.91         NaN  0.46
-103                    {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Department': 'POLICE'}}     0.28        0.75  0.19       -0.01  0.23
-7                                             {'lhs': {'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.02        0.58  0.38         NaN  0.20
-114                {'lhs': {'Gender': 'female', 'Annual Salary Bin': '120-139'}, 'rhs': {'Department': 'POLICE'}}     0.01        0.93  0.37        0.31  0.19
-110                  {'lhs': {'Gender': 'female', 'Annual Salary Bin': '80-99'}, 'rhs': {'Department': 'POLICE'}}     0.08        0.79  0.23        0.03  0.16
-0                                            {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.11         NaN  0.14
-14                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.10         NaN  0.13
-115                   {'lhs': {'Gender': 'female', 'Annual Salary Bin': '140+'}, 'rhs': {'Department': 'POLICE'}}     0.00        0.82  0.26        0.41  0.13
-120    {'lhs': {'Gender': 'male', 'Job Titles': 'ADMINISTRATIVE ASST II'}, 'rhs': {'Annual Salary Bin': '40-59'}}     0.00        0.44  0.23        0.23  0.11
-89                 {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.00        0.38  0.21         NaN  0.10
-63                   {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.00        0.94  0.20         NaN  0.10
-23                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.35  0.16         NaN  0.09
-9                                            {'lhs': {'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.35  0.15         NaN  0.08
-10                                           {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN  0.08
-68                        {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'OEMC'}, 'rhs': {'Gender': 'male'}}     0.00        0.41  0.15         NaN  0.08
-52            {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'male'}}     0.00        0.97  0.15         NaN  0.07
-24                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.09         NaN  0.07
-80                 {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'male'}}     0.01        0.97  0.14         NaN  0.07
-12                                              {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN  0.07
-17                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.10        0.22  0.03         NaN  0.07
-26                    {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.11         NaN  0.06
-130              {'lhs': {'Annual Salary Bin': '100-119', 'Job Titles': 'LIEUTENANT'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.12         NaN  0.06
-90                   {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.04        0.85  0.07         NaN  0.06
-65                     {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.01        0.84  0.10         NaN  0.05
-98                   {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.03        0.84  0.06         NaN  0.05
-56              {'lhs': {'Annual Salary Bin': '60-79', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'male'}}     0.02        0.89  0.07         NaN  0.05
-19                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.05        0.24  0.05         NaN  0.05
-48                     {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.02        0.98  0.06         NaN  0.04
-5                                            {'lhs': {'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.05        0.24  0.03         NaN  0.04
-59             {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.25  0.07         NaN  0.04
-72              {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'male'}}     0.02        0.96  0.05         NaN  0.04
-61            {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.07         NaN  0.04
-100                     {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.00        0.84  0.06         NaN  0.03
-95                   {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.02        0.26  0.04         NaN  0.03
-50                        {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.98  0.06         NaN  0.03
-107                  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Department': 'POLICE'}}     0.03        0.59  0.02       -0.04  0.03
-75              {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        0.14  0.06         NaN  0.03
-21                  {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.00        0.25  0.06         NaN  0.03
-97                   {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.00        0.28  0.05         NaN  0.03
-67                     {'lhs': {'Annual Salary Bin': '60-79', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.01        0.78  0.05         NaN  0.03
-55            {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.22  0.04         NaN  0.02
-135               {'lhs': {'Annual Salary Bin': '140+', 'Job Titles': 'LIEUTENANT'}, 'rhs': {'Gender': 'female'}}     0.00        0.16  0.04         NaN  0.02
-71                     {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.00        0.78  0.04         NaN  0.02
-132              {'lhs': {'Annual Salary Bin': '120-139', 'Job Titles': 'LIEUTENANT'}, 'rhs': {'Gender': 'male'}}     0.01        0.91  0.02         NaN  0.02
-47                     {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.00        0.11  0.03         NaN  0.01
-45                     {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.01        0.10  0.02         NaN  0.01
-87                  {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.00        0.20  0.03         NaN  0.01
-125  {'lhs': {'Gender': 'female', 'Job Titles': 'ADMINISTRATIVE ASST II'}, 'rhs': {'Annual Salary Bin': '60-79'}}     0.00        0.80  0.02        0.02  0.01
+Number of original CFDs: 32 
+Number of combinations rules:  176 
+Number of final rules found:  67
+                                                                                                            Rule  Support  Confidence  Diff  GenderDiff  Mean
+74                            {'lhs': {'Gender': 'female', 'Annual Salary Bin': '0-39'}, 'rhs': {'Status': 'P'}}     0.02        1.00  0.97        0.00  0.49
+67                              {'lhs': {'Gender': 'male', 'Annual Salary Bin': '0-39'}, 'rhs': {'Status': 'P'}}     0.01        0.99  0.96       -0.00  0.49
+117            {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        1.00  0.91         NaN  0.46
+141                   {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Department': 'POLICE'}}     0.28        0.75  0.19       -0.01  0.23
+37              {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.34        0.91  0.11       -0.00  0.22
+21             {'lhs': {'Annual Salary Bin': '0-39', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'female'}}     0.02        0.58  0.39         NaN  0.20
+7                                            {'lhs': {'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.02        0.58  0.38         NaN  0.20
+152               {'lhs': {'Gender': 'female', 'Annual Salary Bin': '120-139'}, 'rhs': {'Department': 'POLICE'}}     0.01        0.93  0.37        0.31  0.19
+148                 {'lhs': {'Gender': 'female', 'Annual Salary Bin': '80-99'}, 'rhs': {'Department': 'POLICE'}}     0.08        0.79  0.23        0.03  0.16
+0                                           {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.11         NaN  0.14
+50                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.10         NaN  0.13
+41            {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.06        1.00  0.20        0.00  0.13
+153                  {'lhs': {'Gender': 'female', 'Annual Salary Bin': '140+'}, 'rhs': {'Department': 'POLICE'}}     0.00        0.82  0.26        0.41  0.13
+78                           {'lhs': {'Status': 'F', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.89  0.07        0.07  0.12
+160    {'lhs': {'Gender': 'male', 'Job Title': 'ADMINISTRATIVE ASST II'}, 'rhs': {'Annual Salary Bin': '40-59'}}     0.00        0.44  0.23        0.23  0.11
+44            {'lhs': {'Gender': 'female', 'Annual Salary Bin': '80-99'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.10        0.93  0.13        0.02  0.11
+31            {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.43  0.22         NaN  0.11
+42               {'lhs': {'Gender': 'male', 'Annual Salary Bin': '140+'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.01        1.00  0.20        0.00  0.11
+24            {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.12        0.88  0.09         NaN  0.11
+14            {'lhs': {'Annual Salary Bin': '100-119', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.05        0.97  0.16         NaN  0.11
+127               {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.00        0.38  0.21         NaN  0.10
+48          {'lhs': {'Gender': 'female', 'Annual Salary Bin': '120-139'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.01        1.00  0.20        0.00  0.10
+49             {'lhs': {'Gender': 'female', 'Annual Salary Bin': '140+'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.00        1.00  0.20        0.00  0.10
+101                 {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.00        0.94  0.20         NaN  0.10
+59                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.35  0.16         NaN  0.09
+32            {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN  0.08
+9                                           {'lhs': {'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.35  0.15         NaN  0.08
+10                                          {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN  0.08
+106                      {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'OEMC'}, 'rhs': {'Gender': 'male'}}     0.00        0.41  0.15         NaN  0.08
+90           {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'male'}}     0.00        0.97  0.15         NaN  0.07
+60                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.09         NaN  0.07
+118               {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'male'}}     0.01        0.97  0.14         NaN  0.07
+34               {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN  0.07
+12                                             {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN  0.07
+53                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.10        0.22  0.03         NaN  0.07
+43          {'lhs': {'Gender': 'female', 'Annual Salary Bin': '100-119'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.02        0.91  0.11        0.18  0.06
+62                              {'lhs': {'Status': 'F', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.11         NaN  0.06
+29            {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.04        0.29  0.09         NaN  0.06
+18              {'lhs': {'Annual Salary Bin': '60-79', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.06        0.87  0.06         NaN  0.06
+170              {'lhs': {'Annual Salary Bin': '100-119', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.12         NaN  0.06
+128                 {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.04        0.85  0.07         NaN  0.06
+103                   {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.01        0.84  0.10         NaN  0.05
+136                 {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.03        0.84  0.06         NaN  0.05
+94             {'lhs': {'Annual Salary Bin': '60-79', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'male'}}     0.02        0.89  0.07         NaN  0.05
+55                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.05        0.24  0.05         NaN  0.05
+86                    {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.02        0.98  0.06         NaN  0.04
+5                                           {'lhs': {'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.05        0.24  0.03         NaN  0.04
+97            {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.25  0.07         NaN  0.04
+110            {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'male'}}     0.02        0.96  0.05         NaN  0.04
+99           {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.07         NaN  0.04
+138                    {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.00        0.84  0.06         NaN  0.03
+133                 {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.02        0.26  0.04         NaN  0.03
+88                       {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.98  0.06         NaN  0.03
+145                 {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Department': 'POLICE'}}     0.03        0.59  0.02       -0.04  0.03
+113            {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        0.14  0.06         NaN  0.03
+57                            {'lhs': {'Status': 'F', 'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.00        0.25  0.06         NaN  0.03
+135                 {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.00        0.28  0.05         NaN  0.03
+23            {'lhs': {'Annual Salary Bin': '40-59', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.05         NaN  0.03
+105                   {'lhs': {'Annual Salary Bin': '60-79', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.01        0.78  0.05         NaN  0.03
+93           {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.22  0.04         NaN  0.02
+175               {'lhs': {'Annual Salary Bin': '140+', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Gender': 'female'}}     0.00        0.16  0.04         NaN  0.02
+109                   {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.00        0.78  0.04         NaN  0.02
+172              {'lhs': {'Annual Salary Bin': '120-139', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Gender': 'male'}}     0.01        0.91  0.02         NaN  0.02
+85                    {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.00        0.11  0.03         NaN  0.01
+83                    {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.01        0.10  0.02         NaN  0.01
+125                {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.00        0.20  0.03         NaN  0.01
+165  {'lhs': {'Gender': 'female', 'Job Title': 'ADMINISTRATIVE ASST II'}, 'rhs': {'Annual Salary Bin': '60-79'}}     0.00        0.80  0.02        0.02  0.01
 
-Problematic tuples:  15186
-                               Job Titles Department Full or Part-Time  Gender Annual Salary Bin  Marked
-0                                SERGEANT     POLICE                 F    male           100-119       3
-1  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE                 F  female             80-99       2
-2                          POLICE OFFICER     POLICE                 F  female             60-79       3
-3             TRAFFIC CONTROL AIDE-HOURLY       OEMC                 P    male              0-39       2
-4                     ELECTRICAL MECHANIC   AVIATION                 F    male           100-119       3
+Enter the indexes of the interesting rules (one by one). Write 'exit' to continue or write 'all' to select all the rules
 
-Number of tuples interested by the rules:  15186 
+Problematic tuples:  17384
+                                Job Title Department Status Salary or Hourly  Gender Annual Salary Bin  Marked
+0                                SERGEANT     POLICE      F           Salary    male           100-119       4
+1  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE      F           Salary  female             80-99       4
+2                          POLICE OFFICER     POLICE      F           Salary  female             60-79       5
+3             TRAFFIC CONTROL AIDE-HOURLY       OEMC      P           Hourly    male              0-39       2
+4                     ELECTRICAL MECHANIC   AVIATION      F           Hourly    male           100-119       4
+
+Number of tuples interested by the rules:  17384 
 Total number of tuples:  20309 
 
-Cumulative Support:  0.748 
-Difference Mean:  0.153
-Gender - Difference Mean:  0.106 
+Cumulative Support:  0.856 
+Difference Mean:  0.152
+Gender - Difference Mean:  0.071 
 
 
-Total number of ACFDs selected:  50 
-                                                                                                              Rule  Support  Confidence  Diff  GenderDiff  Mean
-38                  {'lhs': {'Gender': 'female', 'Annual Salary Bin': '0-39'}, 'rhs': {'Full or Part-Time': 'P'}}     0.02        1.00  0.97        0.00  0.49
-31                    {'lhs': {'Gender': 'male', 'Annual Salary Bin': '0-39'}, 'rhs': {'Full or Part-Time': 'P'}}     0.01        0.99  0.96       -0.00  0.49
-79              {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        1.00  0.91         NaN  0.46
-103                    {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Department': 'POLICE'}}     0.28        0.75  0.19       -0.01  0.23
-7                                             {'lhs': {'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.02        0.58  0.38         NaN  0.20
-114                {'lhs': {'Gender': 'female', 'Annual Salary Bin': '120-139'}, 'rhs': {'Department': 'POLICE'}}     0.01        0.93  0.37        0.31  0.19
-110                  {'lhs': {'Gender': 'female', 'Annual Salary Bin': '80-99'}, 'rhs': {'Department': 'POLICE'}}     0.08        0.79  0.23        0.03  0.16
-0                                            {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.11         NaN  0.14
-14                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.10         NaN  0.13
-115                   {'lhs': {'Gender': 'female', 'Annual Salary Bin': '140+'}, 'rhs': {'Department': 'POLICE'}}     0.00        0.82  0.26        0.41  0.13
-120    {'lhs': {'Gender': 'male', 'Job Titles': 'ADMINISTRATIVE ASST II'}, 'rhs': {'Annual Salary Bin': '40-59'}}     0.00        0.44  0.23        0.23  0.11
-89                 {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.00        0.38  0.21         NaN  0.10
-63                   {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.00        0.94  0.20         NaN  0.10
-23                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.35  0.16         NaN  0.09
-9                                            {'lhs': {'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.35  0.15         NaN  0.08
-10                                           {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN  0.08
-68                        {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'OEMC'}, 'rhs': {'Gender': 'male'}}     0.00        0.41  0.15         NaN  0.08
-52            {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'male'}}     0.00        0.97  0.15         NaN  0.07
-24                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.09         NaN  0.07
-80                 {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'male'}}     0.01        0.97  0.14         NaN  0.07
-12                                              {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN  0.07
-17                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.10        0.22  0.03         NaN  0.07
-26                    {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.11         NaN  0.06
-130              {'lhs': {'Annual Salary Bin': '100-119', 'Job Titles': 'LIEUTENANT'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.12         NaN  0.06
-90                   {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.04        0.85  0.07         NaN  0.06
-65                     {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.01        0.84  0.10         NaN  0.05
-98                   {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.03        0.84  0.06         NaN  0.05
-56              {'lhs': {'Annual Salary Bin': '60-79', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'male'}}     0.02        0.89  0.07         NaN  0.05
-19                 {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.05        0.24  0.05         NaN  0.05
-48                     {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.02        0.98  0.06         NaN  0.04
-5                                            {'lhs': {'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.05        0.24  0.03         NaN  0.04
-59             {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.25  0.07         NaN  0.04
-72              {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'male'}}     0.02        0.96  0.05         NaN  0.04
-61            {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.07         NaN  0.04
-100                     {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.00        0.84  0.06         NaN  0.03
-95                   {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.02        0.26  0.04         NaN  0.03
-50                        {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.98  0.06         NaN  0.03
-107                  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Department': 'POLICE'}}     0.03        0.59  0.02       -0.04  0.03
-75              {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        0.14  0.06         NaN  0.03
-21                  {'lhs': {'Full or Part-Time': 'F', 'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.00        0.25  0.06         NaN  0.03
-97                   {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.00        0.28  0.05         NaN  0.03
-67                     {'lhs': {'Annual Salary Bin': '60-79', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.01        0.78  0.05         NaN  0.03
-55            {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.22  0.04         NaN  0.02
-135               {'lhs': {'Annual Salary Bin': '140+', 'Job Titles': 'LIEUTENANT'}, 'rhs': {'Gender': 'female'}}     0.00        0.16  0.04         NaN  0.02
-71                     {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.00        0.78  0.04         NaN  0.02
-132              {'lhs': {'Annual Salary Bin': '120-139', 'Job Titles': 'LIEUTENANT'}, 'rhs': {'Gender': 'male'}}     0.01        0.91  0.02         NaN  0.02
-47                     {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.00        0.11  0.03         NaN  0.01
-45                     {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.01        0.10  0.02         NaN  0.01
-87                  {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.00        0.20  0.03         NaN  0.01
-125  {'lhs': {'Gender': 'female', 'Job Titles': 'ADMINISTRATIVE ASST II'}, 'rhs': {'Annual Salary Bin': '60-79'}}     0.00        0.80  0.02        0.02  0.01
+Total number of ACFDs selected:  67 
+                                                                                                             Rule  Support  Confidence  Diff  GenderDiff  Mean
+74                            {'lhs': {'Gender': 'female', 'Annual Salary Bin': '0-39'}, 'rhs': {'Status': 'P'}}     0.02        1.00  0.97        0.00  0.49
+67                              {'lhs': {'Gender': 'male', 'Annual Salary Bin': '0-39'}, 'rhs': {'Status': 'P'}}     0.01        0.99  0.96       -0.00  0.49
+117            {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        1.00  0.91         NaN  0.46
+141                   {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Department': 'POLICE'}}     0.28        0.75  0.19       -0.01  0.23
+37              {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.34        0.91  0.11       -0.00  0.22
+21             {'lhs': {'Annual Salary Bin': '0-39', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'female'}}     0.02        0.58  0.39         NaN  0.20
+7                                            {'lhs': {'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.02        0.58  0.38         NaN  0.20
+152               {'lhs': {'Gender': 'female', 'Annual Salary Bin': '120-139'}, 'rhs': {'Department': 'POLICE'}}     0.01        0.93  0.37        0.31  0.19
+148                 {'lhs': {'Gender': 'female', 'Annual Salary Bin': '80-99'}, 'rhs': {'Department': 'POLICE'}}     0.08        0.79  0.23        0.03  0.16
+0                                           {'lhs': {'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.11         NaN  0.14
+50                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.17        0.90  0.10         NaN  0.13
+41            {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.06        1.00  0.20        0.00  0.13
+153                  {'lhs': {'Gender': 'female', 'Annual Salary Bin': '140+'}, 'rhs': {'Department': 'POLICE'}}     0.00        0.82  0.26        0.41  0.13
+78                           {'lhs': {'Status': 'F', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.89  0.07        0.07  0.12
+160    {'lhs': {'Gender': 'male', 'Job Title': 'ADMINISTRATIVE ASST II'}, 'rhs': {'Annual Salary Bin': '40-59'}}     0.00        0.44  0.23        0.23  0.11
+44            {'lhs': {'Gender': 'female', 'Annual Salary Bin': '80-99'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.10        0.93  0.13        0.02  0.11
+31            {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.43  0.22         NaN  0.11
+42               {'lhs': {'Gender': 'male', 'Annual Salary Bin': '140+'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.01        1.00  0.20        0.00  0.11
+24            {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.12        0.88  0.09         NaN  0.11
+14            {'lhs': {'Annual Salary Bin': '100-119', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.05        0.97  0.16         NaN  0.11
+127               {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.00        0.38  0.21         NaN  0.10
+48          {'lhs': {'Gender': 'female', 'Annual Salary Bin': '120-139'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.01        1.00  0.20        0.00  0.10
+49             {'lhs': {'Gender': 'female', 'Annual Salary Bin': '140+'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.00        1.00  0.20        0.00  0.10
+101                 {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.00        0.94  0.20         NaN  0.10
+59                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.35  0.16         NaN  0.09
+32            {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN  0.08
+9                                           {'lhs': {'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.01        0.35  0.15         NaN  0.08
+10                                          {'lhs': {'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.10         NaN  0.08
+106                      {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'OEMC'}, 'rhs': {'Gender': 'male'}}     0.00        0.41  0.15         NaN  0.08
+90           {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'male'}}     0.00        0.97  0.15         NaN  0.07
+60                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.06        0.89  0.09         NaN  0.07
+118               {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'male'}}     0.01        0.97  0.14         NaN  0.07
+34               {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN  0.07
+12                                             {'lhs': {'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.13         NaN  0.07
+53                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.10        0.22  0.03         NaN  0.07
+43          {'lhs': {'Gender': 'female', 'Annual Salary Bin': '100-119'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.02        0.91  0.11        0.18  0.06
+62                              {'lhs': {'Status': 'F', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.92  0.11         NaN  0.06
+29            {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.04        0.29  0.09         NaN  0.06
+18              {'lhs': {'Annual Salary Bin': '60-79', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.06        0.87  0.06         NaN  0.06
+170              {'lhs': {'Annual Salary Bin': '100-119', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.12         NaN  0.06
+128                 {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.04        0.85  0.07         NaN  0.06
+103                   {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.01        0.84  0.10         NaN  0.05
+136                 {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.03        0.84  0.06         NaN  0.05
+94             {'lhs': {'Annual Salary Bin': '60-79', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'male'}}     0.02        0.89  0.07         NaN  0.05
+55                           {'lhs': {'Status': 'F', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.05        0.24  0.05         NaN  0.05
+86                    {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.02        0.98  0.06         NaN  0.04
+5                                           {'lhs': {'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.05        0.24  0.03         NaN  0.04
+97            {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.25  0.07         NaN  0.04
+110            {'lhs': {'Annual Salary Bin': '100-119', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'male'}}     0.02        0.96  0.05         NaN  0.04
+99           {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.07         NaN  0.04
+138                    {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.00        0.84  0.06         NaN  0.03
+133                 {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.02        0.26  0.04         NaN  0.03
+88                       {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.01        0.98  0.06         NaN  0.03
+145                 {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Department': 'POLICE'}}     0.03        0.59  0.02       -0.04  0.03
+113            {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        0.14  0.06         NaN  0.03
+57                            {'lhs': {'Status': 'F', 'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.00        0.25  0.06         NaN  0.03
+135                 {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.00        0.28  0.05         NaN  0.03
+23            {'lhs': {'Annual Salary Bin': '40-59', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.05         NaN  0.03
+105                   {'lhs': {'Annual Salary Bin': '60-79', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.01        0.78  0.05         NaN  0.03
+93           {'lhs': {'Annual Salary Bin': '80-99', 'Department': 'STREETS & SAN'}, 'rhs': {'Gender': 'female'}}     0.00        0.22  0.04         NaN  0.02
+175               {'lhs': {'Annual Salary Bin': '140+', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Gender': 'female'}}     0.00        0.16  0.04         NaN  0.02
+109                   {'lhs': {'Annual Salary Bin': '40-59', 'Department': 'OEMC'}, 'rhs': {'Gender': 'female'}}     0.00        0.78  0.04         NaN  0.02
+172              {'lhs': {'Annual Salary Bin': '120-139', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Gender': 'male'}}     0.01        0.91  0.02         NaN  0.02
+85                    {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.00        0.11  0.03         NaN  0.01
+83                    {'lhs': {'Department': 'FIRE', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.01        0.10  0.02         NaN  0.01
+125                {'lhs': {'Annual Salary Bin': '0-39', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.00        0.20  0.03         NaN  0.01
+165  {'lhs': {'Gender': 'female', 'Job Title': 'ADMINISTRATIVE ASST II'}, 'rhs': {'Annual Salary Bin': '60-79'}}     0.00        0.80  0.02        0.02  0.01

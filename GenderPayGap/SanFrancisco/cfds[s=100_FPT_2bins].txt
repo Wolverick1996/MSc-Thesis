@@ -1,0 +1,586 @@
+(Status=P) => Annual Salary Bin=<= 90K
+(Annual Salary Bin=> 90K) => Status=F
+(Gender, Status=P) => Annual Salary Bin
+(Status=P, Gender=female) => Annual Salary Bin=<= 90K
+(Status, Gender=male) => Annual Salary Bin
+(Gender=male, Status=P) => Annual Salary Bin=<= 90K
+(Gender, Annual Salary Bin=> 90K) => Status
+(Annual Salary Bin=> 90K, Gender=female) => Status=F
+(Annual Salary Bin, Gender=male) => Status
+(Gender=male, Annual Salary Bin=> 90K) => Status=F
+(Job Title=Public Svc Aide-Public Works) => Gender=male
+(Job Title=Lieutenant Fire Suppression) => Gender=male
+(Job Title=IS Engineer-Senior) => Gender=male
+(Job Title=Senior Clerk Typist) => Gender=female
+(Job Title=Sergeant 3) => Gender=male
+(Job Title=Police Officer 3) => Gender=male
+(Job Title=Medical Evaluations Assistant) => Gender=female
+(Job Title=Deputy Sheriff) => Gender=male
+(Job Title=Police Officer 2) => Gender=male
+(Job Title=Nurse Practitioner) => Gender=female
+(Job Title=General Laborer) => Gender=male
+(Job Title=Electrician) => Gender=male
+(Job Title=Deputy Sheriff (SFERS)) => Gender=male
+(Job Title=Painter) => Gender=male
+(Job Title=Electronic Maintenance Tech) => Gender=male
+(Job Title=Automotive Service Worker) => Gender=male
+(Job Title=EMT/Paramedic/Firefighter) => Gender=male
+(Job Title=Truck Driver) => Gender=male
+(Job Title=Stationary Engineer) => Gender=male
+(Job Title=Transit Operator) => Gender=male
+(Job Title=Police Officer) => Gender=male
+(Job Title=Firefighter) => Gender=male
+(Job Title=Automotive Mechanic) => Gender=male
+(Job Title=Stationary Eng Sewage Plant) => Gender=male
+(Job Title=Electrical Transit System Mech) => Gender=male
+(Job Title=Camp Assistant) => Status=P
+(Job Title=School Crossing Guard) => Status=P
+(Job Title=StdntDsgn Train2/Arch/Eng/Plng) => Status=P
+(Job Title=PS Aide to Prof) => Status=P
+(Job Title=StdntDsgnTrain1 Arch/Eng/Plng) => Status=P
+(Job Title=Pool Lifeguard) => Status=P
+(Job Title=Junior Clerk) => Status=P
+(Job Title=Library Page) => Status=P
+(Job Title=Public Svc Aide-Public Works) => Status=P
+(Job Title=Publ Svc Aide-Asst to Prof) => Status=P
+(Job Title=Recreation Leader) => Status=P
+(Job Title=Public Service Trainee) => Status=P
+(Job Title=HSA Social Worker) => Status=F
+(Job Title=Lieutenant Fire Suppression) => Status=F
+(Job Title=Lieutenant 3) => Status=F
+(Job Title=Engineer) => Status=F
+(Job Title=IS Engineer-Senior) => Status=F
+(Job Title=Senior Account Clerk) => Status=F
+(Job Title=Administrative Analyst) => Status=F
+(Job Title=Sergeant 3) => Status=F
+(Job Title=Police Officer 3) => Status=F
+(Job Title=Manager II) => Status=F
+(Job Title=Deputy Sheriff) => Status=F
+(Job Title=IS Business Analyst-Principal) => Status=F
+(Job Title=Police Officer 2) => Status=F
+(Job Title=Pr Administrative Analyst) => Status=F
+(Job Title=Manager III) => Status=F
+(Job Title=Senior Human Resources Analyst) => Status=F
+(Job Title=Manager I) => Status=F
+(Job Title=Deputy Sheriff (SFERS)) => Status=F
+(Job Title=IS Business Analyst-Senior) => Status=F
+(Job Title=Electronic Maintenance Tech) => Status=F
+(Job Title=Protective Services Worker) => Status=F
+(Job Title=EMT/Paramedic/Firefighter) => Status=F
+(Job Title=Assoc Engineer) => Status=F
+(Job Title=Senior Administrative Analyst) => Status=F
+(Job Title=Assistant Engineer) => Status=F
+(Job Title=Special Nurse) => Status=P
+(Job Title=Firefighter) => Status=F
+(Job Title=Electrical Transit System Mech) => Status=F
+(Status, Job Title=Public Svc Aide-Public Works) => Gender
+(Status, Job Title=Lieutenant Fire Suppression) => Gender
+(Status, Job Title=IS Engineer-Senior) => Gender
+(Status, Job Title=Senior Clerk Typist) => Gender
+(Status, Job Title=Sergeant 3) => Gender
+(Status, Job Title=Police Officer 3) => Gender
+(Status, Job Title=Medical Evaluations Assistant) => Gender
+(Status, Job Title=Deputy Sheriff) => Gender
+(Status, Job Title=Police Officer 2) => Gender
+(Status, Job Title=Nurse Practitioner) => Gender
+(Status, Job Title=General Laborer) => Gender
+(Status, Job Title=Electrician) => Gender
+(Status, Job Title=Deputy Sheriff (SFERS)) => Gender
+(Status, Job Title=Painter) => Gender
+(Status, Job Title=Electronic Maintenance Tech) => Gender
+(Status, Job Title=Automotive Service Worker) => Gender
+(Status, Job Title=EMT/Paramedic/Firefighter) => Gender
+(Status, Job Title=Truck Driver) => Gender
+(Status, Job Title=Stationary Engineer) => Gender
+(Status, Job Title=Transit Operator) => Gender
+(Status=P, Job Title=Registered Nurse) => Gender=female
+(Status=P, Job Title=General Laborer) => Gender=male
+(Status=P, Job Title=Nurse Practitioner) => Gender=female
+(Status=P, Job Title=Public Svc Aide-Public Works) => Gender=male
+(Status, Job Title=Police Officer) => Gender
+(Job Title=Police Officer, Status=P) => Gender=male
+(Status, Job Title=Firefighter) => Gender
+(Status, Job Title=Automotive Mechanic) => Gender
+(Status, Job Title=Stationary Eng Sewage Plant) => Gender
+(Status=F, Job Title=General Laborer) => Gender=male
+(Status=F, Job Title=Deputy Sheriff (SFERS)) => Gender=male
+(Status=F, Job Title=Electronic Maintenance Tech) => Gender=male
+(Status=F, Job Title=Automotive Mechanic) => Gender=male
+(Status=F, Job Title=Truck Driver) => Gender=male
+(Status=F, Job Title=Stationary Engineer) => Gender=male
+(Status=F, Job Title=Transit Operator) => Gender=male
+(Status=F, Job Title=Police Officer) => Gender=male
+(Status=F, Job Title=Firefighter) => Gender=male
+(Status=F, Job Title=EMT/Paramedic/Firefighter) => Gender=male
+(Status=F, Job Title=Lieutenant Fire Suppression) => Gender=male
+(Status=F, Job Title=Sergeant 3) => Gender=male
+(Status=F, Job Title=Police Officer 3) => Gender=male
+(Status=F, Job Title=Medical Evaluations Assistant) => Gender=female
+(Status=F, Job Title=Transit Supervisor) => Gender=male
+(Status=F, Job Title=Deputy Sheriff) => Gender=male
+(Status=F, Job Title=Police Officer 2) => Gender=male
+(Status, Job Title=Electrical Transit System Mech) => Gender
+(Job Title=Electrical Transit System Mech, Status=F) => Gender=male
+(Gender, Job Title=StdntDsgn Train2/Arch/Eng/Plng) => Status
+(Gender, Job Title=PS Aide to Prof) => Status
+(Gender, Job Title=Junior Clerk) => Status
+(Gender, Job Title=Library Page) => Status
+(Gender, Job Title=Public Svc Aide-Public Works) => Status
+(Gender, Job Title=Publ Svc Aide-Asst to Prof) => Status
+(Gender, Job Title=Recreation Leader) => Status
+(Gender, Job Title=Public Service Trainee) => Status
+(Gender, Job Title=HSA Social Worker) => Status
+(Gender, Job Title=Lieutenant Fire Suppression) => Status
+(Gender, Job Title=Lieutenant 3) => Status
+(Gender, Job Title=Engineer) => Status
+(Gender, Job Title=IS Engineer-Senior) => Status
+(Gender, Job Title=Senior Account Clerk) => Status
+(Gender, Job Title=Administrative Analyst) => Status
+(Gender, Job Title=Sergeant 3) => Status
+(Gender, Job Title=Police Officer 3) => Status
+(Gender, Job Title=Manager II) => Status
+(Gender, Job Title=Deputy Sheriff) => Status
+(Gender, Job Title=IS Business Analyst-Principal) => Status
+(Gender, Job Title=Police Officer 2) => Status
+(Gender, Job Title=Pr Administrative Analyst) => Status
+(Gender, Job Title=Manager III) => Status
+(Gender, Job Title=Senior Human Resources Analyst) => Status
+(Gender, Job Title=Manager I) => Status
+(Gender, Job Title=Deputy Sheriff (SFERS)) => Status
+(Gender, Job Title=IS Business Analyst-Senior) => Status
+(Gender, Job Title=Electronic Maintenance Tech) => Status
+(Gender, Job Title=Protective Services Worker) => Status
+(Gender, Job Title=EMT/Paramedic/Firefighter) => Status
+(Gender, Job Title=Assoc Engineer) => Status
+(Gender=female, Job Title=Protective Services Worker) => Status=F
+(Gender=female, Job Title=Public Service Trainee) => Status=P
+(Gender=female, Job Title=Recreation Leader) => Status=P
+(Gender=female, Job Title=Library Page) => Status=P
+(Gender=female, Job Title=Junior Clerk) => Status=P
+(Gender=female, Job Title=Manager II) => Status=F
+(Gender, Job Title=Senior Administrative Analyst) => Status
+(Gender, Job Title=Assistant Engineer) => Status
+(Gender, Job Title=Special Nurse) => Status
+(Job Title=Special Nurse, Gender=female) => Status=P
+(Gender, Job Title=Firefighter) => Status
+(Job Title=Firefighter, Gender=female) => Status=F
+(Gender=male, Job Title=Deputy Sheriff (SFERS)) => Status=F
+(Gender=male, Job Title=Electronic Maintenance Tech) => Status=F
+(Gender=male, Job Title=EMT/Paramedic/Firefighter) => Status=F
+(Gender=male, Job Title=Assoc Engineer) => Status=F
+(Gender=male, Job Title=Senior Administrative Analyst) => Status=F
+(Gender=male, Job Title=Assistant Engineer) => Status=F
+(Gender=male, Job Title=Special Nurse) => Status=P
+(Gender=male, Job Title=Firefighter) => Status=F
+(Gender=male, Job Title=Junior Clerk) => Status=P
+(Gender=male, Job Title=Library Page) => Status=P
+(Gender=male, Job Title=Public Svc Aide-Public Works) => Status=P
+(Gender=male, Job Title=Recreation Leader) => Status=P
+(Gender=male, Job Title=Public Service Trainee) => Status=P
+(Gender=male, Job Title=Lieutenant Fire Suppression) => Status=F
+(Gender=male, Job Title=Engineer) => Status=F
+(Gender=male, Job Title=Administrative Analyst) => Status=F
+(Gender=male, Job Title=Sergeant 3) => Status=F
+(Gender=male, Job Title=Police Officer 3) => Status=F
+(Gender=male, Job Title=HSA Sr Eligibility Worker) => Status=F
+(Gender=male, Job Title=Deputy Sheriff) => Status=F
+(Gender=male, Job Title=Police Officer 2) => Status=F
+(Gender, Job Title=Electrical Transit System Mech) => Status
+(Job Title=Electrical Transit System Mech, Gender=male) => Status=F
+(Job Title) => Annual Salary Bin
+(Job Title=Camp Assistant) => Annual Salary Bin=<= 90K
+(Job Title=School Crossing Guard) => Annual Salary Bin=<= 90K
+(Job Title=StdntDsgn Train2/Arch/Eng/Plng) => Annual Salary Bin=<= 90K
+(Job Title=PS Aide to Prof) => Annual Salary Bin=<= 90K
+(Job Title=StdntDsgnTrain1 Arch/Eng/Plng) => Annual Salary Bin=<= 90K
+(Job Title=Junior Administrative Analyst) => Annual Salary Bin=<= 90K
+(Job Title=Pool Lifeguard) => Annual Salary Bin=<= 90K
+(Job Title=Clerk) => Annual Salary Bin=<= 90K
+(Job Title=Junior Clerk) => Annual Salary Bin=<= 90K
+(Job Title=Library Page) => Annual Salary Bin=<= 90K
+(Job Title=Public Svc Aide-Public Works) => Annual Salary Bin=<= 90K
+(Job Title=Publ Svc Aide-Asst to Prof) => Annual Salary Bin=<= 90K
+(Job Title=Recreation Leader) => Annual Salary Bin=<= 90K
+(Job Title=Public Service Trainee) => Annual Salary Bin=<= 90K
+(Job Title=Deputy Court Clerk II) => Annual Salary Bin=<= 90K
+(Job Title=Health Worker 3) => Annual Salary Bin=<= 90K
+(Job Title=Senior Clerk) => Annual Salary Bin=<= 90K
+(Job Title=Food Service Worker) => Annual Salary Bin=<= 90K
+(Job Title=Custodian) => Annual Salary Bin=<= 90K
+(Job Title=Lieutenant Fire Suppression) => Annual Salary Bin=> 90K
+(Job Title=Lieutenant 3) => Annual Salary Bin=> 90K
+(Job Title=Senior Physician Specialist) => Annual Salary Bin=> 90K
+(Job Title=Engineer) => Annual Salary Bin=> 90K
+(Job Title=Health Worker 2) => Annual Salary Bin=<= 90K
+(Job Title=IS Engineer-Senior) => Annual Salary Bin=> 90K
+(Job Title=Senior Account Clerk) => Annual Salary Bin=<= 90K
+(Job Title=Porter) => Annual Salary Bin=<= 90K
+(Job Title=Community Police Services Aide) => Annual Salary Bin=<= 90K
+(Job Title=Senior Clerk Typist) => Annual Salary Bin=<= 90K
+(Job Title=Sergeant 3) => Annual Salary Bin=> 90K
+(Job Title=Police Officer 3) => Annual Salary Bin=> 90K
+(Job Title=Manager II) => Annual Salary Bin=> 90K
+(Job Title=Medical Evaluations Assistant) => Annual Salary Bin=<= 90K
+(Job Title=Manager IV) => Annual Salary Bin=> 90K
+(Job Title=HSA Sr Eligibility Worker) => Annual Salary Bin=<= 90K
+(Job Title=Deputy Sheriff) => Annual Salary Bin=> 90K
+(Job Title=Hospital Eligibility Worker) => Annual Salary Bin=<= 90K
+(Job Title=IS Business Analyst-Principal) => Annual Salary Bin=> 90K
+(Job Title=Gardener) => Annual Salary Bin=<= 90K
+(Job Title=Police Officer 2) => Annual Salary Bin=> 90K
+(Job Title=Pr Administrative Analyst) => Annual Salary Bin=> 90K
+(Job Title=Manager III) => Annual Salary Bin=> 90K
+(Job Title=Attorney (Civil/Criminal)) => Annual Salary Bin=> 90K
+(Job Title=General Laborer) => Annual Salary Bin=<= 90K
+(Job Title=Museum Guard) => Annual Salary Bin=<= 90K
+(Job Title=Senior Human Resources Analyst) => Annual Salary Bin=> 90K
+(Job Title=Manager I) => Annual Salary Bin=> 90K
+(Job Title=Registered Nurse) => Annual Salary Bin=> 90K
+(Job Title=Deputy Sheriff (SFERS)) => Annual Salary Bin=> 90K
+(Job Title=IS Business Analyst-Senior) => Annual Salary Bin=> 90K
+(Job Title=Electronic Maintenance Tech) => Annual Salary Bin=> 90K
+(Job Title=EMT/Paramedic/Firefighter) => Annual Salary Bin=> 90K
+(Job Title=Assoc Engineer) => Annual Salary Bin=> 90K
+(Job Title=Senior Administrative Analyst) => Annual Salary Bin=> 90K
+(Job Title=Assistant Engineer) => Annual Salary Bin=> 90K
+(Job Title=Special Nurse) => Annual Salary Bin=<= 90K
+(Job Title=Patient Care Assistant) => Annual Salary Bin=<= 90K
+(Job Title=Firefighter) => Annual Salary Bin=> 90K
+(Job Title=Electrical Transit System Mech) => Annual Salary Bin=> 90K
+(Gender, Job Title) => Annual Salary Bin
+(Gender, Job Title=Deputy Court Clerk II) => Annual Salary Bin
+(Gender, Job Title=Senior Clerk) => Annual Salary Bin
+(Gender, Job Title=Custodian) => Annual Salary Bin
+(Gender, Job Title=Lieutenant Fire Suppression) => Annual Salary Bin
+(Gender, Job Title=Lieutenant 3) => Annual Salary Bin
+(Gender, Job Title=Senior Physician Specialist) => Annual Salary Bin
+(Gender, Job Title=Engineer) => Annual Salary Bin
+(Gender, Job Title=Health Worker 2) => Annual Salary Bin
+(Gender, Job Title=IS Engineer-Senior) => Annual Salary Bin
+(Gender, Job Title=Senior Account Clerk) => Annual Salary Bin
+(Gender, Job Title=Porter) => Annual Salary Bin
+(Gender, Job Title=Community Police Services Aide) => Annual Salary Bin
+(Gender, Job Title=Senior Clerk Typist) => Annual Salary Bin
+(Gender, Job Title=Sergeant 3) => Annual Salary Bin
+(Gender, Job Title=Police Officer 3) => Annual Salary Bin
+(Gender, Job Title=Manager II) => Annual Salary Bin
+(Gender, Job Title=Medical Evaluations Assistant) => Annual Salary Bin
+(Gender, Job Title=Manager IV) => Annual Salary Bin
+(Gender, Job Title=HSA Sr Eligibility Worker) => Annual Salary Bin
+(Gender, Job Title=Deputy Sheriff) => Annual Salary Bin
+(Gender, Job Title=Hospital Eligibility Worker) => Annual Salary Bin
+(Gender, Job Title=IS Business Analyst-Principal) => Annual Salary Bin
+(Gender, Job Title=Gardener) => Annual Salary Bin
+(Gender, Job Title=Police Officer 2) => Annual Salary Bin
+(Gender, Job Title=Pr Administrative Analyst) => Annual Salary Bin
+(Gender, Job Title=Manager III) => Annual Salary Bin
+(Gender, Job Title=Attorney (Civil/Criminal)) => Annual Salary Bin
+(Gender, Job Title=General Laborer) => Annual Salary Bin
+(Gender, Job Title=Museum Guard) => Annual Salary Bin
+(Gender, Job Title=Senior Human Resources Analyst) => Annual Salary Bin
+(Gender, Job Title=Manager I) => Annual Salary Bin
+(Gender, Job Title=Registered Nurse) => Annual Salary Bin
+(Gender, Job Title=Deputy Sheriff (SFERS)) => Annual Salary Bin
+(Gender, Job Title=IS Business Analyst-Senior) => Annual Salary Bin
+(Gender, Job Title=Electronic Maintenance Tech) => Annual Salary Bin
+(Gender, Job Title=EMT/Paramedic/Firefighter) => Annual Salary Bin
+(Gender, Job Title=Assoc Engineer) => Annual Salary Bin
+(Job Title, Gender=female) => Annual Salary Bin
+(Gender=female, Job Title=Parking Control Officer) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=Registered Nurse) => Annual Salary Bin=> 90K
+(Gender=female, Job Title=Attorney (Civil/Criminal)) => Annual Salary Bin=> 90K
+(Gender=female, Job Title=Pr Administrative Analyst) => Annual Salary Bin=> 90K
+(Gender=female, Job Title=Hospital Eligibility Worker) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=HSA Sr Eligibility Worker) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=Medical Evaluations Assistant) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=Community Police Services Aide) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=Health Worker 2) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=Custodian) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=Senior Clerk) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=Manager II) => Annual Salary Bin=> 90K
+(Gender, Job Title=Senior Administrative Analyst) => Annual Salary Bin
+(Job Title=Senior Administrative Analyst, Gender=female) => Annual Salary Bin=> 90K
+(Gender, Job Title=Assistant Engineer) => Annual Salary Bin
+(Gender, Job Title=Special Nurse) => Annual Salary Bin
+(Job Title=Special Nurse, Gender=female) => Annual Salary Bin=<= 90K
+(Gender, Job Title=Patient Care Assistant) => Annual Salary Bin
+(Job Title=Patient Care Assistant, Gender=female) => Annual Salary Bin=<= 90K
+(Gender, Job Title=Firefighter) => Annual Salary Bin
+(Job Title=Firefighter, Gender=female) => Annual Salary Bin=> 90K
+(Job Title, Gender=male) => Annual Salary Bin
+(Gender=male, Job Title=General Laborer) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=Registered Nurse) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Deputy Sheriff (SFERS)) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Electronic Maintenance Tech) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=EMT/Paramedic/Firefighter) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Assoc Engineer) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Senior Administrative Analyst) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Assistant Engineer) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Special Nurse) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=Patient Care Assistant) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=Firefighter) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Custodian) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=Lieutenant Fire Suppression) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Engineer) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Attorney (Civil/Criminal)) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Community Police Services Aide) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=Sergeant 3) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Police Officer 3) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=HSA Sr Eligibility Worker) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=Deputy Sheriff) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Gardener) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=Police Officer 2) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=Porter) => Annual Salary Bin=<= 90K
+(Gender, Job Title=Electrical Transit System Mech) => Annual Salary Bin
+(Job Title=Electrical Transit System Mech, Gender=male) => Annual Salary Bin=> 90K
+(Annual Salary Bin, Job Title=Public Svc Aide-Public Works) => Gender
+(Annual Salary Bin=<= 90K, Job Title=Public Svc Aide-Public Works) => Gender=male
+(Annual Salary Bin, Job Title=Lieutenant Fire Suppression) => Gender
+(Annual Salary Bin, Job Title=IS Engineer-Senior) => Gender
+(Annual Salary Bin, Job Title=Senior Clerk Typist) => Gender
+(Job Title=Senior Clerk Typist, Annual Salary Bin=<= 90K) => Gender=female
+(Annual Salary Bin, Job Title=Sergeant 3) => Gender
+(Annual Salary Bin, Job Title=Police Officer 3) => Gender
+(Annual Salary Bin, Job Title=Medical Evaluations Assistant) => Gender
+(Job Title=Medical Evaluations Assistant, Annual Salary Bin=<= 90K) => Gender=female
+(Annual Salary Bin, Job Title=Deputy Sheriff) => Gender
+(Annual Salary Bin, Job Title=Police Officer 2) => Gender
+(Annual Salary Bin, Job Title=Nurse Practitioner) => Gender
+(Annual Salary Bin, Job Title=General Laborer) => Gender
+(Job Title=General Laborer, Annual Salary Bin=<= 90K) => Gender=male
+(Annual Salary Bin, Job Title=Electrician) => Gender
+(Annual Salary Bin, Job Title=Deputy Sheriff (SFERS)) => Gender
+(Annual Salary Bin, Job Title=Painter) => Gender
+(Annual Salary Bin, Job Title=Electronic Maintenance Tech) => Gender
+(Annual Salary Bin, Job Title=Automotive Service Worker) => Gender
+(Annual Salary Bin, Job Title=EMT/Paramedic/Firefighter) => Gender
+(Annual Salary Bin, Job Title=Truck Driver) => Gender
+(Annual Salary Bin, Job Title=Stationary Engineer) => Gender
+(Annual Salary Bin, Job Title=Transit Operator) => Gender
+(Annual Salary Bin, Job Title=Police Officer) => Gender
+(Annual Salary Bin, Job Title=Firefighter) => Gender
+(Job Title=Firefighter, Annual Salary Bin=<= 90K) => Gender=male
+(Annual Salary Bin, Job Title=Automotive Mechanic) => Gender
+(Annual Salary Bin, Job Title=Stationary Eng Sewage Plant) => Gender
+(Annual Salary Bin=> 90K, Job Title=Firefighter) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Police Officer) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Transit Operator) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Stationary Engineer) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Truck Driver) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=EMT/Paramedic/Firefighter) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Electronic Maintenance Tech) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Deputy Sheriff (SFERS)) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Automotive Mechanic) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Nurse Practitioner) => Gender=female
+(Annual Salary Bin=> 90K, Job Title=Police Officer 2) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Deputy Sheriff) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Police Officer 3) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Sergeant 3) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=Lieutenant Fire Suppression) => Gender=male
+(Annual Salary Bin, Job Title=Electrical Transit System Mech) => Gender
+(Job Title=Electrical Transit System Mech, Annual Salary Bin=> 90K) => Gender=male
+(Status, Job Title) => Annual Salary Bin
+(Status, Job Title=Deputy Court Clerk II) => Annual Salary Bin
+(Status, Job Title=Senior Clerk) => Annual Salary Bin
+(Status, Job Title=Custodian) => Annual Salary Bin
+(Status, Job Title=Lieutenant Fire Suppression) => Annual Salary Bin
+(Status, Job Title=Lieutenant 3) => Annual Salary Bin
+(Status, Job Title=Senior Physician Specialist) => Annual Salary Bin
+(Status, Job Title=Engineer) => Annual Salary Bin
+(Status, Job Title=Librarian 1) => Annual Salary Bin
+(Status, Job Title=Health Worker 2) => Annual Salary Bin
+(Status, Job Title=IS Engineer-Senior) => Annual Salary Bin
+(Status, Job Title=Senior Account Clerk) => Annual Salary Bin
+(Status, Job Title=Porter) => Annual Salary Bin
+(Status, Job Title=Community Police Services Aide) => Annual Salary Bin
+(Status, Job Title=Senior Clerk Typist) => Annual Salary Bin
+(Status, Job Title=Sergeant 3) => Annual Salary Bin
+(Status, Job Title=Police Officer 3) => Annual Salary Bin
+(Status, Job Title=Manager II) => Annual Salary Bin
+(Status, Job Title=Medical Evaluations Assistant) => Annual Salary Bin
+(Status, Job Title=Transit Supervisor) => Annual Salary Bin
+(Status, Job Title=Manager IV) => Annual Salary Bin
+(Status, Job Title=HSA Sr Eligibility Worker) => Annual Salary Bin
+(Status, Job Title=Deputy Sheriff) => Annual Salary Bin
+(Status, Job Title=Hospital Eligibility Worker) => Annual Salary Bin
+(Status, Job Title=IS Business Analyst-Principal) => Annual Salary Bin
+(Status, Job Title=Gardener) => Annual Salary Bin
+(Status, Job Title=Police Officer 2) => Annual Salary Bin
+(Status, Job Title=Pr Administrative Analyst) => Annual Salary Bin
+(Status, Job Title=Manager III) => Annual Salary Bin
+(Status, Job Title=Attorney (Civil/Criminal)) => Annual Salary Bin
+(Status, Job Title=Transit Car Cleaner) => Annual Salary Bin
+(Status, Job Title=General Laborer) => Annual Salary Bin
+(Status, Job Title=Nursing Assistant) => Annual Salary Bin
+(Status, Job Title=Museum Guard) => Annual Salary Bin
+(Status, Job Title=Electrician) => Annual Salary Bin
+(Status, Job Title=Senior Human Resources Analyst) => Annual Salary Bin
+(Status, Job Title=Manager I) => Annual Salary Bin
+(Status, Job Title=Registered Nurse) => Annual Salary Bin
+(Status, Job Title=Deputy Sheriff (SFERS)) => Annual Salary Bin
+(Status, Job Title=Painter) => Annual Salary Bin
+(Status, Job Title=IS Business Analyst-Senior) => Annual Salary Bin
+(Status, Job Title=Electronic Maintenance Tech) => Annual Salary Bin
+(Status, Job Title=Protective Services Worker) => Annual Salary Bin
+(Status, Job Title=EMT/Paramedic/Firefighter) => Annual Salary Bin
+(Status, Job Title=Assoc Engineer) => Annual Salary Bin
+(Status, Job Title=Truck Driver) => Annual Salary Bin
+(Status, Job Title=Public SafetyComm Disp) => Annual Salary Bin
+(Status, Job Title=Behavioral Health Clinician) => Annual Salary Bin
+(Status, Job Title=Senior Administrative Analyst) => Annual Salary Bin
+(Status, Job Title=Assistant Engineer) => Annual Salary Bin
+(Status, Job Title=Stationary Engineer) => Annual Salary Bin
+(Job Title, Status=P) => Annual Salary Bin
+(Status=P, Job Title=Parking Control Officer) => Annual Salary Bin=<= 90K
+(Status=P, Job Title=General Laborer) => Annual Salary Bin=<= 90K
+(Status=P, Job Title=HSA Sr Eligibility Worker) => Annual Salary Bin=<= 90K
+(Status=P, Job Title=Librarian 1) => Annual Salary Bin=<= 90K
+(Status=P, Job Title=Custodian) => Annual Salary Bin=<= 90K
+(Status=P, Job Title=Transit Operator) => Annual Salary Bin=<= 90K
+(Status, Job Title=Special Nurse) => Annual Salary Bin
+(Job Title=Special Nurse, Status=P) => Annual Salary Bin=<= 90K
+(Status, Job Title=Police Officer) => Annual Salary Bin
+(Job Title=Police Officer, Status=P) => Annual Salary Bin=<= 90K
+(Status, Job Title=Patient Care Assistant) => Annual Salary Bin
+(Job Title=Patient Care Assistant, Status=P) => Annual Salary Bin=<= 90K
+(Status, Job Title=Firefighter) => Annual Salary Bin
+(Status, Job Title=Automotive Mechanic) => Annual Salary Bin
+(Status, Job Title=Stationary Eng Sewage Plant) => Annual Salary Bin
+(Job Title, Status=F) => Annual Salary Bin
+(Status=F, Job Title=Manager III) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Attorney (Civil/Criminal)) => Annual Salary Bin=> 90K
+(Status=F, Job Title=General Laborer) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=Senior Human Resources Analyst) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Manager I) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Registered Nurse) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Deputy Sheriff (SFERS)) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Electronic Maintenance Tech) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Protective Services Worker) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Automotive Mechanic) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Assoc Engineer) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Truck Driver) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Public SafetyComm Disp) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Senior Administrative Analyst) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Assistant Engineer) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Stationary Engineer) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Police Officer) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Patient Care Assistant) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=Firefighter) => Annual Salary Bin=> 90K
+(Status=F, Job Title=EMT/Paramedic/Firefighter) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Senior Clerk) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=Custodian) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=Lieutenant Fire Suppression) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Lieutenant 3) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Engineer) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Porter) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=Pr Administrative Analyst) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Sergeant 3) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Police Officer 3) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Manager II) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Medical Evaluations Assistant) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=Transit Supervisor) => Annual Salary Bin=> 90K
+(Status=F, Job Title=HSA Sr Eligibility Worker) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=Deputy Sheriff) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Hospital Eligibility Worker) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=IS Business Analyst-Principal) => Annual Salary Bin=> 90K
+(Status=F, Job Title=Gardener) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=Police Officer 2) => Annual Salary Bin=> 90K
+(Status, Job Title=Electrical Transit System Mech) => Annual Salary Bin
+(Job Title=Electrical Transit System Mech, Status=F) => Annual Salary Bin=> 90K
+(Annual Salary Bin, Job Title) => Status
+(Annual Salary Bin, Job Title=StdntDsgn Train2/Arch/Eng/Plng) => Status
+(Annual Salary Bin, Job Title=PS Aide to Prof) => Status
+(Annual Salary Bin, Job Title=Junior Clerk) => Status
+(Annual Salary Bin, Job Title=Library Page) => Status
+(Annual Salary Bin, Job Title=Public Svc Aide-Public Works) => Status
+(Annual Salary Bin, Job Title=Publ Svc Aide-Asst to Prof) => Status
+(Annual Salary Bin, Job Title=Recreation Leader) => Status
+(Annual Salary Bin, Job Title=Public Service Trainee) => Status
+(Annual Salary Bin, Job Title=HSA Social Worker) => Status
+(Annual Salary Bin=<= 90K, Job Title=Public Service Trainee) => Status=P
+(Annual Salary Bin=<= 90K, Job Title=Recreation Leader) => Status=P
+(Annual Salary Bin=<= 90K, Job Title=Publ Svc Aide-Asst to Prof) => Status=P
+(Annual Salary Bin=<= 90K, Job Title=Public Svc Aide-Public Works) => Status=P
+(Annual Salary Bin=<= 90K, Job Title=Junior Clerk) => Status=P
+(Annual Salary Bin=<= 90K, Job Title=PS Aide to Prof) => Status=P
+(Annual Salary Bin=<= 90K, Job Title=StdntDsgn Train2/Arch/Eng/Plng) => Status=P
+(Annual Salary Bin=<= 90K, Job Title=Library Page) => Status=P
+(Annual Salary Bin, Job Title=Lieutenant Fire Suppression) => Status
+(Annual Salary Bin, Job Title=Lieutenant 3) => Status
+(Annual Salary Bin, Job Title=Engineer) => Status
+(Annual Salary Bin, Job Title=Librarian 1) => Status
+(Job Title=Librarian 1, Annual Salary Bin=<= 90K) => Status=P
+(Annual Salary Bin, Job Title=IS Engineer-Senior) => Status
+(Annual Salary Bin, Job Title=Senior Account Clerk) => Status
+(Job Title=Senior Account Clerk, Annual Salary Bin=<= 90K) => Status=F
+(Annual Salary Bin, Job Title=Administrative Analyst) => Status
+(Annual Salary Bin, Job Title=Sergeant 3) => Status
+(Annual Salary Bin, Job Title=Police Officer 3) => Status
+(Annual Salary Bin, Job Title=Manager II) => Status
+(Annual Salary Bin, Job Title=Transit Supervisor) => Status
+(Annual Salary Bin, Job Title=Manager IV) => Status
+(Annual Salary Bin, Job Title=Deputy Sheriff) => Status
+(Annual Salary Bin, Job Title=IS Business Analyst-Principal) => Status
+(Annual Salary Bin, Job Title=Police Officer 2) => Status
+(Annual Salary Bin, Job Title=Pr Administrative Analyst) => Status
+(Annual Salary Bin, Job Title=Manager III) => Status
+(Annual Salary Bin, Job Title=Attorney (Civil/Criminal)) => Status
+(Annual Salary Bin, Job Title=Transit Car Cleaner) => Status
+(Annual Salary Bin, Job Title=Nursing Assistant) => Status
+(Annual Salary Bin, Job Title=Electrician) => Status
+(Annual Salary Bin, Job Title=Senior Human Resources Analyst) => Status
+(Annual Salary Bin, Job Title=Manager I) => Status
+(Job Title=Registered Nurse, Annual Salary Bin=<= 90K) => Status=P
+(Annual Salary Bin, Job Title=Deputy Sheriff (SFERS)) => Status
+(Annual Salary Bin, Job Title=Painter) => Status
+(Annual Salary Bin, Job Title=IS Business Analyst-Senior) => Status
+(Annual Salary Bin, Job Title=Electronic Maintenance Tech) => Status
+(Annual Salary Bin, Job Title=Protective Services Worker) => Status
+(Annual Salary Bin, Job Title=EMT/Paramedic/Firefighter) => Status
+(Annual Salary Bin, Job Title=Assoc Engineer) => Status
+(Annual Salary Bin, Job Title=Truck Driver) => Status
+(Annual Salary Bin, Job Title=Public SafetyComm Disp) => Status
+(Annual Salary Bin, Job Title=Behavioral Health Clinician) => Status
+(Annual Salary Bin, Job Title=Senior Administrative Analyst) => Status
+(Annual Salary Bin, Job Title=Assistant Engineer) => Status
+(Annual Salary Bin, Job Title=Stationary Engineer) => Status
+(Annual Salary Bin, Job Title=Special Nurse) => Status
+(Job Title=Special Nurse, Annual Salary Bin=<= 90K) => Status=P
+(Annual Salary Bin, Job Title=Police Officer) => Status
+(Job Title=Police Officer, Annual Salary Bin=<= 90K) => Status=P
+(Annual Salary Bin, Job Title=Firefighter) => Status
+(Annual Salary Bin, Job Title=Automotive Mechanic) => Status
+(Annual Salary Bin, Job Title=Stationary Eng Sewage Plant) => Status
+(Job Title, Annual Salary Bin=> 90K) => Status
+(Annual Salary Bin=> 90K, Job Title=Firefighter) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Police Officer) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Special Nurse) => Status=P
+(Annual Salary Bin=> 90K, Job Title=Transit Operator) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Stationary Engineer) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Assistant Engineer) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Senior Administrative Analyst) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Public SafetyComm Disp) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Truck Driver) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Assoc Engineer) => Status=F
+(Annual Salary Bin=> 90K, Job Title=EMT/Paramedic/Firefighter) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Protective Services Worker) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Electronic Maintenance Tech) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Deputy Sheriff (SFERS)) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Automotive Mechanic) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Senior Human Resources Analyst) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Attorney (Civil/Criminal)) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Manager III) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Pr Administrative Analyst) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Police Officer 2) => Status=F
+(Annual Salary Bin=> 90K, Job Title=IS Business Analyst-Principal) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Deputy Sheriff) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Transit Supervisor) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Manager II) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Police Officer 3) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Sergeant 3) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Engineer) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Lieutenant 3) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Lieutenant Fire Suppression) => Status=F
+(Annual Salary Bin=> 90K, Job Title=Manager I) => Status=F
+(Annual Salary Bin, Job Title=Electrical Transit System Mech) => Status
+(Job Title=Electrical Transit System Mech, Annual Salary Bin=> 90K) => Status=F
