@@ -1,0 +1,259 @@
+Enter CSV file path:	--- STATISTICAL ANALYSIS ---
+                        Name  Job Title Department Status Salary or Hourly  Annual Salary  Gender
+0          AARON,  JEFFERY M          3     POLICE      F           Salary      118998.00    male
+1             AARON,  KARINA          3     POLICE      F           Salary       97440.00  female
+2         ABARCA,  FRANCES J          3     POLICE      F           Salary       72510.00  female
+3          ABASCAL,  REECE E          7       OEMC      P           Hourly       22474.40    male
+4      ABBATACOLA,  ROBERT J          5   AVIATION      F           Hourly      104000.00    male
+...                      ...        ...        ...    ...              ...            ...     ...
+20304   ZYLINSKA,  KATARZYNA          3     POLICE      F           Salary       84054.00  female
+20305     ZYLINSKA,  KLAUDIA          3     POLICE      F           Salary       76266.00  female
+20306     ZYMANTAS,  LAURA C          3     POLICE      F           Salary       80016.00  female
+20307      ZYMANTAS,  MARK E          3     POLICE      F           Salary       90024.00    male
+20308    ZYRKOWSKI,  CARLO E          3     POLICE      F           Salary       93354.00    male
+
+[20309 rows x 7 columns] 
+
+Males:  16146 		Females:  4163 
+Number of different Job Titles (total):  9 
+
+       Job Title  Annual Salary  Log Annual Salary     Male
+count   20309.00       20309.00           20309.00 20309.00
+mean        3.79       89514.84              11.35     0.80
+std         1.94       22067.19               0.42     0.40
+min         1.00        3120.00               8.05     0.00
+25%         3.00       79768.00              11.29     1.00
+50%         3.00       90024.00              11.41     1.00
+75%         3.00      100980.00              11.52     1.00
+max         9.00      151026.00              11.93     1.00
+
+              average        median           len
+       Annual Salary Annual Salary Annual Salary
+Gender                                          
+female      79790.83      84054.00       4163.00
+male        92022.03      91338.00      16146.00
+
+                        average           len
+                 Annual Salary Annual Salary
+Job Title Gender                            
+1         female     138927.18         51.00
+          male       135183.06        813.00
+2         female      73827.52         90.00
+          male       102539.79        369.00
+3         female      89083.92       2749.00
+          male        92445.94      11635.00
+4         female      63679.05        492.00
+          male        50370.23        120.00
+5         female     105654.10         21.00
+          male       106597.58        516.00
+6         female      42134.53        272.00
+          male        75868.14        444.00
+7         female      22474.40        112.00
+          male        22474.40         79.00
+8         female      68027.38        223.00
+          male        76469.95       1508.00
+9         female      70922.33        153.00
+          male        76452.69        662.00
+
+Dependent Variable: Log Annual Salary
+ +-----------------+--------+--------+
+|                 |  (1)   |  (2)   |
++-----------------+--------+--------+
+|       Male      | 0.242  | 0.034  |
+|    Job Title    |        | -0.064 |
+|    Department   |        | 0.420  |
+|      Status     |        | 0.061  |
+|     Constant    | 11.155 | 11.322 |
+|     Controls    |        |        |
+|     - Job Title |   No   |  Yes   |
+|    - Department |   No   |  Yes   |
+|      - Status   |   No   |  Yes   |
+|   Observations  | 20309  | 20309  |
+|       R^2       | 0.053  | 0.846  |
++-----------------+--------+--------+ 
+'Unadjusted' pay gap: men on average earn 24.2 % more than women 
+'Adjusted' pay gap: men on average earn 3.4 % more than women
+
+Encoding Department:
+ {'ADMIN HEARNG': 0, 'AVIATION': 1, 'BUILDINGS': 2, 'BUSINESS AFFAIRS': 3, 'CITY CLERK': 4, 'COPA': 5, 'DAIS': 6, 'FAMILY & SUPPORT': 7, 'FINANCE': 8, 'FIRE': 9, 'HEALTH': 10, 'HUMAN RESOURCES': 11, 'LAW': 12, 'OEMC': 13, 'POLICE': 14, 'PUBLIC LIBRARY': 15, 'PUBLIC SAFETY ADMIN': 16, 'STREETS & SAN': 17, 'TRANSPORTN': 18, 'WATER MGMNT': 19}
+
+
+--- FAIR-DB ---
+                        Name  Job Title Department Status Salary or Hourly  Annual Salary  Gender  Log Annual Salary  Male
+0          AARON,  JEFFERY M          3     POLICE      F           Salary      118998.00    male              11.69     1
+1             AARON,  KARINA          3     POLICE      F           Salary       97440.00  female              11.49     0
+2         ABARCA,  FRANCES J          3     POLICE      F           Salary       72510.00  female              11.19     0
+3          ABASCAL,  REECE E          7       OEMC      P           Hourly       22474.40    male              10.02     1
+4      ABBATACOLA,  ROBERT J          5   AVIATION      F           Hourly      104000.00    male              11.55     1
+...                      ...        ...        ...    ...              ...            ...     ...                ...   ...
+20304   ZYLINSKA,  KATARZYNA          3     POLICE      F           Salary       84054.00  female              11.34     0
+20305     ZYLINSKA,  KLAUDIA          3     POLICE      F           Salary       76266.00  female              11.24     0
+20306     ZYMANTAS,  LAURA C          3     POLICE      F           Salary       80016.00  female              11.29     0
+20307      ZYMANTAS,  MARK E          3     POLICE      F           Salary       90024.00    male              11.41     1
+20308    ZYRKOWSKI,  CARLO E          3     POLICE      F           Salary       93354.00    male              11.44     1
+
+[20309 rows x 9 columns]
+
+Total number of tuples in df:  20309 
+
+  Job Title Department Status Salary or Hourly  Gender Annual Salary Bin
+0         3     POLICE      F           Salary    male             > 90K
+1         3     POLICE      F           Salary  female             > 90K
+2         3     POLICE      F           Salary  female            <= 90K
+3         7       OEMC      P           Hourly    male            <= 90K
+4         5   AVIATION      F           Hourly    male             > 90K
+
+Annual Salary Bin values:  ['> 90K' '<= 90K']
+
+Enter path of the file containing the dependencies (obtained applying CFDDiscovery):	
+Total number of dependencies found:  547
+Dependency n. 0 :	 (Annual Salary Bin=> 90K) => Gender=male
+Dependency n. 1 :	 (Salary or Hourly=Hourly) => Gender=male
+Dependency n. 2 :	 (Gender=female) => Salary or Hourly=Salary
+Dependency n. 3 :	 (Annual Salary Bin=> 90K) => Salary or Hourly=Salary
+Dependency n. 4 :	 (Gender=female, Salary or Hourly=Hourly) => Annual Salary Bin=<= 90K
+Dependency n. 5 :	 (Annual Salary Bin, Salary or Hourly=Hourly) => Gender
+Dependency n. 6 :	 (Salary or Hourly, Annual Salary Bin=> 90K) => Gender
+Dependency n. 7 :	 (Annual Salary Bin=> 90K, Salary or Hourly=Hourly) => Gender=male
+
+CFDs ([rawLHS, rawRHS]):
+[['Annual Salary Bin=> 90K'], ['Gender=male']]
+[['Salary or Hourly=Hourly'], ['Gender=male']]
+[['Gender=female'], ['Salary or Hourly=Salary']]
+[['Annual Salary Bin=> 90K'], ['Salary or Hourly=Salary']]
+[['Gender=female', 'Salary or Hourly=Hourly'], ['Annual Salary Bin=< 90K']]
+[['Annual Salary Bin=> 90K', 'Salary or Hourly=Hourly'], ['Gender=male']]
+[['Salary or Hourly=Salary', 'Annual Salary Bin=> 90K'], ['Gender=male']]
+[['Annual Salary Bin=> 90K', 'Gender=female'], ['Salary or Hourly=Salary']]
+
+Total number of dependencies in the dictionary:  282
+
+ACFDs ({'lhs', 'rhs'}):
+ACFD n. 0 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 1 :	 {'lhs': {'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 2 :	 {'lhs': {'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 3 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 4 :	 {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 5 :	 {'lhs': {'Annual Salary Bin': '> 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 6 :	 {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 7 :	 {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+
+Total number of tuples in df2:  130
+                                                                                                  Rule  Support  Confidence  Diff  GenderDiff
+0                                   {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.85  0.05         NaN
+1                                   {'lhs': {'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.16        0.81  0.00         NaN
+2                                 {'lhs': {'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.81  0.01        0.01
+3  {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.03        0.89  0.24        0.24
+4     {'lhs': {'Annual Salary Bin': '> 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.07        0.94  0.13         NaN
+
+Total number of tuples in df3:  29
+                                                                                                  Rule  Support  Confidence  Diff  GenderDiff
+0                                   {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.85  0.05         NaN
+3  {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.03        0.89  0.24        0.24
+4     {'lhs': {'Annual Salary Bin': '> 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.07        0.94  0.13         NaN
+5     {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.38        0.83  0.04         NaN
+6   {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.08        0.95  0.15        0.08
+
+Total number of combinations found:  79
+ACFD n. 0 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 1 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'female'}}
+ACFD n. 2 :	 {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 3 :	 {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}
+ACFD n. 4 :	 {'lhs': {'Gender': 'male', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '> 90K'}}
+ACFD n. 5 :	 {'lhs': {'Gender': 'male', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 6 :	 {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '> 90K'}}
+ACFD n. 7 :	 {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+
+Total number of tuples in df4:  79
+                                                                                               Rule  Support  Confidence  Diff  GenderDiff
+0                                {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.85  0.05         NaN
+1                              {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'female'}}     0.08        0.15 -0.05         NaN
+2                               {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'male'}}     0.34        0.74 -0.06         NaN
+3                             {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.12        0.26  0.06         NaN
+4  {'lhs': {'Gender': 'male', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.07        0.41  0.06        0.06 
+
+/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py:583: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df4_1['Mean'] = 0
+/home/corona/.local/lib/python3.9/site-packages/pandas/core/indexing.py:1720: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  self._setitem_single_column(loc, value, pi)
+
+Number of original CFDs: 29 
+Number of combinations rules:  79 
+Number of final rules found:  37
+                                                                                                   Rule  Support  Confidence  Diff  GenderDiff  Mean
+53              {'lhs': {'Gender': 'female', 'Job Title': '2'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.89  0.62        0.62  0.31
+0                                    {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.85  0.05         NaN  0.25
+22                    {'lhs': {'Status': 'F', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.85  0.04         NaN  0.25
+61              {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': '2'}, 'rhs': {'Gender': 'female'}}     0.00        0.65  0.45         NaN  0.23
+16     {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'male'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.38        0.85  0.06       -0.01  0.22
+12     {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.38        0.83  0.04         NaN  0.21
+70                 {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'male'}, 'rhs': {'Job Title': '3'}}     0.34        0.76  0.05       -0.02  0.20
+66                 {'lhs': {'Job Title': '3', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.34        0.83  0.02         NaN  0.18
+7   {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.03        0.89  0.24        0.24  0.14
+40                     {'lhs': {'Job Title': '3', 'Gender': 'female'}, 'rhs': {'Department': 'POLICE'}}     0.12        0.89  0.12        0.12  0.12
+20                  {'lhs': {'Status': 'F', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.89  0.07        0.07  0.12
+71               {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Job Title': '3'}}     0.07        0.87  0.16        0.09  0.11
+17   {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.08        0.95  0.15        0.08  0.11
+8      {'lhs': {'Annual Salary Bin': '> 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.07        0.94  0.13         NaN  0.10
+3                                 {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.12        0.26  0.06         NaN  0.09
+58                 {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': '2'}, 'rhs': {'Gender': 'male'}}     0.02        0.97  0.17         NaN  0.09
+50                 {'lhs': {'Gender': 'male', 'Job Title': '2'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        0.88  0.15        0.15  0.08
+25                 {'lhs': {'Status': 'F', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.11        0.24  0.05         NaN  0.08
+15  {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.09        0.27  0.06         NaN  0.07
+29      {'lhs': {'Gender': 'female', 'Department': 'AVIATION'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.92  0.13        0.13  0.07
+62                 {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': '8'}, 'rhs': {'Gender': 'male'}}     0.01        0.99  0.12         NaN  0.06
+4      {'lhs': {'Gender': 'male', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.07        0.41  0.06        0.06  0.06
+41                       {'lhs': {'Gender': 'female', 'Department': 'FIRE'}, 'rhs': {'Job Title': '3'}}     0.01        0.95  0.11        0.11  0.06
+34         {'lhs': {'Annual Salary Bin': '> 90K', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'male'}}     0.01        0.94  0.10         NaN  0.06
+11  {'lhs': {'Annual Salary Bin': '<= 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'female'}}     0.03        0.26  0.07         NaN  0.05
+69              {'lhs': {'Job Title': '3', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.07        0.22  0.03         NaN  0.05
+45              {'lhs': {'Gender': 'female', 'Job Title': '8'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.99  0.08        0.08  0.05
+31            {'lhs': {'Gender': 'male', 'Department': 'OEMC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.94  0.08        0.08  0.05
+75               {'lhs': {'Gender': 'female', 'Job Title': '6'}, 'rhs': {'Salary or Hourly': 'Hourly'}}     0.01        0.82  0.07        0.07  0.04
+47                {'lhs': {'Gender': 'male', 'Job Title': '4'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.93  0.06        0.06  0.03
+54                 {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': '9'}, 'rhs': {'Gender': 'male'}}     0.02        0.85  0.04         NaN  0.03
+77                              {'lhs': {'Gender': 'female', 'Job Title': '4'}, 'rhs': {'Status': 'F'}}     0.02        0.82  0.03        0.03  0.03
+74               {'lhs': {'Gender': 'female', 'Job Title': '4'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.02        0.82  0.03        0.03  0.03
+57              {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': '9'}, 'rhs': {'Gender': 'female'}}     0.00        0.23  0.04         NaN  0.02
+26         {'lhs': {'Gender': 'male', 'Department': 'AVIATION'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.23  0.03        0.03  0.02
+32           {'lhs': {'Gender': 'female', 'Department': 'OEMC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.00        0.18  0.03        0.03  0.02
+37      {'lhs': {'Annual Salary Bin': '<= 90K', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.01        0.20  0.03         NaN  0.02
+
+Enter the indexes of the interesting rules (one by one). Write 'exit' to continue or write 'all' to select all the rules
+
+Problematic tuples:  2442
+   Job Title        Department Status Salary or Hourly  Gender Annual Salary Bin  Marked
+3          7              OEMC      P           Hourly    male            <= 90K       1
+4          5          AVIATION      F           Hourly    male             > 90K       2
+7          6  FAMILY & SUPPORT      P           Hourly  female            <= 90K       1
+31         5          AVIATION      F           Hourly    male             > 90K       2
+51         4              OEMC      F           Salary    male            <= 90K       2
+
+Number of tuples interested by the rules:  2442 
+Total number of tuples:  20309 
+
+Cumulative Support:  0.120 
+Difference Mean:  0.148
+Gender - Difference Mean:  0.148 
+
+
+Total number of ACFDs selected:  10 
+                                                                                                    Rule  Support  Confidence  Diff  GenderDiff  Mean
+53              {'lhs': {'Gender': 'female', 'Job Title': '2'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.89  0.62        0.62  0.31
+7   {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.03        0.89  0.24        0.24  0.14
+50                 {'lhs': {'Gender': 'male', 'Job Title': '2'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        0.88  0.15        0.15  0.08
+29      {'lhs': {'Gender': 'female', 'Department': 'AVIATION'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.92  0.13        0.13  0.07
+4      {'lhs': {'Gender': 'male', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.07        0.41  0.06        0.06  0.06
+45              {'lhs': {'Gender': 'female', 'Job Title': '8'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.99  0.08        0.08  0.05
+31            {'lhs': {'Gender': 'male', 'Department': 'OEMC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.94  0.08        0.08  0.05
+47                {'lhs': {'Gender': 'male', 'Job Title': '4'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.93  0.06        0.06  0.03
+26         {'lhs': {'Gender': 'male', 'Department': 'AVIATION'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.23  0.03        0.03  0.02
+32           {'lhs': {'Gender': 'female', 'Department': 'OEMC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.00        0.18  0.03        0.03  0.02

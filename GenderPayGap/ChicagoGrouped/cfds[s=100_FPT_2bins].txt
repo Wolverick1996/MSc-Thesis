@@ -1,0 +1,547 @@
+(Annual Salary Bin=> 90K) => Gender=male
+(Salary or Hourly=Hourly) => Gender=male
+(Gender=female) => Salary or Hourly=Salary
+(Annual Salary Bin=> 90K) => Salary or Hourly=Salary
+(Gender=female, Salary or Hourly=Hourly) => Annual Salary Bin=<= 90K
+(Annual Salary Bin, Salary or Hourly=Hourly) => Gender
+(Salary or Hourly, Annual Salary Bin=> 90K) => Gender
+(Annual Salary Bin=> 90K, Salary or Hourly=Hourly) => Gender=male
+(Salary or Hourly=Salary, Annual Salary Bin=> 90K) => Gender=male
+(Annual Salary Bin, Gender=female) => Salary or Hourly
+(Gender, Annual Salary Bin=> 90K) => Salary or Hourly
+(Annual Salary Bin=> 90K, Gender=female) => Salary or Hourly=Salary
+(Gender=male, Annual Salary Bin=> 90K) => Salary or Hourly=Salary
+(Status) => Gender
+(Status=F) => Gender=male
+(Gender) => Status
+(Gender=female) => Status=F
+(Gender=male) => Status=F
+(Status) => Salary or Hourly
+(Status=P) => Salary or Hourly=Hourly
+(Status=F) => Salary or Hourly=Salary
+(Salary or Hourly) => Status
+(Salary or Hourly=Hourly) => Status=F
+(Salary or Hourly=Salary) => Status=F
+(Salary or Hourly, Status) => Gender
+(Status, Salary or Hourly=Hourly) => Gender
+(Salary or Hourly, Status=F) => Gender
+(Status=F, Salary or Hourly=Hourly) => Gender=male
+(Gender, Status) => Salary or Hourly
+(Status, Gender=female) => Salary or Hourly
+(Status, Gender=male) => Salary or Hourly
+(Gender, Status=F) => Salary or Hourly
+(Status=F, Gender=female) => Salary or Hourly=Salary
+(Status=F, Gender=male) => Salary or Hourly=Salary
+(Gender, Salary or Hourly) => Status
+(Gender, Salary or Hourly=Hourly) => Status
+(Salary or Hourly, Gender=female) => Status
+(Salary or Hourly, Gender=male) => Status
+(Gender=male, Salary or Hourly=Hourly) => Status=F
+(Status=P) => Annual Salary Bin=<= 90K
+(Annual Salary Bin) => Status
+(Annual Salary Bin=<= 90K) => Status=F
+(Annual Salary Bin=> 90K) => Status=F
+(Annual Salary Bin, Status) => Gender
+(Status, Annual Salary Bin=> 90K) => Gender
+(Annual Salary Bin, Status=F) => Gender
+(Status=F, Annual Salary Bin=> 90K) => Gender=male
+(Annual Salary Bin, Gender) => Status
+(Gender, Annual Salary Bin=<= 90K) => Status
+(Annual Salary Bin, Gender=female) => Status
+(Gender=female, Annual Salary Bin=<= 90K) => Status=F
+(Annual Salary Bin, Gender=male) => Status
+(Gender=male, Annual Salary Bin=<= 90K) => Status=F
+(Annual Salary Bin, Status) => Salary or Hourly
+(Status, Annual Salary Bin=> 90K) => Salary or Hourly
+(Annual Salary Bin, Status=F) => Salary or Hourly
+(Status=F, Annual Salary Bin=> 90K) => Salary or Hourly=Salary
+(Annual Salary Bin, Salary or Hourly) => Status
+(Annual Salary Bin, Salary or Hourly=Hourly) => Status
+(Salary or Hourly, Annual Salary Bin=<= 90K) => Status
+(Department) => Gender
+(Department=TRANSPORTN) => Gender=male
+(Department=DAIS) => Gender=male
+(Department=WATER MGMNT) => Gender=male
+(Department=STREETS & SAN) => Gender=male
+(Department=FAMILY & SUPPORT) => Gender=female
+(Department=FIRE) => Gender=male
+(Department=AVIATION) => Gender=male
+(Department=PUBLIC LIBRARY) => Annual Salary Bin=<= 90K
+(Department=DAIS) => Annual Salary Bin=> 90K
+(Department=WATER MGMNT) => Annual Salary Bin=> 90K
+(Department=STREETS & SAN) => Annual Salary Bin=<= 90K
+(Department=FAMILY & SUPPORT) => Annual Salary Bin=<= 90K
+(Department=OEMC) => Annual Salary Bin=<= 90K
+(Gender, Department=DAIS) => Annual Salary Bin
+(Gender, Department=WATER MGMNT) => Annual Salary Bin
+(Gender, Department=STREETS & SAN) => Annual Salary Bin
+(Gender, Department=OEMC) => Annual Salary Bin
+(Gender=female, Department=STREETS & SAN) => Annual Salary Bin=<= 90K
+(Gender=female, Department=AVIATION) => Annual Salary Bin=<= 90K
+(Gender=female, Department=OEMC) => Annual Salary Bin=<= 90K
+(Gender=male, Department=DAIS) => Annual Salary Bin=> 90K
+(Gender=male, Department=WATER MGMNT) => Annual Salary Bin=> 90K
+(Gender=male, Department=STREETS & SAN) => Annual Salary Bin=<= 90K
+(Gender=male, Department=OEMC) => Annual Salary Bin=<= 90K
+(Annual Salary Bin, Department) => Gender
+(Annual Salary Bin, Department=TRANSPORTN) => Gender
+(Annual Salary Bin, Department=DAIS) => Gender
+(Annual Salary Bin, Department=WATER MGMNT) => Gender
+(Annual Salary Bin, Department=STREETS & SAN) => Gender
+(Annual Salary Bin, Department=FAMILY & SUPPORT) => Gender
+(Annual Salary Bin, Department=FIRE) => Gender
+(Annual Salary Bin, Department=AVIATION) => Gender
+(Annual Salary Bin=<= 90K, Department=WATER MGMNT) => Gender=male
+(Annual Salary Bin=<= 90K, Department=STREETS & SAN) => Gender=male
+(Annual Salary Bin=<= 90K, Department=FAMILY & SUPPORT) => Gender=female
+(Annual Salary Bin=<= 90K, Department=FIRE) => Gender=male
+(Annual Salary Bin=<= 90K, Department=AVIATION) => Gender=male
+(Department, Annual Salary Bin=> 90K) => Gender
+(Annual Salary Bin=> 90K, Department=DAIS) => Gender=male
+(Annual Salary Bin=> 90K, Department=WATER MGMNT) => Gender=male
+(Annual Salary Bin=> 90K, Department=FIRE) => Gender=male
+(Annual Salary Bin=> 90K, Department=AVIATION) => Gender=male
+(Department) => Salary or Hourly
+(Department=TRANSPORTN) => Salary or Hourly=Hourly
+(Department=DAIS) => Salary or Hourly=Hourly
+(Department=WATER MGMNT) => Salary or Hourly=Hourly
+(Department=STREETS & SAN) => Salary or Hourly=Hourly
+(Department=FAMILY & SUPPORT) => Salary or Hourly=Hourly
+(Department=FIRE) => Salary or Hourly=Salary
+(Department=POLICE) => Salary or Hourly=Salary
+(Salary or Hourly, Department) => Gender
+(Salary or Hourly, Department=TRANSPORTN) => Gender
+(Salary or Hourly, Department=DAIS) => Gender
+(Salary or Hourly, Department=WATER MGMNT) => Gender
+(Salary or Hourly, Department=STREETS & SAN) => Gender
+(Salary or Hourly, Department=FAMILY & SUPPORT) => Gender
+(Salary or Hourly, Department=FIRE) => Gender
+(Salary or Hourly, Department=AVIATION) => Gender
+(Department, Salary or Hourly=Hourly) => Gender
+(Salary or Hourly=Hourly, Department=TRANSPORTN) => Gender=male
+(Salary or Hourly=Hourly, Department=DAIS) => Gender=male
+(Salary or Hourly=Hourly, Department=WATER MGMNT) => Gender=male
+(Salary or Hourly=Hourly, Department=STREETS & SAN) => Gender=male
+(Salary or Hourly=Hourly, Department=FAMILY & SUPPORT) => Gender=female
+(Salary or Hourly=Hourly, Department=AVIATION) => Gender=male
+(Department, Salary or Hourly=Salary) => Gender
+(Salary or Hourly=Salary, Department=FIRE) => Gender=male
+(Salary or Hourly=Salary, Department=OEMC) => Gender=female
+(Gender, Department) => Salary or Hourly
+(Gender, Department=TRANSPORTN) => Salary or Hourly
+(Gender, Department=DAIS) => Salary or Hourly
+(Gender, Department=WATER MGMNT) => Salary or Hourly
+(Gender, Department=FAMILY & SUPPORT) => Salary or Hourly
+(Department, Gender=female) => Salary or Hourly
+(Gender=female, Department=FAMILY & SUPPORT) => Salary or Hourly=Hourly
+(Department, Gender=male) => Salary or Hourly
+(Gender=male, Department=TRANSPORTN) => Salary or Hourly=Hourly
+(Gender=male, Department=DAIS) => Salary or Hourly=Hourly
+(Gender=male, Department=WATER MGMNT) => Salary or Hourly=Hourly
+(Gender=male, Department=AVIATION) => Salary or Hourly=Hourly
+(Salary or Hourly, Department=DAIS) => Annual Salary Bin
+(Salary or Hourly, Department=WATER MGMNT) => Annual Salary Bin
+(Salary or Hourly, Department=STREETS & SAN) => Annual Salary Bin
+(Department, Salary or Hourly=Hourly) => Annual Salary Bin
+(Salary or Hourly=Hourly, Department=DAIS) => Annual Salary Bin=> 90K
+(Salary or Hourly=Hourly, Department=WATER MGMNT) => Annual Salary Bin=> 90K
+(Salary or Hourly=Hourly, Department=STREETS & SAN) => Annual Salary Bin=<= 90K
+(Salary or Hourly, Department=OEMC) => Annual Salary Bin
+(Department=OEMC, Salary or Hourly=Hourly) => Annual Salary Bin=<= 90K
+(Salary or Hourly=Salary, Department=AVIATION) => Annual Salary Bin=<= 90K
+(Annual Salary Bin, Department) => Salary or Hourly
+(Annual Salary Bin, Department=TRANSPORTN) => Salary or Hourly
+(Annual Salary Bin, Department=DAIS) => Salary or Hourly
+(Annual Salary Bin, Department=WATER MGMNT) => Salary or Hourly
+(Annual Salary Bin, Department=FAMILY & SUPPORT) => Salary or Hourly
+(Department, Annual Salary Bin=<= 90K) => Salary or Hourly
+(Annual Salary Bin=<= 90K, Department=TRANSPORTN) => Salary or Hourly=Hourly
+(Annual Salary Bin=<= 90K, Department=WATER MGMNT) => Salary or Hourly=Hourly
+(Annual Salary Bin=<= 90K, Department=FAMILY & SUPPORT) => Salary or Hourly=Hourly
+(Department, Annual Salary Bin=> 90K) => Salary or Hourly
+(Annual Salary Bin=> 90K, Department=DAIS) => Salary or Hourly=Hourly
+(Annual Salary Bin=> 90K, Department=WATER MGMNT) => Salary or Hourly=Hourly
+(Annual Salary Bin=> 90K, Department=AVIATION) => Salary or Hourly=Hourly
+(Department) => Status
+(Department=TRANSPORTN) => Status=F
+(Department=DAIS) => Status=F
+(Department=WATER MGMNT) => Status=F
+(Department=STREETS & SAN) => Status=F
+(Department=FAMILY & SUPPORT) => Status=P
+(Department=FIRE) => Status=F
+(Department=AVIATION) => Status=F
+(Department=POLICE) => Status=F
+(Status, Department) => Gender
+(Status, Department=TRANSPORTN) => Gender
+(Status, Department=DAIS) => Gender
+(Status, Department=WATER MGMNT) => Gender
+(Status, Department=STREETS & SAN) => Gender
+(Status, Department=FAMILY & SUPPORT) => Gender
+(Status, Department=FIRE) => Gender
+(Status, Department=AVIATION) => Gender
+(Status=P, Department=FAMILY & SUPPORT) => Gender=female
+(Department, Status=F) => Gender
+(Status=F, Department=TRANSPORTN) => Gender=male
+(Status=F, Department=DAIS) => Gender=male
+(Status=F, Department=WATER MGMNT) => Gender=male
+(Status=F, Department=STREETS & SAN) => Gender=male
+(Status=F, Department=FIRE) => Gender=male
+(Status=F, Department=AVIATION) => Gender=male
+(Status=F, Department=OEMC) => Gender=female
+(Gender, Department) => Status
+(Gender, Department=STREETS & SAN) => Status
+(Gender, Department=FAMILY & SUPPORT) => Status
+(Gender, Department=AVIATION) => Status
+(Department, Gender=female) => Status
+(Gender=female, Department=STREETS & SAN) => Status=F
+(Gender=female, Department=FAMILY & SUPPORT) => Status=P
+(Gender=female, Department=AVIATION) => Status=F
+(Department, Gender=male) => Status
+(Gender=male, Department=STREETS & SAN) => Status=F
+(Gender=male, Department=AVIATION) => Status=F
+(Status, Department=DAIS) => Annual Salary Bin
+(Status, Department=WATER MGMNT) => Annual Salary Bin
+(Status, Department=STREETS & SAN) => Annual Salary Bin
+(Status, Department=OEMC) => Annual Salary Bin
+(Status=F, Department=DAIS) => Annual Salary Bin=> 90K
+(Status=F, Department=WATER MGMNT) => Annual Salary Bin=> 90K
+(Status=F, Department=STREETS & SAN) => Annual Salary Bin=<= 90K
+(Annual Salary Bin, Department) => Status
+(Annual Salary Bin, Department=STREETS & SAN) => Status
+(Annual Salary Bin, Department=FAMILY & SUPPORT) => Status
+(Annual Salary Bin, Department=AVIATION) => Status
+(Department, Annual Salary Bin=<= 90K) => Status
+(Annual Salary Bin=<= 90K, Department=STREETS & SAN) => Status=F
+(Annual Salary Bin=<= 90K, Department=FAMILY & SUPPORT) => Status=P
+(Annual Salary Bin=<= 90K, Department=AVIATION) => Status=F
+(Status, Department) => Salary or Hourly
+(Status, Department=TRANSPORTN) => Salary or Hourly
+(Status, Department=PUBLIC LIBRARY) => Salary or Hourly
+(Status, Department=DAIS) => Salary or Hourly
+(Status, Department=WATER MGMNT) => Salary or Hourly
+(Status, Department=FAMILY & SUPPORT) => Salary or Hourly
+(Status, Department=OEMC) => Salary or Hourly
+(Department, Status=F) => Salary or Hourly
+(Status=F, Department=TRANSPORTN) => Salary or Hourly=Hourly
+(Status=F, Department=PUBLIC LIBRARY) => Salary or Hourly=Salary
+(Status=F, Department=DAIS) => Salary or Hourly=Hourly
+(Status=F, Department=WATER MGMNT) => Salary or Hourly=Hourly
+(Status=F, Department=OEMC) => Salary or Hourly=Salary
+(Salary or Hourly, Department) => Status
+(Salary or Hourly, Department=PUBLIC LIBRARY) => Status
+(Salary or Hourly, Department=STREETS & SAN) => Status
+(Salary or Hourly, Department=FAMILY & SUPPORT) => Status
+(Salary or Hourly, Department=AVIATION) => Status
+(Department, Salary or Hourly=Hourly) => Status
+(Salary or Hourly=Hourly, Department=PUBLIC LIBRARY) => Status=P
+(Salary or Hourly=Hourly, Department=STREETS & SAN) => Status=F
+(Salary or Hourly=Hourly, Department=FAMILY & SUPPORT) => Status=P
+(Salary or Hourly=Hourly, Department=AVIATION) => Status=F
+(Salary or Hourly, Department=OEMC) => Status
+(Department=OEMC, Salary or Hourly=Hourly) => Status=P
+(Job Title=7) => Department=OEMC
+(Department) => Job Title
+(Department=FAMILY & SUPPORT) => Job Title=6
+(Department=FIRE) => Job Title=3
+(Department=POLICE) => Job Title=3
+(Job Title) => Gender
+(Job Title=9) => Gender=male
+(Job Title=4) => Gender=female
+(Job Title=1) => Gender=male
+(Job Title=2) => Gender=male
+(Job Title=8) => Gender=male
+(Job Title=5) => Gender=male
+(Job Title=3) => Gender=male
+(Department, Job Title) => Gender
+(Job Title, Department=TRANSPORTN) => Gender
+(Department, Job Title=9) => Gender
+(Job Title, Department=DAIS) => Gender
+(Department, Job Title=4) => Gender
+(Department, Job Title=1) => Gender
+(Job Title, Department=WATER MGMNT) => Gender
+(Department=WATER MGMNT, Job Title=9) => Gender=male
+(Department, Job Title=2) => Gender
+(Job Title=2, Department=WATER MGMNT) => Gender=male
+(Job Title, Department=STREETS & SAN) => Gender
+(Department, Job Title=8) => Gender
+(Job Title=8, Department=TRANSPORTN) => Gender=male
+(Job Title=8, Department=DAIS) => Gender=male
+(Job Title=8, Department=WATER MGMNT) => Gender=male
+(Job Title=8, Department=STREETS & SAN) => Gender=male
+(Job Title, Department=FAMILY & SUPPORT) => Gender
+(Job Title=6, Department=FAMILY & SUPPORT) => Gender=female
+(Job Title, Department=FIRE) => Gender
+(Department=FIRE, Job Title=1) => Gender=male
+(Job Title, Department=AVIATION) => Gender
+(Department=AVIATION, Job Title=8) => Gender=male
+(Department, Job Title=5) => Gender
+(Job Title=5, Department=WATER MGMNT) => Gender=male
+(Department=OEMC, Job Title=4) => Gender=female
+(Department=POLICE, Job Title=1) => Gender=male
+(Department, Job Title=3) => Gender
+(Job Title=3, Department=FIRE) => Gender=male
+(Job Title=3, Gender=female) => Department=POLICE
+(Gender, Department) => Job Title
+(Gender, Department=FAMILY & SUPPORT) => Job Title
+(Gender, Department=FIRE) => Job Title
+(Department, Gender=female) => Job Title
+(Gender=female, Department=FAMILY & SUPPORT) => Job Title=6
+(Gender=female, Department=FIRE) => Job Title=3
+(Department, Gender=male) => Job Title
+(Gender=male, Department=FIRE) => Job Title=3
+(Gender, Department=POLICE) => Job Title
+(Department=POLICE, Gender=female) => Job Title=3
+(Department=POLICE, Gender=male) => Job Title=3
+(Job Title=4) => Annual Salary Bin=<= 90K
+(Job Title=1) => Annual Salary Bin=> 90K
+(Job Title=8) => Annual Salary Bin=<= 90K
+(Job Title=6) => Annual Salary Bin=<= 90K
+(Job Title=5) => Annual Salary Bin=> 90K
+(Job Title=7) => Annual Salary Bin=<= 90K
+(Job Title, Department=TRANSPORTN) => Annual Salary Bin
+(Department, Job Title=9) => Annual Salary Bin
+(Job Title, Department=DAIS) => Annual Salary Bin
+(Department, Job Title=4) => Annual Salary Bin
+(Job Title, Department=WATER MGMNT) => Annual Salary Bin
+(Department=WATER MGMNT, Job Title=9) => Annual Salary Bin=> 90K
+(Department, Job Title=2) => Annual Salary Bin
+(Job Title=2, Department=WATER MGMNT) => Annual Salary Bin=> 90K
+(Job Title, Department=STREETS & SAN) => Annual Salary Bin
+(Department=STREETS & SAN, Job Title=9) => Annual Salary Bin=<= 90K
+(Department, Job Title=8) => Annual Salary Bin
+(Job Title=8, Department=TRANSPORTN) => Annual Salary Bin=<= 90K
+(Job Title=8, Department=DAIS) => Annual Salary Bin=> 90K
+(Job Title=8, Department=WATER MGMNT) => Annual Salary Bin=<= 90K
+(Job Title=8, Department=STREETS & SAN) => Annual Salary Bin=<= 90K
+(Job Title, Department=AVIATION) => Annual Salary Bin
+(Department=AVIATION, Job Title=9) => Annual Salary Bin=<= 90K
+(Department=AVIATION, Job Title=8) => Annual Salary Bin=<= 90K
+(Job Title, Department=OEMC) => Annual Salary Bin
+(Annual Salary Bin=<= 90K, Job Title=2) => Department=PUBLIC LIBRARY
+(Annual Salary Bin=> 90K, Job Title=9) => Department=WATER MGMNT
+(Annual Salary Bin=> 90K, Job Title=8) => Department=DAIS
+(Job Title=3, Annual Salary Bin=<= 90K) => Department=POLICE
+(Annual Salary Bin, Department) => Job Title
+(Annual Salary Bin, Department=TRANSPORTN) => Job Title
+(Annual Salary Bin, Department=FAMILY & SUPPORT) => Job Title
+(Annual Salary Bin, Department=FIRE) => Job Title
+(Department, Annual Salary Bin=<= 90K) => Job Title
+(Annual Salary Bin=<= 90K, Department=TRANSPORTN) => Job Title=8
+(Annual Salary Bin=<= 90K, Department=WATER MGMNT) => Job Title=8
+(Annual Salary Bin=<= 90K, Department=FAMILY & SUPPORT) => Job Title=6
+(Annual Salary Bin=<= 90K, Department=FIRE) => Job Title=3
+(Department, Annual Salary Bin=> 90K) => Job Title
+(Annual Salary Bin, Department=POLICE) => Job Title
+(Department=POLICE, Annual Salary Bin=<= 90K) => Job Title=3
+(Department=POLICE, Annual Salary Bin=> 90K) => Job Title=3
+(Gender, Job Title=4) => Annual Salary Bin
+(Gender, Job Title=2) => Annual Salary Bin
+(Gender, Job Title=8) => Annual Salary Bin
+(Gender=female, Job Title=4) => Annual Salary Bin=<= 90K
+(Gender=female, Job Title=8) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=4) => Annual Salary Bin=<= 90K
+(Gender=male, Job Title=2) => Annual Salary Bin=> 90K
+(Gender=male, Job Title=8) => Annual Salary Bin=<= 90K
+(Annual Salary Bin, Job Title) => Gender
+(Annual Salary Bin, Job Title=9) => Gender
+(Annual Salary Bin, Job Title=4) => Gender
+(Annual Salary Bin, Job Title=1) => Gender
+(Annual Salary Bin, Job Title=2) => Gender
+(Annual Salary Bin, Job Title=8) => Gender
+(Annual Salary Bin, Job Title=5) => Gender
+(Annual Salary Bin=<= 90K, Job Title=8) => Gender=male
+(Job Title, Annual Salary Bin=> 90K) => Gender
+(Annual Salary Bin=> 90K, Job Title=9) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=1) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=2) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=8) => Gender=male
+(Annual Salary Bin=> 90K, Job Title=5) => Gender=male
+(Annual Salary Bin, Job Title=3) => Gender
+(Job Title=3, Annual Salary Bin=> 90K) => Gender=male
+(Annual Salary Bin=> 90K, Gender=female) => Job Title=3
+(Job Title) => Salary or Hourly
+(Job Title=1) => Salary or Hourly=Salary
+(Job Title=8) => Salary or Hourly=Hourly
+(Job Title=5) => Salary or Hourly=Hourly
+(Job Title=7) => Salary or Hourly=Hourly
+(Job Title=3) => Salary or Hourly=Salary
+(Salary or Hourly=Salary) => Job Title=3
+(Department, Job Title) => Salary or Hourly
+(Job Title, Department=TRANSPORTN) => Salary or Hourly
+(Job Title, Department=PUBLIC LIBRARY) => Salary or Hourly
+(Department, Job Title=9) => Salary or Hourly
+(Job Title, Department=DAIS) => Salary or Hourly
+(Department, Job Title=4) => Salary or Hourly
+(Job Title=4, Department=PUBLIC LIBRARY) => Salary or Hourly=Hourly
+(Job Title, Department=WATER MGMNT) => Salary or Hourly
+(Department=WATER MGMNT, Job Title=9) => Salary or Hourly=Hourly
+(Department, Job Title=2) => Salary or Hourly
+(Job Title=2, Department=PUBLIC LIBRARY) => Salary or Hourly=Salary
+(Job Title=2, Department=WATER MGMNT) => Salary or Hourly=Hourly
+(Job Title, Department=FAMILY & SUPPORT) => Salary or Hourly
+(Department, Job Title=6) => Salary or Hourly
+(Job Title=6, Department=FAMILY & SUPPORT) => Salary or Hourly=Hourly
+(Job Title, Department=AVIATION) => Salary or Hourly
+(Department=AVIATION, Job Title=9) => Salary or Hourly=Salary
+(Job Title, Department=OEMC) => Salary or Hourly
+(Department=OEMC, Job Title=4) => Salary or Hourly=Salary
+(Salary or Hourly, Job Title=4) => Department
+(Salary or Hourly=Hourly, Job Title=4) => Department=PUBLIC LIBRARY
+(Salary or Hourly=Salary, Job Title=9) => Department=AVIATION
+(Salary or Hourly=Salary, Job Title=2) => Department=PUBLIC LIBRARY
+(Salary or Hourly=Salary, Job Title=6) => Department=POLICE
+(Salary or Hourly, Department) => Job Title
+(Salary or Hourly, Department=PUBLIC LIBRARY) => Job Title
+(Salary or Hourly, Department=FAMILY & SUPPORT) => Job Title
+(Salary or Hourly, Department=FIRE) => Job Title
+(Salary or Hourly, Department=AVIATION) => Job Title
+(Salary or Hourly=Hourly, Department=PUBLIC LIBRARY) => Job Title=4
+(Salary or Hourly=Hourly, Department=FAMILY & SUPPORT) => Job Title=6
+(Salary or Hourly, Department=OEMC) => Job Title
+(Department=OEMC, Salary or Hourly=Hourly) => Job Title=7
+(Department, Salary or Hourly=Salary) => Job Title
+(Salary or Hourly=Salary, Department=PUBLIC LIBRARY) => Job Title=2
+(Salary or Hourly=Salary, Department=FIRE) => Job Title=3
+(Salary or Hourly=Salary, Department=AVIATION) => Job Title=9
+(Salary or Hourly=Salary, Department=OEMC) => Job Title=4
+(Salary or Hourly, Department=POLICE) => Job Title
+(Department=POLICE, Salary or Hourly=Salary) => Job Title=3
+(Salary or Hourly, Job Title) => Gender
+(Salary or Hourly, Job Title=9) => Gender
+(Salary or Hourly, Job Title=4) => Gender
+(Salary or Hourly, Job Title=1) => Gender
+(Salary or Hourly, Job Title=2) => Gender
+(Salary or Hourly, Job Title=8) => Gender
+(Salary or Hourly, Job Title=5) => Gender
+(Job Title, Salary or Hourly=Hourly) => Gender
+(Salary or Hourly=Hourly, Job Title=9) => Gender=male
+(Salary or Hourly=Hourly, Job Title=2) => Gender=male
+(Salary or Hourly=Hourly, Job Title=8) => Gender=male
+(Salary or Hourly=Hourly, Job Title=5) => Gender=male
+(Job Title, Salary or Hourly=Salary) => Gender
+(Salary or Hourly=Salary, Job Title=4) => Gender=female
+(Salary or Hourly=Salary, Job Title=1) => Gender=male
+(Salary or Hourly, Job Title=3) => Gender
+(Job Title=3, Salary or Hourly=Salary) => Gender=male
+(Gender, Job Title) => Salary or Hourly
+(Gender, Job Title=2) => Salary or Hourly
+(Job Title, Gender=female) => Salary or Hourly
+(Gender=female, Job Title=4) => Salary or Hourly=Salary
+(Gender=female, Job Title=6) => Salary or Hourly=Hourly
+(Job Title, Gender=male) => Salary or Hourly
+(Gender=male, Job Title=2) => Salary or Hourly=Hourly
+(Salary or Hourly, Gender=male) => Job Title
+(Gender, Salary or Hourly=Salary) => Job Title
+(Salary or Hourly=Salary, Gender=female) => Job Title=3
+(Salary or Hourly=Salary, Gender=male) => Job Title=3
+(Salary or Hourly, Job Title=4) => Annual Salary Bin
+(Salary or Hourly, Job Title=2) => Annual Salary Bin
+(Salary or Hourly, Job Title=8) => Annual Salary Bin
+(Job Title, Salary or Hourly=Hourly) => Annual Salary Bin
+(Salary or Hourly=Hourly, Job Title=4) => Annual Salary Bin=<= 90K
+(Salary or Hourly=Hourly, Job Title=2) => Annual Salary Bin=> 90K
+(Salary or Hourly=Hourly, Job Title=8) => Annual Salary Bin=<= 90K
+(Salary or Hourly=Salary, Job Title=9) => Annual Salary Bin=<= 90K
+(Salary or Hourly=Salary, Job Title=4) => Annual Salary Bin=<= 90K
+(Salary or Hourly=Salary, Job Title=2) => Annual Salary Bin=<= 90K
+(Annual Salary Bin, Job Title) => Salary or Hourly
+(Annual Salary Bin, Job Title=2) => Salary or Hourly
+(Job Title, Annual Salary Bin=<= 90K) => Salary or Hourly
+(Annual Salary Bin=<= 90K, Job Title=2) => Salary or Hourly=Salary
+(Job Title, Annual Salary Bin=> 90K) => Salary or Hourly
+(Annual Salary Bin=> 90K, Job Title=9) => Salary or Hourly=Hourly
+(Annual Salary Bin=> 90K, Job Title=2) => Salary or Hourly=Hourly
+(Annual Salary Bin, Salary or Hourly) => Job Title
+(Salary or Hourly, Annual Salary Bin=> 90K) => Job Title
+(Annual Salary Bin, Salary or Hourly=Salary) => Job Title
+(Salary or Hourly=Salary, Annual Salary Bin=<= 90K) => Job Title=3
+(Salary or Hourly=Salary, Annual Salary Bin=> 90K) => Job Title=3
+(Job Title) => Status
+(Job Title=9) => Status=F
+(Job Title=1) => Status=F
+(Job Title=2) => Status=F
+(Job Title=8) => Status=F
+(Job Title=5) => Status=F
+(Job Title=7) => Status=P
+(Job Title=3) => Status=F
+(Department, Job Title) => Status
+(Job Title, Department=PUBLIC LIBRARY) => Status
+(Department, Job Title=4) => Status
+(Job Title=4, Department=PUBLIC LIBRARY) => Status=P
+(Job Title, Department=STREETS & SAN) => Status
+(Department, Job Title=8) => Status
+(Job Title=8, Department=STREETS & SAN) => Status=F
+(Job Title, Department=FAMILY & SUPPORT) => Status
+(Department, Job Title=6) => Status
+(Job Title=6, Department=STREETS & SAN) => Status=F
+(Job Title=6, Department=FAMILY & SUPPORT) => Status=P
+(Job Title, Department=AVIATION) => Status
+(Department=AVIATION, Job Title=8) => Status=F
+(Job Title, Department=OEMC) => Status
+(Department=OEMC, Job Title=4) => Status=F
+(Status, Job Title=4) => Department
+(Job Title, Status=P) => Department
+(Status=P, Job Title=4) => Department=PUBLIC LIBRARY
+(Status=P, Job Title=6) => Department=FAMILY & SUPPORT
+(Status, Department) => Job Title
+(Status, Department=PUBLIC LIBRARY) => Job Title
+(Status, Department=FAMILY & SUPPORT) => Job Title
+(Status, Department=FIRE) => Job Title
+(Department, Status=P) => Job Title
+(Status=P, Department=PUBLIC LIBRARY) => Job Title=4
+(Status=P, Department=STREETS & SAN) => Job Title=8
+(Status=P, Department=FAMILY & SUPPORT) => Job Title=6
+(Status, Department=OEMC) => Job Title
+(Department=OEMC, Status=P) => Job Title=7
+(Department, Status=F) => Job Title
+(Status=F, Department=PUBLIC LIBRARY) => Job Title=2
+(Status=F, Department=FIRE) => Job Title=3
+(Status=F, Department=OEMC) => Job Title=4
+(Status, Department=POLICE) => Job Title
+(Department=POLICE, Status=F) => Job Title=3
+(Status, Job Title) => Gender
+(Status, Job Title=9) => Gender
+(Status, Job Title=4) => Gender
+(Status, Job Title=1) => Gender
+(Status, Job Title=2) => Gender
+(Status, Job Title=8) => Gender
+(Status, Job Title=5) => Gender
+(Status=P, Job Title=6) => Gender=female
+(Job Title, Status=F) => Gender
+(Status=F, Job Title=9) => Gender=male
+(Status=F, Job Title=4) => Gender=female
+(Status=F, Job Title=1) => Gender=male
+(Status=F, Job Title=2) => Gender=male
+(Status=F, Job Title=8) => Gender=male
+(Status=F, Job Title=5) => Gender=male
+(Status, Job Title=3) => Gender
+(Job Title=3, Status=F) => Gender=male
+(Gender, Job Title) => Status
+(Gender, Job Title=8) => Status
+(Job Title, Gender=female) => Status
+(Gender=female, Job Title=4) => Status=F
+(Gender=female, Job Title=8) => Status=F
+(Job Title, Gender=male) => Status
+(Gender=male, Job Title=8) => Status=F
+(Gender=male, Job Title=6) => Status=F
+(Status, Job Title=4) => Annual Salary Bin
+(Status, Job Title=8) => Annual Salary Bin
+(Status=F, Job Title=4) => Annual Salary Bin=<= 90K
+(Status=F, Job Title=8) => Annual Salary Bin=<= 90K
+(Annual Salary Bin, Job Title) => Status
+(Annual Salary Bin, Job Title=8) => Status
+(Job Title, Annual Salary Bin=<= 90K) => Status
+(Annual Salary Bin=<= 90K, Job Title=8) => Status=F
+(Status, Job Title) => Salary or Hourly
+(Status, Job Title=4) => Salary or Hourly
+(Job Title, Status=F) => Salary or Hourly
+(Status=F, Job Title=4) => Salary or Hourly=Salary
+(Salary or Hourly, Job Title) => Status
+(Salary or Hourly, Job Title=4) => Status
+(Salary or Hourly, Job Title=8) => Status
+(Job Title, Salary or Hourly=Hourly) => Status
+(Salary or Hourly=Hourly, Job Title=4) => Status=P
+(Salary or Hourly=Hourly, Job Title=8) => Status=F
+(Status, Salary or Hourly=Salary) => Job Title
+(Salary or Hourly, Status=F) => Job Title
+(Status=F, Salary or Hourly=Salary) => Job Title=3

@@ -77,3 +77,50 @@ print(df)
 
 # Exporting CSV
 df.to_csv(r'Chicago_Adjusted.csv', index=False)
+
+# Generating biased dataset (dividing females' Annual Salary by 2)
+df.loc[df['Gender'] == 'female', 'Annual Salary'] = df.loc[df['Gender'] == 'female', 'Annual Salary'] / 2
+
+print(df)
+
+# Exporting CSV
+df.to_csv(r'Chicago_Biased.csv', index=False)
+
+df = pd.read_csv('Chicago_Adjusted.csv')
+
+# Grouping Job Titles
+g1 = ['CAPTAIN-EMT', 'LIEUTENANT', 'LIEUTENANT-EMT']
+g2 = ['LIBRARIAN I', 'OPERATING ENGINEER-GROUP A', 'OPERATING ENGINEER-GROUP C']
+g3 = ['FIRE ENGINEER-EMT', 'FIREFIGHTER', 'FIREFIGHTER-EMT', 'FIREFIGHTER-EMT (RECRUIT)', 'FIREFIGHTER/PARAMEDIC',
+      'PARAMEDIC', 'PARAMEDIC I/C', 'POLICE OFFICER', 'POLICE OFFICER (ASSIGNED AS DETECTIVE)',
+      'POLICE OFFICER (ASSIGNED AS EVIDENCE TECHNICIAN)', 'POLICE OFFICER / FLD TRNG OFFICER', 'SERGEANT']
+g4 = ['ADMINISTRATIVE ASST II', 'LIBRARY PAGE', 'POLICE COMMUNICATIONS OPERATOR I', 'POLICE COMMUNICATIONS OPERATOR II']
+g5 = ['ELECTRICAL MECHANIC', 'HOISTING ENGINEER', 'PLUMBER']
+g6 = ['DETENTION AIDE', 'FOSTER GRANDPARENT', 'SANITATION LABORER']
+g7 = ['TRAFFIC CONTROL AIDE-HOURLY']
+g8 = ['MACHINIST (AUTOMOTIVE)', 'MOTOR TRUCK DRIVER', 'POOL MOTOR TRUCK DRIVER']
+g9 = ['AVIATION SECURITY OFFICER', 'CONSTRUCTION LABORER', 'GENERAL LABORER - DSS']
+for i in range(len(df)):
+    if df.loc[i, 'Job Title'] in g1:
+        df.loc[i, 'Job Title'] = 1
+    if df.loc[i, 'Job Title'] in g2:
+        df.loc[i, 'Job Title'] = 2
+    if df.loc[i, 'Job Title'] in g3:
+        df.loc[i, 'Job Title'] = 3
+    if df.loc[i, 'Job Title'] in g4:
+        df.loc[i, 'Job Title'] = 4
+    if df.loc[i, 'Job Title'] in g5:
+        df.loc[i, 'Job Title'] = 5
+    if df.loc[i, 'Job Title'] in g6:
+        df.loc[i, 'Job Title'] = 6
+    if df.loc[i, 'Job Title'] in g7:
+        df.loc[i, 'Job Title'] = 7
+    if df.loc[i, 'Job Title'] in g8:
+        df.loc[i, 'Job Title'] = 8
+    if df.loc[i, 'Job Title'] in g9:
+        df.loc[i, 'Job Title'] = 9
+
+print(df)
+
+# Exporting CSV
+df.to_csv(r'Chicago_Grouped.csv', index=False)

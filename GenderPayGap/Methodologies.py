@@ -5,6 +5,7 @@ from prettytable import PrettyTable
 import matplotlib.pyplot as plt
 import copy
 from sklearn.preprocessing import LabelEncoder
+from pandas.api.types import is_numeric_dtype
 
 pd.set_option('display.max_columns', None)
 pd.set_option('max_colwidth', None)
@@ -13,6 +14,8 @@ pd.set_option('display.float_format', lambda f: '%.2f' % f)
 
 # SanFrancisco/SanFrancisco_Adjusted.csv
 # Chicago/Chicago_Adjusted.csv
+# ChicagoBiased/Chicago_Biased.csv
+# ChicagoGrouped/Chicago_Grouped.csv
 path = input("Enter CSV file path:\t")
 
 # Get the Data Ready #
@@ -105,12 +108,13 @@ dfRF = pd.read_csv(path)
 
 # Convert categorical to numerical attributes (RankingFacts use numerical attributes)
 dfRF['Status'] = np.where(dfRF['Status'] == 'F', 1, 0)  # (F = 1, P = 0)
-label_encoder = LabelEncoder()
-label_encoder.fit(dfRF['Job Title'])
-label_encoder_name_mapping = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
-print("\nEncoding Job Title:\n", label_encoder_name_mapping)
-dfRF['Job Title'] = label_encoder.fit_transform(dfRF['Job Title'])
-if 'Department' in df.columns:
+if is_numeric_dtype(dfRF['Job Title']) is False:
+    label_encoder = LabelEncoder()
+    label_encoder.fit(dfRF['Job Title'])
+    label_encoder_name_mapping = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
+    print("\nEncoding Job Title:\n", label_encoder_name_mapping)
+    dfRF['Job Title'] = label_encoder.fit_transform(dfRF['Job Title'])
+if 'Department' in dfRF.columns:
     label_encoder = LabelEncoder()
     label_encoder.fit(dfRF['Department'])
     label_encoder_name_mapping = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
@@ -134,10 +138,10 @@ print(df)
 
 # Data Acquisition #
 # Create employee income bins (numbers are not really useful in estimating correlations)
-labels = ["0-39", "40-59", "60-79", "80-99", "100-119", "120-139", "140+"]
-bins = [0, 40, 60, 80, 100, 120, 140, 500]
-#labels = ["<= 90K", "> 90K"]
-#bins = [0, 90, 500]
+#labels = ["0-39", "40-59", "60-79", "80-99", "100-119", "120-139", "140+"]
+#bins = [0, 40, 60, 80, 100, 120, 140, 500]
+labels = ["<= 90K", "> 90K"]
+bins = [0, 90, 500]
 #df['Annual Salary'] = df['Annual Salary'] / 1000
 df['Annual Salary Bin'] = pd.cut(df['Annual Salary'] / 1000, bins=bins, labels=labels)
 
@@ -147,17 +151,31 @@ d = pd.crosstab(df['Annual Salary Bin'], df['Gender'])
 d.plot.bar(stacked=True, color=['hotpink', 'dodgerblue'])
 plt.xticks(rotation=45)
 plt.tight_layout()
+plt.title("Distribution of Annual Salary over Gender")
 
+dfPlot = df[df['Gender'] == 'male']
 # Get the frequency, PMF (Probability Mass Function) and CDF (Cumulative Distribution Function)
-# for each value in the Annual Salary column
-stats_df = df.groupby('Annual Salary')['Annual Salary']\
+# for each value in the Annual Salary column (males)
+stats_df = dfPlot.groupby('Annual Salary')['Annual Salary']\
     .agg('count').pipe(pd.DataFrame).rename(columns={'Annual Salary': 'frequency'})
 stats_df['pmf'] = stats_df['frequency'] / sum(stats_df['frequency'])
 stats_df['cdf'] = stats_df['pmf'].cumsum()
 stats_df = stats_df.reset_index()
 stats_df.plot(x='Annual Salary', y=['pmf', 'cdf'], grid=True)
+plt.title("PMF and CDF for Annual Salary (Males)")
 
-#plt.show()
+dfPlot = df[df['Gender'] == 'female']
+# Get the frequency, PMF (Probability Mass Function) and CDF (Cumulative Distribution Function)
+# for each value in the Annual Salary column (females)
+stats_df = dfPlot.groupby('Annual Salary')['Annual Salary']\
+    .agg('count').pipe(pd.DataFrame).rename(columns={'Annual Salary': 'frequency'})
+stats_df['pmf'] = stats_df['frequency'] / sum(stats_df['frequency'])
+stats_df['cdf'] = stats_df['pmf'].cumsum()
+stats_df = stats_df.reset_index()
+stats_df.plot(x='Annual Salary', y=['pmf', 'cdf'], grid=True)
+plt.title("PMF and CDF for Annual Salary (Females)")
+
+plt.show()
 
 # Removing useless columns
 del df['Name'], df['Annual Salary'], df['Log Annual Salary'], df['Male']
@@ -203,6 +221,8 @@ df.to_csv(pathFDB, index=False, line_terminator=',\n')
 
 # SanFrancisco/cfds[s=100_FPT_2bins].txt
 # Chicago/cfds[s=100_FPT_2bins].txt
+# ChicagoBiased/cfds[s=100_FPT_2bins].txt
+# ChicagoGrouped/cfds[s=100_FPT_2bins].txt
 file = input("\nEnter path of the file containing the dependencies (obtained applying CFDDiscovery):\t")
 with open(file) as f:
     output = f.read().splitlines()
