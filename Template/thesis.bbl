@@ -1,8 +1,107 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{angwin2016machine}
+Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner.
+\newblock Machine {Bias}.
+\newblock {\em ProPublica}, 2016.
+\newblock Available at:
+  \url{https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-
+  sentencing}.
+
+\bibitem{assembly1948universal}
+UN~General Assembly et~al.
+\newblock Universal {Declaration} of {Human} {Rights}.
+\newblock {\em UN General Assembly}, 302(2):14--25, 1948.
+
+\bibitem{britannica2009equality}
+The Editors of~Encyclopaedia Britannica.
+\newblock {``Equality''}.
+\newblock {\em Encyclopedia Britannica}, 2009.
+\newblock \url{https://www.britannica.com/topic/equality-human-rights}.
+  Accessed 7 June 2021.
+
+\bibitem{chouldechova2017fair}
+Alexandra Chouldechova.
+\newblock Fair prediction with disparate impact: {A} study of bias in
+  recidivism prediction instruments.
+\newblock {\em Big data}, 5(2):153--163, 2017.
+
+\bibitem{dastin2018amazon}
+Jeffrey Dastin.
+\newblock Amazon scraps secret {AI} recruiting tool that showed bias against
+  women.
+\newblock {\em Reuters}, 2018.
+\newblock Available at:
+  \url{https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-
+  scraps-secret-ai-recruiting-tool-thatshowed-bias-against-women-idUSKCN1MK08G}.
+
+\bibitem{dwork2012fairness}
+Cynthia Dwork, Moritz Hardt, Toniann Pitassi, Omer Reingold, and Richard Zemel.
+\newblock Fairness {Through} {Awareness}.
+\newblock In {\em Proceedings of the 3rd innovations in theoretical computer
+  science conference}, pages 214--226, 2012.
 
 \bibitem{friedman2017bias}
 Batya Friedman and Helen Nissenbaum.
-\newblock {\em Bias in Computer Systems}.
+\newblock {\em Bias in {Computer} {Systems}}.
 \newblock Routledge, 2017.
+
+\bibitem{gibbs2015women}
+Samuel Gibbs.
+\newblock Women less likely to be shown ads for high-paid jobs on {Google},
+  study shows.
+\newblock {\em The Guardian}, 8(7), 2015.
+\newblock Available at:
+  \url{https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-
+  paid-jobs-google-study}.
+
+\bibitem{jagadish2021the}
+HV~Jagadish, Julia Stoyanovich, and Bill Howe.
+\newblock The {Many} {Facets} of {Data} {Equity}.
+\newblock In {\em 24th International Conference on Extending Database
+  Technology (EDBT)}, 2021.
+
+\bibitem{britannica2019equal}
+Andy Mason.
+\newblock {``Equal opportunity''}.
+\newblock {\em Encyclopedia Britannica}, 2019.
+\newblock \url{https://www.britannica.com/topic/equal-opportunity}. Accessed 7
+  June 2021.
+
+\bibitem{penney2018advancing}
+Jonathon Penney, Sarah McKune, Lex Gill, and Ronald~J Deibert.
+\newblock Advancing {Human-Rights-by-Design} in the {Dual-Use} {Technology}
+  {Industry}.
+\newblock {\em Journal of International Affairs}, 71(2):103--110, 2018.
+
+\bibitem{scantamburlo2018machine}
+Teresa Scantamburlo, Andrew Charlesworth, and Nello Cristianini.
+\newblock Machine decisions and human consequences.
+\newblock {\em arXiv preprint arXiv:1811.06747}, 2018.
+
+\bibitem{sepuldeva2010human}
+M~Sepuldeva, Th~Van~Banning, Gudr{\'u}n Gudmundsd{\'o}ttir, Christine Chamoun,
+  and Willem~JM Van~Genugten.
+\newblock {\em Human {Rights} {Reference} {Handbook}}.
+\newblock University for Peace, 2010.
+
+\bibitem{verma2018fairness}
+Sahil Verma and Julia Rubin.
+\newblock Fairness {Definitions} {Explained}.
+\newblock In {\em 2018 ieee/acm international workshop on software fairness
+  (fairware)}, pages 1--7. IEEE, 2018.
+
+\bibitem{wu2019counterfactual}
+Yongkai Wu, Lu~Zhang, and Xintao Wu.
+\newblock Counterfactual {Fairness}: {Unidentification}, {Bound} and
+  {Algorithm}.
+\newblock In {\em Proceedings of the Twenty-Eighth International Joint
+  Conference on Artificial Intelligence}, 2019.
+
+\bibitem{yeung2020ai}
+Karen Yeung, Andrew Howes, and Ganna Pogrebna.
+\newblock {AI} {Governance} by {Human} {Rights-Centered} {Design},
+  {Deliberation} and {Oversight}: {An} {End} to {Ethics} {Washing}.
+\newblock {\em The Oxford Handbook of Ethics of AI}, page~77, 2020.
 
 \end{thebibliography}
