@@ -75,7 +75,7 @@ However, it is important to distinguish between two different political and soci
 
 Figure \ref{fig:equality_vs_equity} provides a simple example of the difference between equality and equity. Treating people equally, in this scenario, means to give everyone the same one box to reach the fruit, while treating people equitably means to give them as many boxes as they need to achieve the goal. It is important to notice that equity could require (and often requires) unequal treatment.
 
-The authors of \cite{jagadish2021the} distinguish between four different facets of data equity (which, as the name itself suggest, is an extension of the equity concept in the technical context of data systems):
+The authors of \cite{jagadish2021facets} distinguish between four different facets of data equity (which, as the name itself suggest, is an extension of the equity concept in the technical context of data systems):
 \begin{itemize}
 \item \textbf{Representation equity}: bias may arise because of material deviations between the data and the world represented by the data, often with respect to historically disadvantaged and underrepresented groups. Even when dealing with contemporary data, disparities rooted in historical discrimination can lead to representation inequities and therefore to the introduction or the exacerbation of problems. For example, in the U.S. there has been a lot of discussion about racial disparities concerning COVID-19, regarding both availability of testing (fewer test sites in minorities neighborhoods, historically poorer) and desire of individuals to be tested (black people more suspicious about the medical system, because of their history of unfair treatments). Another example is related to Amazon and a software developed by the company for screening candidates for employment: the software was trained on the already hired employees and since they were mostly males, females became underrepresented in the data and the software was much more likely to mark women as unsuitable for hiring.
 \item \textbf{Feature equity}: bias may arise because not all the features needed to represent a marginalized group of people and required for a particular analysis are available in the data. As an example, for a specific study involving transgender people may be important to distinguish between their birth name and their self-assigned name.
@@ -108,15 +108,6 @@ Fairness requires social consensus.
 Humans have many biases, no human is perfectly fair, even with the best of intentions.
 Bias in algorithms in easier to detect than human bias, because humans are likely to defend their decisions with plausible explanations.
 In machine learning, the past is assumed to be representative of the future (training, test); but in society this is often not true, because the world continuously change.
-
-% To move in Chapter 3
-Fairness should be addressed in each phase of the big data pipeline (\textit{The Big Data Pipeline (CACM 2014)}):
-\begin{itemize}
-\item \textbf{Data Acquisition}: availability of sources, representation of people, definition of the measured object and of our duties to the people in the data (e.g. privacy).
-\item \textbf{Data Cleaning and Integration}: real data are messy and dirty so they need to be cleaned, but data cleaning itself is made on assumptions (e.g. missing values assumed to be missing at random while they are missing for other reasons).
-\item \textbf{Data Representation}: a lot of choices are made to represent data, still based on assumptions on the word (e.g. ascribe sentiment to text, bucketize values). These choices may lead to bias.
-\item \textbf{Result Presentation}: explain what data were used, concerns may arise due to algorithms and ML.
-\end{itemize}
 
 \textbf{Stability}: if you choose a different model, how likely is it that a small perturbation will result in a different answer?
 

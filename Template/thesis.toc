@@ -13,4 +13,7 @@
 \contentsline {section}{\numberline {2.3}Human Rights}{11}{}%
 \contentsline {section}{\numberline {2.4}Equality \& Equity}{12}{}%
 \contentsline {section}{\numberline {2.5}Fairness}{14}{}%
-\contentsline {chapter}{References}{17}{}%
+\contentsline {chapter}{\numberline {3}Technical Preliminaries}{17}{}%
+\contentsline {section}{\numberline {3.1}Relational Database}{17}{}%
+\contentsline {section}{\numberline {3.2}Big Data Pipeline}{19}{}%
+\contentsline {chapter}{References}{21}{}%

@@ -20,11 +20,23 @@ The Editors of~Encyclopaedia Britannica.
 \newblock \url{https://www.britannica.com/topic/equality-human-rights}.
   Accessed 7 June 2021.
 
+\bibitem{britannica2020database}
+The Editors of~Encyclopaedia Britannica.
+\newblock {``Database''}.
+\newblock {\em Encyclopedia Britannica}, 2020.
+\newblock \url{https://www.britannica.com/technology/database}. Accessed 10
+  June 2021.
+
 \bibitem{chouldechova2017fair}
 Alexandra Chouldechova.
 \newblock Fair prediction with disparate impact: {A} study of bias in
   recidivism prediction instruments.
 \newblock {\em Big data}, 5(2):153--163, 2017.
+
+\bibitem{codd1970relational}
+Edgar~F Codd.
+\newblock A {Relational} {Model} of {Data} for {Large} {Shared} {Data} {Banks}.
+\newblock {\em Communications of the ACM}, 13(6):377--387, 1970.
 
 \bibitem{dastin2018amazon}
 Jeffrey Dastin.
@@ -34,6 +46,13 @@ Jeffrey Dastin.
 \newblock Available at:
   \url{https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-
   scraps-secret-ai-recruiting-tool-thatshowed-bias-against-women-idUSKCN1MK08G}.
+
+\bibitem{cambridge2013data}
+Cambridge Advanced~Learner's Dictionary.
+\newblock {``Data''}.
+\newblock {\em Cambridge University Press}, 2013.
+\newblock \url{https://dictionary.cambridge.org/dictionary/english/data}.
+  Accessed 10 June 2021.
 
 \bibitem{dwork2012fairness}
 Cynthia Dwork, Moritz Hardt, Toniann Pitassi, Omer Reingold, and Richard Zemel.
@@ -46,6 +65,12 @@ Batya Friedman and Helen Nissenbaum.
 \newblock {\em Bias in {Computer} {Systems}}.
 \newblock Routledge, 2017.
 
+\bibitem{gandomi2015beyond}
+Amir Gandomi and Murtaza Haider.
+\newblock Beyond the hype: {Big} data concepts, methods, and analytics.
+\newblock {\em International journal of information management},
+  35(2):137--144, 2015.
+
 \bibitem{gibbs2015women}
 Samuel Gibbs.
 \newblock Women less likely to be shown ads for high-paid jobs on {Google},
@@ -55,11 +80,23 @@ Samuel Gibbs.
   \url{https://www.theguardian.com/technology/2015/jul/08/women-less-likely-ads-high-
   paid-jobs-google-study}.
 
-\bibitem{jagadish2021the}
+\bibitem{jagadish2014big}
+H.~V. Jagadish, Johannes Gehrke, Alexandros Labrinidis, Yannis
+  Papakonstantinou, Jignesh~M. Patel, Raghu Ramakrishnan, and Cyrus Shahabi.
+\newblock Big {Data} and {Its} {Technical} {Challenges}.
+\newblock {\em Commun. ACM}, 57(7):86--94, 2014.
+\newblock Available at: \url{https://doi.org/10.1145/2611567}.
+
+\bibitem{jagadish2021facets}
 HV~Jagadish, Julia Stoyanovich, and Bill Howe.
 \newblock The {Many} {Facets} of {Data} {Equity}.
 \newblock In {\em 24th International Conference on Extending Database
   Technology (EDBT)}, 2021.
+
+\bibitem{labrinidis2012challenges}
+Alexandros Labrinidis and Hosagrahar~V Jagadish.
+\newblock Challenges and {Opportunities} with {Big} {Data}.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(12):2032--2033, 2012.
 
 \bibitem{britannica2019equal}
 Andy Mason.
@@ -67,6 +104,13 @@ Andy Mason.
 \newblock {\em Encyclopedia Britannica}, 2019.
 \newblock \url{https://www.britannica.com/topic/equal-opportunity}. Accessed 7
   June 2021.
+
+\bibitem{mills2012demystifying}
+Steve Mills, Steve Lucas, Leo Irakliotis, Michael Rappa, Teresa Carlson, and
+  Bill Perlowitz.
+\newblock Demystifying {Big} {Data}: {A} {Practical} {Guide} {To}
+  {Transforming} {The} {Business} of {Government}.
+\newblock {\em TechAmerica Foundation, Washington}, 2012.
 
 \bibitem{penney2018advancing}
 Jonathon Penney, Sarah McKune, Lex Gill, and Ronald~J Deibert.
