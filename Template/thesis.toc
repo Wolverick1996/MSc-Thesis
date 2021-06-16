@@ -7,13 +7,13 @@
 \contentsline {section}{\numberline {1.3}Methodology}{4}{}%
 \contentsline {section}{\numberline {1.4}Contributions}{5}{}%
 \contentsline {section}{\numberline {1.5}Structure of Thesis}{7}{}%
-\contentsline {chapter}{\numberline {2}Ethical Preliminaries}{9}{}%
+\contentsline {chapter}{\numberline {2}Socio-Ethical Preliminaries}{9}{}%
 \contentsline {section}{\numberline {2.1}Bias}{9}{}%
 \contentsline {section}{\numberline {2.2}Discrimination}{11}{}%
-\contentsline {section}{\numberline {2.3}Human Rights}{11}{}%
-\contentsline {section}{\numberline {2.4}Equality \& Equity}{12}{}%
-\contentsline {section}{\numberline {2.5}Fairness}{14}{}%
-\contentsline {chapter}{\numberline {3}Technical Preliminaries}{17}{}%
-\contentsline {section}{\numberline {3.1}Relational Database}{17}{}%
-\contentsline {section}{\numberline {3.2}Big Data Pipeline}{19}{}%
-\contentsline {chapter}{References}{21}{}%
+\contentsline {section}{\numberline {2.3}Human Rights}{12}{}%
+\contentsline {section}{\numberline {2.4}Equality \& Equity}{13}{}%
+\contentsline {section}{\numberline {2.5}Fairness}{15}{}%
+\contentsline {chapter}{\numberline {3}Technical Preliminaries}{19}{}%
+\contentsline {section}{\numberline {3.1}Relational Database}{19}{}%
+\contentsline {section}{\numberline {3.2}Data Science Pipeline}{21}{}%
+\contentsline {chapter}{References}{23}{}%

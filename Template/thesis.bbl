@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{corporate2020social}
+Social {Justice} - {Overview}, {History} and {Evolution}, {Five} {Principles},
+  2020.
+\newblock
+  \url{https://corporatefinanceinstitute.com/resources/knowledge/other/social-justice/}.
+
 \bibitem{angwin2016machine}
 Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner.
 \newblock Machine {Bias}.
@@ -12,6 +18,11 @@ Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner.
 UN~General Assembly et~al.
 \newblock Universal {Declaration} of {Human} {Rights}.
 \newblock {\em UN General Assembly}, 302(2):14--25, 1948.
+
+\bibitem{barker2003social}
+Robert~L Barker et~al.
+\newblock The {Social} {Work} {Dictionary}.
+\newblock 2003.
 
 \bibitem{britannica2009equality}
 The Editors of~Encyclopaedia Britannica.
@@ -54,6 +65,13 @@ Cambridge Advanced~Learner's Dictionary.
 \newblock \url{https://dictionary.cambridge.org/dictionary/english/data}.
   Accessed 10 June 2021.
 
+\bibitem{cambridge2013fairness}
+Cambridge Advanced~Learner's Dictionary.
+\newblock {``Fairness''}.
+\newblock {\em Cambridge University Press}, 2013.
+\newblock \url{https://dictionary.cambridge.org/dictionary/english/fairness}.
+  Accessed 15 June 2021.
+
 \bibitem{dwork2012fairness}
 Cynthia Dwork, Moritz Hardt, Toniann Pitassi, Omer Reingold, and Richard Zemel.
 \newblock Fairness {Through} {Awareness}.
@@ -88,13 +106,13 @@ H.~V. Jagadish, Johannes Gehrke, Alexandros Labrinidis, Yannis
 \newblock Available at: \url{https://doi.org/10.1145/2611567}.
 
 \bibitem{jagadish2021facets}
-HV~Jagadish, Julia Stoyanovich, and Bill Howe.
+H.~V. Jagadish, Julia Stoyanovich, and Bill Howe.
 \newblock The {Many} {Facets} of {Data} {Equity}.
 \newblock In {\em 24th International Conference on Extending Database
   Technology (EDBT)}, 2021.
 
 \bibitem{labrinidis2012challenges}
-Alexandros Labrinidis and Hosagrahar~V Jagadish.
+Alexandros Labrinidis and H.~V. Jagadish.
 \newblock Challenges and {Opportunities} with {Big} {Data}.
 \newblock {\em Proceedings of the VLDB Endowment}, 5(12):2032--2033, 2012.
 
@@ -132,8 +150,8 @@ M~Sepuldeva, Th~Van~Banning, Gudr{\'u}n Gudmundsd{\'o}ttir, Christine Chamoun,
 \bibitem{verma2018fairness}
 Sahil Verma and Julia Rubin.
 \newblock Fairness {Definitions} {Explained}.
-\newblock In {\em 2018 ieee/acm international workshop on software fairness
-  (fairware)}, pages 1--7. IEEE, 2018.
+\newblock In {\em 2018 2018 ACM/IEEE International Workshop on Software
+  Fairness}, pages 1--7. IEEE, 2018.
 
 \bibitem{wu2019counterfactual}
 Yongkai Wu, Lu~Zhang, and Xintao Wu.
