@@ -38,6 +38,7 @@ To make it clearer, the following list provides the main terms used in this cont
 \item \textbf{Domain}, or \textbf{data type}: set of values that a specific attribute can assume (for example, integer numbers or boolean values).
 \item \textbf{Database schema}, or simply \textbf{schema}: blueprint of the database that outlines the way its structure organizes data into tables.
 \item \textbf{Database instance}, or simply \textbf{instance}: set of tuples in which each tuple has the same number of attributes as one of the relations of the database schema. It specifies the actual content of the database.
+\item \textbf{Integrity constraint}: property that is supposed to be satisfied by all instances of a database schema.
 \end{itemize} 
 
 \begin{figure}[h!]
@@ -70,6 +71,106 @@ Since fairness should be addressed in each phase of the data science pipeline, t
 \item \textbf{Integration, aggregation and representation}: data analysis often requires the collection of heterogeneous data from different sources, therefore we need to integrate them in order to guarantee syntactic and semantic coherence. Again, we have to rely on assumptions on the world, as for the case of data representation, in which a lot of choices are made in order to decide what to represent, potentially leading to bias (for example, in the context of sentiment analysis we may ascribe sentiment to labels, or we may decide to group age values instead of considering every single year).
 \item \textbf{Modeling and analysis}: before the actual analysis, an abstract model of the data is generated, in order to capture the essential components of the system and their interactions. However, the process of abstraction of concrete data in a conceptual standard model necessarily leads to the loss of information.
 \item \textbf{Interpretation}: a decision-maker, provided with the results of the analysis, has to interpret these results. This process usually requires to examine all the assumptions made and to retrace the analysis, and because of the complexity of the task and the problems that may arise from computer systems (bugs, errors), a human (and therefore impossibly perfectly fair) supervision is needed.
+\end{itemize}
+
+
+\section{Data Mining Techniques}
+\begin{quote}
+\emph{Data mining is a collection of techniques for efficient automated discovery of previously unknown, valid, novel, useful and understandable patterns in large databases.} \cite[p.~80]{tamilselvi2015efficient} \end{quote}
+Data mining is a broad topic, and usually a variety of procedures are needed in order to gain knowledge from data. However, we can distinguish three main categories of techniques, in each of which the fairness problem should be addressed differently:
+\begin{itemize}
+\item \textbf{Preprocessing techniques}: procedures used to transform the raw data in a useful and efficient format. The aim is to improve the overall quality of the data and consequently the data mining results.
+\item \textbf{Inprocessing techniques}: data are subjected to various methods using machine learning and artificial intelligence algorithms to generate a desirable output.
+\item \textbf{Postprocessing techniques}: methods to evaluate the extracted knowledge, visualize it, or merely document it for the end user. The knowledge can also be interpreted and incorporated into an existing system.
+\end{itemize}
+
+For the purpose of this research, we will focus on preprocessing techniques, which constitute one of the most critical steps in the data mining process, since they deal with the preparation and transformation of the initial dataset. Data preprocessing methods are divided into four categories \cite{tamilselvi2015efficient}:
+\begin{itemize}
+\item \textbf{Data cleaning}: since real-world data are often incomplete, noisy and inconsistent, some routines are needed in order to fill in missing values, smooth out the noise and correct the inconsistencies.
+For what concerns \textit{missing values}, these procedures include the removal of the specific tuple, or the filling (manual or automatic) of the missing value by using, for example, a constant (e.g. ``unknown''), the mean (for numerical attributes) or simply what is perceived to be the most probable value.
+Noise instead can be seen as a random error or variance in a measured variable, and some smoothing techniques for \textit{noisy data} are:
+\begin{itemize}
+\item \textbf{Binning}: a data value is smoothed by looking at its ``neighbourhood'', that is, the values around it.
+\item \textbf{Regression}: data are fitted to a function, in order to be smoothed according to the function itself. A specific type of regression, useful for our analysis, is \textit{linear regression}, which will be furtherly explored in Section~\ref{section:linear_regression}.
+\item \textbf{Clustering}: similar data are organized into groups of values, called ``clusters''. Values that fall outside the set of clusters may be considered as outliers.
+\end{itemize}
+\item \textbf{Data integration}: as mentioned in the previous section, data often come from different (possibly heterogeneous) sources, and therefore they need to be combined in order to obtain a coherent model and remove inconsistencies (such as redundancies between attributes, where some can be derived from others).
+\item \textbf{Data transformation}: data are transformed or consolidated in appropriate forms suitable for the mining process. Some techniques used in this context are:
+\begin{itemize}
+\item \textbf{Normalization}: data values are scaled so as to fall within a specified range, such as (-1.0, 1.0 or 0.0, 1.0).
+\item \textbf{Aggregation}: new attributes are constructed from the given set of attributes to help the mining process by summarizing or aggregating information (for example, daily sales data may be aggregated so as to compute annual total amounts).
+\item \textbf{Generalization}: raw (or low-level) data are replaced by higher-level ones, by following a specific hierarchy (for example, the attribute ``city'' can be generalized to ``country'').
+\item \textbf{Discretization}: raw values of numeric attributes are replaced by interval levels or conceptual levels (for example, age values between 15 and 18 could be labeled as ``adolescence'').
+\end{itemize}
+\item \textbf{Data reduction}: in order to make mining more effective and get better analytical results, several techniques can be applied to obtain a reduced representation of the dataset that is much smaller in volume, yet closely maintains the integrity of the original data. These methods include, among the others, \textit{attribute subset selection}, in which attributes considered as not particularly relevant for the analysis are removed, and \textit{numerosity reduction}, where data are replaced by smaller data representations, such as parametric models.
+\end{itemize}
+
+
+\section{Linear Regression}
+\label{section:linear_regression}
+In order to fully understand how one of the adopted tools works, it is appropriate to have a closer look at \textbf{linear regression}. As mentioned in the previous section, linear regression is a preprocessing technique used to smooth out noise, which attemps to model the relationship between two or more variables by fitting data to a linear equation (represented, in the two variables case, by a straight line in a Cartesian plane). The results from linear regression help in predicting an unknown value depending on the relationship with the predicting variables. For example, height and weight of an individual generally are related: usually taller people tend to weigh more. We could use regression analysis to help predict the weight of a person, given their height.
+
+We can distinguish between \textbf{simple linear regression}, in which a single input variable is used to model a linear relationship with the target variable (as for the example of height and weight), and \textbf{multiple linear regression}, where more predicting variables are used.
+
+For simple linear regression, the reference equation is: \[y = \beta_0 + \beta_1x + \epsilon\]
+Variable \(x\) is called \textit{explanatory} or \textit{independent variable}, while \(y\) is referred to as \textit{dependent variable}; \(\beta_1\) is the \textit{slope} of the line, also known as regression coefficient, and \(\beta_0\) is the \textit{intercept} (the value of \(y\) when \(x = 0\)), while \(\epsilon\) is the \textit{error} in the estimation of the regression coefficient, also known as residuals, which account for the variability in \(y\) that cannot be explained by the linear relation between \(x\) and \(y\).
+
+For multiple linear regression, the formula is generalized in order to incapsulate also the other independent variables (\(x_1, \ldots, x_n\)) and the related slope coefficients (\(\beta_1, \ldots, \beta_n\)): \[y = \beta_0 + \beta_1x_1 + \ldots + \beta_nx_n + \epsilon\]
+
+\begin{figure}[h!]
+\includegraphics[scale=.7]{figures/simple_linear_regression.pdf}
+\centering
+\caption{Simple linear regression graph.\newline
+Source: \upshape\protect\url{https://www.reneshbedre.com/assets/posts/reg/mlr/residual.svg}}
+\label{fig:simple_linear_regression}
+\end{figure}
+
+Figure~\ref{fig:simple_linear_regression} shows a simple linear regression graph. It is important to point out that the \(x\) and \(y\) variables remain the same, since they represent data features that cannot be changed, while the values that we can control are the slope and the intercept. Indeed, there can be multiple straight lines depending upon the values of intercept and slope, and what the linear regression algorithm does is to fit multiple lines on the data points and return the line that results in the least error.
+
+Another important parameter for regression analysis is \(R^2\), also known as \textit{coefficient of determination} (or \textit{coefficient of multiple determination} for multiple linear regression). It is a statistical measure of how close the data are to the fitted regression line, and therefore it indicates how much variation of the dependent variable is explained by the independent variable(s) in a regression model. \(R^2\) values range from 0 to 1 and are commonly stated as percentages from 0\% to 100\%, whereas 0\% refers to a model that explains none of the variability of the data around its mean, while 100\% refers to a model that explains all the variability of the data around its mean (in this case, all the actual data values would be on the regression line).
+
+Formally, we can define \(R^2\) as: \[R^2 = 1 - \frac{Unexplained Variation}{Total Variation} = 1 - \frac{\sum_{i}(y_i - \hat{y}_i)}{\sum_{i}(y_i - \bar{y})}\] where \(y_i\) is one of the actual data values, \(\hat{y}_i\) is the corresponding predicted value, and \(\bar{y}\) is the mean of all the \(y_i\) values, for \(i = 1, \ldots, n\).
+
+Generally speaking, at least for the purpose of this research, the higher the \(R^2\) value, the better the model fits the data.
+
+
+\section{Functional Dependencies}
+One of the tools adopted to discover fairness is based on specific classes of integrity contraints, known as dependencies. A \textbf{dependency} is a constraint that applies to or defines the relationship between attributes, and it occurs in a database when information stored in a table uniquely determines other information stored in the same table. Basically, dependencies are constraints not imposed by the developer in the design phase but intrisically satisfied by the data.
+
+Saying that there is a dependency between attributes in a table is the same as saying that there is a \textbf{functional dependency (FD)} between those attributes. The notation to indicate a functional dependency is: \[FD: A \rightarrow B\] which can be read as ``\(B\) is functionally dependent upon \(A\)'', or ``\(A\) uniquely determines \(B\)'', whereas \(A\) and \(B\) are attributes (or eventually set of attributes) of a table. \(A\) is called antecedent, or \textit{left-hand-side (LHS)}, and \(B\) consequent, or \textit{right-hand-side (RHS)}. An example of functional dependency could be the one of a table containing the information about the employees of a company, as in Figure~\ref{fig:relational_model}. Here the \(ID\) attribute uniquely identifies the \(Name\) one, because by knowing the employee's ID we can tell what the employee's name is. Therefore, \(ID \rightarrow Name\). More specifically, since also the employee's surname and gender are uniquely identified by the ID, we can write \(ID \rightarrow Name, Surname, Gender\). Another example is provided in Table~\ref{table:orange_plantation}, in which \(Temperature, pH, Season \rightarrow Ideal\).
+
+\begin{table}
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\multicolumn{4}{|c|}{Orange Plantation}\\
+\hline
+Temperature & pH & Season & Ideal\\
+\hline
+28 & 7 & Autumn & Y\\
+20 & 7 & Autumn & N\\
+28 & 7 & Winter & N\\
+29 & 7.5 & Autumn & Y\\
+27 & 6.5 & Winter & N\\
+27 & 7.5 & Summer & N\\
+20 & 6.5 & Spring & N\\
+28 & 7 & Summer & N\\
+27 & 6.5 & Autumn & Y\\
+\hline
+\end{tabular}
+\centering
+\caption{``Orange Plantation'' table. It shows whether or not ambient temperature (\textdegree C), soil pH and planting season represent ideal conditions for planting oranges.}
+\label{table:orange_plantation}
+\end{table}
+
+Since the constraints imposed by functional dependencies are often too strict for real-world datasets (they must indeed hold for all the tuples of a table), generalizations of FDs are usually considered in their place. \textbf{Relaxed functional dependencies (RFDs)} can indeed be simply defined as functional dependencies where some constraints are deleted (relaxed). The authors of \cite{caruccio2015relaxed} distinguished thirtyfive different categories of RFDs, but the ones relevant for our research are the following:
+\begin{itemize}
+\item \textbf{Approximate functional dependencies (AFDs)}:
+\begin{quote}\emph{AFDs are FDs holding on almost every tuple.} \cite[p.~151]{caruccio2015relaxed}\end{quote}
+In order to quantify how an AFD ``almost'' holds, several measures have been proposed, including the so called \textit{g3}, defined as ``the (normalized) minimum number of tuples that need to be removed from a relation instance in order for an FD to hold'' \cite[p.~151]{caruccio2015relaxed}, whereas ``relation instance'' is simply a synonym of ``relation''. The g3 measure is therefore an index whose value ranges between 0 and 1, indicating the percentage of tuples of a table to be removed in order for an FD to hold (0 = none, 1 = all). An example of AFD in Table~\ref{table:orange_plantation} is: \[Temperature, pH \rightarrow Ideal\] because almost all the values of \(Temperature\) and \(pH\) determine the \(Ideal\) value, but this is not true for: \[Temperature = \mlq 28 \mrq, pH = \mlq 7 \mrq \rightarrow Ideal\] since in most of the cases (two out of three) when \(Temperature = \mlq 28 \mrq\) and \(pH = \mlq 7 \mrq\) then \(Ideal = \mlq Y \mrq\), but in one case \(Ideal = \mlq N \mrq\).
+\item \textbf{Conditional functional dependencies (CFDs)}:
+\begin{quote}\emph{[CFDs] use conditions to specify the subset of tuples on which a dependency holds.} \cite[p.~152]{caruccio2015relaxed}\end{quote}
+This type of dependencies allow to catch particular and concrete patterns in the dataset, in fact they make possible to analyze precise values of the tuples and be more specific. An example of CFD, related to Table~\ref{table:orange_plantation}, is the following: \[Temperature = \mlq 28 \mrq, pH = \mlq 7 \mrq, Season \rightarrow Ideal\] meaning that, for tuples in which \(Temperature = \mlq 28 \mrq\) and \(pH = \mlq 7 \mrq\), the \(Season\) parameter functionally determines the \(Ideal\) one. Another example could be: \[Season = \mlq Summer \mrq \rightarrow Ideal = \mlq N \mrq\] interpretable as: ``when the attribute \(Season\) has value \(Summer\), the attribute value of \(Ideal\) is \(N\)''.
+\item \textbf{Approximate conditional functional dependencies (ACFDs)}: FDs obtained by combining the two kinds of relaxed dependencies discussed above. Unifying the two relaxation criteria makes it possible to detect specific and not exact rules, which can highlight anomalies or unexpected patterns in the database, allowing to recognize cases where a value of a certain attribute \textit{frequently determines} the value of another one. An example of ACFD in Table~\ref{table:orange_plantation} is: \[Season = \mlq Autumn \mrq \rightarrow Ideal = \mlq Y \mrq\] which can be read as: ``when attribute \(Season\) has value \(Autumn\), the attribute value of \(Ideal\) is \(Y\) if we delete a maximum number of tuples \(N\) from the dataset''. The rule indeed holds for almost all the tuples of the table, apart for the one in which \(Temperature = \mlq 20 \mrq\), \(pH = \mlq 7 \mrq\), \(Season = \mlq Autumn \mrq\) and \(Ideal = \mlq N \mrq\). It is worth to specify that, even though the notation is the same used for CFDs, the relaxation on the number of tuples is implicit in the classification of a rule as an ACFD.
 \end{itemize}
 
 

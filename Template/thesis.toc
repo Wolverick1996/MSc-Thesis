@@ -15,5 +15,8 @@
 \contentsline {section}{\numberline {2.5}Fairness}{15}{}%
 \contentsline {chapter}{\numberline {3}Technical Preliminaries}{19}{}%
 \contentsline {section}{\numberline {3.1}Relational Database}{19}{}%
-\contentsline {section}{\numberline {3.2}Data Science Pipeline}{21}{}%
-\contentsline {chapter}{References}{23}{}%
+\contentsline {section}{\numberline {3.2}Data Science Pipeline}{20}{}%
+\contentsline {section}{\numberline {3.3}Data Mining Techniques}{22}{}%
+\contentsline {section}{\numberline {3.4}Linear Regression}{24}{}%
+\contentsline {section}{\numberline {3.5}Functional Dependencies}{26}{}%
+\contentsline {chapter}{References}{31}{}%

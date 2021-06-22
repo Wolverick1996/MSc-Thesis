@@ -38,6 +38,12 @@ The Editors of~Encyclopaedia Britannica.
 \newblock \url{https://www.britannica.com/technology/database}. Accessed 10
   June 2021.
 
+\bibitem{caruccio2015relaxed}
+Loredana Caruccio, Vincenzo Deufemia, and Giuseppe Polese.
+\newblock Relaxed {Functional} {Dependencies}--{A} {Survey} of {Approaches}.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  28(1):147--165, 2015.
+
 \bibitem{chouldechova2017fair}
 Alexandra Chouldechova.
 \newblock Fair prediction with disparate impact: {A} study of bias in
@@ -146,6 +152,13 @@ M~Sepuldeva, Th~Van~Banning, Gudr{\'u}n Gudmundsd{\'o}ttir, Christine Chamoun,
   and Willem~JM Van~Genugten.
 \newblock {\em Human {Rights} {Reference} {Handbook}}.
 \newblock University for Peace, 2010.
+
+\bibitem{tamilselvi2015efficient}
+R~Tamilselvi, B~Sivasakthi, and R~Kavitha.
+\newblock An efficient preprocessing and postprocessing techniques in data
+  mining.
+\newblock {\em International Journal of Research in Computer Applications and
+  Robotics}, 3(4):80--85, 2015.
 
 \bibitem{verma2018fairness}
 Sahil Verma and Julia Rubin.
