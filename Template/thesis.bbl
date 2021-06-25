@@ -6,6 +6,11 @@ Social {Justice} - {Overview}, {History} and {Evolution}, {Five} {Principles},
 \newblock
   \url{https://corporatefinanceinstitute.com/resources/knowledge/other/social-justice/}.
 
+\bibitem{abiteboul1995foundations}
+Serge Abiteboul, Richard Hull, and Victor Vianu.
+\newblock {\em Foundations of {Databases}}, volume~8.
+\newblock Addison-Wesley Reading, 1995.
+
 \bibitem{angwin2016machine}
 Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner.
 \newblock Machine {Bias}.
@@ -18,6 +23,11 @@ Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner.
 UN~General Assembly et~al.
 \newblock Universal {Declaration} of {Human} {Rights}.
 \newblock {\em UN General Assembly}, 302(2):14--25, 1948.
+
+\bibitem{azzalini2021fair}
+Fabio Azzalini, Chiara Criscuolo, and Letizia Tanca.
+\newblock {FAIR-DB}: {FunctionAl} {DependencIes} to {discoveR} {Data} {Bias}.
+\newblock In {\em EDBT/ICDT Workshops}, 2021.
 
 \bibitem{barker2003social}
 Robert~L Barker et~al.
@@ -43,6 +53,12 @@ Loredana Caruccio, Vincenzo Deufemia, and Giuseppe Polese.
 \newblock Relaxed {Functional} {Dependencies}--{A} {Survey} of {Approaches}.
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering},
   28(1):147--165, 2015.
+
+\bibitem{chamberlain2017analyze}
+Andrew Chamberlain.
+\newblock How to {Analyze} {Your} {Gender} {Pay} {Gap}: {An} {Employer's}
+  {Guide}.
+\newblock {\em Glassdoor Economic Research}, 2017.
 
 \bibitem{chouldechova2017fair}
 Alexandra Chouldechova.
@@ -142,6 +158,11 @@ Jonathon Penney, Sarah McKune, Lex Gill, and Ronald~J Deibert.
   {Industry}.
 \newblock {\em Journal of International Affairs}, 71(2):103--110, 2018.
 
+\bibitem{saaty2003magic}
+Thomas~L Saaty and Mujgan~S Ozdemir.
+\newblock Why the {Magic} {Number} {Seven} {Plus} or {Minus} {Two}.
+\newblock {\em Mathematical and computer modelling}, 38(3-4):233--244, 2003.
+
 \bibitem{scantamburlo2018machine}
 Teresa Scantamburlo, Andrew Charlesworth, and Nello Cristianini.
 \newblock Machine decisions and human consequences.
@@ -173,10 +194,29 @@ Yongkai Wu, Lu~Zhang, and Xintao Wu.
 \newblock In {\em Proceedings of the Twenty-Eighth International Joint
   Conference on Artificial Intelligence}, 2019.
 
+\bibitem{yang2018nutritional}
+Ke~Yang, Julia Stoyanovich, Abolfazl Asudeh, Bill Howe, HV~Jagadish, and Gerome
+  Miklau.
+\newblock A {Nutritional} {Label} for {Rankings}.
+\newblock In {\em Proceedings of the 2018 international conference on
+  management of data}, pages 1773--1776, 2018.
+
 \bibitem{yeung2020ai}
 Karen Yeung, Andrew Howes, and Ganna Pogrebna.
 \newblock {AI} {Governance} by {Human} {Rights-Centered} {Design},
   {Deliberation} and {Oversight}: {An} {End} to {Ethics} {Washing}.
 \newblock {\em The Oxford Handbook of Ethics of AI}, page~77, 2020.
+
+\bibitem{zehlike2017fa*ir}
+Meike Zehlike, Francesco Bonchi, Carlos Castillo, Sara Hajian, Mohamed Megahed,
+  and Ricardo Baeza-Yates.
+\newblock {FA*IR}: {A} {Fair} {Top-k} {Ranking} {Algorithm}.
+\newblock In {\em Proceedings of the 2017 ACM on Conference on Information and
+  Knowledge Management}, pages 1569--1578, 2017.
+
+\bibitem{vzliobaite2017measuring}
+Indr{\.e} {\v{Z}}liobait{\.e}.
+\newblock Measuring discrimination in algorithmic decision making.
+\newblock {\em Data Mining and Knowledge Discovery}, 31(4):1060--1089, 2017.
 
 \end{thebibliography}

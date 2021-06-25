@@ -14,9 +14,14 @@
 \contentsline {section}{\numberline {2.4}Equality \& Equity}{13}{}%
 \contentsline {section}{\numberline {2.5}Fairness}{15}{}%
 \contentsline {chapter}{\numberline {3}Technical Preliminaries}{19}{}%
-\contentsline {section}{\numberline {3.1}Relational Database}{19}{}%
-\contentsline {section}{\numberline {3.2}Data Science Pipeline}{20}{}%
-\contentsline {section}{\numberline {3.3}Data Mining Techniques}{22}{}%
-\contentsline {section}{\numberline {3.4}Linear Regression}{24}{}%
-\contentsline {section}{\numberline {3.5}Functional Dependencies}{26}{}%
-\contentsline {chapter}{References}{31}{}%
+\contentsline {section}{\numberline {3.1}Relational Databases}{19}{}%
+\contentsline {section}{\numberline {3.2}Data Science Pipeline}{21}{}%
+\contentsline {section}{\numberline {3.3}Data Mining Techniques}{23}{}%
+\contentsline {section}{\numberline {3.4}Linear Regression}{25}{}%
+\contentsline {section}{\numberline {3.5}Functional Dependencies}{27}{}%
+\contentsline {section}{\numberline {3.6}Evaluation Metrics}{29}{}%
+\contentsline {section}{\numberline {3.7}Statistical Concepts}{30}{}%
+\contentsline {section}{\numberline {3.8}The ``Glassdoor Method''}{32}{}%
+\contentsline {section}{\numberline {3.9}FAIR-DB}{34}{}%
+\contentsline {section}{\numberline {3.10}Ranking Facts}{36}{}%
+\contentsline {chapter}{References}{41}{}%

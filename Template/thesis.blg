@@ -22,45 +22,45 @@ Database file #1: references.bib
 Warning--I didn't find a database entry for "von2004design"
 Warning--to sort, need author or key in corporate2020social
 Warning--empty journal in barker2003social
-You've used 28 entries,
+You've used 35 entries,
             2118 wiz_defined-function locations,
-            667 strings with 9491 characters,
-and the built_in function-call counts, 8517 in all, are:
-= -- 829
-> -- 423
-< -- 3
-+ -- 172
-- -- 140
-* -- 558
-:= -- 1475
-add.period$ -- 93
-call.type$ -- 28
-change.case$ -- 150
+            704 strings with 10749 characters,
+and the built_in function-call counts, 11193 in all, are:
+= -- 1088
+> -- 552
+< -- 6
++ -- 224
+- -- 184
+* -- 740
+:= -- 1898
+add.period$ -- 114
+call.type$ -- 35
+change.case$ -- 192
 chr.to.int$ -- 0
-cite$ -- 30
-duplicate$ -- 326
-empty$ -- 649
-format.name$ -- 140
-if$ -- 1743
+cite$ -- 37
+duplicate$ -- 434
+empty$ -- 860
+format.name$ -- 184
+if$ -- 2313
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 29
-newline$ -- 151
-num.names$ -- 54
-pop$ -- 154
+int.to.str$ -- 35
+missing$ -- 37
+newline$ -- 186
+num.names$ -- 68
+pop$ -- 206
 preamble$ -- 1
-purify$ -- 124
+purify$ -- 160
 quote$ -- 0
-skip$ -- 225
+skip$ -- 307
 stack$ -- 0
-substring$ -- 409
-swap$ -- 50
-text.length$ -- 3
+substring$ -- 581
+swap$ -- 83
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 108
+type$ -- 134
 warning$ -- 2
-while$ -- 79
-width$ -- 30
-write$ -- 311
+while$ -- 103
+width$ -- 37
+write$ -- 386
 (There were 3 warnings)
