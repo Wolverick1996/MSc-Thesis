@@ -27,15 +27,15 @@
 \contentsline {chapter}{\numberline {4}Experiments}{41}{}%
 \contentsline {section}{\numberline {4.1}Our Societal Focus: Gender Gap}{41}{}%
 \contentsline {section}{\numberline {4.2}Datasets Description}{41}{}%
-\contentsline {section}{\numberline {4.3}Case Study 1: Chicago}{44}{}%
-\contentsline {subsection}{\numberline {4.3.1}Data Preprocessing}{44}{}%
-\contentsline {subsection}{\numberline {4.3.2}The ``Glassdoor Method''}{44}{}%
-\contentsline {subsection}{\numberline {4.3.3}FAIR-DB}{44}{}%
-\contentsline {subsection}{\numberline {4.3.4}Ranking Facts}{44}{}%
-\contentsline {section}{\numberline {4.4}Case Study 2: San Francisco}{44}{}%
-\contentsline {subsection}{\numberline {4.4.1}Data Preprocessing}{44}{}%
-\contentsline {subsection}{\numberline {4.4.2}The ``Glassdoor Method''}{44}{}%
-\contentsline {subsection}{\numberline {4.4.3}FAIR-DB}{44}{}%
-\contentsline {subsection}{\numberline {4.4.4}Ranking Facts}{44}{}%
-\contentsline {section}{\numberline {4.5}Other Design Choices}{44}{}%
-\contentsline {chapter}{References}{45}{}%
+\contentsline {section}{\numberline {4.3}Case Study 1: Chicago}{43}{}%
+\contentsline {subsection}{\numberline {4.3.1}Data Preprocessing}{43}{}%
+\contentsline {subsection}{\numberline {4.3.2}The ``Glassdoor Method''}{45}{}%
+\contentsline {subsection}{\numberline {4.3.3}FAIR-DB}{45}{}%
+\contentsline {subsection}{\numberline {4.3.4}Ranking Facts}{45}{}%
+\contentsline {section}{\numberline {4.4}Case Study 2: San Francisco}{45}{}%
+\contentsline {subsection}{\numberline {4.4.1}Data Preprocessing}{45}{}%
+\contentsline {subsection}{\numberline {4.4.2}The ``Glassdoor Method''}{45}{}%
+\contentsline {subsection}{\numberline {4.4.3}FAIR-DB}{45}{}%
+\contentsline {subsection}{\numberline {4.4.4}Ranking Facts}{45}{}%
+\contentsline {section}{\numberline {4.5}Other Design Choices}{45}{}%
+\contentsline {chapter}{References}{47}{}%

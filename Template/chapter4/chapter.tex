@@ -31,7 +31,7 @@ The \textbf{Chicago} dataset we considered includes 31,858 tuples and is made up
 \item \textit{Department}: categorical variable representing the job department where the employee works (e.g. POLICE). There are 36 distinct values.
 \item \textit{Full or Part-Time}: binary categorical variable describing whether the employee is employed full-time (F) or part-time (P).
 \item \textit{Salary or Hourly}: binary categorical variable describing whether the employee is paid on a hourly basis or salary basis. Hourly employees are further defined by the number of hours they work in a week.
-\item \textit{Typical Hours}: numerical variable describing the typical amount of work (in terms of number of hours) for hourly employees. For salary employees the attribute value is null.
+\item \textit{Typical Hours}: numerical variable describing the typical amount of work (in terms of number of hours per week) for hourly employees. For salary employees the attribute value is null.
 \item \textit{Annual Salary}: numerical variable describing the annual salary rate. It only applies for employees whose pay frequency is Salary, while for hourly employees the attribute value is null.
 \item \textit{Hourly Rate}: numerical variable describing hourly salary rates for employees whose pay frequency is Hourly. For salary employees the attribute value is null.
 \end{itemize}
@@ -51,9 +51,29 @@ The \textbf{San Francisco} dataset we considered includes 357,407 tuples and is 
 \end{itemize}
 
 
-\newpage
 \section{Case Study 1: Chicago}
 \subsection{Data Preprocessing}
+In order to simplify the subsequent bias analysis, we operated some \textbf{data transformation} processes on the attributes, choosing what we believe to be the most suitable names. For the Chicago dataset, we renamed \textit{Job Titles} in \textit{Job Title} and \textit{Full or Part-Time} in \textit{Status}. We also performed some \textbf{data aggregation}, estimating the \textit{Annual Salary} of hourly employees by using the formula \textit{Typical Hours} * \textit{Hourly Rate} * 52, where 52 is a constant representing the number of weeks in a year.
+
+Since our focus is gender pay gap but the original datasets do not contain a \textit{Gender} attribute, we adopted a Python package called \texttt{gender-guesser}\footnote{Available at: \url{https://pypi.org/project/gender-guesser}.}. The aim of the package is to infer a person's gender from their first name, and the possible outcomes are: unknown (name not found), andy (androgynous), male, female, mostly\_male, or mostly\_female. The difference between andy and unknown is that the former is found to have the same probability to be male than to be female, while the latter means that the name was not found in the database. For each employee, we split the \textit{Name} attribute to obtain their \textit{First Name}, and then we inferred their gender by using the package. We obtained (out of the total of 31,858 tuples):
+\begin{itemize}
+\item unknown: 2653 values.
+\item andy: 184 values.
+\item male: 20,562 values.
+\item female: 6,954 values.
+\item mostly\_male: 775 values.
+\item mostly\_female: 730 values.
+\end{itemize}
+In order to get coherent results in case of multiple experiments on the same dataset, we decided to remove the tuples related to unknown and androgynous names instead of randomly assign a gender to them (otherwise, we would have get different numbers at each execution of the preprocessing algorithm). Furthermore, we assumed mostly male names to be effectively related to males and mostly female names to be effectively related to females, and therefore we got 21,337 male values and 7,684 female values for a newly generated \textit{Gender} attribute as a result of this first \textbf{data cleaning} process.
+
+We also operated \textbf{data reduction} by removing the \textit{Typical Hours}, \textit{Hourly Rate} and \textit{First Name} columns, not relevant for our analysis.
+
+As a consequence of the first data cleaning process, the number of different job titles decreased from 1,089 to 1,057. However, since the FAIR-DB tool used for bias analysis requires user interactions, and in order to lighten the workload and speed up computational times, we decided to remove job titles with less than 100 occurrences.
+
+Our final preprocessed dataset includes 20,309 tuples, of which 16,146 males and 4,163 females, and with 35 distinct \textit{Job Title} values.
+
+
+\newpage
 \subsection{The ``Glassdoor Method''}
 \subsection{FAIR-DB}
 \subsection{Ranking Facts}
