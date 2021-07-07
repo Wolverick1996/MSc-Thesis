@@ -20,6 +20,24 @@
 \usepackage{diagbox}
 \usepackage{bm}
 \usepackage{courier}
+\usepackage{fancyvrb}
+\usepackage{adjustbox}
+\usepackage{color,soul}
+
+% redefine \BVerbatimInput
+\RecustomVerbatimCommand{\BVerbatimInput}{BVerbatimInput}%
+{fontsize=\footnotesize,
+%
+frame=lines,  % top and bottom rule only
+framesep=2em, % separation between frame and text
+%rulecolor=\color{Gray},
+%
+%label=\fbox{\color{Black}},
+labelposition=topline,
+%
+commandchars=\|\(\), % escape character and argument delimiters for commands within the verbatim
+commentchar=*        % comment character
+}
 
 %\setlength{\paperwidth}{16cm}
 %\setlength{\paperheight}{24cm}
