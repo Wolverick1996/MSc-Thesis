@@ -1,15 +1,3 @@
-       Annual Salary  Log Annual Salary     Male
-count       20309.00           20309.00 20309.00
-mean        89514.84              11.35     0.80
-std         22067.19               0.42     0.40
-min          3120.00               8.05     0.00
-max        151026.00              11.93     1.00
-
-              average        median           len
-       Annual Salary Annual Salary Annual Salary
-Gender                                          
-female      79790.83      84054.00       4163.00
-male        92022.03      91338.00      16146.00
 
                                                                average           len
                                                         Annual Salary Annual Salary

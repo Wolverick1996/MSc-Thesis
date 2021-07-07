@@ -73,26 +73,51 @@ As a consequence of the first data cleaning process, the number of different job
 Our final preprocessed dataset includes 20,309 tuples, of which 16,146 males and 4,163 females, and with 35 distinct \textit{Job Title} values.
 
 
-\newpage
 \subsection{The ``Glassdoor Method''}
 As already specified in Section~\ref{section:the_glassdoor_method}, the point of reference for this method is the report published by Glassdoor in 2017 with the aim of helping HR practitioners in analyzing the internal gender pay gap of their companies \cite{chamberlain2017analyze}. Although the report provides a step-by-step guide for the statistical software R, we decided to use Python for our analysis, in order to better integrate the results with the ones from the other tools.
 
 The first step of the analysis, after cleaning up the data and loading them, consists in the creation of a couple of attributes useful for the statistical analysis: \textit{Log Annual Salary} and \textit{Male}. The former is simply the natural logarithm of the annual salary of the employee (i.e. the logarithm to the base of the mathematical constant \textit{e}, approximately equal to 2.71828), useful because it provides a simple interpretation of the regression results; the latter is a dummy indicator equal to 1 for males and 0 for females, which is the key variable of the analysis: if there is no gap, being male should not provide any advantage, and the coefficient of this variable in the regression should be equal to 0, otherwise its value would give us an estimate of the approximate percentage pay gap between men and women. It is worth to mention that the Glassdoor report also suggests to perform a discretization of age values of employees, grouping them into bins (below 25, 25-34, 35-44, 45-54, 55+), but our dataset does not contain any information about the age of the employees.
 
-The report suggests to have a look at the data before proceeding with the regressions, and it recommends to print a ``summary table'' displaying the basic statistical information about the dataset. FIGURE X shows the table related to the Chicago dataset, and it displays for the variables \textit{Annual Salary}, \textit{Log Annual Salary} and \textit{Male} sample size (count), arithmetic mean, minimum and maximum values and standard deviation (i.e. a measure of the average amount of variability in the dataset -- calculated as the square root of the variance -- which tells, on average, how far each value lies from the mean). Another useful visualization tool recommended by the report is the so called ``pivot table'', displayed in FIGURE X, which provides a high-level summary of the overall difference in pay between men and women by showing the arithmetic mean of the \textit{Annual Salary} attribute values for males and females, together with the number of observations (len) and the median values (i.e. the numeric values separating the higher half of the samples from the lower half). The pivot table is also useful to estimate the ``unadjusted'' pay gap: men on average are paid \$92,022.03 per year, while women on average earn \$79,790.83 per year -- an overall ``unadjusted'' pay gap of \$12,231.2 (13.3\% of male pay). Lastly, since we are also interested in the ``adjusted'' pay gap, it is relevant to look at the average salaries of men and women employed in the different job titles.
+The report suggests to look at the data before proceeding with the regressions, and it recommends to print a ``summary table'' displaying the basic statistical information about the dataset. Figure~\ref{fig:chicago_glassdoor1}(a) shows the table related to the Chicago dataset, and it displays for the variables \textit{Annual Salary}, \textit{Log Annual Salary} and \textit{Male} sample size (count), arithmetic mean, minimum and maximum values, and standard deviation (i.e. a measure of the average amount of variability in the dataset -- calculated as the square root of the variance -- which tells, on average, how far each value lies from the mean).
+Another useful visualization tool is the so called ``pivot table'', displayed in Figure~\ref{fig:chicago_glassdoor1}(b), which provides a high-level summary of the overall difference in pay between men and women by showing the arithmetic mean of the \textit{Annual Salary} attribute values for males and females, together with the number of observations (len) and the median values (i.e. the numeric values separating the higher half of the samples from the lower half). The pivot table is also useful to get a first estimate of the ``unadjusted'' pay gap: men on average are paid \$92,022.03 per year, while women on average earn \$79,790.83 per year -- an overall ``unadjusted'' pay gap of \$12,231.2 (13.3\% of male pay).
+Lastly, since we are also interested in the ``adjusted'' pay gap, it is important to look at the average salaries of men and women employed in the different job titles. Figure~\ref{fig:chicago_glassdoor1}(c) shows the first 8 (out of 35) job titles in alphabetical order, displaying average salaries for men and women and sizes of the samples (i.e. number of men and women employed in the specific job title -- information relevant to the problem of representation).
 
-\begin{figure}
-  \noindent\rule{\linewidth}{0.4pt}\par
-  \resizebox{\linewidth}{!}{%
-  %\scalebox{.5}{
-    \BVerbatimInput{figures/chicago_glassdoor1.txt}%
-  }
-  \noindent\rule{\linewidth}{0.4pt}
-  \caption{blah blah}
-  \label{chicago_glassdoor1}
+\begin{figure}[h!]
+\centering
+\noindent\rule{\linewidth}{0.4pt}\par
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/chicago_glassdoor1a.txt}}
+\caption*{(a)}
+\noindent\rule{\linewidth}{0.4pt}\par
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/chicago_glassdoor1b.txt}}
+\caption*{(b)}
+\noindent\rule{\linewidth}{0.4pt}\par
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/chicago_glassdoor1c.txt}}
+\caption*{(c)}
+\noindent\rule{\linewidth}{0.4pt}
+\caption{Summary table (a), pivot table (b) and average salaries of men and women employed in the different job titles (c) for the Chicago dataset.}
+\label{fig:chicago_glassdoor1}
 \end{figure}
 
+In order to estimate the gender pay gap, the reference linear regression model to estimate, as mentioned in Section~\ref{section:the_glassdoor_method}, is: \[\mathit{Log Annual Salary}_i = \beta_1\textit{Male}_i + \beta_2\mathit{Controls}_i + \epsilon_i\]
+The report recommends to run three different models: the first with no controls at all, regressing salary only on the male-female gender dummy (and therefore calculating the approximate overall percentage pay gap between men and women -- the ``unadjusted'' pay gap); the second with the addition of variables related to employee characteristics like highest education, years of experience, and performance evaluation scores; the third including all the possible controls (and finally estimating the ``adjusted'' pay gap). Due to the lack of attributes, we performed only two linear regressions: the first with no controls and the second including \textit{Job Title}, \textit{Department}, and \textit{Status}.
 
+\begin{figure}[h!]
+\centering
+\noindent\rule{\linewidth}{0.4pt}\par
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/chicago_glassdoor2.txt}}
+\noindent\rule{\linewidth}{0.4pt}
+\caption{Regression results for the Chicago dataset.}
+\label{fig:chicago_glassdoor2}
+\end{figure}
+
+The results are shown in Figure~\ref{fig:chicago_glassdoor2}: a coefficient of 0.242 on the male-female dummy variable means there is approximately 24.2\% ``unadjusted'' pay gap (therefore, men on average earn 24.2\% more than women), but adding to the model all of the controls available in the data the coefficient value shrinks to 0.4\% and becomes no longer statistically significant. In this case, we say there's no evidence of a systematic gender pay gap on an ``adjusted'' basis, after controlling for observable differences between male and female workers, and the big discrepancy between the coefficient values is due to the overrepresentation of men in higher-paying roles and their underrepresentation in lower-paying jobs.
+
+
+\newpage
 \subsection{FAIR-DB}
 \subsection{Ranking Facts}
 

@@ -1,0 +1,6 @@
+
+              average        median           len
+       Annual Salary Annual Salary Annual Salary
+Gender                                          
+female      79790.83      84054.00       4163.00
+male        92022.03      91338.00      16146.00
