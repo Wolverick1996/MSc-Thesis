@@ -81,10 +81,16 @@ The first step of the analysis, after cleaning up the data and loading them, con
 
 The report suggests to have a look at the data before proceeding with the regressions, and it recommends to print a ``summary table'' displaying the basic statistical information about the dataset. FIGURE X shows the table related to the Chicago dataset, and it displays for the variables \textit{Annual Salary}, \textit{Log Annual Salary} and \textit{Male} sample size (count), arithmetic mean, minimum and maximum values and standard deviation (i.e. a measure of the average amount of variability in the dataset -- calculated as the square root of the variance -- which tells, on average, how far each value lies from the mean). Another useful visualization tool recommended by the report is the so called ``pivot table'', displayed in FIGURE X, which provides a high-level summary of the overall difference in pay between men and women by showing the arithmetic mean of the \textit{Annual Salary} attribute values for males and females, together with the number of observations (len) and the median values (i.e. the numeric values separating the higher half of the samples from the lower half). The pivot table is also useful to estimate the ``unadjusted'' pay gap: men on average are paid \$92,022.03 per year, while women on average earn \$79,790.83 per year -- an overall ``unadjusted'' pay gap of \$12,231.2 (13.3\% of male pay). Lastly, since we are also interested in the ``adjusted'' pay gap, it is relevant to look at the average salaries of men and women employed in the different job titles.
 
-\begin{adjustbox}{max width=\linewidth,caption={blah blah},float=figure}
-\BVerbatimInput{figures/chicago_glassdoor1.txt}
-\label{chicago_glassdoor1}
-\end{adjustbox}
+\begin{figure}
+  \noindent\rule{\linewidth}{0.4pt}\par
+  \resizebox{\linewidth}{!}{%
+  %\scalebox{.5}{
+    \BVerbatimInput{figures/chicago_glassdoor1.txt}%
+  }
+  \noindent\rule{\linewidth}{0.4pt}
+  \caption{blah blah}
+  \label{chicago_glassdoor1}
+\end{figure}
 
 
 \subsection{FAIR-DB}

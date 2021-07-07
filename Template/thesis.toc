@@ -30,12 +30,12 @@
 \contentsline {section}{\numberline {4.3}Case Study 1: Chicago}{43}{}%
 \contentsline {subsection}{\numberline {4.3.1}Data Preprocessing}{43}{}%
 \contentsline {subsection}{\numberline {4.3.2}The ``Glassdoor Method''}{45}{}%
-\contentsline {subsection}{\numberline {4.3.3}FAIR-DB}{46}{}%
-\contentsline {subsection}{\numberline {4.3.4}Ranking Facts}{46}{}%
-\contentsline {section}{\numberline {4.4}Case Study 2: San Francisco}{46}{}%
-\contentsline {subsection}{\numberline {4.4.1}Data Preprocessing}{46}{}%
-\contentsline {subsection}{\numberline {4.4.2}The ``Glassdoor Method''}{46}{}%
-\contentsline {subsection}{\numberline {4.4.3}FAIR-DB}{46}{}%
-\contentsline {subsection}{\numberline {4.4.4}Ranking Facts}{46}{}%
-\contentsline {section}{\numberline {4.5}Other Design Choices}{46}{}%
-\contentsline {chapter}{References}{47}{}%
+\contentsline {subsection}{\numberline {4.3.3}FAIR-DB}{47}{}%
+\contentsline {subsection}{\numberline {4.3.4}Ranking Facts}{47}{}%
+\contentsline {section}{\numberline {4.4}Case Study 2: San Francisco}{47}{}%
+\contentsline {subsection}{\numberline {4.4.1}Data Preprocessing}{47}{}%
+\contentsline {subsection}{\numberline {4.4.2}The ``Glassdoor Method''}{47}{}%
+\contentsline {subsection}{\numberline {4.4.3}FAIR-DB}{47}{}%
+\contentsline {subsection}{\numberline {4.4.4}Ranking Facts}{47}{}%
+\contentsline {section}{\numberline {4.5}Other Design Choices}{47}{}%
+\contentsline {chapter}{References}{49}{}%
