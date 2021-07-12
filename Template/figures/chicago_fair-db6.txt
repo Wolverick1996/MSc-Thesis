@@ -1,0 +1,29 @@
+
+Number of tuples interested by the rules:  2310
+Total number of tuples:  20309
+
+Cumulative Support:  0.114
+Difference Mean:  0.094
+Gender Difference Mean:  0.094
+
+
+Total number of ACFDs selected:  6
+                                        Rule  Supp  Conf  Diff  GenderDiff  Mean
+7   {`lhs': {`Gender': `female',
+             `Salary or Hourly': `Hourly'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.03  0.89  0.24        0.24  0.14
+27  {`lhs': {`Gender': `female',
+     `Department': `AVIATION'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.01  0.92  0.13        0.13  0.07
+4   {`lhs': {`Gender': `male',
+             `Salary or Hourly': `Hourly'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.07  0.41  0.06        0.06  0.06
+29  {`lhs': {`Gender': `male',
+             `Department': `OEMC'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.01  0.94  0.08        0.08  0.05
+24  {`lhs': {`Gender': `male',
+             `Department': `AVIATION'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  0.23  0.03        0.03  0.02
+30  {`lhs': {`Gender': `female',
+             `Department': `OEMC'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.00  0.18  0.03        0.03  0.02

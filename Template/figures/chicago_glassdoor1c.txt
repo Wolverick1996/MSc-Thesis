@@ -1,5 +1,5 @@
 
-                                                               average           len
+                                                              average           len
                                                         Annual Salary Annual Salary
 Job Title                                        Gender                            
 ADMINISTRATIVE ASST II                           female      67908.82        102.00
