@@ -1,0 +1,17 @@
+
+Total number of tuples in df2:  49
+                                       Rule  Supp  Conf  Diff  GenderDiff
+0  {`lhs': {`Annual Salary Bin': `> 90K'},
+    `rhs': {`Gender': `male'}}               0.45  0.85  0.05         NaN
+1  {`lhs': {`Gender': `female',
+            `Salary or Hourly': `Hourly'},
+    `rhs': {`Annual Salary Bin': `<= 90K'}}  0.03  0.89  0.24        0.24
+2  {`lhs': {`Annual Salary Bin': `> 90K',
+            `Salary or Hourly': `Hourly'},
+    `rhs': {`Gender': `male'}}               0.07  0.94  0.13         NaN
+3  {`lhs': {`Salary or Hourly': `Salary',
+            `Annual Salary Bin': `> 90K'},
+    `rhs': {`Gender': `male'}}               0.38  0.83  0.04         NaN
+4  {`lhs': {`Annual Salary Bin': `> 90K',
+            `Gender': `female'},
+    `rhs': {`Salary or Hourly': `Salary'}}   0.08  0.95  0.15        0.08
