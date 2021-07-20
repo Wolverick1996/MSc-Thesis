@@ -210,7 +210,7 @@ For each newly generated dependency, the evaluation metrics are computed, and a 
 \item \textbf{Protected attribute difference mean}: for each protected attribute, arithmetic mean of the p-Difference measure over all the selected ACFDs. It indicates how much the dataset is ethical over the protected attribute according to the chosen rules -- the higher the value, the more the dataset is discriminatory with respect to the specific protected attribute.
 \end{itemize}
 
-For our research, we selected all the dependencies in which the target attribute appears in the RHS of the rule (\(N\) = 6 out of 18). This choice is due to the fact that the authors did not specify any criteria or suggestion for the manual selection of the rules, and the algorithm seems to be oriented towards dependencies in which the target attribute is part of the consequent, in fact, as can be noticed in Figure~\ref{fig:chicago_fair-db3}, rules in which the target is in the LHS have a null p-Difference value. We will furtherly discuss about the impact of this choice in Section~\ref{section:XYZ}. The chosen ACFDs, together with the final scores, are displayed in Figure~\ref{fig:chicago_fair-db4}.
+For our research, we selected all the dependencies in which the target attribute appears in the RHS of the rule (\(N\) = 6 out of 18). This choice is due to the fact that the authors did not specify any criteria or suggestion for the manual selection of the rules, and the algorithm seems to be oriented towards dependencies in which the target attribute is part of the consequent, in fact, as can be noticed in Figure~\ref{fig:chicago_fair-db3}, rules in which the target is in the LHS have (most of the time) a null p-Difference value, while the same statistical measure is never null when the target is in the RHS. We will furtherly discuss about the impact of this choice in Section~\ref{section:XYZ}. The chosen ACFDs, together with the final scores, are displayed in Figure~\ref{fig:chicago_fair-db4}.
 
 \begin{figure}[h!]
 \centering
@@ -490,6 +490,115 @@ The following list summarizes our results by following the widget description li
 
 
 \section{Other Design Choices}
+The aim of this section is to document in a technical way some experiments made on the datasets previously analyzed -- Chicago and San Francisco -- in which different design decisions were taken. For this reason, the socio-ethical impact of these choices, as well as the impact of other ones not mentioned in this section, will not be discussed here but in Section~\ref{section:XYZ}.
+
+
+\subsection{Part-Time Employees Removal}
+One of the first design choices we had to deal with was concerning part-time employees. The Glassdooor report \cite{chamberlain2017analyze} indeed recommends to only include full-time employees in the gender pay gap analysis (or in case of equal amounts of full-time and part-time employees to conduct two separate analyses) because of the big differences between full-time and part-time workers in the labor market. We initially decided to exclude part-time employees from the datasets, by removing their tuples and subsequently also the \textit{Status} attribute. This choice resulted to be penalizing in both our cases for different reasons:
+\begin{itemize}
+\item \textbf{Chicago}: for the preprocessed dataset, the number of male employees decreased from 16,146 to 15,880 (\(-\)266), while the number of female employees decreased from 4,163 to 3,790 (\(-\)373). Even though the reduction in the number of tuples is not excessive, most of the records removed are related to women, already underrepresented when compared to the number of men.
+\item \textbf{San Francisco}: for the preprocessed dataset, the number of male employees decreased from 13,688 to 9,082 (\(-\)4,606), while the number of female employees decreased from 9,308 to 4,696 (\(-\)4,612). Even if the number of male and female employees removed is similar, we found the removal of 9,308 tuples from the dataset to have too much impact on the dataset itself.
+\end{itemize}
+Furthermore, it is important to notice that the Glassdoor report is meant to be a guide for HR practitioners in analyzing the internal gender gap of a company, while we are performing our analysis not on a company but on public employees of different sectors. Lastly, the removal of the \textit{Status} variable furtherly penalizes datasets already characterized by a low number of attributes, making it more difficult to get concrete results from the tools. Because of these reasons, we decided to include again part-time employees in the datasets and to proceed in our analysis as discussed before.
+
+
+\subsection{FAIR-DB: Discretization Using More Bins}
+For both the Chicago and the San Francisco datasets, we decided to conduct a FAIR-DB analysis using more than just 2 bins. Therefore, we split the \textit{Annual Salary} values in 8 different interval levels (the K specification is implied): 0--39, 40--59, 60--79, 80--99, 100--119, 120--139, 140+.
+
+We will now briefly summarize our results, without going too much into the details of the algorithm but describing the most relevant differences in comparison with the 2 bins analysis.
+
+\begin{itemize}
+\item \textbf{Chicago}: the preprocessed dataset is the same used for the 2 bins analysis, with 20,309 tuples of which 16,146 males and 4,163 females. The histogram of Figure~\ref{fig:chicago_8bins_fair-db1} shows the distribution of the annual salary of employees over their \textit{Gender} attribute. As we can notice, most women are concentrated in the 80--99 bin, which is the most numerous overall, but the proportion between men and women in lower bins is unbalanced: more than 50\% of the employees in the 0--39 bin are females, even though women represent about \(\frac{1}{5}\) of the population of the dataset.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/chicago_annual_salary_over_gender.pdf}
+\caption{Distribution of the \textrm{Annual Salary} values for the Chicago dataset (8 bins).}
+\label{fig:chicago_8bins_fair-db1}
+\end{figure}
+
+Since the dataset is the same used for the 2 bins analysis, we ran the \textit{ACFD Discovery} algorithm keeping the same parameter values: \textit{maximum~antecedent~size}~=~2, \textit{minimum~confidence}~=~0.8, and \textit{minimum~support}~=~100. The algorithm generated 759 dependencies, and the number shrinked to 193 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB furtherly reduced this number from 193 to 64.
+
+We decided to keep \textit{minimum~difference}~=~0.02 during the ACFD selection phase, in order to be able to compare the results of the two analyses and evaluate the impact of the different discretization processes performed. The first automatic selection resulted in a reduction in the number of dependencies from 64 to 28. The subsequent ACFD completion and further selection generated 172 dependencies (including the original 28), of which 66 with a difference above the threshold.
+
+Lastly, we applied the same criterion used in the previous cases for manually choosing the rules (target attribute in the RHS). Unfortunately, we only got \(N\) = 2 out of 66 dependencies. The chosen ACFDs, together with the final scores, are displayed in Figure~\ref{fig:chicago_8bins_fair-db2}.
+
+\begin{figure}[h!]
+\centering
+\noindent\rule{\linewidth}{0.4pt}\par
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/chicago_8bins_fair-db2.txt}}
+\noindent\rule{\linewidth}{0.4pt}
+\caption{Final selected rules and scores for the Chicago dataset (8 bins).}
+\label{fig:chicago_8bins_fair-db2}
+\end{figure}
+
+As we can see, both rules refer to the ADMINISTRATIVE ASST II job title, and they suggest a discriminatory behavior in favor of women, who seem to be more paid for this specific role. This situation did not show up in the 2 bins analysis, because even if apparently there is a gap between salaries of men and women, all the incomes fall below the threshold of \$90K, and therefore no dependencies could have been generated. On the other side, the discriminatory behaviors detected in the 2 bins analysis, related to the AVIATION and OEMC departments, and to female employees paid on a hourly basis, were not detected here, presumibly because the annual salary values reside all in the 80--99 bin.
+\item \textbf{San Francisco}: the preprocessed dataset is the same used for the 2 bins analysis, with 22,996 tuples of which 13,688 males and 9,308 females. The histogram of Figure~\ref{fig:san_francisco_8bins_fair-db1} shows the distribution of the annual salary of employees over their \textit{Gender} attribute. We can see that the ratio of the number of men to women tends to increase: in lower bins there is a balanced proportion of male and female employees, while for higher-paying jobs men are much more numerous than women.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/san_francisco_annual_salary_over_gender.pdf}
+\caption{Distribution of the \textrm{Annual Salary} values for the San Francisco dataset (8 bins).}
+\label{fig:san_francisco_8bins_fair-db1}
+\end{figure}
+
+Again, we kept \textit{maximum~antecedent~size}~=~2, \textit{minimum~confidence}~=~0.8, and \textit{minimum~support}~=~100 for \textit{ACFD Discovery}. The algorithm generated 465 dependencies, and the number shrinked to 144 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB furtherly reduced this number from 144 to 40.
+
+By keeping \textit{minimum~difference}~=~0.02, the first automatic ACFD selection resulted in a reduction in the number of dependencies from 40 to 20. The subsequent ACFD completion and further selection generated 154 dependencies (including the original 20), of which 62 with a difference above the threshold.
+
+At the end, we got \(N\) = 6 out of 62 dependencies in the ACFD user selection phase. The chosen ACFDs, together with the final scores, are displayed in Figure~\ref{fig:san_francisco_8bins_fair-db2}.
+
+\begin{figure}[h!]
+\centering
+\noindent\rule{\linewidth}{0.4pt}\par
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/san_francisco_8bins_fair-db2.txt}}
+\noindent\rule{\linewidth}{0.4pt}
+\caption{Final selected rules and scores for the San Francisco dataset (8 bins).}
+\label{fig:san_francisco_8bins_fair-db2}
+\end{figure}
+
+The 6 final rules obtained are quite peculiar because they refer just to 2 different job titles. For what concerns junior clerks, men seem to be less paid then women. For the Engineer job title instead, women tend to earn less, and their incomes vary widely, since they fall within 3 different interval levels (0--39, 40--59, 120--139), while male engineers are paid more than \$140K. As for the Chicago case, the 2 bins analysis could not detect any of these discriminatory behaviors, because in the former case the salary values are all lower than the threshold, while in the latter case the presence of female engineers earning between \$120K and \$139K ``balanced'' the gap, eluding the algorithm. For the same reasons, none of the discriminatory behaviors detected through the 2 bins analysis has been observed here.
+\end{itemize} 
+
+
+\subsection{FAIR-DB: Choice of Different Dependencies}
+As already specified, the ACFD user selection phase of the FAIR-DB framework is a delicate step, because the user needs to manually select \(N\) among all the dependencies for the subsequent scoring and calculation of the metrics. In Section~\ref{section:chicago_fair-db} we clarified the reasons why we decided to always keep rules in which the target attribute is in the RHS. However, during our first experiments, we tried to select all the dependencies, in order to check the impact of the user choices on the final results. The experiments were conducted on the same preprocessed datasets, and using the same parameter values; the only difference is indeed the selection of every rule instead of just some of them. The following results refer to the 8 bins analysis:
+\begin{itemize}
+\item \textbf{Chicago}: by selecting all the 66 dependencies, we got a cumulative support of 0.856, meaning that 85,6\% of the dataset is ``problematic'' (17,384 tuples out of 20,309). The difference mean value is 0.153, while the gender difference mean is equal to 0.071. The measures have different values because for most of the rules (of which all with the target attribute in the LHS) the p-Difference is null (NaN), while the difference is not.
+\item \textbf{San Francisco}: by selecting all the 62 dependencies, we got a cumulative support of 0.925, meaning that 92,5\% of the dataset is ``problematic'' (21,279 tuples out of 22,996). The difference mean value is 0.153, while the gender difference mean is equal to 0.003.
+\end{itemize}
+We can conclude that the user choices in this phase strongly impact the final outcomes, since a dataset results to be fair or not depending on the selected rules. In both our cases, the gap is huge: for Chicago the percentage of ``problematic'' tuples shifted from 0.4\% (as we can see from the cumulative support in Figure~\ref{fig:chicago_8bins_fair-db2}) to 85,6\%, while for San Francisco the same percentage shifted from 1\% (Figure~\ref{fig:san_francisco_8bins_fair-db2}) to 92,5\%.
+
+
+\subsection{Grouping of Job Titles}
+Another recommendation from the Glassdoor report \cite{chamberlain2017analyze} is the one of grouping together similar job titles, because having too many unique roles with just a few workers in each could make the analysis less reliable. Therefore, we decided to test our tools on a slightly different version of the Chicago dataset, in which the data preprocessing phase consists of one more step: a \textbf{generalization} of the \textit{Job Title} values. We opted for the Chicago dataset instead of the San Francisco one mostly because a certain degree of precision is required in classifying job titles, and since the classification has to be performed manually we preferred to deal with 35 distinct \textit{Job Title} values rather than 81. In order to group job titles in a sensible way, we relied on a document published by the Equality Commission for Northern Ireland in 2013 \cite{equality2013index}. Even though the document refers to Northern Ireland, it provides an exhaustive list of thousands of different job titles, together with a few introductory sections on how to use the index, and we found useful to rely on these guidelines in grouping the job titles of our dataset. The document, based on the Standard Occupational Classification 2010 (SOC2010) -- a common classification of occupational information for the UK -- distinguishes between 9 different major groups:
+\begin{itemize}
+\item[1.] Managers and senior officials
+\item[2.] Professional occupations
+\item[3.] Associate professional and technical occupations
+\item[4.] Administrative and secretarial occupations
+\item[5.] Skilled trades occupations
+\item[6.] Personal service occupations
+\item[7.] Sales and customer service occupations
+\item[8.] Process, plant and machine operatives
+\item[9.] Elementary occupations
+\end{itemize}
+The index then provides correspondencies between each job title and the major group to which it belongs. Figure~\ref{fig:encodings} shows the correspondencies between our job titles and the related major groups, together with the index entries of reference.
+
+\begin{figure}[h!]
+\centering
+\noindent\rule{\linewidth}{0.4pt}\par
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/encodings.txt}}
+\noindent\rule{\linewidth}{0.4pt}
+\caption{Correspondencies between \textrm{Job Title} values for the Chicago dataset and related major groups, together with index entries of reference.}
+\label{fig:encodings}
+\end{figure}
+
+
+\subsection{Voluntary Introduction of Bias}
 
 
 \iffalse
