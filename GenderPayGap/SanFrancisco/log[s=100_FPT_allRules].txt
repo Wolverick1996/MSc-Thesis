@@ -308,14 +308,7 @@ ACFD n. 6 :	 {'lhs': {'Gender': 'male', 'Annual Salary Bin': '60-79'}, 'rhs': {'
 ACFD n. 7 :	 {'lhs': {'Gender': 'female', 'Annual Salary Bin': '100-119'}, 'rhs': {'Status': 'P'}}
 
 Total number of tuples in df4:  154
-                                                                                  Rule  Support  Confidence  Diff  GenderDiff
-0  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '100-119'}, 'rhs': {'Status': 'P'}}     0.00        0.06 -0.34       -0.05
-1     {'lhs': {'Gender': 'male', 'Annual Salary Bin': '140+'}, 'rhs': {'Status': 'P'}}     0.00        0.02 -0.38       -0.02
-2  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Status': 'P'}}     0.00        0.05 -0.35       -0.06
-3    {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Status': 'P'}}     0.01        0.10 -0.30       -0.03
-4     {'lhs': {'Gender': 'male', 'Annual Salary Bin': '0-39'}, 'rhs': {'Status': 'P'}}     0.15        0.99  0.59       -0.00 
-
-/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py:616: SettingWithCopyWarning: 
+/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py:618: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -327,6 +320,13 @@ Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   self._setitem_single_column(loc, value, pi)
+                                                                                  Rule  Support  Confidence  Diff  GenderDiff
+0  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '100-119'}, 'rhs': {'Status': 'P'}}     0.00        0.06 -0.34       -0.05
+1     {'lhs': {'Gender': 'male', 'Annual Salary Bin': '140+'}, 'rhs': {'Status': 'P'}}     0.00        0.02 -0.38       -0.02
+2  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Status': 'P'}}     0.00        0.05 -0.35       -0.06
+3    {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Status': 'P'}}     0.01        0.10 -0.30       -0.03
+4     {'lhs': {'Gender': 'male', 'Annual Salary Bin': '0-39'}, 'rhs': {'Status': 'P'}}     0.15        0.99  0.59       -0.00 
+
 
 Number of original CFDs: 20 
 Number of combinations rules:  154 
@@ -397,27 +397,83 @@ Number of final rules found:  62
 
 Enter the indexes of the interesting rules (one by one). Write 'exit' to continue or write 'all' to select all the rules
 
-Problematic tuples:  227
-     Job Title Status  Gender Annual Salary Bin  Marked
-1483  Engineer      P  female           120-139       1
-4921  Engineer      F    male              140+       1
-5245  Engineer      F    male              140+       1
-5253  Engineer      F    male              140+       1
-5554  Engineer      F    male              140+       1
+Problematic tuples:  21279
+                        Job Title Status Gender Annual Salary Bin  Marked
+0  Electrical Transit System Mech      F   male           100-119       1
+1     Stationary Eng Sewage Plant      F   male           100-119       1
+2             Automotive Mechanic      F   male           100-119       1
+3                     Firefighter      F   male           100-119       2
+4          Patient Care Assistant      F   male           100-119       1
 
-Number of tuples interested by the rules:  227 
+Number of tuples interested by the rules:  21279 
 Total number of tuples:  22996 
 
-Cumulative Support:  0.010 
-Difference Mean:  0.037
-Gender - Difference Mean:  0.037 
+Cumulative Support:  0.925 
+Difference Mean:  0.153
+Gender - Difference Mean:  0.003 
 
 
-Total number of ACFDs selected:  6 
-                                                                                                  Rule  Support  Confidence  Diff  GenderDiff  Mean
-51    {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Annual Salary Bin': '120-139'}}     0.00        0.14  0.05        0.05  0.03
-40  {'lhs': {'Gender': 'female', 'Job Title': 'Junior Clerk'}, 'rhs': {'Annual Salary Bin': '40-59'}}     0.00        0.15  0.04        0.04  0.02
-32     {'lhs': {'Gender': 'male', 'Job Title': 'Junior Clerk'}, 'rhs': {'Annual Salary Bin': '0-39'}}     0.00        0.92  0.04        0.04  0.02
-43         {'lhs': {'Gender': 'male', 'Job Title': 'Engineer'}, 'rhs': {'Annual Salary Bin': '140+'}}     0.00        0.89  0.03        0.03  0.02
-53       {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Annual Salary Bin': '0-39'}}     0.00        0.06  0.04        0.04  0.02
-54      {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Annual Salary Bin': '40-59'}}     0.00        0.03  0.02        0.02  0.01
+Total number of ACFDs selected:  62 
+                                                                                                                  Rule  Support  Confidence  Diff  GenderDiff  Mean
+151                  {'lhs': {'Annual Salary Bin': '40-59', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        1.00  0.86         NaN  0.43
+4                                    {'lhs': {'Gender': 'male', 'Annual Salary Bin': '0-39'}, 'rhs': {'Status': 'P'}}     0.15        0.99  0.59       -0.00  0.37
+11                                 {'lhs': {'Gender': 'female', 'Annual Salary Bin': '0-39'}, 'rhs': {'Status': 'P'}}     0.13        1.00  0.60        0.00  0.37
+15                                   {'lhs': {'Gender': 'male', 'Annual Salary Bin': '140+'}, 'rhs': {'Status': 'F'}}     0.15        0.98  0.38        0.02  0.26
+16                                {'lhs': {'Gender': 'male', 'Annual Salary Bin': '120-139'}, 'rhs': {'Status': 'F'}}     0.05        0.95  0.35        0.06  0.20
+14                                {'lhs': {'Gender': 'male', 'Annual Salary Bin': '100-119'}, 'rhs': {'Status': 'F'}}     0.06        0.94  0.34        0.05  0.20
+97                {'lhs': {'Annual Salary Bin': '60-79', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'female'}}     0.00        0.50  0.37         NaN  0.18
+5                                   {'lhs': {'Gender': 'male', 'Annual Salary Bin': '40-59'}, 'rhs': {'Status': 'P'}}     0.02        0.74  0.34        0.02  0.18
+17                                  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '80-99'}, 'rhs': {'Status': 'F'}}     0.06        0.90  0.30        0.03  0.18
+22                                 {'lhs': {'Gender': 'female', 'Annual Salary Bin': '140+'}, 'rhs': {'Status': 'F'}}     0.06        0.89  0.30       -0.06  0.18
+111             {'lhs': {'Annual Salary Bin': '60-79', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'female'}}     0.00        0.50  0.35         NaN  0.17
+12                                {'lhs': {'Gender': 'female', 'Annual Salary Bin': '40-59'}, 'rhs': {'Status': 'P'}}     0.02        0.71  0.31       -0.01  0.17
+20                                  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '60-79'}, 'rhs': {'Status': 'F'}}     0.06        0.82  0.22        0.02  0.14
+24                                {'lhs': {'Gender': 'female', 'Annual Salary Bin': '80-99'}, 'rhs': {'Status': 'F'}}     0.04        0.83  0.23       -0.04  0.13
+27                                {'lhs': {'Gender': 'female', 'Annual Salary Bin': '60-79'}, 'rhs': {'Status': 'F'}}     0.05        0.77  0.17       -0.02  0.11
+23                              {'lhs': {'Gender': 'female', 'Annual Salary Bin': '120-139'}, 'rhs': {'Status': 'F'}}     0.02        0.79  0.19       -0.11  0.11
+21                              {'lhs': {'Gender': 'female', 'Annual Salary Bin': '100-119'}, 'rhs': {'Status': 'F'}}     0.03        0.78  0.18       -0.11  0.10
+121     {'lhs': {'Annual Salary Bin': '0-39', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.36  0.20         NaN  0.10
+72                 {'lhs': {'Job Title': 'Transit Operator', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.00        0.97  0.17         NaN  0.08
+122      {'lhs': {'Annual Salary Bin': '40-59', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.16         NaN  0.08
+106                {'lhs': {'Annual Salary Bin': '0-39', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.15         NaN  0.08
+108               {'lhs': {'Annual Salary Bin': '40-59', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.15         NaN  0.08
+139             {'lhs': {'Annual Salary Bin': '60-79', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'female'}}     0.00        0.89  0.15         NaN  0.07
+90                  {'lhs': {'Annual Salary Bin': '80-99', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.13         NaN  0.07
+94                  {'lhs': {'Annual Salary Bin': '40-59', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.13         NaN  0.07
+67               {'lhs': {'Job Title': 'General Laborer', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.00        0.21  0.12         NaN  0.06
+74              {'lhs': {'Job Title': 'Transit Operator', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.01        0.91  0.11         NaN  0.06
+133             {'lhs': {'Annual Salary Bin': '80-99', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'female'}}     0.00        0.85  0.11         NaN  0.06
+127           {'lhs': {'Annual Salary Bin': '100-119', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'female'}}     0.00        0.85  0.11         NaN  0.06
+93                 {'lhs': {'Annual Salary Bin': '0-39', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'female'}}     0.00        0.23  0.09         NaN  0.05
+147                  {'lhs': {'Annual Salary Bin': '80-99', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.23  0.09         NaN  0.05
+60               {'lhs': {'Job Title': 'General Laborer', 'Annual Salary Bin': '120-139'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.09         NaN  0.05
+58                  {'lhs': {'Job Title': 'General Laborer', 'Annual Salary Bin': '140+'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.09         NaN  0.05
+99            {'lhs': {'Annual Salary Bin': '100-119', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.09         NaN  0.04
+136               {'lhs': {'Annual Salary Bin': '40-59', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'male'}}     0.00        0.34  0.08         NaN  0.04
+103           {'lhs': {'Annual Salary Bin': '120-139', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'female'}}     0.00        0.23  0.08         NaN  0.04
+117  {'lhs': {'Annual Salary Bin': '120-139', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.24  0.07         NaN  0.04
+81              {'lhs': {'Job Title': 'Transit Operator', 'Annual Salary Bin': '40-59'}, 'rhs': {'Gender': 'female'}}     0.00        0.27  0.07         NaN  0.04
+79               {'lhs': {'Job Title': 'Transit Operator', 'Annual Salary Bin': '0-39'}, 'rhs': {'Gender': 'female'}}     0.01        0.26  0.06         NaN  0.03
+84                {'lhs': {'Annual Salary Bin': '100-119', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'male'}}     0.00        0.93  0.06         NaN  0.03
+100                {'lhs': {'Annual Salary Bin': '140+', 'Job Title': 'Police Officer 2'}, 'rhs': {'Gender': 'male'}}     0.01        0.90  0.06         NaN  0.03
+153                  {'lhs': {'Annual Salary Bin': '60-79', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.20  0.06         NaN  0.03
+114       {'lhs': {'Annual Salary Bin': '140+', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'male'}}     0.01        0.89  0.05         NaN  0.03
+51                    {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Annual Salary Bin': '120-139'}}     0.00        0.14  0.05        0.05  0.03
+131           {'lhs': {'Annual Salary Bin': '120-139', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'female'}}     0.01        0.79  0.05         NaN  0.03
+76                {'lhs': {'Job Title': 'Transit Operator', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'male'}}     0.02        0.83  0.03         NaN  0.03
+140                  {'lhs': {'Annual Salary Bin': '100-119', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'male'}}     0.00        0.91  0.04         NaN  0.02
+70              {'lhs': {'Job Title': 'Transit Operator', 'Annual Salary Bin': '100-119'}, 'rhs': {'Gender': 'male'}}     0.01        0.83  0.03         NaN  0.02
+128                {'lhs': {'Annual Salary Bin': '140+', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'male'}}     0.01        0.30  0.04         NaN  0.02
+40                  {'lhs': {'Gender': 'female', 'Job Title': 'Junior Clerk'}, 'rhs': {'Annual Salary Bin': '40-59'}}     0.00        0.15  0.04        0.04  0.02
+68                 {'lhs': {'Job Title': 'General Laborer', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'male'}}     0.01        0.94  0.04         NaN  0.02
+32                     {'lhs': {'Gender': 'male', 'Job Title': 'Junior Clerk'}, 'rhs': {'Annual Salary Bin': '0-39'}}     0.00        0.92  0.04        0.04  0.02
+113  {'lhs': {'Annual Salary Bin': '100-119', 'Job Title': 'EMT/Paramedic/Firefighter'}, 'rhs': {'Gender': 'female'}}     0.00        0.20  0.04         NaN  0.02
+43                         {'lhs': {'Gender': 'male', 'Job Title': 'Engineer'}, 'rhs': {'Annual Salary Bin': '140+'}}     0.00        0.89  0.03        0.03  0.02
+53                       {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Annual Salary Bin': '0-39'}}     0.00        0.06  0.04        0.04  0.02
+148                     {'lhs': {'Annual Salary Bin': '0-39', 'Job Title': 'Firefighter'}, 'rhs': {'Gender': 'male'}}     0.00        0.90  0.03         NaN  0.02
+86                   {'lhs': {'Annual Salary Bin': '140+', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'male'}}     0.01        0.89  0.02         NaN  0.01
+89              {'lhs': {'Annual Salary Bin': '120-139', 'Job Title': 'Deputy Sheriff'}, 'rhs': {'Gender': 'female'}}     0.00        0.16  0.03         NaN  0.01
+63               {'lhs': {'Job Title': 'General Laborer', 'Annual Salary Bin': '80-99'}, 'rhs': {'Gender': 'female'}}     0.00        0.12  0.03         NaN  0.01
+83              {'lhs': {'Job Title': 'Transit Operator', 'Annual Salary Bin': '60-79'}, 'rhs': {'Gender': 'female'}}     0.00        0.22  0.02         NaN  0.01
+134                {'lhs': {'Annual Salary Bin': '0-39', 'Job Title': 'Registered Nurse'}, 'rhs': {'Gender': 'male'}}     0.00        0.28  0.02         NaN  0.01
+54                      {'lhs': {'Gender': 'female', 'Job Title': 'Engineer'}, 'rhs': {'Annual Salary Bin': '40-59'}}     0.00        0.03  0.02        0.02  0.01

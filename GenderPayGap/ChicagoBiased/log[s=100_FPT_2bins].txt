@@ -27,13 +27,13 @@ min          1560.00               7.35     0.00
 75%         98424.00              11.50     1.00
 max        151026.00              11.93     1.00
 
-              average        median           len
+             average        median           len
        Annual Salary Annual Salary Annual Salary
 Gender                                          
 female      39895.42      42027.00       4163.00
 male        92022.03      91338.00      16146.00
 
-                                                               average           len
+                                                              average           len
                                                         Annual Salary Annual Salary
 Job Title                                        Gender                            
 ADMINISTRATIVE ASST II                           female      33954.41        102.00
@@ -108,7 +108,7 @@ TRAFFIC CONTROL AIDE-HOURLY                      female      11237.20        112
                                                  male        22474.40         79.00
 
 Dependent Variable: Log Annual Salary
- +-----------------+--------+--------+
++-----------------+--------+--------+
 |                 |  (1)   |  (2)   |
 +-----------------+--------+--------+
 |       Male      | 0.935  | 0.697  |
@@ -122,7 +122,7 @@ Dependent Variable: Log Annual Salary
 |      - Status   |   No   |  Yes   |
 |   Observations  | 20309  | 20309  |
 |       R^2       | 0.458  | 0.971  |
-+-----------------+--------+--------+ 
++-----------------+--------+--------+
 'Unadjusted' pay gap: men on average earn 93.5 % more than women 
 'Adjusted' pay gap: men on average earn 69.7 % more than women
 
@@ -162,54 +162,55 @@ Annual Salary Bin values:  ['> 90K' '<= 90K']
 
 Enter path of the file containing the dependencies (obtained applying CFDDiscovery):	
 Total number of dependencies found:  785
+Total number of dependencies found (grep):  161
 Dependency n. 0 :	 (Gender=female) => Annual Salary Bin=<= 90K
 Dependency n. 1 :	 (Annual Salary Bin=> 90K) => Gender=male
-Dependency n. 2 :	 (Salary or Hourly=Hourly) => Gender=male
-Dependency n. 3 :	 (Gender=female) => Salary or Hourly=Salary
-Dependency n. 4 :	 (Annual Salary Bin=> 90K) => Salary or Hourly=Salary
-Dependency n. 5 :	 (Annual Salary Bin, Salary or Hourly=Hourly) => Gender
-Dependency n. 6 :	 (Annual Salary Bin, Gender=female) => Salary or Hourly
-Dependency n. 7 :	 (Gender=female, Annual Salary Bin=<= 90K) => Salary or Hourly=Salary
+Dependency n. 2 :	 (Annual Salary Bin=> 90K) => Salary or Hourly=Salary
+Dependency n. 3 :	 (Gender=female, Annual Salary Bin=<= 90K) => Salary or Hourly=Salary
+Dependency n. 4 :	 (Gender, Annual Salary Bin=> 90K) => Salary or Hourly
+Dependency n. 5 :	 (Gender=male, Annual Salary Bin=> 90K) => Salary or Hourly=Salary
+Dependency n. 6 :	 (Status=P) => Annual Salary Bin=<= 90K
+Dependency n. 7 :	 (Annual Salary Bin=<= 90K) => Status=F
 
 CFDs ([rawLHS, rawRHS]):
 [['Gender=female'], ['Annual Salary Bin=< 90K']]
 [['Annual Salary Bin=> 90K'], ['Gender=male']]
-[['Salary or Hourly=Hourly'], ['Gender=male']]
-[['Gender=female'], ['Salary or Hourly=Salary']]
 [['Annual Salary Bin=> 90K'], ['Salary or Hourly=Salary']]
 [['Gender=female', 'Annual Salary Bin=< 90K'], ['Salary or Hourly=Salary']]
 [['Gender=male', 'Annual Salary Bin=> 90K'], ['Salary or Hourly=Salary']]
-[['Status=F'], ['Gender=male']]
+[['Status=P'], ['Annual Salary Bin=< 90K']]
+[['Annual Salary Bin=< 90K'], ['Status=F']]
+[['Annual Salary Bin=> 90K'], ['Status=F']]
 
-Total number of dependencies in the dictionary:  431
+Total number of dependencies in the dictionary:  150
 
 ACFDs ({'lhs', 'rhs'}):
 ACFD n. 0 :	 {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
 ACFD n. 1 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}
-ACFD n. 2 :	 {'lhs': {'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}
-ACFD n. 3 :	 {'lhs': {'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}
-ACFD n. 4 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}
-ACFD n. 5 :	 {'lhs': {'Gender': 'female', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}
-ACFD n. 6 :	 {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}
-ACFD n. 7 :	 {'lhs': {'Status': 'F'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 2 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 3 :	 {'lhs': {'Gender': 'female', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 4 :	 {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 5 :	 {'lhs': {'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 6 :	 {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Status': 'F'}}
+ACFD n. 7 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Status': 'F'}}
 
-Total number of tuples in df2:  163
+Total number of tuples in df2:  35
                                                                                                   Rule  Support  Confidence  Diff  GenderDiff
 0                                {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.20        1.00  0.45        0.45
 1                                   {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        1.00  0.20         NaN
-2                                   {'lhs': {'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.16        0.81  0.00         NaN
-3                                 {'lhs': {'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.81  0.01        0.01
-4  {'lhs': {'Gender': 'female', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.81  0.01        0.06
+2  {'lhs': {'Gender': 'female', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.81  0.01        0.06
+3     {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.38        0.85  0.06        0.00
+4                 {'lhs': {'Gender': 'female', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Status': 'F'}}     0.19        0.91 -0.06       -0.03
 
-Total number of tuples in df3:  24
-                                                                                                Rule  Support  Confidence  Diff  GenderDiff
-0                              {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.20        1.00  0.45        0.45
-1                                 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        1.00  0.20         NaN
-5   {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.38        0.85  0.06        0.00
-10               {'lhs': {'Status': 'F', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.89  0.07        0.07
-12                 {'lhs': {'Gender': 'male', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Status': 'F'}}     0.15        0.92  0.08        0.08
+Total number of tuples in df3:  20
+                                                                                               Rule  Support  Confidence  Diff  GenderDiff
+0                             {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.20        1.00  0.45        0.45
+1                                {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        1.00  0.20         NaN
+3  {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.38        0.85  0.06        0.00
+6          {'lhs': {'Gender': 'male', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.94  0.03        0.03
+7   {'lhs': {'Gender': 'male', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.04        0.82  0.07        0.07
 
-Total number of combinations found:  84
+Total number of combinations found:  80
 ACFD n. 0 :	 {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}
 ACFD n. 1 :	 {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
 ACFD n. 2 :	 {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '> 90K'}}
@@ -218,72 +219,71 @@ ACFD n. 4 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}
 ACFD n. 5 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'female'}}
 ACFD n. 6 :	 {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'male'}}
 ACFD n. 7 :	 {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}
+/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py:618: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
 
-Total number of tuples in df4:  83
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df4_1['Mean'] = 0
+
+Total number of tuples in df4:  79
                                                                     Rule  Support  Confidence  Diff  GenderDiff
 0     {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.45        0.57  0.12        0.12
 1    {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.34        0.43 -0.12       -0.12
 2   {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.00        0.00 -0.45       -0.45
 3  {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.20        1.00  0.45        0.45
 4     {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        1.00  0.20         NaN 
-
-/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py:579: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  df4_1['Mean'] = 0
 /home/corona/.local/lib/python3.9/site-packages/pandas/core/indexing.py:1720: SettingWithCopyWarning: 
+
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   self._setitem_single_column(loc, value, pi)
 
-Number of original CFDs: 24 
-Number of combinations rules:  83 
-Number of final rules found:  40
+Number of original CFDs: 20 
+Number of combinations rules:  79 
+Number of final rules found:  39
                                                                                                                        Rule  Support  Confidence  Diff  GenderDiff  Mean
-66                  {'lhs': {'Gender': 'female', 'Job Title': 'HOISTING ENGINEER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.98        0.98  0.49
-54                        {'lhs': {'Gender': 'female', 'Job Title': 'CAPTAIN-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.98        0.98  0.49
-50                     {'lhs': {'Gender': 'female', 'Job Title': 'LIEUTENANT-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.97        0.97  0.49
-62                            {'lhs': {'Gender': 'female', 'Job Title': 'PLUMBER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.97        0.97  0.48
-30                  {'lhs': {'Gender': 'female', 'Job Title': 'FIRE ENGINEER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.96        0.96  0.48
-46         {'lhs': {'Gender': 'female', 'Job Title': 'OPERATING ENGINEER-GROUP C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.95        0.95  0.48
-38                    {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.95        0.95  0.48
-26                {'lhs': {'Gender': 'female', 'Job Title': 'ELECTRICAL MECHANIC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.94        0.94  0.47
-16                              {'lhs': {'Gender': 'female', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.92        0.92  0.46
-70                         {'lhs': {'Gender': 'female', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.88        0.88  0.44
-58               {'lhs': {'Gender': 'female', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.86        0.86  0.43
-82                           {'lhs': {'Job Title': 'SERGEANT', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.01        1.00  0.84         NaN  0.42
-74                           {'lhs': {'Job Title': 'SERGEANT', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        1.00  0.84        0.84  0.42
-75     {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': 'POLICE COMMUNICATIONS OPERATOR II'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.81         NaN  0.41
-34              {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER/PARAMEDIC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.78        0.78  0.39
-20                       {'lhs': {'Gender': 'female', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.75        0.75  0.38
-42                      {'lhs': {'Gender': 'female', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.71        0.71  0.36
+62                  {'lhs': {'Gender': 'female', 'Job Title': 'HOISTING ENGINEER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.98        0.98  0.49
+50                        {'lhs': {'Gender': 'female', 'Job Title': 'CAPTAIN-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.98        0.98  0.49
+46                     {'lhs': {'Gender': 'female', 'Job Title': 'LIEUTENANT-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.97        0.97  0.49
+58                            {'lhs': {'Gender': 'female', 'Job Title': 'PLUMBER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.97        0.97  0.48
+26                  {'lhs': {'Gender': 'female', 'Job Title': 'FIRE ENGINEER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.96        0.96  0.48
+42         {'lhs': {'Gender': 'female', 'Job Title': 'OPERATING ENGINEER-GROUP C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.95        0.95  0.48
+34                    {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.95        0.95  0.48
+22                {'lhs': {'Gender': 'female', 'Job Title': 'ELECTRICAL MECHANIC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.94        0.94  0.47
+14                              {'lhs': {'Gender': 'female', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.92        0.92  0.46
+66                         {'lhs': {'Gender': 'female', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.88        0.88  0.44
+54               {'lhs': {'Gender': 'female', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.86        0.86  0.43
+78                           {'lhs': {'Job Title': 'SERGEANT', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.01        1.00  0.84         NaN  0.42
+70                           {'lhs': {'Job Title': 'SERGEANT', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        1.00  0.84        0.84  0.42
+71     {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': 'POLICE COMMUNICATIONS OPERATOR II'}, 'rhs': {'Gender': 'male'}}     0.00        1.00  0.81         NaN  0.41
+30              {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER/PARAMEDIC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.78        0.78  0.39
+18                       {'lhs': {'Gender': 'female', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.75        0.75  0.38
+38                      {'lhs': {'Gender': 'female', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.71        0.71  0.36
 4                                                        {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        1.00  0.20         NaN  0.33
 3                                                     {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.20        1.00  0.45        0.45  0.33
 0                                                        {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.45        0.57  0.12        0.12  0.28
 8                          {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.38        0.85  0.06        0.00  0.22
 7                                                     {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.20        0.37  0.17         NaN  0.19
-39                         {'lhs': {'Gender': 'male', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.29        0.29  0.15
-11                                      {'lhs': {'Status': 'F', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.17        0.89  0.07        0.07  0.12
-71                              {'lhs': {'Job Title': 'SERGEANT', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.05        1.00  0.16        0.16  0.10
-79                              {'lhs': {'Job Title': 'SERGEANT', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.05        1.00  0.16         NaN  0.10
-55                  {'lhs': {'Gender': 'male', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.14        0.14  0.08
-67                            {'lhs': {'Gender': 'male', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.12        0.12  0.06
-35                       {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.06        1.00  0.05        0.05  0.06
-17                          {'lhs': {'Gender': 'male', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.04        0.82  0.07        0.07  0.05
-31                 {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER/PARAMEDIC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.85  0.08        0.08  0.04
-23                   {'lhs': {'Gender': 'male', 'Job Title': 'ELECTRICAL MECHANIC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.06        0.06  0.03
-27                     {'lhs': {'Gender': 'male', 'Job Title': 'FIRE ENGINEER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.04        0.04  0.03
-43            {'lhs': {'Gender': 'male', 'Job Title': 'OPERATING ENGINEER-GROUP C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.05        0.05  0.03
-78  {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': 'POLICE COMMUNICATIONS OPERATOR II'}, 'rhs': {'Gender': 'female'}}     0.01        0.85  0.04         NaN  0.02
-47                        {'lhs': {'Gender': 'male', 'Job Title': 'LIEUTENANT-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.03        0.03  0.02
-13                                 {'lhs': {'Gender': 'male', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.94  0.03        0.03  0.02
-59                               {'lhs': {'Gender': 'male', 'Job Title': 'PLUMBER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.03        0.03  0.02
-63                     {'lhs': {'Gender': 'male', 'Job Title': 'HOISTING ENGINEER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02
-51                           {'lhs': {'Gender': 'male', 'Job Title': 'CAPTAIN-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02
+35                         {'lhs': {'Gender': 'male', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.29        0.29  0.15
+75                              {'lhs': {'Job Title': 'SERGEANT', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.05        1.00  0.16         NaN  0.10
+67                              {'lhs': {'Job Title': 'SERGEANT', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.05        1.00  0.16        0.16  0.10
+51                  {'lhs': {'Gender': 'male', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.14        0.14  0.08
+63                            {'lhs': {'Gender': 'male', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.12        0.12  0.06
+31                       {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.06        1.00  0.05        0.05  0.06
+15                          {'lhs': {'Gender': 'male', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.04        0.82  0.07        0.07  0.05
+27                 {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER/PARAMEDIC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.85  0.08        0.08  0.04
+19                   {'lhs': {'Gender': 'male', 'Job Title': 'ELECTRICAL MECHANIC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.06        0.06  0.03
+23                     {'lhs': {'Gender': 'male', 'Job Title': 'FIRE ENGINEER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.04        0.04  0.03
+39            {'lhs': {'Gender': 'male', 'Job Title': 'OPERATING ENGINEER-GROUP C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.05        0.05  0.03
+74  {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': 'POLICE COMMUNICATIONS OPERATOR II'}, 'rhs': {'Gender': 'female'}}     0.01        0.85  0.04         NaN  0.02
+43                        {'lhs': {'Gender': 'male', 'Job Title': 'LIEUTENANT-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.03        0.03  0.02
+11                                 {'lhs': {'Gender': 'male', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.94  0.03        0.03  0.02
+55                               {'lhs': {'Gender': 'male', 'Job Title': 'PLUMBER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.03        0.03  0.02
+59                     {'lhs': {'Gender': 'male', 'Job Title': 'HOISTING ENGINEER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02
+47                           {'lhs': {'Gender': 'male', 'Job Title': 'CAPTAIN-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02
 
 Enter the indexes of the interesting rules (one by one). Write 'exit' to continue or write 'all' to select all the rules
 
@@ -305,35 +305,35 @@ Gender - Difference Mean:  0.475
 
 Total number of ACFDs selected:  32 
                                                                                                                  Rule  Support  Confidence  Diff  GenderDiff  Mean
-66           {'lhs': {'Gender': 'female', 'Job Title': 'HOISTING ENGINEER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.98        0.98  0.49
-54                 {'lhs': {'Gender': 'female', 'Job Title': 'CAPTAIN-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.98        0.98  0.49
-50              {'lhs': {'Gender': 'female', 'Job Title': 'LIEUTENANT-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.97        0.97  0.49
-62                     {'lhs': {'Gender': 'female', 'Job Title': 'PLUMBER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.97        0.97  0.48
-30           {'lhs': {'Gender': 'female', 'Job Title': 'FIRE ENGINEER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.96        0.96  0.48
-46  {'lhs': {'Gender': 'female', 'Job Title': 'OPERATING ENGINEER-GROUP C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.95        0.95  0.48
-38             {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.95        0.95  0.48
-26         {'lhs': {'Gender': 'female', 'Job Title': 'ELECTRICAL MECHANIC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.94        0.94  0.47
-16                       {'lhs': {'Gender': 'female', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.92        0.92  0.46
-70                  {'lhs': {'Gender': 'female', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.88        0.88  0.44
-58        {'lhs': {'Gender': 'female', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.86        0.86  0.43
-74                    {'lhs': {'Job Title': 'SERGEANT', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        1.00  0.84        0.84  0.42
-34       {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER/PARAMEDIC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.78        0.78  0.39
-20                {'lhs': {'Gender': 'female', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.75        0.75  0.38
-42               {'lhs': {'Gender': 'female', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.71        0.71  0.36
+62           {'lhs': {'Gender': 'female', 'Job Title': 'HOISTING ENGINEER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.98        0.98  0.49
+50                 {'lhs': {'Gender': 'female', 'Job Title': 'CAPTAIN-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.98        0.98  0.49
+46              {'lhs': {'Gender': 'female', 'Job Title': 'LIEUTENANT-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.97        0.97  0.49
+58                     {'lhs': {'Gender': 'female', 'Job Title': 'PLUMBER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.97        0.97  0.48
+26           {'lhs': {'Gender': 'female', 'Job Title': 'FIRE ENGINEER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.96        0.96  0.48
+42  {'lhs': {'Gender': 'female', 'Job Title': 'OPERATING ENGINEER-GROUP C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.95        0.95  0.48
+34             {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.95        0.95  0.48
+22         {'lhs': {'Gender': 'female', 'Job Title': 'ELECTRICAL MECHANIC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.94        0.94  0.47
+14                       {'lhs': {'Gender': 'female', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.92        0.92  0.46
+66                  {'lhs': {'Gender': 'female', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.88        0.88  0.44
+54        {'lhs': {'Gender': 'female', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.86        0.86  0.43
+70                    {'lhs': {'Job Title': 'SERGEANT', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        1.00  0.84        0.84  0.42
+30       {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER/PARAMEDIC'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.78        0.78  0.39
+18                {'lhs': {'Gender': 'female', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.75        0.75  0.38
+38               {'lhs': {'Gender': 'female', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.71        0.71  0.36
 3                                              {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.20        1.00  0.45        0.45  0.33
 0                                                 {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.45        0.57  0.12        0.12  0.28
-39                  {'lhs': {'Gender': 'male', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.29        0.29  0.15
-71                       {'lhs': {'Job Title': 'SERGEANT', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.05        1.00  0.16        0.16  0.10
-55           {'lhs': {'Gender': 'male', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.14        0.14  0.08
-67                     {'lhs': {'Gender': 'male', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.12        0.12  0.06
-35                {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.06        1.00  0.05        0.05  0.06
-17                   {'lhs': {'Gender': 'male', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.04        0.82  0.07        0.07  0.05
-31          {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER/PARAMEDIC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.85  0.08        0.08  0.04
-23            {'lhs': {'Gender': 'male', 'Job Title': 'ELECTRICAL MECHANIC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.06        0.06  0.03
-27              {'lhs': {'Gender': 'male', 'Job Title': 'FIRE ENGINEER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.04        0.04  0.03
-43     {'lhs': {'Gender': 'male', 'Job Title': 'OPERATING ENGINEER-GROUP C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.05        0.05  0.03
-47                 {'lhs': {'Gender': 'male', 'Job Title': 'LIEUTENANT-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.03        0.03  0.02
-13                          {'lhs': {'Gender': 'male', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.94  0.03        0.03  0.02
-59                        {'lhs': {'Gender': 'male', 'Job Title': 'PLUMBER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.03        0.03  0.02
-63              {'lhs': {'Gender': 'male', 'Job Title': 'HOISTING ENGINEER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02
-51                    {'lhs': {'Gender': 'male', 'Job Title': 'CAPTAIN-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02
+35                  {'lhs': {'Gender': 'male', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.29        0.29  0.15
+67                       {'lhs': {'Job Title': 'SERGEANT', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.05        1.00  0.16        0.16  0.10
+51           {'lhs': {'Gender': 'male', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.14        0.14  0.08
+63                     {'lhs': {'Gender': 'male', 'Job Title': 'LIEUTENANT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.12        0.12  0.06
+31                {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.06        1.00  0.05        0.05  0.06
+15                   {'lhs': {'Gender': 'male', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.04        0.82  0.07        0.07  0.05
+27          {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER/PARAMEDIC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.85  0.08        0.08  0.04
+19            {'lhs': {'Gender': 'male', 'Job Title': 'ELECTRICAL MECHANIC'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.06        0.06  0.03
+23              {'lhs': {'Gender': 'male', 'Job Title': 'FIRE ENGINEER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.04        0.04  0.03
+39     {'lhs': {'Gender': 'male', 'Job Title': 'OPERATING ENGINEER-GROUP C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.05        0.05  0.03
+43                 {'lhs': {'Gender': 'male', 'Job Title': 'LIEUTENANT-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.03        0.03  0.02
+11                          {'lhs': {'Gender': 'male', 'Department': 'DAIS'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.94  0.03        0.03  0.02
+55                        {'lhs': {'Gender': 'male', 'Job Title': 'PLUMBER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.03        0.03  0.02
+59              {'lhs': {'Gender': 'male', 'Job Title': 'HOISTING ENGINEER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02
+47                    {'lhs': {'Gender': 'male', 'Job Title': 'CAPTAIN-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02

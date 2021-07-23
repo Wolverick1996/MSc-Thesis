@@ -27,88 +27,67 @@ min          3120.00               8.05     0.00
 75%        100980.00              11.52     1.00
 max        151026.00              11.93     1.00
 
-              average        median           len
+             average        median           len
        Annual Salary Annual Salary Annual Salary
 Gender                                          
 female      79790.83      84054.00       4163.00
 male        92022.03      91338.00      16146.00
 
-                                                               average           len
-                                                        Annual Salary Annual Salary
-Job Title                                        Gender                            
-ADMINISTRATIVE ASST II                           female      67908.82        102.00
-                                                 male        61292.00          9.00
-AVIATION SECURITY OFFICER                        female      73178.00         42.00
-                                                 male        73126.63        149.00
-CAPTAIN-EMT                                      female     146538.00          4.00
-                                                 male       147328.84        160.00
-CONSTRUCTION LABORER                             female      92352.00         54.00
-                                                 male        92352.00        337.00
-DETENTION AIDE                                   female      71730.48         50.00
-                                                 male        69382.60        131.00
-ELECTRICAL MECHANIC                              female     104000.00         12.00
-                                                 male       104000.00        194.00
-FIRE ENGINEER-EMT                                female     113901.86         14.00
-                                                 male       114411.09        344.00
-FIREFIGHTER                                      female     102326.00          3.00
-                                                 male       102630.77        217.00
-FIREFIGHTER-EMT                                  female     102071.01         67.00
-                                                 male       102374.82       1256.00
-FIREFIGHTER-EMT (RECRUIT)                        female      74098.67         45.00
-                                                 male        74030.41        588.00
-FIREFIGHTER/PARAMEDIC                            female     100498.00         24.00
-                                                 male        99874.02        248.00
-FOSTER GRANDPARENT                               female       3120.00        131.00
-                                                 male         3120.00         14.00
-GENERAL LABORER - DSS                            female      48958.46         57.00
-                                                 male        48824.93        176.00
-HOISTING ENGINEER                                female     107619.20          5.00
-                                                 male       108163.96        210.00
-LIBRARIAN I                                      female      69895.80         80.00
-                                                 male        70957.67         43.00
-LIBRARY PAGE                                     female      14639.73         90.00
-                                                 male        14647.07         43.00
-LIEUTENANT                                       female     139987.62         37.00
-                                                 male       134657.98        282.00
-LIEUTENANT-EMT                                   female     131959.20         10.00
-                                                 male       130344.11        371.00
-MACHINIST (AUTOMOTIVE)                           female     103334.40          2.00
-                                                 male       103334.40        158.00
-MOTOR TRUCK DRIVER                               female      79733.49         91.00
-                                                 male        79810.82        820.00
-OPERATING ENGINEER-GROUP A                       female     109096.00          3.00
-                                                 male       109096.00        183.00
-OPERATING ENGINEER-GROUP C                       female     103646.40          7.00
-                                                 male       103646.40        143.00
-PARAMEDIC                                        female      87267.69         78.00
-                                                 male        85262.14        236.00
-PARAMEDIC I/C                                    female     103477.25         72.00
-                                                 male       102847.48        174.00
-PLUMBER                                          female     108160.00          4.00
-                                                 male       108160.00        112.00
-POLICE COMMUNICATIONS OPERATOR I                 female      71456.66        133.00
-                                                 male        67141.66         29.00
-POLICE COMMUNICATIONS OPERATOR II                female      81329.82        167.00
-                                                 male        74765.85         39.00
-POLICE OFFICER                                   female      84115.67       2014.00
-                                                 male        84892.23       6475.00
-POLICE OFFICER (ASSIGNED AS DETECTIVE)           female      98597.74        184.00
-                                                 male        99188.30        849.00
-POLICE OFFICER (ASSIGNED AS EVIDENCE TECHNICIAN) female      96687.23         26.00
-                                                 male        96836.62         87.00
-POLICE OFFICER / FLD TRNG OFFICER                female      92778.38         32.00
-                                                 male        93088.37        166.00
-POOL MOTOR TRUCK DRIVER                          female      59289.92        130.00
-                                                 male        63292.41        530.00
-SANITATION LABORER                               female      82036.80         91.00
-                                                 male        82115.90        299.00
-SERGEANT                                         female     121652.62        190.00
-                                                 male       121925.65        995.00
-TRAFFIC CONTROL AIDE-HOURLY                      female      22474.40        112.00
-                                                 male        22474.40         79.00
+                                        average           len
+                                  Annual Salary Annual Salary
+Department          Gender Status                            
+ADMIN HEARNG        female F           69021.82         11.00
+                    male   F           46380.00          2.00
+AVIATION            female F           76925.36        146.00
+                           P           16952.00          8.00
+                    male   F           83341.87        723.00
+                           P           17163.78         33.00
+BUILDINGS           female F           71057.45         11.00
+                    male   F           61620.00          3.00
+BUSINESS AFFAIRS    female F           69579.00          8.00
+CITY CLERK          female F           76248.00          1.00
+COPA                female F           45288.00          1.00
+DAIS                female F           93432.53          9.00
+                    male   F          103657.49        287.00
+FAMILY & SUPPORT    female F           70534.50          8.00
+                           P            3120.00        131.00
+                    male   P            3120.00         14.00
+FINANCE             female F           62457.00          4.00
+FIRE                female F           96495.26        320.00
+                    male   F          103084.89       3689.00
+HEALTH              female F           72944.00          3.00
+HUMAN RESOURCES     female F           64842.00          2.00
+LAW                 female F           73988.00          3.00
+OEMC                female F           76830.32        302.00
+                           P           22474.40        112.00
+                    male   F           71514.35         68.00
+                           P           22474.40         79.00
+POLICE              female F           88768.72       2538.00
+                    male   F           91599.70       8890.00
+PUBLIC LIBRARY      female F           69515.58         89.00
+                           P           14639.73         90.00
+                    male   F           71961.66         51.00
+                           P           14647.07         43.00
+PUBLIC SAFETY ADMIN female F           94749.33          3.00
+                    male   F          101654.97         31.00
+STREETS & SAN       female F           72179.43        211.00
+                           P           16389.91         32.00
+                    male   F           75870.71       1031.00
+                           P           16344.40         97.00
+TRANSPORTN          female F           77676.00         31.00
+                    male   F           90688.00        162.00
+WATER MGMNT         female F           91066.27         89.00
+                    male   F           97246.41        943.00
+                    average           len
+              Annual Salary Annual Salary
+Gender Status                            
+female F           86349.79       3790.00
+       P           13146.17        373.00
+male   F           93273.73      15880.00
+       P           17296.22        266.00
 
 Dependent Variable: Log Annual Salary
- +-----------------+--------+--------+
++-----------------+--------+--------+
 |                 |  (1)   |  (2)   |
 +-----------------+--------+--------+
 |       Male      | 0.242  | 0.004  |
@@ -122,7 +101,7 @@ Dependent Variable: Log Annual Salary
 |      - Status   |   No   |  Yes   |
 |   Observations  | 20309  | 20309  |
 |       R^2       | 0.053  | 0.950  |
-+-----------------+--------+--------+ 
++-----------------+--------+--------+
 'Unadjusted' pay gap: men on average earn 24.2 % more than women 
 'Adjusted' pay gap: men on average earn 0.4 % more than women
 
@@ -149,7 +128,7 @@ Encoding Department:
 
 [20309 rows x 9 columns]
 Traceback (most recent call last):
-  File "/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py", line 178, in <module>
+  File "/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py", line 191, in <module>
     plt.show()
   File "/usr/local/lib/python3.9/dist-packages/matplotlib/pyplot.py", line 354, in show
     return _backend_mod.show(*args, **kwargs)

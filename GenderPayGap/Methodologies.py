@@ -44,11 +44,13 @@ df['Male'] = np.where(df['Gender'] == 'male', 1, 0)
 print(df.describe())
 
 # Create a table showing overall male-female pay differences in Annual Salary
-print("\n", pd.pivot_table(df, index=["Gender"], values=["Annual Salary"], aggfunc=[np.average, np.median, len]))
+print("")
+print(pd.pivot_table(df, index=["Gender"], values=["Annual Salary"], aggfunc=[np.average, np.median, len]))
 
 # How are employees spread out among Job Titles?
 pd.set_option('display.max_rows', None)
-print("\n", pd.pivot_table(df, index=["Job Title", "Gender"], values=["Annual Salary"], aggfunc=[np.average, len]))
+print("")
+print(pd.pivot_table(df, index=["Job Title", "Gender", "Status"], values=["Annual Salary"], aggfunc=[np.average, len]))
 
 # Run Your Regressions #
 t = PrettyTable()
@@ -94,8 +96,9 @@ else:
                          '%.3f' % constant, '\nYes\nYes\nYes', len(df), '%.3f' % r_sq])
 
 # Publish a clean table of regression results
-print('\nDependent Variable: Log Annual Salary\n', t,
-      "\n'Unadjusted' pay gap: men on average earn", '%.1f' % (coefficient * 100), "% more than women",
+print('\nDependent Variable: Log Annual Salary')
+print(t)
+print("'Unadjusted' pay gap: men on average earn", '%.1f' % (coefficient * 100), "% more than women",
       "\n'Adjusted' pay gap: men on average earn", '%.1f' % (coefficient0 * 100),
       "% more than women")
 
@@ -147,11 +150,18 @@ df['Annual Salary Bin'] = pd.cut(df['Annual Salary'] / 1000, bins=bins, labels=l
 
 # Plotting distribution of Annual Salary over Gender
 df.hist(column='Annual Salary')
+plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_annual_salary_distribution.pdf', format='pdf')
 d = pd.crosstab(df['Annual Salary Bin'], df['Gender'])
 d.plot.bar(stacked=True, color=['hotpink', 'dodgerblue'])
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.title("Distribution of Annual Salary over Gender")
+if len(labels) == 2:
+    plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_2bins_annual_salary_over_gender.pdf',
+                format='pdf', bbox_inches='tight')
+else:
+    plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_annual_salary_over_gender.pdf',
+                format='pdf', bbox_inches='tight')
 
 dfPlot = df[df['Gender'] == 'male']
 # Get the frequency, PMF (Probability Mass Function) and CDF (Cumulative Distribution Function)
@@ -163,6 +173,7 @@ stats_df['cdf'] = stats_df['pmf'].cumsum()
 stats_df = stats_df.reset_index()
 stats_df.plot(x='Annual Salary', y=['pmf', 'cdf'], grid=True)
 plt.title("PMF and CDF for Annual Salary (Males)")
+plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_pmf_cdf_annual_salary_males.pdf', format='pdf')
 
 dfPlot = df[df['Gender'] == 'female']
 # Get the frequency, PMF (Probability Mass Function) and CDF (Cumulative Distribution Function)
@@ -174,6 +185,7 @@ stats_df['cdf'] = stats_df['pmf'].cumsum()
 stats_df = stats_df.reset_index()
 stats_df.plot(x='Annual Salary', y=['pmf', 'cdf'], grid=True)
 plt.title("PMF and CDF for Annual Salary (Females)")
+plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_pmf_cdf_annual_salary_females.pdf', format='pdf')
 
 plt.show()
 
@@ -230,12 +242,19 @@ with open(file) as f:
 # all rules obtained
 print("\nTotal number of dependencies found: ", len(output))
 
+# further filtering because the CFDDiscovery capsule doesn't allow to use the grepValue to filter rules with no target
+o0 = list()
+for i in range(0, len(output)):
+    if grepValue in output[i]:
+        o0.append(output[i])
+print("Total number of dependencies found (grep): ", len(o0))
+
 for i in range(0, 8):
-    if len(output) > i:
-        print("Dependency n.", i, ":\t", output[i])
+    if len(o0) > i:
+        print("Dependency n.", i, ":\t", o0[i])
 
 # Transform the '<=' in '<' and viceversa to avoid problems with the following '=' detection
-o1 = list(map(lambda x: x.replace("<=", "<"), output))
+o1 = list(map(lambda x: x.replace("<=", "<"), o0))
 # Delete the parenthesis
 o1 = list(map(lambda x: x.replace("(", ""), o1))
 o1 = list(map(lambda x: x.replace(")", ""), o1))

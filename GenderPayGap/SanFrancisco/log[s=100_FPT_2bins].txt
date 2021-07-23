@@ -27,13 +27,13 @@ min             0.01              -4.61     0.00
 75%        133880.00              11.80     1.00
 max        417152.63              12.94     1.00
 
-              average        median           len
+             average        median           len
        Annual Salary Annual Salary Annual Salary
 Gender                                          
 female      75841.50      71100.98       9308.00
 male        94370.73      94133.26      13688.00
 
-                                             average           len
+                                            average           len
                                       Annual Salary Annual Salary
 Job Title                      Gender                            
 Administrative Analyst         female      83282.16         89.00
@@ -200,7 +200,7 @@ Truck Driver                   female      79705.24          9.00
                                male        86912.60        183.00
 
 Dependent Variable: Log Annual Salary
- +----------------+--------+--------+
++----------------+--------+--------+
 |                |  (1)   |  (2)   |
 +----------------+--------+--------+
 |      Male      | 0.304  | -0.050 |
@@ -212,7 +212,7 @@ Dependent Variable: Log Annual Salary
 |     - Status   |   No   |  Yes   |
 |  Observations  | 22996  | 22996  |
 |      R^2       | 0.005  | 0.476  |
-+----------------+--------+--------+ 
++----------------+--------+--------+
 'Unadjusted' pay gap: men on average earn 30.4 % more than women 
 'Adjusted' pay gap: men on average earn -5.0 % more than women
 
@@ -249,14 +249,15 @@ Annual Salary Bin values:  ['> 90K' '<= 90K']
 
 Enter path of the file containing the dependencies (obtained applying CFDDiscovery):	
 Total number of dependencies found:  586
+Total number of dependencies found (grep):  220
 Dependency n. 0 :	 (Status=P) => Annual Salary Bin=<= 90K
 Dependency n. 1 :	 (Annual Salary Bin=> 90K) => Status=F
-Dependency n. 2 :	 (Gender, Status=P) => Annual Salary Bin
-Dependency n. 3 :	 (Status=P, Gender=female) => Annual Salary Bin=<= 90K
-Dependency n. 4 :	 (Status, Gender=male) => Annual Salary Bin
-Dependency n. 5 :	 (Gender=male, Status=P) => Annual Salary Bin=<= 90K
-Dependency n. 6 :	 (Gender, Annual Salary Bin=> 90K) => Status
-Dependency n. 7 :	 (Annual Salary Bin=> 90K, Gender=female) => Status=F
+Dependency n. 2 :	 (Status=P, Gender=female) => Annual Salary Bin=<= 90K
+Dependency n. 3 :	 (Gender=male, Status=P) => Annual Salary Bin=<= 90K
+Dependency n. 4 :	 (Gender, Annual Salary Bin=> 90K) => Status
+Dependency n. 5 :	 (Annual Salary Bin=> 90K, Gender=female) => Status=F
+Dependency n. 6 :	 (Gender=male, Annual Salary Bin=> 90K) => Status=F
+Dependency n. 7 :	 (Job Title=Camp Assistant) => Annual Salary Bin=<= 90K
 
 CFDs ([rawLHS, rawRHS]):
 [['Status=P'], ['Annual Salary Bin=< 90K']]
@@ -265,10 +266,10 @@ CFDs ([rawLHS, rawRHS]):
 [['Gender=male', 'Status=P'], ['Annual Salary Bin=< 90K']]
 [['Annual Salary Bin=> 90K', 'Gender=female'], ['Status=F']]
 [['Gender=male', 'Annual Salary Bin=> 90K'], ['Status=F']]
-[['Job Title=Public Svc Aide-Public Works'], ['Gender=male']]
-[['Job Title=Lieutenant Fire Suppression'], ['Gender=male']]
+[['Job Title=Camp Assistant'], ['Annual Salary Bin=< 90K']]
+[['Job Title=School Crossing Guard'], ['Annual Salary Bin=< 90K']]
 
-Total number of dependencies in the dictionary:  336
+Total number of dependencies in the dictionary:  218
 
 ACFDs ({'lhs', 'rhs'}):
 ACFD n. 0 :	 {'lhs': {'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
@@ -277,26 +278,26 @@ ACFD n. 2 :	 {'lhs': {'Status': 'P', 'Gender': 'female'}, 'rhs': {'Annual Salary
 ACFD n. 3 :	 {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
 ACFD n. 4 :	 {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Status': 'F'}}
 ACFD n. 5 :	 {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Status': 'F'}}
-ACFD n. 6 :	 {'lhs': {'Job Title': 'Public Svc Aide-Public Works'}, 'rhs': {'Gender': 'male'}}
-ACFD n. 7 :	 {'lhs': {'Job Title': 'Lieutenant Fire Suppression'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 6 :	 {'lhs': {'Job Title': 'Camp Assistant'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 7 :	 {'lhs': {'Job Title': 'School Crossing Guard'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
 
-Total number of tuples in df2:  136
-                                                                                   Rule  Support  Confidence  Diff  GenderDiff
-0  {'lhs': {'Status': 'P', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.18        0.88 -0.03       -0.03
-1    {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.19        0.93  0.03        0.03
-2   {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Status': 'F'}}     0.13        0.84  0.24       -0.08
-3     {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Status': 'F'}}     0.30        0.96  0.36        0.04
-4     {'lhs': {'Job Title': 'Public Svc Aide-Public Works'}, 'rhs': {'Gender': 'male'}}     0.01        0.83  0.00         NaN
+Total number of tuples in df2:  61
+                                                                                                            Rule  Support  Confidence  Diff  GenderDiff
+0                           {'lhs': {'Status': 'P', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.18        0.88 -0.03       -0.03
+1                             {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.19        0.93  0.03        0.03
+2                            {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Status': 'F'}}     0.13        0.84  0.24       -0.08
+3                              {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Status': 'F'}}     0.30        0.96  0.36        0.04
+4  {'lhs': {'Gender': 'female', 'Job Title': 'Parking Control Officer'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.82  0.02        0.02
 
-Total number of tuples in df3:  16
-                                                                                                 Rule  Support  Confidence  Diff  GenderDiff
-1                  {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.19        0.93  0.03        0.03
-2                 {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Status': 'F'}}     0.13        0.84  0.24       -0.08
-3                   {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Status': 'F'}}     0.30        0.96  0.36        0.04
-60                 {'lhs': {'Gender': 'male', 'Job Title': 'Assoc Engineer'}, 'rhs': {'Status': 'F'}}     0.00        0.93  0.03        0.03
-61  {'lhs': {'Gender': 'male', 'Job Title': 'Senior Administrative Analyst'}, 'rhs': {'Status': 'F'}}     0.01        0.89  0.06        0.06
+Total number of tuples in df3:  10
+                                                                                                             Rule  Support  Confidence  Diff  GenderDiff
+1                              {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.19        0.93  0.03        0.03
+2                             {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Status': 'F'}}     0.13        0.84  0.24       -0.08
+3                               {'lhs': {'Gender': 'male', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Status': 'F'}}     0.30        0.96  0.36        0.04
+4   {'lhs': {'Gender': 'female', 'Job Title': 'Parking Control Officer'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.82  0.02        0.02
+20            {'lhs': {'Gender': 'male', 'Job Title': 'Registered Nurse'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.89  0.02        0.02
 
-Total number of combinations found:  42
+Total number of combinations found:  36
 ACFD n. 0 :	 {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '> 90K'}}
 ACFD n. 1 :	 {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
 ACFD n. 2 :	 {'lhs': {'Gender': 'female', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '> 90K'}}
@@ -305,3 +306,76 @@ ACFD n. 4 :	 {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'male'}, 'rhs': {'
 ACFD n. 5 :	 {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Status': 'F'}}
 ACFD n. 6 :	 {'lhs': {'Annual Salary Bin': '<= 90K', 'Gender': 'male'}, 'rhs': {'Status': 'F'}}
 ACFD n. 7 :	 {'lhs': {'Annual Salary Bin': '<= 90K', 'Gender': 'female'}, 'rhs': {'Status': 'F'}}
+
+Total number of tuples in df4:  36
+                                                                                   Rule  Support  Confidence  Diff  GenderDiff
+0     {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.07 -0.03       -0.03
+1    {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.19        0.93  0.03        0.03
+2   {'lhs': {'Gender': 'female', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        0.12  0.03        0.03
+3  {'lhs': {'Gender': 'female', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.18        0.88 -0.03       -0.03
+4     {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'male'}, 'rhs': {'Status': 'F'}}     0.30        0.96  0.36        0.04 
+
+/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py:616: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df4_1['Mean'] = 0
+/home/corona/.local/lib/python3.9/site-packages/pandas/core/indexing.py:1720: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  self._setitem_single_column(loc, value, pi)
+
+Number of original CFDs: 10 
+Number of combinations rules:  36 
+Number of final rules found:  16
+                                                                                                              Rule  Support  Confidence  Diff  GenderDiff  Mean
+4                                {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'male'}, 'rhs': {'Status': 'F'}}     0.30        0.96  0.36        0.04  0.33
+5                              {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Status': 'F'}}     0.13        0.84  0.24       -0.08  0.18
+1                               {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.19        0.93  0.03        0.03  0.11
+32             {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': 'Transit Operator'}, 'rhs': {'Gender': 'male'}}     0.03        0.86  0.06         NaN  0.05
+19            {'lhs': {'Gender': 'female', 'Job Title': 'Assoc Engineer'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.17  0.09        0.09  0.05
+25   {'lhs': {'Gender': 'male', 'Job Title': 'HSA Sr Eligibility Worker'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.92  0.06        0.06  0.03
+31            {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': 'Police Officer'}, 'rhs': {'Gender': 'female'}}     0.00        0.21  0.05         NaN  0.03
+2                              {'lhs': {'Gender': 'female', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        0.12  0.03        0.03  0.03
+35          {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': 'Transit Operator'}, 'rhs': {'Gender': 'female'}}     0.02        0.23  0.04         NaN  0.03
+16               {'lhs': {'Gender': 'male', 'Job Title': 'Assoc Engineer'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.95  0.03        0.03  0.02
+28               {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': 'Police Officer'}, 'rhs': {'Gender': 'male'}}     0.01        0.87  0.03         NaN  0.02
+23        {'lhs': {'Gender': 'female', 'Job Title': 'Assistant Engineer'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.16  0.04        0.04  0.02
+12             {'lhs': {'Gender': 'male', 'Job Title': 'Registered Nurse'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.89  0.02        0.02  0.02
+11   {'lhs': {'Gender': 'female', 'Job Title': 'Parking Control Officer'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.82  0.02        0.02  0.01
+20           {'lhs': {'Gender': 'male', 'Job Title': 'Assistant Engineer'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.00        0.90  0.02        0.02  0.01
+26  {'lhs': {'Gender': 'female', 'Job Title': 'HSA Sr Eligibility Worker'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.00        0.16  0.02        0.02  0.01
+
+Enter the indexes of the interesting rules (one by one). Write 'exit' to continue or write 'all' to select all the rules
+
+Problematic tuples:  5596
+             Job Title Status Gender Annual Salary Bin  Marked
+11  Assistant Engineer      F   male             > 90K       1
+18  Assistant Engineer      F   male             > 90K       1
+22      Assoc Engineer      F   male             > 90K       1
+29  Assistant Engineer      F   male             > 90K       1
+58  Assistant Engineer      F   male             > 90K       1
+
+Number of tuples interested by the rules:  5596 
+Total number of tuples:  22996 
+
+Cumulative Support:  0.243 
+Difference Mean:  0.037
+Gender - Difference Mean:  0.037 
+
+
+Total number of ACFDs selected:  10 
+                                                                                                               Rule  Support  Confidence  Diff  GenderDiff  Mean
+1                               {'lhs': {'Gender': 'male', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.19        0.93  0.03        0.03  0.11
+19            {'lhs': {'Gender': 'female', 'Job Title': 'Assoc Engineer'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.17  0.09        0.09  0.05
+25   {'lhs': {'Gender': 'male', 'Job Title': 'HSA Sr Eligibility Worker'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.92  0.06        0.06  0.03
+2                              {'lhs': {'Gender': 'female', 'Status': 'P'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        0.12  0.03        0.03  0.03
+16               {'lhs': {'Gender': 'male', 'Job Title': 'Assoc Engineer'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.95  0.03        0.03  0.02
+23        {'lhs': {'Gender': 'female', 'Job Title': 'Assistant Engineer'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.16  0.04        0.04  0.02
+12             {'lhs': {'Gender': 'male', 'Job Title': 'Registered Nurse'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.89  0.02        0.02  0.02
+11   {'lhs': {'Gender': 'female', 'Job Title': 'Parking Control Officer'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.82  0.02        0.02  0.01
+20           {'lhs': {'Gender': 'male', 'Job Title': 'Assistant Engineer'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.00        0.90  0.02        0.02  0.01
+26  {'lhs': {'Gender': 'female', 'Job Title': 'HSA Sr Eligibility Worker'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.00        0.16  0.02        0.02  0.01
