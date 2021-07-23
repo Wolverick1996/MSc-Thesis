@@ -1,0 +1,17 @@
+
+Number of tuples interested by the rules:  86
+Total number of tuples:  20309
+
+Cumulative Support:  0.004
+Difference Mean:  0.124
+Gender - Difference Mean:  0.124
+
+
+Total number of ACFDs selected:  2
+                                        Rule  Supp  Conf  Diff  GenderDiff  Mean
+156 {`lhs': {`Gender': `male',
+              `Job Title': `ADMINISTRATIVE ASST II'},
+      `rhs': {`Annual Salary Bin': `40-59'}}  0.00  0.44  0.23        0.23  0.11
+161 {`lhs': {`Gender': `female',
+              `Job Title': `ADMINISTRATIVE ASST II'},
+      `rhs': {`Annual Salary Bin': `60-79'}}  0.00  0.80  0.02        0.02  0.01

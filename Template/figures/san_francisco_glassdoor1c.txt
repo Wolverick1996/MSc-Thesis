@@ -1,0 +1,20 @@
+
+                                            average           len
+                                      Annual Salary Annual Salary
+Job Title                      Gender                            
+Administrative Analyst         female      83282.16         89.00
+                               male        81709.54        102.00
+Assistant Engineer             female      99238.61         63.00
+                               male       103185.83        100.00
+Assoc Engineer                 female     123409.06         46.00
+                               male       125359.07        123.00
+Attorney (Civil/Criminal)      female     154756.46        190.00
+                               male       162993.18        199.00
+Automotive Mechanic            female      96526.73          1.00
+                               male        98182.72        159.00
+Automotive Service Worker      female      94050.96          3.00
+                               male        77288.95        123.00
+Behavioral Health Clinician    female      77599.23        123.00
+                               male        81235.70         33.00
+Camp Assistant                 female       3897.82         60.00
+                               male         3949.49         48.00

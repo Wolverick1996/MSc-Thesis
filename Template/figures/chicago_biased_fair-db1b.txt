@@ -1,0 +1,50 @@
+
+3   {`lhs': {`Gender': `female'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.20  1.00  0.45        0.45  0.33
+0   {`lhs': {`Gender': `male'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.45  0.57  0.12        0.12  0.28
+35  {`lhs': {`Gender': `male',
+             `Job Title': `PARAMEDIC I/C'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  1.00  0.29        0.29  0.15
+67  {`lhs': {`Job Title': `SERGEANT',
+             `Gender': `male'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.05  1.00  0.16        0.16  0.10
+51  {`lhs': {`Gender': `male',
+             `Job Title': `CONSTRUCTION LABORER'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.02  1.00  0.14        0.14  0.08
+63  {`lhs': {`Gender': `male',
+             `Job Title': `LIEUTENANT'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  1.00  0.12        0.12  0.06
+31  {`lhs': {`Gender': `male',
+             `Job Title': `FIREFIGHTER-EMT'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.06  1.00  0.05        0.05  0.06
+15  {`lhs': {`Gender': `male',
+             `Department': `WATER MGMNT'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.04  0.82  0.07        0.07  0.05
+27  {`lhs': {`Gender': `male',
+             `Job Title': `FIREFIGHTER/PARAMEDIC'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  0.85  0.08        0.08  0.04
+19  {`lhs': {`Gender': `male',
+             `Job Title': `ELECTRICAL MECHANIC'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  1.00  0.06        0.06  0.03
+23  {`lhs': {`Gender': `male',
+             `Job Title': `FIRE ENGINEER-EMT'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.02  1.00  0.04        0.04  0.03
+39  {`lhs': {`Gender': `male',
+             `Job Title': `OPERATING ENGINEER-GROUP C'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  1.00  0.05        0.05  0.03
+43  {`lhs': {`Gender': `male',
+             `Job Title': `LIEUTENANT-EMT'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.02  1.00  0.03        0.03  0.02
+11  {`lhs': {`Gender': `male',
+             `Department': `DAIS'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  0.94  0.03        0.03  0.02
+55  {`lhs': {`Gender': `male',
+             `Job Title': `PLUMBER'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  1.00  0.03        0.03  0.02
+59  {`lhs': {`Gender': `male',
+             `Job Title': `HOISTING ENGINEER'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  1.00  0.02        0.02  0.02
+47  {`lhs': {`Gender': `male',
+             `Job Title': `CAPTAIN-EMT'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  1.00  0.02        0.02  0.02

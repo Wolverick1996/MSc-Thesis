@@ -1,0 +1,41 @@
+
+Number of tuples interested by the rules:  5596
+Total number of tuples:  22996
+
+Cumulative Support:  0.243
+Difference Mean:  0.037
+Gender - Difference Mean:  0.037
+
+
+Total number of ACFDs selected:  10
+                                        Rule  Supp  Conf  Diff  GenderDiff  Mean
+1   {`lhs': {`Gender': `male',
+             `Status': `P'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.19  0.93  0.03        0.03  0.11
+19  {`lhs': {`Gender': `female',
+             `Job Title': `Assoc Engineer'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  0.17  0.09        0.09  0.05
+25  {`lhs': {`Gender': `male',
+             `Job Title': `HSA Sr Eligibility Worker'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  0.92  0.06        0.06  0.03
+2   {`lhs': {`Gender': `female',
+             `Status': `P'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.02  0.12  0.03        0.03  0.03
+16  {`lhs': {`Gender': `male',
+             `Job Title': `Assoc Engineer'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  0.95  0.03        0.03  0.02
+23  {`lhs': {`Gender': `female',
+             `Job Title': `Assistant Engineer'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  0.16  0.04        0.04  0.02
+12  {`lhs': {`Gender': `male',
+             `Job Title': `Registered Nurse'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  0.89  0.02        0.02  0.02
+11  {`lhs': {`Gender': `female',
+             `Job Title': `Parking Control Officer'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  0.82  0.02        0.02  0.01
+20  {`lhs': {`Gender': `male',
+             `Job Title': `Assistant Engineer'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.00  0.90  0.02        0.02  0.01
+26  {`lhs': {`Gender': `female',
+             `Job Title': `HSA Sr Eligibility Worker'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.00  0.16  0.02        0.02  0.01

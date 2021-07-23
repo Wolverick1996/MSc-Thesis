@@ -1,0 +1,53 @@
+
+Cumulative Support:  0.655
+Difference Mean:  0.475
+Gender - Difference Mean:  0.475
+
+
+Total number of ACFDs selected:  32 
+                                        Rule  Supp  Conf  Diff  GenderDiff  Mean
+62  {`lhs': {`Gender': `female',
+             `Job Title': `HOISTING ENGINEER'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.98        0.98  0.49
+50  {`lhs': {`Gender': `female',
+             `Job Title': `CAPTAIN-EMT'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.98        0.98  0.49
+46  {`lhs': {`Gender': `female',
+             `Job Title': `LIEUTENANT-EMT'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.97        0.97  0.49
+58  {`lhs': {`Gender': `female',
+             `Job Title': `PLUMBER'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.97        0.97  0.48
+26  {`lhs': {`Gender': `female',
+             `Job Title': `FIRE ENGINEER-EMT'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.96        0.96  0.48
+42  {`lhs': {`Gender': `female',
+             `Job Title': `OPERATING ENGINEER-GROUP C'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.95        0.95  0.48
+34  {`lhs': {`Gender': `female',
+             `Job Title': `FIREFIGHTER-EMT'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.95        0.95  0.48
+22  {`lhs': {`Gender': `female',
+             `Job Title': `ELECTRICAL MECHANIC'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.94        0.94  0.47
+14  {`lhs': {`Gender': `female',
+             `Department': `DAIS'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.92        0.92  0.46
+66  {`lhs': {`Gender': `female',
+             `Job Title': `LIEUTENANT'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.88        0.88  0.44
+54  {`lhs': {`Gender': `female',
+             `Job Title': `CONSTRUCTION LABORER'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.86        0.86  0.43
+70  {`lhs': {`Job Title': `SERGEANT',
+             `Gender': `female'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.01  1.00  0.84        0.84  0.42
+30  {`lhs': {`Gender': `female',
+             `Job Title': `FIREFIGHTER/PARAMEDIC'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.78        0.78  0.39
+18  {`lhs': {`Gender': `female',
+             `Department': `WATER MGMNT'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.75        0.75  0.38
+38  {`lhs': {`Gender': `female',
+             `Job Title': `PARAMEDIC I/C'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.00  1.00  0.71        0.71  0.36

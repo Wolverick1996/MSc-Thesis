@@ -1,0 +1,19 @@
+
+Number of original CFDs: 10
+Number of combinations rules:  36
+Number of final rules found:  18
+                                        Rule  Supp  Conf  Diff  GenderDiff  Mean
+0   {`lhs': {`Annual Salary Bin': `> 90K'},
+     `rhs': {`Gender': `male'}}               0.45  0.85  0.05         NaN  0.25
+20  {`lhs': {`Status': `F',
+             `Annual Salary Bin': `> 90K'},
+     `rhs': {`Gender': `male'}}               0.45  0.85  0.04         NaN  0.25
+16  {`lhs': {`Annual Salary Bin': `> 90K',
+             `Gender': `male'},
+     `rhs': {`Salary or Hourly': `Salary'}}   0.38  0.85  0.06       -0.01  0.22
+12  {`lhs': {`Salary or Hourly': `Salary',
+             `Annual Salary Bin': `> 90K'},
+     `rhs': {`Gender': `male'}}               0.38  0.83  0.04         NaN  0.21
+7   {`lhs': {`Gender': `female',
+             `Salary or Hourly': `Hourly'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.03  0.89  0.24        0.24  0.14
