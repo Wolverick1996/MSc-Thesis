@@ -1,15 +1,16 @@
 
-Number of tuples interested by the rules:  5596 
-Total number of tuples:  22996 
+Number of tuples interested by the rules:  5596
+Total number of tuples:  22996
 
-Cumulative Support:  0.243 
+Cumulative Support:  0.243
 Difference Mean:  0.037
-Gender - Difference Mean:  0.037 
+Gender - Difference Mean:  0.037
 
 
-Total number of ACFDs selected:  10 
+Total number of ACFDs selected:  10
                                         Rule  Supp  Conf  Diff  GenderDiff  Mean
-1   {`lhs': {`Gender': `male', `Status': `P'},
+1   {`lhs': {`Gender': `male',
+             `Status': `P'},
      `rhs': {`Annual Salary Bin': `<= 90K'}}  0.19  0.93  0.03        0.03  0.11
 19  {`lhs': {`Gender': `female',
              `Job Title': `Assoc Engineer'},

@@ -1,6 +1,6 @@
 
-Number of original CFDs: 10 
-Number of combinations rules:  36 
+Number of original CFDs: 10
+Number of combinations rules:  36
 Number of final rules found:  16
                                         Rule  Supp  Conf  Diff  GenderDiff  Mean
 4   {`lhs': {`Annual Salary Bin': `> 90K',
