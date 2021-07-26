@@ -1,23 +1,7 @@
 % !TEX root = ../thesis.tex
-%\chapter{State of the Art}
 \chapter{Socio-Ethical Preliminaries}
 \label{capitolo2}
 \thispagestyle{empty}
-
-\iffalse
-
-This chapter discusses the state of the art that is relevant for your own work. What does that mean? It means that it provides the reader with all the relevant references he/she may need to know in order to understand better three things: (i) the context of your work, (ii) the problem and the need for a solution, and (iii) the value of your contribution. You achieve this by citing works or scientific papers that solved the same or similar problems in the past. Citing does not just mean adding a references to the bibliography and printing a number here; it means you tell the reader about the merits and possible demerits of each of the references you feel relevant. Of course, doing so requires you to first read each reference and, most importantly, to understand it. There should be lots of references in this chapter. 
-
-It is advisable that you structure the chapter into sections in function of the topics you treat. If you do so, before starting with the first section of the chapter, explain the reader how you structure your discussion in one paragraph.
-
-\begin{itemize}
-\item[\Square] \emph{Read} relevant literature and or \emph{test} related software or tools.
-\item[\Square] \emph{Summarize} your reading.
-\item[\Square] Provide correct \emph{references} (the bibliography in the end of this document).
-\end{itemize}
-
-\fi
-
 
 The aim of this chapter is to provide to the reader preliminary notions of ethical and sociological rather than technical nature.
 
@@ -36,7 +20,7 @@ By following the classification provided in \cite{friedman2017bias}, we can dist
 \begin{itemize}
 \item \textbf{Preexisting bias}: it has its roots in social institutions, practices and attitudes. Preexisting bias may originate in the society at large or in subcultures and organizations (\textit{societal bias}), but it is also intrinsic in the nature of every human being (\textit{individual bias}), and can enter a computer system either voluntarily or implicitly and unconsciously, even in spite of the best intentions of the system designer. Furthermore, since preexisting bias is often related to historical discrimination of disadvantaged groups, it could lead to the introduction or the exacerbation of representation issues in the data.
 An example of preexisting (gender) bias is the one present in the society that leads to the development of educational software that overall appeals more to boys than girls \cite{friedman2017bias}.
-\item \textbf{Technical bias}: it arises from the resolution of issues in the technical design. Technical bias may originate from design choices, constraints and technological tools, or exacerbate preexisting bias.
+\item \textbf{Technical bias}: it arises from the resolution of issues in the technical design. Technical bias may originate from design choices, constraints, and technological tools, or exacerbate preexisting bias.
 An example of technical bias, due to technical constraints, is the one of a monitor screen displaying the flight options most relevant to an airline customer: the screen dimension forces a piecemeal representation of the flights and therefore if the ranking algorithm systematically places certain flights on initial screens and other flights on later screens, it exhibits technical bias \cite{friedman2017bias}.
 \item \textbf{Emerging bias}: it emerges some time after a design is completed, as a result of changing societal knowledge, population, or cultural values. Emerging bias is strictly related to the specific context of use, and it is the most difficult to detect.
 An example of emerging bias, caused by a \textit{mismatch between users and system design} due to \textit{different values} (that is, originated when a computer system is used by a population with different values than those assumed in the design), is the one of an educational software embedded in a game situation that rewards individualistic and competitive strategies used by students with a cultural background that eschews competition and promotes collaboration \cite{friedman2017bias}.
@@ -132,17 +116,3 @@ To better clarify the concept, we could imagine a situation in which a software 
 \end{itemize}
 
 The classifier resulted to be fair depending on the notion of fairness adopted, showing the impossibility of addressing fairness as a unique, broad and inseparable concept. This result is coherent with \textit{Chouldechova's impossibility theorem} \cite{chouldechova2017fair}, which demonstrates, taking three definitions of fairness, the impossibility of satisfying all of them.
-
-
-\iffalse
-
-\section{Summary}
-Close the state of the art chapter with some words that connect the discussion of the references to your thesis. Pay attention that the reader understands why you discussed the works/topics you discussed and how they are related to what you do.
-
-\begin{itemize}
-\item[\Square] Show that in the state of the art the \emph{problem} you want to solve has not yet been solved or not been solved in an as efficient / effective / easy to use / cost-saving fashion as you target with your work.
-\item[\Square] If your work has similarities with some \emph{specific references}, point them out here and explain why these are particularly important to you. Perhaps you started your investigation from the outputs of a specific paper or you want to improve the performance of an algorithm studied earlier; it's good to mention this here.
-\item[\Square] Attention: this is not yet the place where to anticipate \emph{your solution}. You may give hints, but it's too early to make a comparison between your work and the state of the art, as the reader does not yet know anything about your work. This discussion can go into the final chapter.
-\end{itemize}
-
-\fi

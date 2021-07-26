@@ -1,29 +1,18 @@
 % !TEX root = ../thesis.tex
-%\chapter{[Core contribution]: Approach}
 \chapter{Experiments}
 \label{capitolo4}
 \thispagestyle{empty}
 
-\iffalse
+The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{capitolo3}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{capitolo2}.
 
-This is the chapter where you explain how you approach the problem and how you intend to meet the requirements identified in the previous chapter. In short, here you explain your \emph{solution}. But attention: you won't be able to describe every aspect of your thesis project here, in one single chapter. You will need more than one for that. So, this is the chapter where you explain your solution in terms of the general approach and the design decisions that you make:
-
-\begin{itemize}
-\item[\Square] Identify the target \emph{actors} that will benefit from your solution, describe them.
-\end{itemize}
-
-\fi
-
-
-The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{capitolo3}.
-
-For each case study, we will provide a \textit{dataset description}, in order to let the reader understand how the original dataset looks like, then we will discuss about our \textit{data preprocessing} choices, and finally about how the tools performed on the preprocessed dataset, providing further details on the algorithms when needed. Lastly, we will question the results obtained by considering the impact of \textit{other design choices}, verifying how the tools react when different decisions are made.
+For each case study, we will provide a \textit{dataset description}, in order to let the reader understand how the original dataset looks like, then we will discuss about our \textit{data preprocessing} choices, and finally about how the tools performed on the preprocessed dataset, providing further details on the algorithms when needed. Lastly, we will question the results obtained by considering the impact of \textit{other design choices}, checking the impact on the used tools when different decisions are made.
 
 
 \section{Our Societal Focus: Gender Gap}
-For the purpose of our research, we can simply define social problems as conditions or behaviors that have negative consequences for large numbers of people and that are generally recognized as conditions or behaviors that need to be addressed. We decided to focus on a specific category of social problems, namely those related to discrimination, and in particular on the so called ``\textbf{gender gap}''. According to \cite{cambridge2013gender}, gender gap is definable as:
+\begin{quote}\emph{Social problem is a generic term applied to a range of conditions and aberrant behaviours which are manifestations of social disorganization. It is a condition which most people in a society consider undesirable and want to correct by changing through some means of social engineering or social planning.} \cite{scott2009dictionary}\end{quote}
+We decided to focus on a specific category of social problems, namely those related to discrimination, and in particular on the so called ``\textbf{gender gap}''. According to \cite{cambridge2013gender}, gender gap is definable as:
 \begin{quote}\emph{A difference between the way men and women are treated in society, or between what men and women do and achieve.} \cite{cambridge2013gender}\end{quote}
-Specifically, the focus of our experiments is \textit{gender pay gap}, already mentioned in Section~\ref{section:the_glassdoor_method}, that is, the average difference between the remuneration for men and women in the workforce, or, in other words, a measure of what women are paid relative to men. The experiments are centered on the economical perspective because it is the easiest to measure in the data, being quantifiable for example as a number representative of a person's average monthly salary, but other facets of the gender gap problem will come into play when dealing with sociological studies.
+Specifically, the focus of our experiments is \textit{gender pay gap}, already mentioned in Section~\ref{section:the_glassdoor_method}, that is, the average difference between the remuneration for men and women in the workforce, or, in other words, a measure of what women are paid relative to men. The experiments are centered on the economical perspective because it is the easiest to be measured in the data, being quantifiable for example as a number representative of a person's average monthly salary, but other facets of the gender gap problem will come into play when dealing with sociological studies in Chapter~\ref{capitolo5}.
 
 
 \section{Case Study 1: Chicago}
@@ -56,7 +45,7 @@ Since our focus is gender pay gap but the original datasets do not contain a \te
 \item mostly\_male: 775 values.
 \item mostly\_female: 730 values.
 \end{itemize}
-In order to get coherent results in case of multiple experiments on the same dataset, we decided to remove the tuples related to unknown and androgynous names instead of randomly assign a gender to them (otherwise, we would have get different numbers at each execution of the preprocessing algorithm). Furthermore, we assumed mostly male names to be effectively related to males and mostly female names to be effectively related to females, and therefore we got 21,337 male values and 7,684 female values for a newly generated \textit{Gender} attribute as a result of this first \textbf{data cleaning} process. As we will furtherly discuss in Section~\ref{section:XYZ}, these decisions, together with the adoption of the \texttt{gender-guesser} library itself, represent some of the most critical choices we had to deal with, because they can lead to the introduction of (technical) bias.
+In order to get coherent results in case of multiple experiments on the same dataset, we decided to remove the tuples related to unknown and androgynous names instead of randomly assign a gender to them (otherwise, we would have get different numbers at each execution of the preprocessing algorithm). Furthermore, we assumed mostly male names to be effectively related to males and mostly female names to be effectively related to females, and therefore we got 21,337 male values and 7,684 female values for a newly generated \textit{Gender} attribute as a result of this first \textbf{data cleaning} process. As we will furtherly discuss in Section~\ref{section:XYZ}, these decisions, together with the adoption of the \texttt{gender-guesser} library itself, represent some of the most critical choices we had to deal with, because they can lead to the introduction of technical bias, that is, as discussed in Section~\ref{section:bias}, bias originated from (or exacerbated by) design choices, constraints, and technological tools.
 
 We also operated \textbf{data reduction} by removing the \textit{Typical Hours}, \textit{Hourly Rate}, and \textit{First Name} columns, not relevant for our analysis.
 
@@ -115,7 +104,7 @@ Lastly, since we are also interested in the ``adjusted'' pay gap, it is importan
 \end{figure}
 
 In order to estimate the gender pay gap, the reference linear regression model, as mentioned in Section~\ref{section:the_glassdoor_method}, is: \[\mathit{Log Annual Salary}_i = \beta_1\textit{Male}_i + \beta_2\mathit{Controls}_i + \epsilon_i\]
-The report recommends to run three different models: the first with no controls at all, regressing salary only on the male-female gender dummy (and therefore calculating the approximate overall percentage pay gap between men and women -- the ``unadjusted'' pay gap); the second with the addition of variables related to employee characteristics like highest education, years of experience, and performance evaluation scores; the third including all the possible controls (and finally estimating the ``adjusted'' pay gap). Due to the lack of attributes, we performed only two linear regressions: the first with no controls and the second including \textit{Job Title}, \textit{Department}, and \textit{Status}.
+The report recommends to execute three different linear regressions: the first with no controls at all, regressing salary only on the male-female gender dummy (and therefore calculating the approximate overall percentage pay gap between men and women -- the ``unadjusted'' pay gap); the second with the addition of variables related to employee characteristics like highest education, years of experience, and performance evaluation scores; the third including all the possible controls (and finally estimating the ``adjusted'' pay gap). Due to the lack of attributes, we performed only two linear regressions: the first with no controls and the second including \textit{Job Title}, \textit{Department}, and \textit{Status}.
 
 \begin{figure}[t!]
 \centering
@@ -174,7 +163,7 @@ For the Chicago dataset, the filtering operation resulted in a reduction in the 
 \label{fig:chicago_fair-db2}
 \end{figure}
 
-\item \textbf{ACFD selection}: in this phase FAIR-DB selects, among the filtered rules, the most ``unethical'', by looking at the computed metrics. It is worth to briefly recap the meanings behind the measures:
+\item \textbf{ACFD selection}: in this phase FAIR-DB selects, among the filtered rules, the most ``unethical'' according to the group fairness criterion, by looking at the computed metrics. It is worth to briefly recap the meanings behind the measures:
 \begin{itemize}
 \item \textbf{Support}: it expresses the percentage of records in the dataset that verifies the dependency -- the higher the value, the more tuples are involved.
 \item \textbf{Confidence}: it shows how frequently the dependency is verified knowing that the antecedent is verified -- the higher the value, the less approximate is the dependency.
@@ -182,7 +171,7 @@ For the Chicago dataset, the filtering operation resulted in a reduction in the 
 \item \textbf{p-Difference}: it indicates how much the dependency shows bias paying attention to the specific value of a protected attribute -- the higher the value, the more the rule is discriminatory with respect to the specific protected attribute value.
 \end{itemize}
 
-The selection of the most relevant rules takes place automatically, since the algorithm only keeps the dependencies with a difference parameter value higher than a minimum threshold imposed by the user. We decided to set \textit{minimum~difference}~=~0.02, in order to keep the majority of the unfair dependencies. This operation resulted in a reduction in the number of dependencies from 49 to 10.
+The selection of the most relevant rules takes place automatically, since the algorithm only keeps the dependencies with a difference parameter value higher than a minimum threshold imposed by the user. We decided to set \textit{minimum~difference}~=~0.02, in order to keep the majority of the unfair dependencies, avoiding unintentionally ignoring some rules that could instead be relevant for us. This operation resulted in a reduction in the number of dependencies from 49 to 10.
 
 After that, the algorithm performs what the authors call \textbf{ACFD completion}. Given the selected ACFDs, the framework computes all the possible combinations for each rule over the protected attributes and the target attribute (performing a Cartesian product between the attribute values). Taking as an example ACFD n.0 of Figure~\ref{fig:chicago_fair-db2}: \[\mathit{Annual Salary Bin} = \mlq > 90K \mrq \rightarrow \mathit{Gender} = \mlq \mathrm{male} \mrq\] we identify \textit{Annual Salary Bin} as target attribute, whose possible values are \(\leq\)~90K and >~90K, and \textit{Gender} as protected attribute, whose possible values are male and female. Therefore, the possible combinations for the rule are:
 \begingroup\belowdisplayskip=\belowdisplayshortskip
@@ -225,11 +214,11 @@ For our research, we selected all the dependencies in which the target attribute
 
 Among the chosen dependencies, we can detect a correspondency between rule 7 and rule 4: women paid on a hourly basis tend to earn less than \$90K, while men paid on a hourly basis tend to earn more than \$90K. These rules are the ones with the highest support (respectively 0.03 and 0.07), and rule 7 is the one with the highest difference value (0.24).
 
-Even though the support is very low -- and therefore not many tuples out of the total are involved -- it is important to point out that rules 27 and 24 suggest a discriminatory behavior in the subgroup of the AVIATION department, while rules 29 and 30 show that, for what concerns the OEMC department, men seem to be less paid than women. The main reasons for these behaviors are a disproportion, in favor of male employees, in the number of men and women employed in the AVIATION department, and, on the contrary, a disproportion, in favor of female employees, in the number of men and women employed in the OEMC one.
+Even though the support is very low -- and therefore not many tuples out of the total are involved -- it is important to point out that rules 27 and 24 suggest a discriminatory behavior in the subgroup of the AVIATION department, while rules 29 and 30 show that, for what concerns the OEMC department, men seem to be less paid than women. The main reasons for these behaviors are a disproportion, in favor of male employees, in the number of men and women employed in the AVIATION department, and, on the contrary, a disproportion, in favor of female employees, in the number of men and women employed in the OEMC one. Disproportions can cause these situations when, within a dataset and for a specific job title, there are some tuples with income above the threshold for both men and women but, for one of the two genders, the proportion of these tuples with respect to the total is very small compared to the other one. In this dataset, for example, for the OEMC department, the number of male employees earning more than \$90K is 9 (out of 147 men employed in OEMC), while the number of female employees earning more than \$90K is 73 (out of 414 women employed in OEMC). Although on average both men and women earn less than \$90K, the disproportion makes the algorithm perceive a discriminatory behavior towards male employees.
 
 As for the scoring measures, a cumulative support of 0.114 means that the 11.4\% of the dataset is ``problematic'' (2,310 tuples out of 20,309), while difference mean and gender difference mean (equal because in our dataset \textit{Gender} is the only protected attribute) have a value of 0.094 because of the gap between the difference metric values of the selected ACFDs (above 0.1 for rule 27, above 0.2 for rule 7, below 0.1 for the other rules).
 
-To conclude, we can say that the dataset seems to be quite fair with respect to the group fairness criterion, that is the one on which the tool is based, but more than 10\% of the tuples show some bias. Furthermore, the representation problem is not taken into account, and therefore the tendency of women to be employed in less profitable jobs than men, displayed in Figure~\ref{fig:chicago_preprocessing2} and Figure~\ref{fig:chicago_fair-db2} is ignored.
+To conclude, we can say that the dataset seems to be quite fair with respect to the group fairness criterion, that is the one on which the tool is based, but more than 10\% of the tuples show bias. Furthermore, the representation problem is not taken into account, and therefore the tendency of women to be employed in less profitable jobs than men, displayed in Figure~\ref{fig:chicago_preprocessing2} and Figure~\ref{fig:chicago_fair-db2}, is ignored.
 
 
 \subsection{Ranking Facts}
@@ -267,7 +256,7 @@ By following the widget description list provided in Section~\ref{section:rankin
 \item \textbf{Proportion}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 0.97, and \textit{fair for females}, with an approximate \(p\)-value of 0.35.
 \item \textbf{Pairwise}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 0.31, and \textit{fair for females}, with an approximate \(p\)-value of 0.65.
 \end{itemize}
-The results seem to be oriented towards a fair dataset, even though the FA*IR measure reported the presence of some bias in favor of men.
+The results seem to be oriented towards a fair dataset, even though the FA*IR measure reported the presence of bias in favor of men.
 \item \textbf{Diversity}: it shows diversity with respect to a set of demographic categories of individuals, or a set of categorical attributes of other kinds of items, by displaying the proportion of each category in the top-10 ranked list and overall. Figure~\ref{fig:chicago_rankingfacts3} shows the predominancy of the male group over the female one, especially in the top-10 of the ranking, highlighting again a problem of gender representation.
 
 \begin{figure}[t!]
@@ -308,7 +297,7 @@ The \textbf{San Francisco} dataset we considered includes 357,407 tuples and is 
 
 \subsection{Data Preprocessing}
 \label{section:san_francisco_data_preprocessing}
-As for the Chicago case, we operated some \textbf{data transformation} processes on the attributes of the San Francisco dataset. Specifically, the columns \textit{Employee Name} and \textit{Total Pay} were renamed respectively to \textit{Name} and \textit{Annual Salary}, and the attribute values for \textit{Status} were transformed from FT and PT to simply F and P, in order to keep the algorithm used for the subsequent bias analysis as simple as possible and have a consistent structure across the datasets in use. We also operated a significant \textbf{data cleaning}, by filtering the tuples on the \textit{Year} attribute, and keeping only the ones with \textit{Year} = 2019, in order to avoid redundant data across multiple years, and because they are the most recent and data covering a time span of one year are enough for the purpose of our research. This operation resulted in a reduction in the number of tuples from 357,407 to 44,525.
+As for the Chicago case, we operated some \textbf{data transformation} processes on the attributes of the San Francisco dataset. Specifically, the columns \textit{Employee Name} and \textit{Total Pay} were renamed respectively to \textit{Name} and \textit{Annual Salary}, and the attribute values for \textit{Status} were transformed from FT and PT to simply F and P, in order to keep the algorithm used for the subsequent bias analysis as simple as possible and have a consistent structure across the datasets in use. We also operated a significant \textbf{data cleaning}, by filtering the tuples on the \textit{Year} attribute, and keeping only the ones with \textit{Year} = 2019, since they are the most recent and we want to avoid redundant data across multiple years. This operation resulted in a reduction in the number of tuples from 357,407 to 44,525.
 
 Again, since the original dataset does not contain any gender-related information, we relied on \texttt{gender-guesser} to infer the gender of the employees from their \textit{First Name}, by splitting the \textit{Name} attribute and saving the results in a newly generated \textit{Gender} attribute. We obtained (out of the total of 44,525 tuples):
 \begin{itemize}
@@ -495,7 +484,8 @@ The results seem to be oriented towards a biased dataset in favor of men, in con
 
 
 \section{Other Design Choices}
-The aim of this section is to document in a technical way some experiments made on the datasets previously analyzed -- Chicago and San Francisco -- in which different design decisions were taken. For this reason, the socio-ethical impact of these choices, as well as the impact of other ones not mentioned in this section, will not be discussed here but in Section~\ref{section:XYZ}.
+The aim of this section is to document in a technical way some experiments made on the datasets previously analyzed -- Chicago and San Francisco -- in which different design decisions were taken. It is worth to emphasize once more the importance of human choices behind computer systems, in particular when dealing with sensitive concepts such as fairness, and we believe that by looking at the impact of other design decisions we can get a broader perspective on how the tools should be used.
+Because of the technical nature of this chapter, the socio-ethical impact of these choices, as well as the impact of other ones not mentioned in this section, will not be discussed here but in Section~\ref{section:XYZ}.
 
 
 \subsection{Part-Time Employees Removal}
@@ -638,7 +628,7 @@ The cumulative support is obviously higher than the one of the standard Chicago 
 \item \textbf{Proportion}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 0.89, and \textit{fair for females}, with an approximate \(p\)-value of 0.18. Both values decreased in comparison with the standard Chicago case (respectively 0.97 and 0.35), but the related outcomes remained the same.
 \item \textbf{Pairwise}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 1.0, and \textit{unfair for females}, with an approximate \(p\)-value of 0.0. The grouping operation resulted, for this metric, in a change in the female-related outcome in comparison with the standard Chicago case.
 \end{itemize}
-Similarly to the standard Chicago case, the results seem to be oriented towards a fair dataset, even though the pairwise measure reported the presence of some bias in favor of men.
+Similarly to the standard Chicago case, the results seem to be oriented towards a fair dataset, even though the pairwise measure reported the presence of bias in favor of men.
 \item \textbf{Diversity}: Figure~\ref{fig:chicago_grouped_rankingfacts} shows the \textit{Gender} diversity widget for the top-10 and overall rankings. As we can notice, even though there is still a predominancy of the male group over the female one, in the top-10 ranking women seem to be slightly more represented than in the standard Chicago case, in which the whole chart was occupied by men.
 
 \begin{figure}[t!]
@@ -662,7 +652,7 @@ Similarly to the standard Chicago case, the results seem to be oriented towards 
 
 
 \subsection{Voluntary Introduction of Bias}
-In order to test the tools on a clearly biased dataset, we decided to modify the Chicago one by halving the \textit{Annual Salary} value of female employees. This kind of operations generates a \textbf{synthetic dataset}, that is, a dataset containing fake data, not reflecting the real world in which we live. In other words, from the tools perspective, modifying the dataset means modifying the reality, and even if this consideration is applicable to every operation performed on data, in this specific context the original dataset undergoes such an impactful change that it becomes, as mentioned before, synthetic. Recalling the concepts discussed in Chapter~\ref{capitolo2}, we can say we voluntarily introduced some technical bias with the aim of simulating the presence of preexisting bias in the society.
+In order to test the tools on a clearly biased dataset, we decided to modify the Chicago one by halving the \textit{Annual Salary} value of female employees. This kind of operations generates a \textbf{synthetic dataset}, that is, a dataset containing fake data, not reflecting the real world in which we live. In other words, from the tools perspective, modifying the dataset means modifying the reality, and even if this consideration is applicable to every operation performed on data, in this specific context the original dataset undergoes such an impactful change that it becomes, as mentioned before, synthetic. Recalling the concepts discussed in Chapter~\ref{capitolo2}, we can say we voluntarily introduced some technical bias with the aim of simulating the presence of preexisting bias in the society. Our main reason for generating a synthetic dataset is, in fact, to test the tools on data that we know for sure to be discriminatory.
 
 Apart for the change in wage values of female employees, the preprocessed dataset is the same used in the standard Chicago case, with 20,309 tuples of which 16,146 males and 4,163 females. We will now provide the results of the analysis of the modified dataset:
 \begin{itemize}
@@ -738,10 +728,3 @@ As we expected, the results seem to be oriented towards an unfair dataset, in wh
 
 \end{itemize}
 \end{itemize}
-
-
-\iffalse
-
-\note{Figures and tables}{You are an engineer, and using figures (illustrations) and tables to better convey your ideas should be an obvious practice you should have learned throughout your university career. If not, it's time now. Use illustrations, screen shots, sketches, and so on to help the reader understand. Use tables to summarize complex text (for example, a profound analysis of the state of the art) or to format data in a readable fashion. Each time you use a figure or table, you must also (i) complement it with a so-called caption (a text right underneath or above it) to give it a title and a description and (ii) reference it from within the main text (never just place a figure somewhere without talking about it). If you use Latex, check your Latex documentation for how to use captions and references.}
-
-\fi

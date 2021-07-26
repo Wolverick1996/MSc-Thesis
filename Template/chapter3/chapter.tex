@@ -1,23 +1,7 @@
 % !TEX root = ../thesis.tex
-%\chapter{State of the Art}
 \chapter{Technical Preliminaries}
 \label{capitolo3}
 \thispagestyle{empty}
-
-\iffalse
-
-This chapter discusses the state of the art that is relevant for your own work. What does that mean? It means that it provides the reader with all the relevant references he/she may need to know in order to understand better three things: (i) the context of your work, (ii) the problem and the need for a solution, and (iii) the value of your contribution. You achieve this by citing works or scientific papers that solved the same or similar problems in the past. Citing does not just mean adding a references to the bibliography and printing a number here; it means you tell the reader about the merits and possible demerits of each of the references you feel relevant. Of course, doing so requires you to first read each reference and, most importantly, to understand it. There should be lots of references in this chapter. 
-
-It is advisable that you structure the chapter into sections in function of the topics you treat. If you do so, before starting with the first section of the chapter, explain the reader how you structure your discussion in one paragraph.
-
-\begin{itemize}
-\item[\Square] \emph{Read} relevant literature and or \emph{test} related software or tools.
-\item[\Square] \emph{Summarize} your reading.
-\item[\Square] Provide correct \emph{references} (the bibliography in the end of this document).
-\end{itemize}
-
-\fi
-
 
 The aim of this chapter is to provide to the reader preliminary notions about the tools adopted for this research and the related technical knowledge.
 
@@ -291,7 +275,7 @@ The \textit{ranked group fairness} criterion used by the algorithm compares the 
 \hline
 \end{tabular}
 \centering
-\caption{Minimum number of candidates in the protected group that must appear in the top \(k\) positions to pass the ranked group fairness criteria with \(\alpha = 0.1\). Considering for example \(\mathit{gender}\) as a protected attribute with values \(\mlq M \mrq\) and \(\mlq F \mrq\), the minimum number of females (or eventually males) appearing in the top-5 with \(p=0.4\) is \(1\). Table based on the one shown in \cite{zehlike2017fa*ir}.}
+\caption{Minimum number of candidates in the protected group that must appear in the top-\(k\) positions to pass the ranked group fairness criterion with \(\alpha = 0.1\). Considering for example \(\mathit{gender}\) as a protected attribute with values \(\mlq M \mrq\) and \(\mlq F \mrq\), the minimum number of females (or eventually males) appearing in the top-5 with \(p=0.4\) is \(1\). Table based on the one shown in \cite{zehlike2017fa*ir}.}
 \label{table:fa*ir_example}
 \end{table}
 
@@ -324,17 +308,3 @@ Water & 2 & 9 & 5 & 1 & 1 & 2 & 1\\
 All these measures are statistical tests, and whether a result is fair is determined by the computed \(p\)-value.
 \item \textbf{Diversity}: since fairness is also related to representation, this widget shows diversity with respect to a set of demographic categories of individuals, or a set of categorical attributes of other kinds of items, by displaying the proportion of each category in the top-10 ranked list and overall (i.e. considering all the elements in the ranking).
 \end{itemize}
-
-
-\iffalse
-
-\section{Summary}
-Close the state of the art chapter with some words that connect the discussion of the references to your thesis. Pay attention that the reader understands why you discussed the works/topics you discussed and how they are related to what you do.
-
-\begin{itemize}
-\item[\Square] Show that in the state of the art the \emph{problem} you want to solve has not yet been solved or not been solved in an as efficient / effective / easy to use / cost-saving fashion as you target with your work.
-\item[\Square] If your work has similarities with some \emph{specific references}, point them out here and explain why these are particularly important to you. Perhaps you started your investigation from the outputs of a specific paper or you want to improve the performance of an algorithm studied earlier; it's good to mention this here.
-\item[\Square] Attention: this is not yet the place where to anticipate \emph{your solution}. You may give hints, but it's too early to make a comparison between your work and the state of the art, as the reader does not yet know anything about your work. This discussion can go into the final chapter.
-\end{itemize}
-
-\fi
