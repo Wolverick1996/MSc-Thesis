@@ -1,13 +1,13 @@
 % !TEX root = ../thesis.tex
 \chapter{Technical Preliminaries}
-\label{capitolo3}
+\label{chapter3}
 \thispagestyle{empty}
 
 The aim of this chapter is to provide to the reader preliminary notions about the tools adopted for this research and the related technical knowledge.
 
 We will start by introducing \textit{relational databases}, the \textit{data science pipeline} and \textit{data mining techniques}, and then focusing on more specific concepts such as \textit{linear regression} and \textit{functional dependencies}. An explanation of some needed \textit{evaluation metrics} and \textit{statistical concepts} will follow, and finally a description of the tools will be provided.
 
-As specified in Chapter~\ref{capitolo2}, the complementarity of the preliminaries is one of the key points of this research, and will allow the reader to have two perspectives of a different nature on the same problem.
+As specified in Chapter~\ref{chapter2}, the complementarity of the preliminaries is one of the key points of this research, and will allow the reader to have two perspectives of a different nature on the same problem.
 
 
 \section{Relational Databases}
@@ -212,7 +212,7 @@ Glassdoor is a website in which employees and ex-employees of companies anonimou
 
 As specified in the introduction of the guide \cite[p.~2]{chamberlain2017analyze}, according to a 2016 Glassdoor survey, 67\% of the U.S. employees would not apply for jobs at employers where they believe a gender pay gap exists. The purpose of the report is therefore to help HR practitioners in analyzing the internal gender pay gap of their companies, by providing them specific technical knowledge.
 
-First of all, by ``gender pay gap'' the authors mean:
+First of all, by ``gender pay gap'' the author means:
 \begin{quote}\emph{The difference between average pay for men and women, both before and after we've accounted for differences among workers in education, experience, job roles, employee performance and other factors aside from gender that affect pay.} \cite[p.~3]{chamberlain2017analyze}\end{quote}
 Two measures are proposed in the report, respectively referred as ``unadjusted'' and ``adjusted'' pay gap:
 \begin{itemize}
@@ -247,7 +247,7 @@ Figure~\ref{fig:fair-db_framework} shows the framework workflow, while a brief e
 
 \section{Ranking Facts}
 \label{section:ranking_facts}
-The third tool used for this research is called \textbf{Ranking Facts}, a Web-based application (there also exists a notebook version) developed by the team of \textit{Data, Responsibly}\footnote{Available at: \url{http://demo. dataresponsibly.com/rankingfacts/.}}. Ranking Facts, as the name itself suggests, is a \textit{ranking} tool: ranking is an action commonly performed by the vast majority of the algorithms we use every day: Google itself ranks the results of our searches and provides us a list in descending order of relevance, and the same mechanism is used in various contexts of different nature, like dating or hiring applications. These specific scenarios are particularly relevant, because it is people who are ranked, and therefore discrimination against individuals or protected groups could arise, or the outcome could exhibit low diversity. Ranking Facts is based on the concept of \textit{nutritional labels}, in analogy to the food industry, where simple, standard labels convey information about the ingredients and production processes. Similarly, in the tool nutritional labels are derived as part of the complex process that gave rise to the data or model they describe, embodying the paradigm of interpretability-by-design.
+The third tool used for this research is called \textbf{Ranking Facts}, a Web-based application (there also exists a notebook version) developed by the team of \textit{Data, Responsibly}\footnote{Available at: \url{http://demo. dataresponsibly.com/rankingfacts/.}}. Ranking Facts, as the name itself suggests, is a \textit{ranking} tool: ranking is an action commonly performed by the vast majority of the algorithms we use every day: Google itself ranks the results of our searches and provides us with a list in descending order of relevance, and the same mechanism is used in various contexts of different nature, like dating or hiring applications. These specific scenarios are particularly relevant, because it is people who are ranked, and therefore discrimination against individuals or protected groups could arise, or the outcome could exhibit low diversity. Ranking Facts is based on the concept of \textit{nutritional labels}, in analogy to the food industry, where simple, standard labels convey information about the ingredients and production processes. Similarly, in the tool nutritional labels are derived as part of the complex process that gave rise to the data or model they describe, embodying the paradigm of interpretability-by-design.
 
 As documented in \cite{yang2018nutritional}, Ranking Facts is a collection of visual widgets with the aim of providing to the user information about the ranking in terms of stability, fairness and diversity. A brief description of how they work, taken from \cite{yang2018nutritional}, is reported below.
 \begin{itemize}

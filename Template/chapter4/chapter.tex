@@ -1,9 +1,9 @@
 % !TEX root = ../thesis.tex
 \chapter{Experiments}
-\label{capitolo4}
+\label{chapter4}
 \thispagestyle{empty}
 
-The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{capitolo3}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{capitolo2}.
+The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{chapter3}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{chapter2}.
 
 For each case study, we will provide a \textit{dataset description}, in order to let the reader understand how the original dataset looks like, then we will discuss about our \textit{data preprocessing} choices, and finally about how the tools performed on the preprocessed dataset, providing further details on the algorithms when needed. Lastly, we will question the results obtained by considering the impact of \textit{other design choices}, checking the impact on the used tools when different decisions are made.
 
@@ -12,7 +12,7 @@ For each case study, we will provide a \textit{dataset description}, in order to
 \begin{quote}\emph{Social problem is a generic term applied to a range of conditions and aberrant behaviours which are manifestations of social disorganization. It is a condition which most people in a society consider undesirable and want to correct by changing through some means of social engineering or social planning.} \cite{scott2009dictionary}\end{quote}
 We decided to focus on a specific category of social problems, namely those related to discrimination, and in particular on the so called ``\textbf{gender gap}''. According to \cite{cambridge2013gender}, gender gap is definable as:
 \begin{quote}\emph{A difference between the way men and women are treated in society, or between what men and women do and achieve.} \cite{cambridge2013gender}\end{quote}
-Specifically, the focus of our experiments is \textit{gender pay gap}, already mentioned in Section~\ref{section:the_glassdoor_method}, that is, the average difference between the remuneration for men and women in the workforce, or, in other words, a measure of what women are paid relative to men. The experiments are centered on the economical perspective because it is the easiest to be measured in the data, being quantifiable for example as a number representative of a person's average monthly salary, but other facets of the gender gap problem will come into play when dealing with sociological studies in Chapter~\ref{capitolo5}.
+Specifically, the focus of our experiments is \textit{gender pay gap}, already mentioned in Section~\ref{section:the_glassdoor_method}, that is, the average difference between the remuneration for men and women in the workforce, or, in other words, a measure of what women are paid relative to men. The experiments are centered on the economical perspective because it is the easiest to be measured in the data, being quantifiable for example as a number representative of a person's average monthly salary, but other facets of the gender gap problem will come into play when dealing with sociological studies in Chapter~\ref{chapter5}.
 
 
 \section{Case Study 1: Chicago}
@@ -222,16 +222,16 @@ To conclude, we can say that the dataset seems to be quite fair with respect to 
 
 
 \subsection{Ranking Facts}
-As specified in Section~\ref{section:ranking_facts}, Ranking Facts is primarily meant to be a Web-based application with the aim of discovering fairness in a dataset by making use of ranking and providing to the user a collection of visual widgets. However, because of the size of our dataset, we could not use the tool in the form of Web-based application, and we had to opt for the notebook version.
+As specified in Section~\ref{section:ranking_facts}, Ranking Facts is primarily meant to be a Web-based application with the aim of discovering fairness in a dataset by making use of ranking and providing to the user a collection of visual widgets. However, because of the size of our dataset, we could not use the tool in the form of a Web-based application, and we had to opt for the notebook version.
 
 Before importing the dataset, we had to deal with a further \textbf{data transformation} process, in which we converted our categorical attributes (\textit{Status}, \textit{Job Title}, \textit{Department}, \textit{Salary or Hourly}) into numerical ones, since the tool can perform ranking only over them. A value of F for the \textit{Status} attribute was therefore converted to 1, while P was converted to 0. The same holds for \textit{Salary or Hourly} (Salary = 1, Hourly = 0), while for \textit{Job Title} and \textit{Department} numbers from 0 to 35 and from 0 to 20 respectively substited the original categorical values.
 
-Once imported the dataset, the tool initially plots the distribution of some attributes specified by the user (in our case, we decided to plot the distributions of the \textit{Annual Salary} and \textit{Gender} values). While the related distribution graphs are not particularly meaningful, the heatmap generated subsequently provides us some preliminary information about the attributes correlations. As Figure~\ref{fig:chicago_rankingfacts1} shows, there seems to be a significant correlation between \textit{Job Title} and \textit{Department}, but mostly important between \textit{Status} and \textit{Annual Salary}, \textit{Status} and \textit{Salary or Hourly}, and finally \textit{Annual Salary} and \textit{Salary or Hourly}, highlighting the fact that hourly paid and part-time employees earn generally less than salary paid and full-time employees, and most of the part-time workers are also being paid on a hourly basis.
+Once imported the dataset, the tool initially plots the distribution of some attributes specified by the user (in our case, we decided to plot the distributions of the \textit{Annual Salary} and \textit{Gender} values). While the related distribution graphs are not particularly meaningful, the heatmap generated subsequently provides us with some preliminary information about the attribute correlations. As Figure~\ref{fig:chicago_rankingfacts1} shows, there seems to be a significant correlation between \textit{Job Title} and \textit{Department}, but mostly important between \textit{Status} and \textit{Annual Salary}, \textit{Status} and \textit{Salary or Hourly}, and finally \textit{Annual Salary} and \textit{Salary or Hourly}, highlighting the fact that hourly paid and part-time employees earn generally less than salary paid and full-time employees, and most of the part-time workers are also being paid on a hourly basis.
 
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/chicago_rankingfacts1.png}
-\caption{Heatmap showing attributes correlations for the Chicago dataset.}
+\caption{Heatmap showing attribute correlations for the Chicago dataset.}
 \label{fig:chicago_rankingfacts1}
 \end{figure}
 
@@ -430,14 +430,14 @@ To conclude, we can say that the dataset seems to be quite fair with respect to 
 
 
 \subsection{Ranking Facts}
-As for the Chicago case, because of the size of our dataset, we could not use Ranking Facts in the form of Web-based application, and we had to opt for the notebook version. Before importing the dataset, we operated a \textbf{data transformation} process, in which the categorical attributes \textit{Job Title} and \textit{Status} were converted into numerical ones.
+As for the Chicago case, because of the size of our dataset, we could not use Ranking Facts in the form of a Web-based application, and we had to opt for the notebook version. Before importing the dataset, we operated a \textbf{data transformation} process, in which the categorical attributes \textit{Job Title} and \textit{Status} were converted into numerical ones.
 
 Figure~\ref{fig:san_francisco_rankingfacts1} shows the heatmap related to our dataset, and it suggests a really strong correlation between the attributes \textit{Status} and \textit{Annual Salary}, highlighting the fact that part-time employees tend to earn less than full-time employees.
 
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/san_francisco_rankingfacts1.png}
-\caption{Heatmap showing attributes correlations for the San Francisco dataset.}
+\caption{Heatmap showing attribute correlations for the San Francisco dataset.}
 \label{fig:san_francisco_rankingfacts1}
 \end{figure}
 
@@ -494,7 +494,7 @@ One of the first design choices we had to deal with was concerning part-time emp
 \item \textbf{Chicago}: for the preprocessed dataset, the number of male employees decreased from 16,146 to 15,880 (\(-\)1.65\%), while the number of female employees decreased from 4,163 to 3,790 (\(-\)8.96\%). Even though the reduction in the number of tuples is not excessive, most of the records removed are related to women, already underrepresented when compared to the number of men.
 \item \textbf{San Francisco}: for the preprocessed dataset, the number of male employees decreased from 13,688 to 9,082 (\(-\)33.65\%), while the number of female employees decreased from 9,308 to 4,696 (\(-\)49.55\%). Even if the number of male and female employees removed is similar, we found the removal of 9,308 tuples from the dataset to have too much impact on the dataset itself.
 \end{itemize}
-Furthermore, it is important to notice that the Glassdoor report is meant to be a guide for HR practitioners in analyzing the internal gender gap of a company, while we are performing our analysis not on a company but on public employees of different sectors. Lastly, the removal of the \textit{Status} variable furtherly penalizes datasets already characterized by a low number of attributes, making it more difficult to get concrete results from the tools. Because of these reasons, we decided to include again part-time employees in the datasets and to proceed in our analysis as discussed before.
+Furthermore, it is important to note that the Glassdoor report is meant to be a guide for HR practitioners in analyzing the internal gender gap of a company, while we are performing our analysis not on a company but on public employees of different sectors. Lastly, the removal of the \textit{Status} variable furtherly penalizes datasets already characterized by a low number of attributes, making it more difficult to get concrete results from the tools. Because of these reasons, we decided to include again part-time employees in the datasets and to proceed in our analysis as discussed before.
 
 
 \subsection{FAIR-DB: Discretization Using More Bins}
@@ -622,7 +622,7 @@ The cumulative support is obviously higher than the one of the standard Chicago 
 \begin{itemize}
 \item \textbf{Recipe} and \textbf{Ingredients}: no particularly useful information from these widgets. As done before, we just report that the importance of each attribute used for the ranking is effectively equal to 1.
 \item \textbf{Stability}: as for the standard Chicago case, the ranking resulted to be stable at top-10 (stability at 0.28) but unstable overall (stability at 0.0).
-\item \textbf{Fairness}: the statistical measures adopted provided us the following results:
+\item \textbf{Fairness}: the statistical measures adopted provided us with the following results:
 \begin{itemize}
 \item \textbf{FA*IR}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 0.9, and \textit{fair for females}, with an approximate \(p\)-value of 0.1. The grouping operation resulted, for this metric, in a change in the female-related outcome in comparison with the standard Chicago case.
 \item \textbf{Proportion}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 0.89, and \textit{fair for females}, with an approximate \(p\)-value of 0.18. Both values decreased in comparison with the standard Chicago case (respectively 0.97 and 0.35), but the related outcomes remained the same.
@@ -652,7 +652,7 @@ Similarly to the standard Chicago case, the results seem to be oriented towards 
 
 
 \subsection{Voluntary Introduction of Bias}
-In order to test the tools on a clearly biased dataset, we decided to modify the Chicago one by halving the \textit{Annual Salary} value of female employees. This kind of operations generates a \textbf{synthetic dataset}, that is, a dataset containing fake data, not reflecting the real world in which we live. In other words, from the tools perspective, modifying the dataset means modifying the reality, and even if this consideration is applicable to every operation performed on data, in this specific context the original dataset undergoes such an impactful change that it becomes, as mentioned before, synthetic. Recalling the concepts discussed in Chapter~\ref{capitolo2}, we can say we voluntarily introduced some technical bias with the aim of simulating the presence of preexisting bias in the society. Our main reason for generating a synthetic dataset is, in fact, to test the tools on data that we know for sure to be discriminatory.
+In order to test the tools on a clearly biased dataset, we decided to modify the Chicago one by halving the \textit{Annual Salary} value of female employees. This kind of operations generates a \textbf{synthetic dataset}, that is, a dataset containing fake data, not reflecting the real world in which we live. In other words, from the tools perspective, modifying the dataset means modifying the reality, and even if this consideration is applicable to every operation performed on data, in this specific context the original dataset undergoes such an impactful change that it becomes, as mentioned before, synthetic. Recalling the concepts discussed in Chapter~\ref{chapter2}, we can say we voluntarily introduced some technical bias with the aim of simulating the presence of preexisting bias in the society. Our main reason for generating a synthetic dataset is, in fact, to test the tools on data that we know for sure to be discriminatory.
 
 Apart for the change in wage values of female employees, the preprocessed dataset is the same used in the standard Chicago case, with 20,309 tuples of which 16,146 males and 4,163 females. We will now provide the results of the analysis of the modified dataset:
 \begin{itemize}
@@ -675,7 +675,7 @@ Figure~\ref{fig:chicago_biased_glassdoor} shows instead our results: a coefficie
 
 The first automatic ACFD selection resulted in a reduction in the number of dependencies from 35 to 20, while the subsequent ACFD completion and further selection generated 79 dependencies (including the original 20), 39 of which with a difference above the threshold.
 
-At the end, we got \(N\) = 32 out of 39 dependencies in the ACFD user selection phase. The chosen ACFDs, together with the final scores, are displayed in Figure~\ref{fig:chicago_biased_fair-db}. For readability reasons, the indication of the number of tuples interested by the rules (13,311) and the total number of tuples (20,309) is not included in the image.
+At the end, we got \(N\) = 32 out of 39 dependencies in the ACFD user selection phase. The chosen ACFDs, together with the final scores, are displayed in Figure~\ref{fig:chicago_biased_fair-db}. For readability reasons, the indication of the number of tuples concerned by the rules (13,311) and the total number of tuples (20,309) is not included in the image.
 
 \begin{figure}[t!]
 \centering
@@ -694,14 +694,14 @@ At the end, we got \(N\) = 32 out of 39 dependencies in the ACFD user selection 
 \label{fig:chicago_biased_fair-db}
 \end{figure}
 
-The algorithm detected couples of dependencies related to 14 distinct \textit{Job Title} values (out of 35), for which female employees earn less than \$90K while male employees earn more than \$90K. All of these are job titles in which the standard income is higher than the threshold, and this is the reason why the voluntary introduction of bias had an impact on the results. For the other 21 \textit{Job Title} values, indeed, the average salary is lower than \$90K even for males, and the gender pay gap could not be observed. Decreasing the threshold value would be an option to include more job titles in the results, but then the opposite risk may occur: jobs for which the average income would be higher than the threshold even for females would not be detected. It is worth to mention the presence of rules 14 and 11, concerning the DAIS department, which has to be related one to one to a job title for which the average wage is higher than \$90K, and it is important to highlight the presence of rules 3 and 0, which ``generalize'' the gender pay gap problem specifying that in general, regardless of the job title, women always earn less than \$90K while most men do not.
+The algorithm detected pairs of dependencies related to 14 distinct \textit{Job Title} values (out of 35), for which female employees earn less than \$90K while male employees earn more than \$90K. All of these are job titles in which the standard income is higher than the threshold, and this is the reason why the voluntary introduction of bias had an impact on the results. For the 21 other \textit{Job Title} values, indeed, the average salary is lower than \$90K even for males, and the gender pay gap could not be observed. Decreasing the threshold value would be an option to include more job titles in the results, but then the opposite risk may occur: jobs for which the average income would be higher than the threshold even for females would not be detected. It is worth to mention the presence of rules 14 and 11, concerning the DAIS department, which has to be related one to one to a job title for which the average wage is higher than \$90K, and it is important to highlight the presence of rules 3 and 0, which ``generalize'' the gender pay gap problem specifying that in general, regardless of the job title, women always earn less than \$90K while most men do not.
 
 For what concerns the metrics, we can notice that for all the female-related rules (and for most of the others) the confidence parameter is equal to 1, meaning that these dependencies hold for all the tuples with the attribute values specified in the LHS. The cumulative support is high (65.5\% of the dataset is ``problematic'') because, even if most of the rules are related to specific job titles, rules 3 and 0 involve a significant amount of tuples. We can finally notice high values for the difference measure for all the female-related rules, indicating a high ``unethical'' level towards women.
 \item \textbf{Ranking Facts}: the voluntary introduction of bias did not have an impact on the number of tuples of the dataset, and therefore we still had to rely on the notebook version. The impact on the heatmap was also minimal, and we avoid to report it here because no new significant correlations between attributes were highlighted. We used the same attributes and weights of the standard Chicago case for the ranking (\textit{Job Title}, \textit{Department}, \textit{Status}, \textit{Salary or Hourly}, \textit{Annual Salary}), and the results are summarized as follows:
 \begin{itemize}
 \item \textbf{Recipe} and \textbf{Ingredients}: no particularly useful information from these widgets. As done before, we just report that the importance of each attribute used for the ranking is effectively equal to 1.
 \item \textbf{Stability}: as for the standard Chicago case, the ranking resulted to be stable at top-10 (stability at 0.3) but unstable overall (stability at 0.0).
-\item \textbf{Fairness}: the statistical measures adopted provided us the following results:
+\item \textbf{Fairness}: the statistical measures adopted provided us with the following results:
 \begin{itemize}
 \item \textbf{FA*IR}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 1.0, and \textit{unfair for females}, with an approximate \(p\)-value of 0.0. Even though both values changed in comparison with the standard Chicago case (respectively 0.84 and 0.16), the related outcomes remained the same.
 \item \textbf{Proportion}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 1.0, and \textit{unfair for females}, with an approximate \(p\)-value of 0.0. The voluntary introduction of bias resulted, for this metric, in a change in the female-related outcome in comparison with the standard Chicago case.

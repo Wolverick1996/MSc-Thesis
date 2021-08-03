@@ -23,6 +23,7 @@
 \usepackage{fancyvrb}
 \usepackage{adjustbox}
 \usepackage{color,soul}
+\usepackage{pdfpages}
 
 % redefine \BVerbatimInput
 \RecustomVerbatimCommand{\BVerbatimInput}{BVerbatimInput}%
@@ -121,11 +122,10 @@ I hope this template will help you do the best thesis ever, if not in the World,
 \bibliographystyle{plain}
 \bibliography{references}
 %\nocite{*}
-\clearpage
 
 \appendix
 
-\pagestyle{fancy}
+%\pagestyle{fancy}
 \fancyfoot{}
 \renewcommand{\chaptermark}[1]{\markboth{\appendixname\ \thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
@@ -136,7 +136,7 @@ I hope this template will help you do the best thesis ever, if not in the World,
 \renewcommand{\headrulewidth}{0.3pt}
 
 % % Use as many appendixes as you need
-%\include{appendixA/appendix}
+\include{appendixA/appendix}
 %\include{appendixB/appendix}
 
 \end{document}
