@@ -3,11 +3,11 @@
 \label{chapter2}
 \thispagestyle{empty}
 
-The aim of this chapter is to provide to the reader preliminary notions of ethical and sociological rather than technical nature.
+The aim of this chapter is to provide the reader with preliminary notions of ethical and sociological rather than technical nature.
 
 Starting from the concept of \textit{bias}, passing through \textit{discrimination} and \textit{human rights}, we will discuss about \textit{equality}, \textit{equity} and finally \textit{fairness}, by providing definitions and relevant examples from the literature on these topics, with a focus on the data and computer systems perspective. It is important to emphasize that, despite the exhaustiveness of the definitions, these terms often have different meanings depending of the context of use, and there is a lot of debate on how to interpret them and eventually include all their dimensions in computer systems.
 
-Because of the ``dual nature'' of this research, this chapter has to be seen as complementary to Chapter~\ref{chapter3}, in which some technical bases will be provided, together with an overview on the tools adopted.
+Because of the ``dual nature'' of this research, this chapter has to be seen as complementary to Chapter~\ref{chapter4}, in which some technical bases will be provided, together with an overview on the tools adopted.
 
 
 \section{Bias}
@@ -105,7 +105,7 @@ Moving back to the data and computer systems perspective, and recalling the afor
 \item \textbf{Group fairness} (also known as \textit{statistical parity}): demographics of the individuals receiving any outcome - positive or negative - should be the same as demographics of the underlying population. For example, in the problem of predicting if hiring applicants, assuming to divide them into groups according to their gender, this means the acceptance rates of the applicants from the groups must be equal regardless of the protected attribute. Group fairness equalizes outcomes across protected and non-protected groups, and is therefore strictly related to the idea of equity.
 \end{itemize}
 
-Although individual and group fairness are not mutually exclusive in theory, in real life it is often hard to conciliate the two approaches. Furthermore, this categorization is not the only possible one: the authors of \cite{verma2018fairness} collected and provided about twenty among the most prominent definitions of fairness, and applied each of them to a case study based on gender-related discrimination, in which the aim was to assign a credit score to people requesting a loan by using ``Personal status and gender'' as a protected attribute for the decision-making process, operated by a classifier (an algorithm that automatically orders or categorizes data into one or more of a set of ``classes'', in this case only ``good credit score'' and ``bad credit score'').
+Although individual and group fairness are not mutually exclusive in theory, in real life it is often hard to conciliate the two approaches. Furthermore, this categorization is not the only possible one: the authors of \cite{verma2018fairness} collected and provided about twenty among the most prominent definitions of fairness, and applied each of them to a case study based on gender-related discrimination, in which the aim was to assign a credit score to people requesting a loan by using \textit{Personal status and gender} as a protected attribute for the decision-making process, operated by a classifier (an algorithm that automatically orders or categorizes data into one or more of a set of ``classes'', in this case only ``good credit score'' and ``bad credit score'').
 
 Among the others, a couple of peculiar definitions, often listed together with individual and group fairness, are the following:
 \begin{itemize}

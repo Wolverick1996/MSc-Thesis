@@ -1,18 +1,18 @@
 % !TEX root = ../thesis.tex
 \chapter{Experiments}
-\label{chapter4}
+\label{chapter5}
 \thispagestyle{empty}
 
-The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{chapter3}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{chapter2}.
+The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{chapter4}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{chapter2} and the sociological background explored in Chapter~\ref{chapter3}.
 
 For each case study, we will provide a \textit{dataset description}, in order to let the reader understand how the original dataset looks like, then we will discuss about our \textit{data preprocessing} choices, and finally about how the tools performed on the preprocessed dataset, providing further details on the algorithms when needed. Lastly, we will question the results obtained by considering the impact of \textit{other design choices}, checking the impact on the used tools when different decisions are made.
 
 
 \section{Our Societal Focus: Gender Gap}
-\begin{quote}\emph{Social problem is a generic term applied to a range of conditions and aberrant behaviours which are manifestations of social disorganization. It is a condition which most people in a society consider undesirable and want to correct by changing through some means of social engineering or social planning.} \cite{scott2009dictionary}\end{quote}
+\begin{quote}\emph{Social problem is a generic term applied to a range of conditions and aberrant behaviours which are manifestations of social disorganization. It is a condition which most people in a society consider undesirable and want to correct by changing through some means of social engineering or social planning.} \cite{marschall1998oxford}\end{quote}
 We decided to focus on a specific category of social problems, namely those related to discrimination, and in particular on the so called ``\textbf{gender gap}''. According to \cite{cambridge2013gender}, gender gap is definable as:
 \begin{quote}\emph{A difference between the way men and women are treated in society, or between what men and women do and achieve.} \cite{cambridge2013gender}\end{quote}
-Specifically, the focus of our experiments is \textit{gender pay gap}, already mentioned in Section~\ref{section:the_glassdoor_method}, that is, the average difference between the remuneration for men and women in the workforce, or, in other words, a measure of what women are paid relative to men. The experiments are centered on the economical perspective because it is the easiest to be measured in the data, being quantifiable for example as a number representative of a person's average monthly salary, but other facets of the gender gap problem will come into play when dealing with sociological studies in Chapter~\ref{chapter5}.
+Specifically, the focus of our experiments is \textit{gender pay gap}, already mentioned in Section~\ref{section:the_glassdoor_method}, that is, the average difference between the remuneration for men and women in the workforce, or, in other words, a measure of what women are paid relative to men. The experiments are centered on the economical perspective because it is the easiest to be measured in the data, being quantifiable for example as a number representative of a person's average monthly salary, but it is important to keep in mind that other facets of the gender gap problem come into play when dealing with sociological studies, as we did in Chapter~\ref{chapter3}.
 
 
 \section{Case Study 1: Chicago}

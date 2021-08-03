@@ -1,9 +1,9 @@
 % !TEX root = ../thesis.tex
 \chapter{Technical Preliminaries}
-\label{chapter3}
+\label{chapter4}
 \thispagestyle{empty}
 
-The aim of this chapter is to provide to the reader preliminary notions about the tools adopted for this research and the related technical knowledge.
+The aim of this chapter is to provide the reader with preliminary notions about the tools adopted for this research and the related technical knowledge.
 
 We will start by introducing \textit{relational databases}, the \textit{data science pipeline} and \textit{data mining techniques}, and then focusing on more specific concepts such as \textit{linear regression} and \textit{functional dependencies}. An explanation of some needed \textit{evaluation metrics} and \textit{statistical concepts} will follow, and finally a description of the tools will be provided.
 
@@ -49,7 +49,7 @@ Further details on relational databases can be found in \cite{abiteboul1995found
 \label{section:data_science_pipeline}
 Because of the broadness of the concept, there is not a unique and precise definition of data management. In general, we can identify it as the process of acquiring, storing, organizing, and maintaining data created and collected by an organization. In \cite{gandomi2015beyond}, the author, referring to \cite{labrinidis2012challenges}, classifies \textit{data management}, together with \textit{analytics}, as one of the two sub-processes to extract insights from data, while the overarching process is referred as \textbf{data science pipeline}, or \textit{big data pipeline}. For the sake of clarity, since the term is the one used in \cite{gandomi2015beyond}, we define big data as:
 \begin{quote}
-\emph{Large volumes of high velocity, complex and variable data that require advanced techniques and technologies to enable the capture, storage, distribution, management, and analysis of the information.} \cite{mills2012demystifying}\end{quote}
+\emph{Large volumes of high velocity, complex and variable data that require advanced techniques and technologies to enable the capture, storage, distribution, management, and analysis of the information.} \cite[p.~10]{mills2012demystifying}\end{quote}
 However we preferred to adopt the name of ``data science pipeline'' instead of ``big data pipeline'', since we will not deal with big data, which are not a concept strictly inherent to this research.
 
 \begin{figure}[t!]
@@ -95,7 +95,7 @@ Noise instead can be seen as a random error or variance in a measured variable, 
 \begin{itemize}
 \item \textbf{Normalization}: data values are scaled so as to fall within a specified range, such as (\(-\)1.0, 1.0 or 0.0, 1.0).
 \item \textbf{Aggregation}: new attributes are constructed from the given set of attributes to help the mining process by summarizing or aggregating information (for example, daily sales data may be aggregated so as to compute annual total amounts).
-\item \textbf{Generalization}: raw (or low-level) data are replaced by higher-level ones, by following a specific hierarchy (for example, the attribute ``city'' can be generalized to ``country'').
+\item \textbf{Generalization}: raw (or low-level) data are replaced by higher-level ones, by following a specific hierarchy (for example, the attribute \textit{city} can be generalized to \textit{country}).
 \item \textbf{Discretization}: raw values of numeric attributes are replaced by interval levels or conceptual levels (for example, age values between 15 and 18 could be labeled as ``adolescence'').
 \end{itemize}
 \item \textbf{Data reduction}: in order to make mining more effective and get better analytical results, several techniques can be applied to obtain a reduced representation of the dataset that is much smaller in volume, yet closely maintains the integrity of the original data. These methods include, among the others, \textit{attribute subset selection}, in which attributes considered as not particularly relevant for the analysis are removed, and \textit{numerosity reduction}, where data are replaced by smaller data representations, such as parametric models.
@@ -166,7 +166,7 @@ However, the constraints imposed by functional dependencies are often too strict
 \begin{quote}\emph{AFDs are FDs holding on almost every tuple.} \cite[p.~151]{caruccio2015relaxed}\end{quote}
 In order to quantify how an AFD ``almost'' holds, several measures have been proposed, including the so called \textit{g3}, defined as ``the (normalized) minimum number of tuples that need to be removed from a relation instance in order for an FD to hold'' \cite[p.~151]{caruccio2015relaxed}, whereas ``relation instance'' is simply a synonym of ``relation''. The g3 measure is therefore an index whose value ranges between 0 and 1, indicating the percentage of tuples of a table to be removed in order for an FD to hold (0 = none, 1 = all). An example of AFD in Table~\ref{table:orange_plantation} is: \[\mathit{Temperature}, \mathit{pH} \rightarrow \mathit{Ideal}\] because almost all the values of \(\mathit{Temperature}\) and \(\mathit{pH}\) determine the \(\mathit{Ideal}\) value, but this is not true for: \[\mathit{Temperature} = \mlq 28 \mrq, \mathit{pH} = \mlq 7 \mrq \rightarrow \mathit{Ideal}\] since in most of the cases (two out of three) when \(\mathit{Temperature} = \mlq 28 \mrq\) and \(\mathit{pH} = \mlq 7 \mrq\) then \(\mathit{Ideal} = \mlq \mathrm{Y} \mrq\), but in one case \(\mathit{Ideal} = \mlq \mathrm{N} \mrq\).
 \item \textbf{Conditional functional dependencies (CFDs)}:
-\begin{quote}\emph{[CFDs] use conditions to specify the subset of tuples on which a dependency holds.} \cite[p.~152]{caruccio2015relaxed}\end{quote}
+\begin{quote}\emph{\emph{[CFDs]} use conditions to specify the subset of tuples on which a dependency holds.} \cite[p.~152]{caruccio2015relaxed}\end{quote}
 This type of dependencies allows to catch particular and concrete patterns in the dataset, in fact they make possible to analyze precise values of the tuples and be more specific. An example of CFD, related to Table~\ref{table:orange_plantation}, is the following: \[\mathit{Temperature} = \mlq 28 \mrq, \mathit{pH} = \mlq 7 \mrq, \mathit{Season} \rightarrow \mathit{Ideal}\] meaning that, for tuples in which \(\mathit{Temperature} = \mlq 28 \mrq\) and \(\mathit{pH} = \mlq 7 \mrq\), the \(\mathit{Season}\) parameter functionally determines the \(\mathit{Ideal}\) one. Another example could be: \[\mathit{Season} = \mlq \mathrm{Summer} \mrq \rightarrow \mathit{Ideal} = \mlq \mathrm{N} \mrq\] interpretable as: ``when the attribute \(\mathit{Season}\) has value \(\mathrm{Summer}\), the attribute value of \(\mathit{Ideal}\) is \(\mathrm{N}\)''.
 \item \textbf{Approximate conditional functional dependencies (ACFDs)}: FDs obtained by combining the two kinds of relaxed dependencies discussed above. Unifying the two relaxation criteria makes it possible to detect specific and not exact rules, which can highlight anomalies or unexpected patterns in the database, allowing to recognize cases where a value of a certain attribute \textit{frequently determines} the value of another one. An example of ACFD in Table~\ref{table:orange_plantation} is: \[\mathit{Season} = \mlq \mathrm{Autumn} \mrq \rightarrow \mathit{Ideal} = \mlq \mathrm{Y} \mrq\] which can be read as: ``when attribute \(\mathit{Season}\) has value \(\mathrm{Autumn}\), the attribute value of \(\mathit{Ideal}\) is \(\mathrm{Y}\) if we delete a maximum number of tuples \(N\) from the dataset''. The rule indeed holds for almost all the tuples of the table, apart for the one in which \(\mathit{Temperature} = \mlq 20 \mrq\), \(\mathit{pH} = \mlq 7 \mrq\), \(\mathit{Season} = \mlq \mathrm{Autumn} \mrq\) and \(\mathit{Ideal} = \mlq \mathrm{N} \mrq\). It is worth to specify that, even though the notation is the same used for CFDs, the relaxation on the number of tuples is implicit in the classification of a rule as an ACFD.
 \end{itemize}
@@ -212,7 +212,7 @@ Glassdoor is a website in which employees and ex-employees of companies anonimou
 
 As specified in the introduction of the guide \cite[p.~2]{chamberlain2017analyze}, according to a 2016 Glassdoor survey, 67\% of the U.S. employees would not apply for jobs at employers where they believe a gender pay gap exists. The purpose of the report is therefore to help HR practitioners in analyzing the internal gender pay gap of their companies, by providing them specific technical knowledge.
 
-First of all, by ``gender pay gap'' the author means:
+First of all, by ``gender pay gap'' Chamberlain means:
 \begin{quote}\emph{The difference between average pay for men and women, both before and after we've accounted for differences among workers in education, experience, job roles, employee performance and other factors aside from gender that affect pay.} \cite[p.~3]{chamberlain2017analyze}\end{quote}
 Two measures are proposed in the report, respectively referred as ``unadjusted'' and ``adjusted'' pay gap:
 \begin{itemize}
