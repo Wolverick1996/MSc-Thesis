@@ -3,6 +3,8 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+%\usepackage{newpxtext,newpxmath}
+%\usepackage{amsmath}
 \usepackage{graphicx,subfigure}
 \usepackage{tabularx}
 \usepackage{afterpage}
@@ -13,7 +15,6 @@
 \usepackage{bbding}
 \usepackage{framed}
 \usepackage[scriptsize]{caption}
-\usepackage{xurl}
 \usepackage{microtype}
 \usepackage{diagbox}
 \usepackage{bm}
@@ -21,6 +22,8 @@
 \usepackage{adjustbox}
 \usepackage{color,soul}
 \usepackage{pdfpages}
+\usepackage[hyphens]{xurl}
+%\usepackage[hyphens]{url}
 \usepackage[pdfborder={0 0 0}]{hyperref}
 
 % redefine \BVerbatimInput
@@ -35,7 +38,7 @@ framesep=2em, % separation between frame and text
 labelposition=topline,
 %
 %commandchars=\|\(\), % escape character and argument delimiters for commands within the verbatim
-commentchar=*        % comment character
+commentchar=*         % comment character
 }
 
 %\setlength{\paperwidth}{16cm}
@@ -110,14 +113,12 @@ I hope this template will help you do the best thesis ever, if not in the World,
 \include{chapter3/chapter}
 \include{chapter4/chapter}
 \include{chapter5/chapter}
-%\include{chapter6/chapter}
-%\include{chapter7/chapter}
-%\include{chapter8/chapter}
+\include{chapter6/chapter}
 
 \cleardoublepage
 % ---- Bibliography ----
 \addcontentsline{toc}{chapter}{References}
-\bibliographystyle{plain}
+\bibliographystyle{plainurl}
 \bibliography{references}
 %\nocite{*}
 
