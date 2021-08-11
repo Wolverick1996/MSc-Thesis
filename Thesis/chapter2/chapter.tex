@@ -1,13 +1,13 @@
 % !TEX root = ../thesis.tex
 \chapter{Socio-Ethical Preliminaries}
-\label{chapter2}
+\label{chapter:socio-ethical_preliminaries}
 \thispagestyle{empty}
 
 The aim of this chapter is to provide the reader with preliminary notions of ethical and sociological rather than technical nature.
 
 Starting from the concept of \textit{bias}, passing through \textit{discrimination} and \textit{human rights}, we will discuss about \textit{equality}, \textit{equity} and finally \textit{fairness}, by providing definitions and relevant examples from the literature on these topics, with a focus on the data and computer systems perspective. It is important to emphasize that, despite the exhaustiveness of the definitions, these terms often have different meanings depending of the context of use, and there is a lot of debate on how to interpret them and eventually include all their dimensions in computer systems.
 
-Because of the ``dual nature'' of this research, this chapter has to be seen as complementary to Chapter~\ref{chapter4}, in which some technical bases will be provided, together with an overview on the tools adopted.
+Because of the ``dual nature'' of this research, this chapter has to be seen as complementary to Chapter~\ref{chapter:technical_preliminaries}, in which some technical bases necessary to understand the functioning of the adopted tools will be provided.
 
 
 \section{Bias}
@@ -26,7 +26,7 @@ An example of technical bias, due to technical constraints, is the one of a moni
 An example of emerging bias, caused by a \textit{mismatch between users and system design} due to \textit{different values} (that is, originated when a computer system is used by a population with different values than those assumed in the design), is the one of an educational software embedded in a game situation that rewards individualistic and competitive strategies used by students with a cultural background that eschews competition and promotes collaboration \cite{friedman2017bias}.
 \end{itemize}
 
-For the purpose of this research, we will focus on preexisting bias (in particular, societal bias) and technical bias, but it is important to point out that emerging bias should not be underestimated in the long run, especially when it arises from a mismatch between users and system design due to different values, because society is in constant change and systems should be readjusted or reinvented in order to keep up with the present.
+For the purpose of this research, we will focus on preexisting bias (in particular, societal bias) and technical bias, but it is important to point out that emerging bias should not be underestimated in the long run, especially when it arises from a mismatch between users and system design due to different values, because society is in constant change and systems should be re-adjusted or re-invented in order to keep up with the present.
 
 A significant example of preexisting (racial) bias, exacerbated by technical bias, is provided in \cite{angwin2016machine}: a commercial tool called COMPAS (Correctional Offender Management Profiling for Alternative Sanctions) was used in courts in the U.S. to automatically predict some categories of future crime to assist in bail and sentencing decisions. On average, the tool correctly predicted recidivism 61\% of the time, but blacks were almost twice as likely as whites to be labeled a higher risk but not actually re-offend. The tool made the opposite mistake among whites: they were much more likely than blacks to be labeled lower risk but go on to commit other crimes.
 
@@ -102,7 +102,7 @@ In the sociological context, fairness is often seen as a synonym of \textit{just
 Moving back to the data and computer systems perspective, and recalling the aforementioned concepts of equality and equity, we can distinguish between two different concepts of fairness \cite{dwork2012fairness}:
 \begin{itemize}
 \item \textbf{Individual fairness}: any two individuals who are similar \textit{with respect to a task} should receive similar outcomes. The similarity between individuals should be captured by an appropriate metric function, usually difficult to determine. For example, deciding whether or not to display a specific advertisement is a classification task, and the definition of individual fairness assumes the existance of a task-specific metric (e.g. the number of clicks made by the users) capable of determining, for any two individuals, how (dis)similar they are for the specific task. Individual fairness is strictly related to the idea of equality.
-\item \textbf{Group fairness} (also known as \textit{statistical parity}): demographics of the individuals receiving any outcome - positive or negative - should be the same as demographics of the underlying population. For example, in the problem of predicting if hiring applicants, assuming to divide them into groups according to their gender, this means the acceptance rates of the applicants from the groups must be equal regardless of the protected attribute. Group fairness equalizes outcomes across protected and non-protected groups, and is therefore strictly related to the idea of equity.
+\item \textbf{Group fairness} (also known as \textit{statistical parity}): demographics of the individuals receiving any outcome - positive or negative - should be the same as demographics of the underlying population. For example, in the problem of predicting whether or not to hire applicants, assuming to divide them into groups according to their gender, this means the acceptance rates of the applicants from the groups must be equal regardless of the protected attribute. Group fairness equalizes outcomes across protected and non-protected groups, and is therefore strictly related to the idea of equity.
 \end{itemize}
 
 Although individual and group fairness are not mutually exclusive in theory, in real life it is often hard to conciliate the two approaches. Furthermore, this categorization is not the only possible one: the authors of \cite{verma2018fairness} collected and provided about twenty among the most prominent definitions of fairness, and applied each of them to a case study based on gender-related discrimination, in which the aim was to assign a credit score to people requesting a loan by using \textit{Personal status and gender} as a protected attribute for the decision-making process, operated by a classifier (an algorithm that automatically orders or categorizes data into one or more of a set of ``classes'', in this case only ``good credit score'' and ``bad credit score'').

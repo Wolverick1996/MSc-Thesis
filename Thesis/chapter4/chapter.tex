@@ -1,310 +1,177 @@
 % !TEX root = ../thesis.tex
-\chapter{Technical Preliminaries}
-\label{chapter4}
+\chapter{Sociological Research}
+\label{chapter:sociological_research}
 \thispagestyle{empty}
 
-The aim of this chapter is to provide the reader with preliminary notions about the tools adopted for this research and the related technical knowledge.
+The aim of this chapter is to provide the reader with a sociological background by reporting information about gender gap in the society, overall at first and then with a focus on the U.S., which may be useful to understand and better contextualize the reasons behind the presence of possible preexisting biases and unequal gender representation in the results of our analysis.
 
-We will start by introducing \textit{relational databases}, the \textit{data science pipeline} and \textit{data mining techniques}, and then focusing on more specific concepts such as \textit{linear regression} and \textit{functional dependencies}. An explanation of some needed \textit{evaluation metrics} and \textit{statistical concepts} will follow, and finally a description of the tools will be provided.
-
-As specified in Chapter~\ref{chapter2}, the complementarity of the preliminaries is one of the key points of this research, and will allow the reader to have two perspectives of a different nature on the same problem.
+We will start by providing information about the \textit{Global Gender Gap Index}, a powerful tool to measure different facets of the gender gap worldwide, and then we will focus on the U.S. by reporting some considerations about \textit{gender discrimination in the workplace}, taken from the literature in the field. Finally, some \textit{data and statistics from the U.S. Department of Labor} will be provided, with a brief comment on the displayed graphs.
 
 
-\section{Relational Databases}
-\label{section:relational_databases}
-When dealing with computer systems, one of the most basic notions, often inappropriately taken for granted, is the one of ``\textbf{data}'', definable as:
-\begin{quote}\emph{Information, especially facts or numbers, collected to be examined and considered and used to help decision-making, or information in an electronic form that can be stored and used by a computer.} \cite{cambridge2013data}\end{quote}
-Therefore, a large amount of data stored in a computer in some organized manner is called a \textbf{database}. To be more precise, a database is ``any collection of data, or information, that is specially organized for rapid search and retrieval by a computer'' \cite{britannica2020database}; while the software that supports the management of these data is called a \textbf{database management system (DBMS)}.
+\section{The Global Gender Gap Index}
+A useful instrument to get a sociological overview on gender pay gap is provided by the World Economic Forum (WEF), ``an independent international organization committed to improving the state of the world by engaging business, political, academic and other leaders of society to shape global, regional and industry agendas'' \cite{world2021terms}. The World Economic Forum periodically releases a document -- The Global Gender Gap Report -- which contains information about gender-based inequalities in the various countries of the world, and provides a ranking based on a cumulative measure called \textbf{Global Gender Gap Index}, defined as:
+\begin{quote}\emph{A framework for capturing the magnitude of gender-based disparities and tracking their progress over time. The Index benchmarks national gender gaps on economic, education, health and political criteria, and provides country rankings that allow for effective comparisons across regions and income groups.} \cite[p.~3]{schwab2017global}\end{quote}
 
-The history of databases is deeply interconnected with the history of informatics itself, because the problem of how to store and retrieve information appeared as one of the initial challenges of computer creators. However, in the past few decades the rapid and enormous evolution of computer systems and databases led to the adoption and the development of the so called ``data models''. A \textbf{data model} \cite{abiteboul1995foundations} is an abstract representation of an information system, which defines the data elements and the relationships between data elements. The aim of a data model is to give a clear and intuitive overview on how a system looks like, by providing a standardized description of its components, in such a way as to facilitate the understanding of the system itself and the possible integration with other systems.
-
-Nowadays, the most widespread data model is the \textbf{relational model}, firstly proposed by Codd in \cite{codd1970relational}. The relational model represents a database as a collection of relations, depicted as tables of values. Each row of the table is a collection of related data values, referring to a real-world entity or relationship between entities. Therefore, we can simply define a \textbf{relational database} as a digital database based on the relational model of data.
-To make it clearer, the following list provides the main terms used in this context, together with a concise explanation, while Figure~\ref{fig:relational_model} shows them in a trivial example.
+The Index is based on three underlying criteria:
 \begin{itemize}
-\item \textbf{Table}, or \textbf{relation}: modeling of a real-world entity or of a relationship between real-world entities.
-\item \textbf{Row}, or \textbf{tuple}: single data record.
-\item \textbf{Column}, or \textbf{attribute}: property, or feature, of a relation.
-\item \textbf{Cardinality}: total number of tuples of a relation.
-\item \textbf{Degree}: total number of attributes of a relation.
-\item \textbf{Primary key}: attribute, or combination of attributes, that uniquely identifies a tuple among the others.
-\item \textbf{Domain}, or \textbf{data type}: set of values that a specific attribute can assume (for example, integer numbers, or boolean values).
-\item \textbf{Database schema}, or simply \textbf{schema}: blueprint of the database that outlines the way its structure organizes data into tables.
-\item \textbf{Database instance}, or simply \textbf{instance}: set of tuples in which each tuple has the same number of attributes as one of the relations of the database schema. It specifies the actual content of the database.
-\item \textbf{Integrity constraint}: property that is supposed to be satisfied by all instances of a database schema.
-\end{itemize} 
+\item It focuses on measuring \textit{gaps rather than levels}, because in this way the Index is disassociated from countries' levels of development, which would heavily impact on the results. For example, rich countries are able to offer more education and health opportunities to all members of society, but this is quite independent of the gender-related gaps that may exist within those higher levels of health or education \cite{schwab2017global}.
+\item It captures \textit{gaps in outcome variables rather than gaps in input variables} (such as indicators related to country-specific policies, rights, or culture), in order to provide objective results based on fundamental measures related to basic human rights. For this reason, the Index relies on four categories (subindexes): Economic Participation and Opportunity, Educational Attainment, Health and Survival, Political Empowerment.
+\item It ranks countries according to \textit{gender equality rather than women's empowerment}, because the focus is on the variation of the gap in the chosen indicators throughout the years. Therefore, the Index rewards countries that reach the point where outcomes for women equal those for men, but it neither rewards nor penalizes cases in which women are outperforming men.
+\end{itemize}
+
+The Global Gender Gap Report 2017 \cite{schwab2017global}, besides the mere ranking, provides some sociological interpretations of the results, based on the subindexes outcomes and on the parameters of which they are composed, such as the employee educational attainment by level, field of study, and gender, or the share and evolution of female hires in various industries. Although the majority of considerations are generic in nature, and not specific for the U.S. society, they are worth to be mentioned, since most of them could be reflected, on a small scale, in our case studies.
+\begin{itemize}
+\item There is a current stagnation of progress towards closing the economic gender gap, for several reasons:
+\begin{itemize}
+\item The global labor force participation has been in decline globally for both men and women, but this decline has been particularly accentuated for women.
+\item Earned incomes of both men and women have been increasing, but this upward trend has been steeper for men than for women.
+\item Women's share among senior positions both in the public sector and in business is not trending towards equal representation.
+\end{itemize}
+\item There is an under-use of the ever-increasing numbers of educated women because of discrepancies in caregiving and unpaid work, institutional and policy inertia, outdated organizational structures, and discrimination, but also skill differentials in the types of degrees women and men seek out in their education.
+\item In many countries, a variety of social circumstances limit women's access to technology and therefore their ability to gain proficiency in its use. When women do have the relevant mathematical and technological skills, unconscious biases can influence their peers' recognition of their capabilities.
+\item There exist imbalances in the specific fields of study in which men and women tend to specialize. Women are underrepresented in the engineering, manufacturing, and construction as well as information, communication, and technology fields.
+\item There is a tendency towards lower pay for occupations that have historically developed as predominantly female. When women enter a profession in large numbers, the pay-related benefits of participating in the profession depreciate.
+\item The female leadership representation remains below 50\% in all industries, and every industry exhibits a leadership gender gap.
+\item Unconscious biases and systemic efforts focused on driving change at the industry or country level through public-private collaboration remain scarce.
+\end{itemize}
+
+Appendix~\ref{appendixA} shows the country profile of the United States in the report. As we can see, the country was ranked 49th out of 144, with an overall score of 0.718 (in a score system in which 1 means gender parity), and Political Empowerment is the subindex in which the U.S. performed worst. For the purpose of our research, it is particularly useful to look at the \textit{Economic participation and opportunity} section of the country score card, in which we can notice that men are more participatory in the labor force than women, and women tend to earn less then men for similar jobs. Furthermore, the estimated earned income for women is significantly lower than the one of men, and the last two items show that women are underrepresented in managerial positions and higher-paying jobs, and are overrepresented in professional and technical works. From the \textit{Workforce Participation} section of the selected contextual data we can see that women are more likely than men to be employed part-time, and also not to be paid for their work.
+
+Other considerations about the gender gap, as depicted in The Global Gender Gap Report 2017, are done by the authors of \cite{hazel2019gender}. Even if the most relevant for us are the ones concerning the Economic Participation and Opportunity subindex, we believe that for a broader understanding it is worth to briefly report also the main points related to the other subindexes, especially because they have an impact on the condition of women which can also affect the workplace:
+\begin{itemize}
+\item \textbf{Economic Participation and Opportunity}: women seem to be more likely than men to be living at or below poverty, mainly because of the following reasons:
+\begin{itemize}
+\item Many women remain economically dependent on men.
+\item Women are more likely than men to be unemployed or to work in positions in which they do not get paid.
+\item Women are more likely than men to be concentrated in industries and occupations with low wages, long hours, and no social protections, and less likely than men to hold management positions.
+\item Women in general earn only 82\% compared to white men, and the gender wage gap becomes further complicated when race/ethnicity is taken into account.
+\end{itemize}
+\item \textbf{Educational Attainment}: women are concentrated in traditionally female and lower-paying CTE (Career and Technical Education) programs in both secondary and postsecondary educational settings, and are still underrepresented in science, technology, engineering and math (STEM) programs. Gender stereotypes and bias in education and the potentially hostile climate of academic departments continue to deter women from these lucrative career opportunities.
+\item \textbf{Health and Survival}: women are at a disadvantage compared to men, mainly because of the following reasons:
+\begin{itemize}
+\item Poor access to information, early marriage, lack of decision-making power continue to increase women's exposure to sexually transmitted diseases, unwanted pregnancies and the risk of unsafe abortions.
+\item Women are constantly bombarded with media advertisements that sexualize their bodies. The influence of media, television, movies, etc. has led to increased prevalence of body dissatisfaction and eating disorders globally.
+\item Violence towards women continues to impact women's health worldwide, and makes it difficult for women to pursue educational opportunities or to perform their jobs.
+\end{itemize}
+\item \textbf{Political Empowerment}: women hold a minority of political and institutional decision-making positions. Gender norms and prejudices work to both reduce the number of female candidates and contribute to the obstacles faced by women in elections.
+\end{itemize}
+
+Finally, we believe it is worth to mention that the Global Gender Gap Index is not the only tool to evaluate gender equality among countries, and another example is represented by the \textit{Historical Gender Equality Index (HGEI)}, introduced in \cite{dilli2018introducing}. As the name itself suggests, HGEI is based on some historical measures, since gender inequality is strictly related to the human history, and it has the aim of providing a global overview of gender equality in the long run, as well as to give an indication of gender disparities in well-being outcomes that result from institutional, cultural, and social influences.
+Similarly to the Global Gender Gap Index, HGEI is also based on a few requirements -- coverage (of gender equality dimensions), availability of data for many countries, simplicity in calculation and understanding, possibility of comparisons between countries but also over time -- and it is a composite index made of four dimensions -- health, autonomy within the household, political power, socioeconomic status -- each of which composed by some indicators.
+As the Global Gender Gap Index, also HGEI is based on ratios rather than levels, in order to evaluate the position of women relative to men in each society rather than the actual levels of resources and opportunities available to women, and therefore it does not capture how women are doing in absolute terms, and it cannot show if there are cases where women are outperforming men.
+HGEI revealed that most countries of the world made progress toward gender equality over the past fifty years, but there is little convergence between them, and the authors recommend that future research should also pay attention to the dimensions in which gender inequality occurs, because behind a composite index can lie great variation in the underlying indicators.
+
+
+\section{Gender Discrimination in the Workplace}
+The Global Gender Gap Index is a powerful indicator, which provides us with an overview on the main fields in which women experience inequalities, particularly on a large scale, and with some sociological motivations for these disparities. We will now focus on some literature regarding the U.S. society and more specific on the labor market.
+
+Tilcsik in \cite{tilcsik2021statistical} brings into play the theory of \textbf{statistical discrimination}, which rather than merely explaining discrimination, helps rationalize and justify discriminatory decisions. As reported in the article:
+\begin{quote}\emph{This theory \emph{[statistical discrimination]} posits that employers have imperfect information about the future productivity of job candidates, which gives them an incentive to use easily observable ascriptive characteristics, such as race or gender, to infer the expected productivity of applicants. \emph{[\ldots]} In this model, discrimination does not arise from animus or antipathy toward members of a group; rather, it is portrayed as a rational solution to an information problem.} \cite[p.~94]{tilcsik2021statistical}\end{quote}
+
+Statistical discrimination is in contradiction with the other dominant economic perspective on discrimination, known as \textbf{taste-based model}:
+\begin{quote}\emph{Unlike statistical discrimination theory, which taps into the culturally valued discourse of instrumental rationality and frames discrimination as a logical solution to an information problem, the taste-based model is about negative attitudes, such as overt racial prejudice and sexism, that tend to be publicly disavowed and are often perceived as socially unacceptable.} \cite[p.~95]{tilcsik2021statistical}\end{quote}
+
+Tilcsik focused on some sociological perspectives in support of the statistical discrimination theory, explaining that status beliefs and stereotypes shape how employers evaluate workers and how they distribute rewards among them. Indeed, when employers are required to evaluate groups of candidates for a job position, their perceptions of the differences among the groups reflect cultural beliefs that are often inaccurate and resistant to change, even in the face of disconfirming evidence, and therefore it is not a matter of intentional discrimination but of societal bias.
+
+Statistical discrimination is likely to have some resonance and normative acceptability for three main reasons \cite{tilcsik2021statistical}:
+\begin{itemize}
+\item It is a rational, profit-maximizing, incentive-driven decision, and represents ``the optimal solution to an information extraction problem''.
+\item Some economists characterize it as fair and morally defensible, by implying that categorical differences are rooted in statistical considerations that rational employers consider, and by suggesting that statistical discrimination is fair and neutral because it treats people with the same expected productivity identically.
+\item Economists often emphasize that it is ubiquitous and practically inevitable in many domains of life.
+\end{itemize}
+Thus, the use of stereotypes is depicted as cognitively and economically useful as well as consistent with social norms. Exposure to the idea of statistical discrimination strengthen people's belief in the validity, usefulness, and acceptability of relying on stereotypes and hence increase their likelihood of engaging in discrimination because of ascriptive group characteristics. When employers feel confident that their decisions are impartial, rational, and ethically defensible, they feel more justified in relying on stereotypes and exert less effort to suppress their biases. Statistical discrimination may also become self-fulfilling if it leads members of negatively stereotyped groups to believe that investing in their skills will not be fully rewarded.
+
+Tilcsik in \cite{tilcsik2021statistical} also conducted a a survey experiment consisting in a hiring simulation, in which participants (who all had managerial experience) were randomly assigned to one of four conditions:
+\begin{itemize}
+\item[1.] Exposure to statistical discrimination theory (treatment).
+\item[2.] No exposure to any theory of discrimination (nontreatment).
+\item[3.] Exposure to the taste-based model (placebo).
+\item[4.] Exposure to statistical discrimination theory and a critical commentary (treatment variant).
+\end{itemize}
+Participants exposed to the theory (without a critical commentary) perceived stereotyping as more acceptable and stereotypes as more accurate than did participants in the other groups, and selected fewer women for their teams. Group representation was also impacting on decisions, since female participants and those who did not identify as either male or female were, on average, less convinced of the acceptability and accuracy of stereotypes than were male respondents.
+
+Beggs in \cite{beggs1995institutional} instead shifts the focus on the impact of the \textbf{institutional environment} on gender and race inequalities in the labor market. According to the theoretical background he depicts, ``organizations compete not just for resources and customers, but for political power and institutional legitimacy, for social as well as economic fitness'' \cite[p.~613]{beggs1995institutional}, from \cite[p.~150]{dimaggio1983iron}. Therefore, an important factor to consider is the force of public opinion: when new definitions or practices become legitimated and accepted, organizations are under considerable pressure to incorporate them.
+
+Beggs decided to analyze data from the 1980 U.S. Census in order to prove the two hypotheses reported below \cite{beggs1995institutional}:
+\begin{itemize}
+\item[1.] Within industries, the higher the proportion of workers employed in states with high support for equality, the lower the levels of race and gender inequality in jobs and earnings.
+\item[2.] The higher the proportion of federal public sector employees in an industry, the lower the levels of race and gender inequality in jobs and earnings.
+\end{itemize}
+
+For the analysis, he decided to adopt some measures, each of which composed by several indicators: local institutional environment and national institutional enviroment (independent variables), quality of employment and earnings inequality (dependent variables), industrial structure, human capital inequality, and employment inequality (control variables).
+
+According to his results, the institutional environment impacts both quality of employment and earnings. For what concerns the former, greater support for equality in the local institutional environment, as well as greater federal public sector employment in an industry, is associated with lower levels of inequality among minorities (race/gender groups). As for the latter, the greater the support for equality in the local institutional environment, the better the earnings position of each minority relative to white men, and the level of federal public sector employment in an industry is positively associated with the earnings position of all minorities.
+
+Finally, an interesting point of view is provided in \cite{folbre2021gender}, a report published by the Economic Policy Institute. Folbre highlights that women in the U.S. still tend to earn 20\% less per hour than men, and points out that empirical research on the causes of the persistent earnings gap often takes the form of statistical models that control for as many variables as possible (such as race, education, labor force experience), but control variables cannot be explained purely as the result of individual choices. Rather, they reflect structural inequalities related to \textbf{unequal bargaining power}.
+\begin{quote}\emph{Bargaining often characterizes situations where two parties, whether individuals or groups, see potential gains from cooperation but disagree over how those gains should be shared. Both parties can potentially benefit from coming to an agreement, and their share is likely to be strongly affected by their fallback position, or next-best option.} \cite[p.~9]{folbre2021gender}\end{quote}
+
+We can summarize the main points of Folbre's research (that is, the main causes of gender gap) as follows:
+\begin{itemize}
+\item \textbf{Stereotypes}: in the U.S. women who move into better paying but stereotypically masculine occupations often face sexual harassment and disapproval. When wives earn more than husbands, both spouses slightly tilt their reported earnings to conform to gender stereotypes, overstating the relative size of husbands' earning.
+\item \textbf{Pay penalties}: many women self-select into traditionally female occupations because they consider these more compatible with the demands of family care. But while they may be aware that these jobs pay less than traditionally male jobs, they do not choose the size of the resulting pay penalties: in the U.S. the percentage of women in an occupation is inversely related to its average pay, even controlling for human capital characteristics.
+\item \textbf{Mothers discrimination}: many women experience wage penalties because of becoming mothers. Discrimination against mothers is based on rather subtle cues, such as participation in a parent-teacher organization listed on a job resume, because employers may assume that mothers of young children face other demands on their time that lower their performance in paid employment.
+\item \textbf{Mobility}: women's labor supply is less elastic than men's because women's mobility between jobs is limited by obligations of family care. Employers can easily take advantage of this difference, paying women less than men not because they prefer hiring men but because they recognize that women are more likely to accept lower wages.
+\item \textbf{Occupational segregation}: high levels of occupational segregation are still the largest immediate cause of gender inequality in earnings. Efforts to improve the relative pay of primarily female jobs met criticism based on the assumption that occupational pay was largely determined by productivity. Finally, the supply of women's labor to the market was treated merely as the result of individual choices, with little attention to the constraints imposed by a traditionally male-oriented organization of work, school, housework, and childcare.
+\item \textbf{Information asymmetries}: employers are often able to use their control over information to lower women's wages relative to men's, because not all the workers are covered by the Fair Labor Standards Act (which guarantees the right of workers to discuss their salaries), and others remain unaware of their rights. Furthermore, employers in most states have the right to ask job applicants what they earned in their previous jobs and to adjust wage offers accordingly. For this reason, women's entrance into previously male-dominated occupations tends to lower the average occupational wage, and this ``devaluation'' is at least partially driven by the fact that women start out in lower-paying (often part-time) occupations, which lowers their bargaining power.
+\item \textbf{``Equal value'' principle}: whatever a worker is paid represents his or her value added -- therefore, men earn more than women because they contribute more to society. Unfortunately, this principle does not take into account that many female-dominated services have a public good dimension: their social value exceeds their private value. The work of caring for others creates value that is difficult to capture through the market because it often involves emotional engagement, teamwork, and person-specific skills. Women's tendency to devote more hours to unpaid care work than do men is interpreted because of feminine preferences rather than as the result of institutional pressure to ensure a generous supply of female effort to activities such as family care that cannot be rewarded by market forces.
+\item \textbf{Paid work/family work constraints}: responsibility for the care of family, friends, and neighbors weighs more heavily on women than men, not because women necessarily prefer this arrangement but because men often have sufficient bargaining power to minimize demands on their time. Furthermore, women labeled as uncaring are typically stigmatized, and employers use this social norm to justify lower pay offers to women.
+\end{itemize}
+
+
+\section{Data \& Statistics (U.S. Department of Labor)}
+\label{section:data_statistics_dol}
+The last step of our sociological research consists in the reporting of some interesting data and statistics\footnote{Available at: \url{https://www.dol.gov/agencies/wb/data}.} taken from the U.S. Department of Labor, and more specifically from Women's Bureau, an agency within the Department with the aim of developing policies and standards and conducting inquiries to safeguard the interests of working women, to advocate for their equality and economic security for themselves and their families, and to promote quality work environments.
 
 \begin{figure}[t!]
-\includegraphics[scale=.75]{figures/relational_model.pdf}
+\includegraphics[scale=.7]{figures/dol_earnings_by_sex.pdf}
 \centering
-\caption{Relational model concepts in a trivial example. ``Employee'' is the name of the real-world entity of reference and therefore of the related table in the model.}
-\label{fig:relational_model}
+\caption{Median annual earnings by sex (1960--2017).\newline
+U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}
+\label{fig:dol_earnings_by_sex}
 \end{figure}
 
-Lastly, since this term will be often used in the subsequent sections and chapters, we define a \textbf{dataset} as a collection of data. More specifically, since our data are in a tabular format according to the relational model, a dataset simply corresponds to one or more database tables.
-
-Further details on relational databases can be found in \cite{abiteboul1995foundations}.
-
-
-\section{Data Science Pipeline}
-\label{section:data_science_pipeline}
-Because of the broadness of the concept, there is not a unique and precise definition of data management. In general, we can identify it as the process of acquiring, storing, organizing, and maintaining data created and collected by an organization. In \cite{gandomi2015beyond}, the author, referring to \cite{labrinidis2012challenges}, classifies \textit{data management}, together with \textit{analytics}, as one of the two sub-processes to extract insights from data, while the overarching process is referred as \textbf{data science pipeline}, or \textit{big data pipeline}. For the sake of clarity, since the term is the one used in \cite{gandomi2015beyond}, we define big data as:
-\begin{quote}
-\emph{Large volumes of high velocity, complex and variable data that require advanced techniques and technologies to enable the capture, storage, distribution, management, and analysis of the information.} \cite[p.~10]{mills2012demystifying}\end{quote}
-However we preferred to adopt the name of ``data science pipeline'' instead of ``big data pipeline'', since we will not deal with big data, which are not a concept strictly inherent to this research.
+First of all, Figure~\ref{fig:dol_earnings_by_sex} shows that, since 1960, both male and female earnings incresead by about \$15K, but, because of the large initial gap, the actual average incomes still differ by about \$10K in favor of men. Furthermore, the graph does not take into account part-time workers, the introduction of which would lead to an accentuation of the gap between men and women, since, as Figure~\ref{fig:dol_full-_and_part-time_workers_by_sex} displays, most part-time workers are women (over 60\% of the total number of part-time employees).
 
 \begin{figure}[t!]
-\includegraphics[scale=.5]{figures/data_science_pipeline.pdf}
+\includegraphics[scale=.7]{figures/dol_full-_and_part-time_workers_by_sex.pdf}
 \centering
-\caption{Data science pipeline. Image based on the one shown in \cite{gandomi2015beyond}.}
-\label{fig:data_science_pipeline}
+\caption{Percent distribution of workers employed full- and part-time by sex (2020).\newline
+U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}
+\label{fig:dol_full-_and_part-time_workers_by_sex}
 \end{figure}
-
-Since fairness should be addressed in each phase of the data science pipeline, the subsequent list provides a concise explanation of the operations performed in each step, by following the classification proposed in \cite{jagadish2014big}, together with the main potential sources of bias.
-\begin{itemize}
-\item \textbf{Acquisition and recording}: data are recovered and captured. In this phase the introduction of bias could derive from some preliminary critical choices we have to deal with, concerning the availability of sources, the identification of who is represented by the data, the definition of what has been measured and of our duties to the people in the data (for example, we may owe them a certain degree of privacy).
-\item \textbf{Extraction, cleaning and annotation}: real data are most of the time messy and dirty, therefore we need to extract the relevant information and clean them, in order to express them in a structured form suitable for analysis. Unfortunately, data cleaning itself is based on assumptions, and wrong assumptions may lead to bias (for example, we may assume missing values in the data as missing at random, while there could be other, maybe ethical, reasons behind).
-\item \textbf{Integration, aggregation and representation}: data analysis often requires the collection of heterogeneous data from different sources, therefore we need to integrate them in order to guarantee syntactic and semantic coherence. Again, we have to rely on assumptions on the world, as for the case of data representation, in which a lot of choices are made in order to decide what to represent, potentially leading to bias (for example, in the context of sentiment analysis we may ascribe sentiment to labels, or we may decide to group age values instead of considering every single year).
-\item \textbf{Modeling and analysis}: before the actual analysis, an abstract model of the data is generated, in order to capture the essential components of the system and their interactions. However, the process of abstraction of concrete data in a conceptual standard model necessarily leads to the loss of information (for example, the relational model provides an intuitive overview of the system, but it does not include any semantics).
-\item \textbf{Interpretation}: a decision-maker, provided with the results of the analysis, has to interpret these results. This process usually requires to examine all the assumptions made and to retrace the analysis, and because of the complexity of the task and the problems that may arise from computer systems (bugs, errors), a human (and therefore impossibly perfectly fair) supervision is needed (for example, the failures of system components can go unnoticed and result in loss of data, or the data format may have changed without being notified, and therefore the system should be equipped with monitoring scripts and mechanisms to obtain user confirmation and correction).
-\end{itemize}
-
-
-\section{Data Mining Techniques}
-\label{section:data_mining_techniques}
-\begin{quote}
-\emph{Data mining is a collection of techniques for efficient automated discovery of previously unknown, valid, novel, useful and understandable patterns in large databases.} \cite[p.~80]{tamilselvi2015efficient} \end{quote}
-Data mining is a broad topic, and usually a variety of procedures are needed in order to gain knowledge from data. However, we can distinguish three main categories of techniques, in each of which the fairness problem should be addressed differently:
-\begin{itemize}
-\item \textbf{Preprocessing techniques}: procedures used to transform the raw data in a useful and efficient format. The aim is to improve the overall quality of the data and consequently the data mining results.
-\item \textbf{Inprocessing techniques}: data are subjected to various methods using machine learning and artificial intelligence algorithms to generate a desirable output.
-\item \textbf{Postprocessing techniques}: methods to evaluate the extracted knowledge, visualize it, or merely document it for the end user. The knowledge can also be interpreted and incorporated into an existing system.
-\end{itemize}
-
-For the purpose of this research, we will focus on preprocessing techniques, which constitute one of the most critical steps in the data mining process, since they deal with the preparation and transformation of the initial dataset; while the bias analysis we will perform making use of the tools adopted is part of data (in)processing. Data preprocessing methods are divided into four categories \cite{tamilselvi2015efficient}:
-\begin{itemize}
-\item \textbf{Data cleaning}: since real-world data are often incomplete, noisy, and inconsistent, some routines are needed in order to fill in missing values, smooth out the noise and correct the inconsistencies.
-For what concerns \textit{missing values}, these procedures include the removal of the specific tuple, or the filling (manual or automatic) of the missing value by using, for example, a constant (e.g. ``unknown''), the mean (for numerical attributes) or simply what is perceived to be the most probable value.
-Noise instead can be seen as a random error or variance in a measured variable, and some smoothing techniques for \textit{noisy data} are:
-\begin{itemize}
-\item \textbf{Binning}: a data value is smoothed by looking at its ``neighbourhood'', that is, the values around it.
-\item \textbf{Regression}: data are fitted to a function, in order to be smoothed according to the function itself. A specific type of regression, useful for our analysis, is \textit{linear regression}, which will be further explored in Section~\ref{section:linear_regression}.
-\item \textbf{Clustering}: similar data are organized into groups of values, called ``clusters''. Values that fall outside the set of clusters may be considered as outliers.
-\end{itemize}
-\item \textbf{Data integration}: as mentioned in Section~\ref{section:data_science_pipeline}, data often come from different (possibly heterogeneous) sources, and therefore they need to be combined in order to obtain a coherent model and remove inconsistencies (such as redundancies between attributes, where some can be derived from others).
-\item \textbf{Data transformation}: data are transformed or consolidated in appropriate forms suitable for the mining process. Some techniques used in this context are:
-\begin{itemize}
-\item \textbf{Normalization}: data values are scaled so as to fall within a specified range, such as (\(-\)1.0, 1.0 or 0.0, 1.0).
-\item \textbf{Aggregation}: new attributes are constructed from the given set of attributes to help the mining process by summarizing or aggregating information (for example, daily sales data may be aggregated so as to compute annual total amounts).
-\item \textbf{Generalization}: raw (or low-level) data are replaced by higher-level ones, by following a specific hierarchy (for example, the attribute \textit{city} can be generalized to \textit{country}).
-\item \textbf{Discretization}: raw values of numeric attributes are replaced by interval levels or conceptual levels (for example, age values between 15 and 18 could be labeled as ``adolescence'').
-\end{itemize}
-\item \textbf{Data reduction}: in order to make mining more effective and get better analytical results, several techniques can be applied to obtain a reduced representation of the dataset that is much smaller in volume, yet closely maintains the integrity of the original data. These methods include, among the others, \textit{attribute subset selection}, in which attributes considered as not particularly relevant for the analysis are removed, and \textit{numerosity reduction}, where data are replaced by smaller data representations, such as parametric models.
-\end{itemize}
-
-
-\section{Linear Regression}
-\label{section:linear_regression}
-In order to fully understand how one of the adopted tools works (the one we refer to as ``Glassdoor Method'', described later in Section~\ref{section:the_glassdoor_method}), it is appropriate to have a closer look at \textbf{linear regression} \cite{glasserman2001linear}. As mentioned in Section~\ref{section:data_mining_techniques}, linear regression is a preprocessing technique used to smooth out noise or to find patterns within a dataset, which attemps to model the relationship between two or more variables by fitting data to a linear equation (represented, in the two-variable case, by a straight line in a Cartesian plane). The results from linear regression help in predicting an unknown value depending on the relationship with the predicting variables. For example, the height and weight of an individual generally are related: usually taller people tend to weigh more. We could use regression analysis to help predict the weight of a person, given their height.
-
-We can distinguish between \textbf{simple linear regression}, in which a single input variable is used to model a linear relationship with the target variable (as for the example of height and weight), and \textbf{multiple linear regression}, where more predicting variables are used.
-
-For simple linear regression, the reference equation is: \[y = \beta_0 + \beta_1x + \epsilon\]
-Variable \(x\) is called \textit{explanatory} or \textit{independent variable}, while \(y\) is referred to as \textit{dependent variable}; \(\beta_1\) is the \textit{slope} of the line, also known as regression coefficient, and \(\beta_0\) is the \textit{intercept} (the value of \(y\) when \(x = 0\)), while \(\epsilon\) is the \textit{error} in the estimation of the regression coefficient, also known as residuals, which account for the variability in \(y\) that cannot be explained by the linear relation between \(x\) and \(y\).
-
-For multiple linear regression, the formula is generalized in order to incapsulate also the other independent variables (\(x_1, \ldots, x_n\)) and the related slope coefficients (\(\beta_1, \ldots, \beta_n\)): \[y = \beta_0 + \beta_1x_1 + \ldots + \beta_nx_n + \epsilon\]
 
 \begin{figure}[t!]
-\includegraphics[scale=.7]{figures/simple_linear_regression.pdf}
+\includegraphics[scale=.7]{figures/dol_most_common_occupations_women.pdf}
 \centering
-\caption{Simple linear regression graph.\newline
-Source: \upshape\protect\url{https://www.reneshbedre.com/assets/posts/reg/mlr/residual.svg}.}
-\label{fig:simple_linear_regression}
+\caption{Most common occupations for women in the labor force (2019).\newline
+U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}
+\label{fig:dol_most_common_occupations_women}
 \end{figure}
 
-Figure~\ref{fig:simple_linear_regression} shows a simple linear regression graph. It is important to point out that the \(x\) and \(y\) variables remain the same, since they represent data features that cannot be changed, while the values that we can control are the slope and the intercept. Indeed, there can be multiple straight lines depending upon the values of intercept and slope, and what the linear regression algorithm does is to fit multiple lines on the data points and return the line that results in the least error.
-
-Another important parameter for regression analysis is \(R^2\), also known as \textit{coefficient of determination} (or \textit{coefficient of multiple determination} for multiple linear regression). It is a statistical measure of how close the data are to the fitted regression line, and therefore it indicates how much variation of the dependent variable is explained by the independent variable(s) in a regression model. \(R^2\) values range from 0 to 1 and are commonly stated as percentages from 0\% to 100\%, where 0\% refers to a model that explains none of the variability of the data around its mean, while 100\% refers to a model that explains all the variability of the data around its mean (in this case, all the actual data values would be on the regression line).
-
-Formally, we can define \(R^2\) as: \[R^2 = 1 - \frac{\mathit{Unexplained Variation}}{\mathit{Total Variation}} = 1 - \frac{\sum_{i}(y_i - \hat{y}_i)}{\sum_{i}(y_i - \bar{y})}\] where \(y_i\) is one of the actual data values, \(\hat{y}_i\) is the corresponding predicted value, and \(\bar{y}\) is the mean of all the \(y_i\) values, for \(i = 1, \ldots, n\).
-
-Generally speaking, at least for the purpose of this research, the higher the \(R^2\) value, the better the model fits the data.
-
-
-\section{Functional Dependencies}
-\label{section:functional_dependencies}
-One of the tools adopted, FAIR-DB, uses specific classes of integrity contraints, known as dependencies, to detect unfair behaviors in datasets (further details on the tool will be provided in Section~\ref{section:fair-db}). A \textbf{dependency} is a constraint that applies to or defines the relationship between attributes, and it occurs in a database when information stored in a table uniquely determines other information stored in the same table. Basically, dependencies are constraints not necessarily imposed by the system designer but intrinsically satisfied by the data.
-
-\textbf{Functional dependencies (FDs)} are a specific type of dependency, involving two (sets of) attributes of the same relation in which the first uniquely determines the second or, in other words, knowing the value of one attribute (or set of attributes) is enough to tell the value of the other one. The notation to indicate a functional dependency is: \[A \rightarrow B\] which can be read as ``\(B\) is functionally dependent upon \(A\)'', or ``\(A\) uniquely determines \(B\)'', whereas \(A\) and \(B\) are attributes (or eventually sets of attributes) of a table. \(A\) is called antecedent, or \textit{left-hand-side (LHS)}, and \(B\) consequent, or \textit{right-hand-side (RHS)}. An example of functional dependency could be the one of a table containing the information about the employees of a company, as in Figure~\ref{fig:relational_model}. Here the \(\mathit{ID}\) attribute uniquely identifies the \(\mathit{Name}\) one, because by knowing the employee's ID we can tell what the employee's name is. Therefore, \(\mathit{ID} \rightarrow \mathit{Name}\). More specifically, since also the employee's surname and gender are uniquely identified by the ID, we can write \(\mathit{ID} \rightarrow \mathit{Name}, \mathit{Surname}, \mathit{Gender}\). Another example is provided in Table~\ref{table:orange_plantation}, in which \(\mathit{Temperature}, \mathit{pH}, \mathit{Season} \rightarrow \mathit{Ideal}\).
-
-\begin{table}
-\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
-\hline
-\multicolumn{4}{|c|}{Orange Plantation}\\
-\hline
-Temperature & pH & Season & Ideal\\
-\hline
-28 & 7 & Autumn & Y\\
-20 & 7 & Autumn & N\\
-28 & 7 & Winter & N\\
-29 & 7.5 & Autumn & Y\\
-27 & 6.5 & Winter & N\\
-27 & 7.5 & Summer & N\\
-20 & 6.5 & Spring & N\\
-28 & 7 & Summer & N\\
-27 & 6.5 & Autumn & Y\\
-\hline
-\end{tabular}
-\centering
-\caption{``Orange Plantation'' table. It shows whether or not ambient temperature (\textdegree C), soil pH and planting season represent ideal conditions for planting oranges.}
-\label{table:orange_plantation}
-\end{table}
-
-Functional dependencies are a very well-known concept for data scientists, especially for those who work on relational models, and further details on them can be found in \cite{abiteboul1995foundations}.
-However, the constraints imposed by functional dependencies are often too strict for real-world datasets (they must indeed hold for all the tuples of a table), so in the past few years generalizations of FDs have been proposed and started to be considered in their place. \textbf{Relaxed functional dependencies (RFDs)} can indeed be simply defined as functional dependencies where some constraints are deleted (relaxed). The authors of \cite{caruccio2015relaxed} distinguished 35 different categories of RFDs, but the ones relevant for our research are the following:
-\begin{itemize}
-\item \textbf{Approximate functional dependencies (AFDs)}:
-\begin{quote}\emph{AFDs are FDs holding on almost every tuple.} \cite[p.~151]{caruccio2015relaxed}\end{quote}
-In order to quantify how an AFD ``almost'' holds, several measures have been proposed, including the so called \textit{g3}, defined as ``the (normalized) minimum number of tuples that need to be removed from a relation instance in order for an FD to hold'' \cite[p.~151]{caruccio2015relaxed}, whereas ``relation instance'' is simply a synonym of ``relation''. The g3 measure is therefore an index whose value ranges between 0 and 1, indicating the percentage of tuples of a table to be removed in order for an FD to hold (0 = none, 1 = all). An example of AFD in Table~\ref{table:orange_plantation} is: \[\mathit{Temperature}, \mathit{pH} \rightarrow \mathit{Ideal}\] because almost all the values of \(\mathit{Temperature}\) and \(\mathit{pH}\) determine the \(\mathit{Ideal}\) value, but this is not true for: \[\mathit{Temperature} = \mlq 28 \mrq, \mathit{pH} = \mlq 7 \mrq \rightarrow \mathit{Ideal}\] since in most of the cases (two out of three) when \(\mathit{Temperature} = \mlq 28 \mrq\) and \(\mathit{pH} = \mlq 7 \mrq\) then \(\mathit{Ideal} = \mlq \mathrm{Y} \mrq\), but in one case \(\mathit{Ideal} = \mlq \mathrm{N} \mrq\).
-\item \textbf{Conditional functional dependencies (CFDs)}:
-\begin{quote}\emph{\emph{[CFDs]} use conditions to specify the subset of tuples on which a dependency holds.} \cite[p.~152]{caruccio2015relaxed}\end{quote}
-This type of dependencies allows to catch particular and concrete patterns in the dataset, in fact they make possible to analyze precise values of the tuples and be more specific. An example of CFD, related to Table~\ref{table:orange_plantation}, is the following: \[\mathit{Temperature} = \mlq 28 \mrq, \mathit{pH} = \mlq 7 \mrq, \mathit{Season} \rightarrow \mathit{Ideal}\] meaning that, for tuples in which \(\mathit{Temperature} = \mlq 28 \mrq\) and \(\mathit{pH} = \mlq 7 \mrq\), the \(\mathit{Season}\) parameter functionally determines the \(\mathit{Ideal}\) one. Another example could be: \[\mathit{Season} = \mlq \mathrm{Summer} \mrq \rightarrow \mathit{Ideal} = \mlq \mathrm{N} \mrq\] interpretable as: ``when the attribute \(\mathit{Season}\) has value \(\mathrm{Summer}\), the attribute value of \(\mathit{Ideal}\) is \(\mathrm{N}\)''.
-\item \textbf{Approximate conditional functional dependencies (ACFDs)}: FDs obtained by combining the two kinds of relaxed dependencies discussed above. Unifying the two relaxation criteria makes it possible to detect specific and not exact rules, which can highlight anomalies or unexpected patterns in the database, allowing to recognize cases where a value of a certain attribute \textit{frequently determines} the value of another one. An example of ACFD in Table~\ref{table:orange_plantation} is: \[\mathit{Season} = \mlq \mathrm{Autumn} \mrq \rightarrow \mathit{Ideal} = \mlq \mathrm{Y} \mrq\] which can be read as: ``when attribute \(\mathit{Season}\) has value \(\mathrm{Autumn}\), the attribute value of \(\mathit{Ideal}\) is \(\mathrm{Y}\) if we delete a maximum number of tuples \(N\) from the dataset''. The rule indeed holds for almost all the tuples of the table, apart for the one in which \(\mathit{Temperature} = \mlq 20 \mrq\), \(\mathit{pH} = \mlq 7 \mrq\), \(\mathit{Season} = \mlq \mathrm{Autumn} \mrq\) and \(\mathit{Ideal} = \mlq \mathrm{N} \mrq\). It is worth to specify that, even though the notation is the same used for CFDs, the relaxation on the number of tuples is implicit in the classification of a rule as an ACFD.
-\end{itemize}
-
-
-\section{Evaluation Metrics}
-\label{section:evaluation_metrics}
-The aim of this section is to introduce some evaluation metrics for functional dependencies used by one of the adopted tools, FAIR-DB, described later in Section~\ref{section:fair-db}.
-
-\begin{itemize}
-\item \textbf{Support}: \[\mathrm{Support}(X \rightarrow Y) = \mathrm{supp}(X, Y) = \frac{\#(X, Y)}{\mathit{\#tuples}}\] where \(\#(X, Y)\) is the amount of times the (sets of) attributes \(X\) and \(Y\) appear together in the dataset and \(\#tuples\) is the total amount of tuples in the table. The support represents the percentage of records in the dataset that verify the dependency \(X \rightarrow Y\), and it is therefore an index whose value ranges between 0 and 1.
-\item \textbf{Confidence}: \[\mathrm{Confidence}(X \rightarrow Y) = \mathrm{conf}(X, Y) = \frac{\mathrm{supp}(X, Y)}{\mathrm{supp}(X)}\] where \(\mathrm{supp}(X)\) is the percentage of tuples in the dataset containing the (set of) attributes \(X\) (antecedent, or LHS, of the rule). The confidence shows how frequently the dependency \(X \rightarrow Y\) is verified, knowing that the antecedent \(X\) is verified, and it is therefore an index whose value ranges between 0 and 1. A confidence equal to 1 means that only the valid and exact rules (non-relaxed FDs) will be selected, while decreasing its value implies relaxing the constraint on the number of tuples to be considered. In this context, it can be seen as an analogous metric to the g3 one, mentioned in Section~\ref{section:functional_dependencies}.
-\item \textbf{Difference}: \[\mathrm{Difference}(X \rightarrow Y) = \mathrm{diff}(X, Y) = \mathrm{conf}(X, Y) - \mathrm{conf}(X \setminus X_p, Y)\] where \(X_p\) is the subset of protected attributes of the antecedent \(X\) of the dependency \(X \rightarrow Y\). The difference is basically a subtraction between the confidence value of a dependency and the confidence value calculated on the same dependency but excluding all the protected attributes from the antecedent of the rule. Being a subtraction of indices of value between 0 and 1, and given \(\mathrm{conf}(X, Y) \geq \mathrm{conf}(X \setminus X_p, Y)\), the difference is also an index whose value ranges between 0 and 1. It indicates how much a dependency is ``unethical'' (the higher the value, the more unfair is the dependency), and it gives an idea on the impact of the protected attributes on \(Y\). Last but not least, it is important to point out that the difference is a novel metric, firstly introduced in \cite{azzalini2021fair} and specifically designed with the aim of measuring the ``ethical'' level of a dependency.
-\end{itemize}
-
-
-\section{Statistical Concepts}
-\label{section:statistical_concepts}
-The aim of this section is to introduce some statistical concepts useful for fully understanding the behavior of one of the adopted tools, Ranking Facts, described later in Section~\ref{section:ranking_facts}.
-
-The first required notion is the one of a \textbf{hypothesis test}, which in statistics is a way to test the obtained result of a survey or experiment on a sample, in order to check if the result is meaningful and extendable to the whole population or if it has happened by chance. In this context, two interpretations are proposed: the first is known as \textit{null hypothesis} (symbolized as \(H_0\)), which is the idea that there is no relationship in the population and that the relationship in the sample is caused by errors (informally, this is the ``occurred by chance'' interpretation); the second is called \textit{alternative hypothesis} (whose symbol is \(H_1\)) and it is the idea that the relationship in the sample reflects an existing relationship in the population.
-
-Generally, the rationale behind a hypothesis test is:
-\begin{itemize}
-\item[1.] Assume the null hypothesis true.
-\item[2.] Determine how likely the sample relationship would be if the null hypothesis were true.
-\item[3.] If the sample relationship would be extremely unlikely, then \textit{reject} the null hypothesis in favour of the alternative hypothesis. If it would not be extremely unlikely, then \textit{retain} the null hypothesis.
-\end{itemize}
-
-A crucial step in hypothesis testing is to find the likelihood of the sample result if the null hypothesis were true. This probability is called \textbf{\(\bm{p}\)-value}. Low \(p\)-value means that the sample result would be unlikely if \(H_0\) were true and leads to the rejection of the null hypothesis, while high \(p\)-value means that the sample result would be likely if \(H_0\) were true and leads to the retention of the null hypothesis. To quantify how low the \(p\)-value must be in order to consider the result unlikely enough to reject the null hyphotesis, a parameter known as \textit{significance level} \(\alpha\) is used, and its value is usually set to 0.05 (5\%). The significance level represents the probability of making the mistake of rejecting the null hypothesis when in fact it is true (\textit{type I error}): if \(p\textrm{-value} > \alpha\) we accept the null hypothesis and the result is considered not statistically significant, otherwise we reject the null hypothesis and the result is said to be \textit{statistically significant}.
-
-A particular type of hypothesis test is the \textbf{z-test}, used when data are approximately normally distributed (i.e. the plotted data have the shape of a bell curve on the graph). In order for a z-test to be used, data points should also be independent from each other and the sample size should be greater than 30. The z-test relevant to our research is the \textit{two sample z-test}, which allows to compare two proportions to check if they are the same (\(H_0\)) or not (\(H_1\)). The reference formula is: \[z = \frac{p_1 - p_2}{\sqrt{(\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2})}} = \frac{p_1 - p_2}{\sqrt{p(1 - p)(\frac{1}{n_1} + \frac{1}{n_2})}}\] where \(n_1\) and \(n_2\) are the sizes of the samples, \(p_1\) and \(p_2\) are the proportions of the samples, \(p\) is the overall sample proportion (total number of ``positive'' results over total number of people) and \(\sigma_1^2\) and \(\sigma_2^2\) represent the variances of the two populations. For the sake of completeness, we define the \textit{variance} as the measure of how far each value in the dataset is from the average value (i.e. the mean, as defined in Section~\ref{section:the_glassdoor_method}): \[\sigma^2 = \frac{\sum\limits_{i=1}^n (x_i - \mu)^2}{n}\] where \(n\) is the size of the population, \(x_i\) is the \(i\)-th value and \(\mu\) represents the mean. In the z-score formula above, for the sake of simplicity, \(\sigma_1^2\) and \(\sigma_2^2\) are approximated by the variance of the Bernoulli distribution (i.e. the probability distribution for a random experiment with only two possible outcomes). To better clarify, we will now consider the example of testing two different COVID-19 vaccines: the first works on 248 people out of a sample of 496, while the second works on 23 people in a sample of 100. To check if the vaccines are comparable we firstly calculate the proportions: \[p_1 = 248 / 496 = 0.5\] \[p_2 = 23 / 100 = 0.23\]
-The overall sample proportion is: \[p = \frac{248 + 23}{496 + 100} \simeq 0.45\]
-And finally the z-score is: \[z \simeq \frac{0.5 - 0.23}{\sqrt{0.45(1 - 0.45)(\frac{1}{496} + \frac{1}{100})}} \simeq 4.95\]
-To find out if the obtained result should lead us to accept or reject the null hypothesis, we can look at the known values of z-score, related to the most commonly used \(\alpha\) values. For example, the z-score related to \(\alpha = 0.05\) is 1.96, meaning that 95\% of the area under the normal curve lies within the range \([-1.96, +1,96]\), and since \(4.95 > 1.96\) we can reject the null hypothesis (for z-scores higher than 1.96 with \(\alpha = 0.05\), \(p\textrm{-value} < 0.05\)).
-
-
-\section{The ``Glassdoor Method''}
-\label{section:the_glassdoor_method}
-After having described the basics, we will now make an overview of the tools used for this research. The first one is a technical guide to analyze gender pay gap in a company, provided by \textbf{Glassdoor} in \cite{chamberlain2017analyze}.
-
-Glassdoor is a website in which employees and ex-employees of companies anonimously review enterprises and their superiors, with the overall aim of providing insights about jobs and companies and helping people find the most suitable working position for them. The society was founded in 2007 in the U.S. and the website was made available in 2008; since then, the company has grown to become the worldwide leader in the sector.
-
-As specified in the introduction of the guide \cite[p.~2]{chamberlain2017analyze}, according to a 2016 Glassdoor survey, 67\% of the U.S. employees would not apply for jobs at employers where they believe a gender pay gap exists. The purpose of the report is therefore to help HR practitioners in analyzing the internal gender pay gap of their companies, by providing them specific technical knowledge.
-
-First of all, by ``gender pay gap'' Chamberlain means:
-\begin{quote}\emph{The difference between average pay for men and women, both before and after we've accounted for differences among workers in education, experience, job roles, employee performance and other factors aside from gender that affect pay.} \cite[p.~3]{chamberlain2017analyze}\end{quote}
-Two measures are proposed in the report, respectively referred as ``unadjusted'' and ``adjusted'' pay gap:
-\begin{itemize}
-\item \textbf{``Unadjusted'' pay gap}:
-\begin{quote}\emph{Average pay for men as a group, compared to average pay for women as a group.} \cite[p.~3]{chamberlain2017analyze}\end{quote}
-Therefore, the formula for estimating ``unadjusted'' gender pay gap is: \[U = \frac{\mathrm{avg}(BasePay)_m - \mathrm{avg}(BasePay)_f}{\mathrm{avg}(BasePay)_m}\] where \(\mathrm{avg}(BasePay)_m\) is the average pay (arithmetic mean of salaries) of male employees, while \(\mathrm{avg}(BasePay)_f\) is the average pay of female employees.
-For the sake of completeness, despite being a basic mathematical concept, we define the \textit{mean} as the sum of a collections of numbers (in this case, salaries) divided by the count of numbers in the collection (the total amount of males or females). Taking \(n\) as total number of male employees: \[\mathrm{avg}(BasePay)_m = \frac{\sum\limits_{i=1}^n BasePay_i}{n}\] and the same holds for female employees.
-\item \textbf{``Adjusted'' pay gap}: while the ``unadjusted'' pay gap is basically a simple comparison of all women with all men, the ``adjusted'' pay gap compare similarly situated male and female employees, in order to include in the calculation the numerous factors that affect the pay (e.g. job title, or educational level). The estimation of the ``adjusted'' pay gap is based on linear regression, a concept presented in Section~\ref{section:linear_regression}, and the reference formula is: \[y_i = \beta_1\textit{Male}_i + \beta_2X_i + \epsilon_i\] where \(y_i\) is the annual salary of worker \(i\), \(\textit{Male}_i\) is a dummy indicator equal to 1 for males and 0 for females, and \(X_i\) is a collection of attributes of employees which may be relevant for the calculation (job title, educational level, etc.). The estimated coefficient \(\beta_1\) represents the approximate pay advantage for men compared to women.
-\end{itemize}
-
-
-\section{FAIR-DB}
-\label{section:fair-db}
-The second tool adopted for this research is called \textbf{FAIR-DB} (\textit{\textbf{F}unction\textbf{A}l Dependenc\textbf{I}es to discove\textbf{R} \textbf{D}ata \textbf{B}ias}), and it is a framework with the aim of discovering unfair behaviors in datasets, developed at Politecnico di Milano. As the name itself suggests, FAIR-DB is based on functional dependencies, and it falls within the category of preprocessing techniques since it works by finding conditions (constraints) already present in the data. The developers documented the functioning of FAIR-DB in \cite{azzalini2021fair}, by providing an overview of the tool, together with a clarifying example.
+Figure~\ref{fig:dol_most_common_occupations_women} shows the most common occupations for women. As we can see, in accordance with the other sociological sources, the podium is constituted by nurses, teachers, and secretaries. The representation problem is even exacerbated when looking at Figure~\ref{fig:dol_occupations_over_time}, which is interesting for us because it displays the top-10 occupations employing the largest number of women for the same year without excluding part-time employees. Even though data are a bit more aggregated (for example, the teachers category presumibly includes not only elementary and middle school teachers), the numbers, in comparison with Figure~\ref{fig:dol_most_common_occupations_women}, dramatically increase, emphasizing again the huge percentage of women working part-time. This problem is particularly accentuated for some job titles, tipically not very profitable (such as cashiers and waitresses), which overcome more advantageous positions (like managers) in the list. Figure~\ref{fig:dol_stem_percent_women} instead highlights again how women are underrepresented in STEM disciplines, especially in computer occupations and engineering. Although the trend is generally increasing, the rate of increase is very low (+4\% in 30 years, from 1990 to today), and it is particularly dramatic to observe the decrease in the percentage of female employees working in computer occupations, which had a peak -- never reached again -- back in 1990.
 
 \begin{figure}[t!]
-\includegraphics[scale=.65]{figures/fair-db_framework.pdf}
+\includegraphics[scale=.7]{figures/dol_occupations_over_time.pdf}
 \centering
-\caption{Steps of the FAIR-DB framework. Image based on the one shown in \cite{azzalini2021fair}.}
-\label{fig:fair-db_framework}
+\caption{Top-10 occupations employing the largest number of women (2019).\newline
+U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}
+\label{fig:dol_occupations_over_time}
 \end{figure}
 
-Figure~\ref{fig:fair-db_framework} shows the framework workflow, while a brief explanation of each phase, as documented in \cite{azzalini2021fair}, is reported below.
-\begin{itemize}
-\item \textbf{Data preparation and exploration}: data are imported and data integration is eventually performed. Data cleaning, feature selection and discretization techniques are also applied in this phase, in order to deal with missing values, select the smallest set of attributes relevant for the analysis and transform data from numerical to nominal data type. Data are finally plotted in order to help the user in identifying groups in the dataset and eventually majority and minority classes.
-\item \textbf{ACFD Discovery and filtering}: the \textit{ACFD Discovery} algorithm, presented in \cite{rammelaere2018revisiting}, is applied to extract approximate conditional functional dependencies from the dataset. The algorithm takes as input the dataset and three threshold parameters: \textit{minimum support}, \textit{minimum confidence} and \textit{maximum antecedent size} of the ACFD sought. From the output, dependencies not involving at least one of the protected attributes and the target attribute (the one used as reference to search for discrimination, e.g. \(\mathit{Income}\)) are removed, as well as dependencies containing variables (in which one or more attributes are not assigned to a specific value, e.g. the attribute \(\mathit{Ideal}\) in \(\mathit{Temperature} = \mlq 28 \mrq, \mathit{pH} = \mlq 7 \mrq \rightarrow \mathit{Ideal}\)).
-\item \textbf{ACFD selection}: for each ACFD, some metrics are computed to capture the ``ethical level'' of the dependency. In particular, the \textit{difference} metric described in Section~\ref{section:evaluation_metrics}, as already mentioned, is a novel score introduced for this purpose, and a second measure called \textit{p-Difference} is calculated for each protected attribute. The p-Difference indicates how much a dependency shows bias with respect to a specific protected attribute, and it is computed in the same way as the difference, but excluding the attribute from the antecedent of the rule. According to the values of the metrics, the most interesting ACFDs are selected.
-\item \textbf{ACFD ranking}: the ACFDs are ranked in descending order of importance according to \textit{support}, \textit{difference}, or \textit{mean}. The support emphasize the \textit{pervasiveness} of a rule, because it indicates the number of tuples involved by the dependency, so the higher the value, the more tuples are affected by the ACFD. The difference privileges the \textit{unethical aspect} of a rule, because it highlights dependencies where the values of the protected attributes influence most their RHS. The mean is computed as mean of support and difference, and therefore it gives more importance to the rules with the \textit{best trade-off} between pervasiveness and unethical perspective.
-\item \textbf{ACFD user selection and scoring}: the user selects \(N\) ACFDs perceived as the most problematic, and the system computes metrics (based on support, difference, and p-Difference of the selected rules) to summarize the level of unfairness of the dataset.
-\end{itemize}
-
-
-\section{Ranking Facts}
-\label{section:ranking_facts}
-The third tool used for this research is called \textbf{Ranking Facts}, a Web-based application (there also exists a notebook version) developed by the team of \textit{Data, Responsibly}\footnote{Available at: \url{http://demo. dataresponsibly.com/rankingfacts.}}. Ranking Facts, as the name itself suggests, is a \textit{ranking} tool: ranking is an action commonly performed by the vast majority of the algorithms we use every day: Google itself ranks the results of our searches and provides us with a list in descending order of relevance, and the same mechanism is used in various contexts of different nature, like dating or hiring applications. These specific scenarios are particularly relevant, because it is people who are ranked, and therefore discrimination against individuals or protected groups could arise, or the outcome could exhibit low diversity. Ranking Facts is based on the concept of \textit{nutritional labels}, in analogy to the food industry, where simple, standard labels convey information about the ingredients and production processes. Similarly, in the tool nutritional labels are derived as part of the complex process that gave rise to the data or model they describe, embodying the paradigm of interpretability-by-design.
-
-As documented in \cite{yang2018nutritional}, Ranking Facts is a collection of visual widgets with the aim of providing to the user information about the ranking in terms of stability, fairness and diversity. A brief description of how they work, taken from \cite{yang2018nutritional}, is reported below.
-\begin{itemize}
-\item \textbf{Recipe} and \textbf{Ingredients}: the former widget succintly describes the ranking algorithm, by listing the attributes used for ranking together with their weights, as specified by the user; while the latter shows, in descending order of importance, the attributes that really affect the ranking.
-\item \textbf{Stability}: it explains whether the ranking methodology is robust on the specific dataset in use. An unstable ranking is one where slight changes to the data (e.g. due to uncertainty and noise), or to the methodology (e.g. by slightly adjusting the weights of the attributes in the recipe) could lead to a significant change in the output.
-\item \textbf{Fairness}: it quantifies whether the ranked output exhibits statistical parity (group fairness) with respect to one or more protected attributes, such as gender or race of individuals. The notion of fairness is defined specifically for rankings and it can be computed comparing only binary categorical attributes (i.e. non-numerical attributes with just two possible values). The summary view of the widget presents the output of three fairness measures:
-
-\begin{itemize}
-\item \textbf{FA*IR} \cite{zehlike2017fa*ir}: ranking algorithm based on the assumption that on a ranking, the desired good for an individual is to appear in the result and to be ranked among the top-\(k\) positions. The outcome is therefore unfair if members of a protected group are systematically ranked lower than those of a privileged group, and a ranking algorithm discriminates unfairly if this ranking decision is based fully or partially on a protected feature.
-
-The \textit{ranked group fairness} criterion used by the algorithm compares the number of protected elements in every prefix of the ranking (i.e. the top-\(i\) positions of the ranking, with \(i \in [1, k]\)) with the expected number of protected elements if they were picked at random using Bernoulli trials (independent ``coin tosses'') with success probability \(p\). The statistical test also includes a significance parameter \(\alpha\), corresponding to the probability of a type I error, which means rejecting a fair ranking. A clarifying example is provided in Table~\ref{table:fa*ir_example}.
-
-\begin{table}
-\begin{tabular}{|p{.85cm}|p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}|}
-\hline
-\diagbox{\(p\)}{\(k\)} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
-\hline
-0.1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-0.2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1\\
-0.3 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 2\\
-0.4 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 2 & 2 & 2 & 3\\
-0.5 & 0 & 0 & 0 & 1 & 1 & 1 & 2 & 2 & 3 & 3 & 3 & 4\\
-0.6 & 0 & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 4 & 4 & 5 & 5\\
-0.7 & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 4 & 5 & 5 & 6 & 6\\
-\hline
-\end{tabular}
+\begin{figure}[t!]
+\includegraphics[scale=.7]{figures/dol_stem_percent_women.pdf}
 \centering
-\caption{Minimum number of candidates in the protected group that must appear in the top-\(k\) positions to pass the ranked group fairness criterion with \(\alpha = 0.1\). Considering for example \(\mathit{gender}\) as a protected attribute with values \(\mlq M \mrq\) and \(\mlq F \mrq\), the minimum number of females (or eventually males) appearing in the top-5 with \(p=0.4\) is \(1\). Table based on the one shown in \cite{zehlike2017fa*ir}.}
-\label{table:fa*ir_example}
-\end{table}
+\caption{Percentage of science, technology, engineering, and math (STEM) workers who are women (1970--2019).\newline
+U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}
+\label{fig:dol_stem_percent_women}
+\end{figure}
 
-The algorithm produces a top-\(k\) ranking that satisfies the ranking group fairness criterion mentioned above while maximizing \textit{utility}, which means selecting the ``best'' tuples, assigning them a score based on the relevant attributes used for the evaluation (e.g. picking the most qualified candidates for a job position by looking at their educational level).
+Finally, Figure~\ref{fig:dol_occupations_with_largest_gender_earnings_gap} displays the ordered list of occupations with the largest gender earnings gap. Most of the professions are traditionally lower-paying jobs, and no STEM or managerial disciplines appear to be listed. As a consequence, considering the lower percentage of women employed in STEM and managerial positions, and considering that in general most part-time workers are employed in lower-paying jobs, we can put emphasis on the percentage of women being disadvantaged in comparison with men, and on the still present significance of the gender gap.
 
-\item \textbf{Proportion} \cite{vzliobaite2017measuring}: this measure is based on the concept of z-test, as described in Section~\ref{section:statistical_concepts}.
-
-\item \textbf{Pairwise}: also known as \textit{pairwise comparison}, it is a tool for prioritizing and ranking multiple options relative to each other. A matrix is generally used to compare each option in pairs and determine which is the preferred choice or has the highest level of importance based on defined criteria. At the end of the comparison process, each option has a rank or relative rating as compared to the rest of the options. Table~\ref{table:pairwise_comparison_example} provides an example: scores are assigned based on how strongly the consumption of a drink on the left dominates that of a drink at the top. For example, when coffee on the left is compared with wine at the top, since coffee appears to be extremely more consumed, 9 is entered in the first row and second column position. A score of $\frac{1}{9}$ is automatically entered in the second row and first column position. According to the matrix, the final ranking would be:\\\(\mathit{Sodas}:~0.252\), \(\mathit{Water}:~0.228\), \(\mathit{Beer}:~0.164\), \(\mathit{Milk}:~0.148\), \(\mathit{Coffee}:~0.142\), \(\mathit{Tea}:~0.046\), \(\mathit{Wine}:~0.019\).
-
-\begin{table}
-\begin{tabular}{|p{1cm}|p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}|}
-\hline
-& Coffee & Wine & Tea & Beer & Sodas & Milk & Water\\
-\hline
-Coffee & 1 & 9 & 3 & 1 & $\frac{1}{2}$ & 1 & $\frac{1}{2}$\\
-Wine & $\frac{1}{9}$ & 1 & $\frac{1}{3}$ & $\frac{1}{9}$ & $\frac{1}{9}$ & $\frac{1}{9}$ & $\frac{1}{9}$\\
-Tea & $\frac{1}{3}$ & 3 & 1 & $\frac{1}{4}$ & $\frac{1}{5}$ & $\frac{1}{4}$ & $\frac{1}{5}$\\
-Beer & 1 & 9 & 4 & 1 & $\frac{1}{2}$ & 1 & 1\\
-Sodas & 2 & 9 & 5 & 2 & 1 & 2 & 1\\
-Milk & 1 & 9 & 4 & 1 & $\frac{1}{2}$ & 1 & $\frac{1}{2}$\\
-Water & 2 & 9 & 5 & 1 & 1 & 2 & 1\\
-\hline
-\end{tabular}
+\begin{figure}[t!]
+\includegraphics[scale=.7]{figures/dol_occupations_with_largest_gender_earnings_gap.pdf}
 \centering
-\caption{Drink consumption in the U.S. represented in a pairwise comparison matrix. Table based on the one shown in \cite{saaty2003magic}.}
-\label{table:pairwise_comparison_example}
-\end{table}
-\end{itemize}
-
-All these measures are statistical tests, and whether a result is fair is determined by the computed \(p\)-value.
-\item \textbf{Diversity}: since fairness is also related to representation, this widget shows diversity with respect to a set of demographic categories of individuals, or a set of categorical attributes of other kinds of items, by displaying the proportion of each category in the top-10 ranked list and overall (i.e. considering all the elements in the ranking).
-\end{itemize}
+\caption{Occupations with the largest gender earnings gap (2019).\newline
+U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}
+\label{fig:dol_occupations_with_largest_gender_earnings_gap}
+\end{figure}
