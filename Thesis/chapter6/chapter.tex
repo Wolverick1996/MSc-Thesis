@@ -10,7 +10,7 @@ For each case study, we will provide a \textit{dataset description}, in order to
 
 \section{Case Study 1: Chicago}
 \subsection{Dataset Description}
-The main purpose of this research is to combine the technological perspective with the sociological one, in order to analyze the strenghts and weaknesses of the adopted tools in real-world scenarios. For this reason, we decided to use real-world datasets, containing information related to public employees of the U.S., and more specifically of public employees working in the cities of Chicago\footnote{Available at: \url{https://www.chicago.gov/city/en/depts/dhr/dataset/current_employeenamessalariesandpositiontitles.html}.} and San Francisco\footnote{Available at: \url{https://www.kaggle.com/tomtillo/san-francisco-city-payrollsalary-data-20112019}.}. It is worth to specify that these datasets exist because of the Freedom of Information Act (FOIA): a federal law constituting Title 5 of the United States Code (5 U.S.C. \S 552), which claims that federal employee salaries must be public information under open government laws.
+The main purpose of this research is to combine the technological perspective with the sociological one, in order to analyze the strengths and weaknesses of the adopted tools in real-world scenarios. For this reason, we decided to use real-world datasets, containing information related to public employees of the U.S., and more specifically of public employees working in the cities of Chicago\footnote{Available at: \url{https://www.chicago.gov/city/en/depts/dhr/dataset/current_employeenamessalariesandpositiontitles.html}.} and San Francisco\footnote{Available at: \url{https://www.kaggle.com/tomtillo/san-francisco-city-payrollsalary-data-20112019}.}. It is worth to specify that these datasets exist because of the Freedom of Information Act (FOIA): a federal law constituting Title 5 of the United States Code (5 U.S.C. \S 552), which claims that federal employee salaries must be public information under open government laws.
 
 The \textbf{Chicago} dataset we considered includes 31,858 tuples and is made up of 8 attributes, briefly described as follows:
 \begin{itemize}
@@ -217,7 +217,7 @@ To conclude, we can say that the dataset seems to be quite fair with respect to 
 \subsection{Ranking Facts}
 As specified in Section~\ref{section:ranking_facts}, Ranking Facts is primarily meant to be a Web-based application with the aim of discovering fairness in a dataset by making use of ranking and providing to the user a collection of visual widgets. However, because of the size of our dataset, we could not use the tool in the form of a Web-based application, and we had to opt for the notebook version.
 
-Before importing the dataset, we had to deal with a further \textbf{data transformation} process, in which we converted our categorical attributes (\textit{Status}, \textit{Job Title}, \textit{Department}, \textit{Salary or Hourly}) into numerical ones, since the tool can perform ranking only over them. A value of F for the \textit{Status} attribute was therefore converted to 1, while P was converted to 0. The same holds for \textit{Salary or Hourly} (Salary = 1, Hourly = 0), while for \textit{Job Title} and \textit{Department} numbers from 0 to 35 and from 0 to 20 respectively substited the original categorical values.
+Before importing the dataset, we had to deal with a further \textbf{data transformation} process, in which we converted our categorical attributes (\textit{Status}, \textit{Job Title}, \textit{Department}, \textit{Salary or Hourly}) into numerical ones, since the tool can perform ranking only over them. A value of F for the \textit{Status} attribute was therefore converted to 1, while P was converted to 0. The same holds for \textit{Salary or Hourly} (Salary = 1, Hourly = 0), while for \textit{Job Title} and \textit{Department} numbers from 0 to 35 and from 0 to 20 respectively substituted the original categorical values.
 
 Once imported the dataset, the tool initially plots the distribution of some attributes specified by the user (in our case, we decided to plot the distributions of the \textit{Annual Salary} and \textit{Gender} values). While the related distribution graphs are not particularly meaningful, the heatmap generated subsequently provides us with some preliminary information about the attribute correlations. As Figure~\ref{fig:chicago_rankingfacts1} shows, there seems to be a significant correlation between \textit{Job Title} and \textit{Department}, but mostly important between \textit{Status} and \textit{Annual Salary}, \textit{Status} and \textit{Salary or Hourly}, and finally \textit{Annual Salary} and \textit{Salary or Hourly}, highlighting the fact that hourly paid and part-time employees earn generally less than salary paid and full-time employees, and most of the part-time workers are also being paid on a hourly basis.
 
@@ -250,7 +250,7 @@ By following the widget description list provided in Section~\ref{section:rankin
 \item \textbf{Pairwise}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 0.31, and \textit{fair for females}, with an approximate \(p\)-value of 0.65.
 \end{itemize}
 The results seem to be oriented towards a fair dataset, even though the FA*IR measure reported the presence of bias in favor of men.
-\item \textbf{Diversity}: it shows diversity with respect to a set of demographic categories of individuals, or a set of categorical attributes of other kinds of items, by displaying the proportion of each category in the top-10 ranked list and overall. Figure~\ref{fig:chicago_rankingfacts3} shows the predominancy of the male group over the female one, especially in the top-10 of the ranking, highlighting again a problem of gender representation.
+\item \textbf{Diversity}: it shows diversity with respect to a set of demographic categories of individuals, or a set of categorical attributes of other kinds of items, by displaying the proportion of each category in the top-10 ranked list and overall. Figure~\ref{fig:chicago_rankingfacts3} shows the predominance of the male group over the female one, especially in the top-10 of the ranking, highlighting again a problem of gender representation.
 
 \begin{figure}[t!]
 \centering
@@ -411,7 +411,7 @@ The text file generated by \textit{ACFD Discovery}, containing 586 dependencies,
 \end{figure}
 \end{itemize}
 
-Among the chosen dependencies, we can detect a correspondence between rule 1 and rule 2: apparently, female part-time workers tend to earn more than \$90K, while male part-time workers tend to earn less than \$90K. These rules are the ones with the highest support (respectively 0.19 and 0.02). By looking at the average salaries of men and women employed in the different job titles, we found a few reasons for this behavior: first of all, in general there are many more part-time female employees out of the total number of women in the dataset, in comparison to men (4,162 out of 9,308 tuples for women, 4,606 out of 13,688 tuples for men); secondly, there are some typically masculine jobs (e.g. Automotive Mechanic, Electronic Maintenance Tech, Stationary Engineer) in which just a few women are employed, as full-time workers, while men are much more numerous and spredead among full-time and part-time positions, and for these jobs the part-time income is on average lower than the threshold. On the contrary, there are some typically feminine jobs (e.g. Medical Evaluations Assistant, Nurse Practitioner, Registered Nurse) in which just a few men are employed, as full-time workers, while women are much more numerous and spredead among full-time and part-time positions, and for these jobs the part-time income is on average higher than the threshold.
+Among the chosen dependencies, we can detect a correspondence between rule 1 and rule 2: apparently, female part-time workers tend to earn more than \$90K, while male part-time workers tend to earn less than \$90K. These rules are the ones with the highest support (respectively 0.19 and 0.02). By looking at the average salaries of men and women employed in the different job titles, we found a few reasons for this behavior: first of all, in general there are many more part-time female employees out of the total number of women in the dataset, in comparison to men (4,162 out of 9,308 tuples for women, 4,606 out of 13,688 tuples for men); secondly, there are some typically masculine jobs (e.g. Automotive Mechanic, Electronic Maintenance Tech, Stationary Engineer) in which just a few women are employed, as full-time workers, while men are much more numerous and spread among full-time and part-time positions, and for these jobs the part-time income is on average lower than the threshold. On the contrary, there are some typically feminine jobs (e.g. Medical Evaluations Assistant, Nurse Practitioner, Registered Nurse) in which just a few men are employed, as full-time workers, while women are much more numerous and spread among full-time and part-time positions, and for these jobs the part-time income is on average higher than the threshold.
 
 Even though the support is very low -- and therefore not many tuples out of the total are involved -- it is important to point out that rules 19 and 16 suggest a discriminatory behavior in the subgroup of the Assoc Engineer job title in favor of men (with the highest difference value for rule 19), and the same holds for rules 23 and 20 in the subgroup of assistant engineers. The main reason for these behaviors is a disproportion, in favor of male employees, in the number of men and women employed in these profitable professions.
 
@@ -419,7 +419,7 @@ Although the complementary rules have not been selected because of a low differe
 
 As for the scoring measures, a cumulative support of 0.243 means that the 24.3\% of the dataset is ``problematic'' (5,596 tuples out of 22,996), while difference mean and gender difference mean have a value of 0.037 because each rule has a quite low value for the difference metric (below 0.1).
 
-To conclude, we can say that the dataset seems to be quite fair with respect to the group fairness criterion, because even if almost 25\% of the tuples seem to be biased, each rule has a low value both for the difference metric -- which, as already specified, determines the ``unfairness level'' -- and for the support one -- indicating a low percentage of tuples involved. The most impacting dependency is indeed the one regarding male part-time employees, with a support value of 0.19. Furthermore, it is interesting to notice that for traditionally higher-paying jobs -- in this case two branches of engineering -- men seem to have an economic advantage over women, while the opposite condition occurs only in situations in which the female presence is tipically much more numerous than the male one -- that is, in our scenario, the HSA Sr Eligibility Worker job title and the part-time worker status.
+To conclude, we can say that the dataset seems to be quite fair with respect to the group fairness criterion, because even if almost 25\% of the tuples seem to be biased, each rule has a low value both for the difference metric -- which, as already specified, determines the ``unfairness level'' -- and for the support one -- indicating a low percentage of tuples involved. The most impacting dependency is indeed the one regarding male part-time employees, with a support value of 0.19. Furthermore, it is interesting to notice that for traditionally higher-paying jobs -- in this case two branches of engineering -- men seem to have an economic advantage over women, while the opposite condition occurs only in situations in which the female presence is typically much more numerous than the male one -- that is, in our scenario, the HSA Sr Eligibility Worker job title and the part-time worker status.
 
 
 \subsection{Ranking Facts}
@@ -455,7 +455,7 @@ The following list summarizes our results by following the widget description li
 \item \textbf{Pairwise}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 1.0, and \textit{unfair for females}, with an approximate \(p\)-value of 0.0.
 \end{itemize}
 The results seem to be oriented towards a biased dataset in favor of men, in contrast with the generally fair outcomes of the other tools.
-\item \textbf{Diversity}: Figure~\ref{fig:san_francisco_rankingfacts3} shows the predominancy of the male group over the female one, especially in the top-10 of the ranking, highlighting again a problem of gender representation.
+\item \textbf{Diversity}: Figure~\ref{fig:san_francisco_rankingfacts3} shows the predominance of the male group over the female one, especially in the top-10 of the ranking, highlighting again a problem of gender representation.
 
 \begin{figure}[t!]
 \centering
@@ -483,7 +483,7 @@ Because of the technical nature of this chapter, the socio-ethical impact of the
 
 \subsection{Part-Time Employees Removal}
 \label{section:part-time_employees_removal}
-One of the first design choices we had to deal with was concerning part-time employees. The Glassdooor report \cite{chamberlain2017analyze} indeed recommends to only include full-time employees in the gender pay gap analysis (or in case of equal amounts of full-time and part-time employees to conduct two separate analyses) because of the big differences between full-time and part-time workers in the labor market. We initially decided to exclude part-time employees from the datasets, by removing their tuples and subsequently also the \textit{Status} attribute. This choice resulted to be penalizing in both our cases for different reasons:
+One of the first design choices we had to deal with was concerning part-time employees. The Glassdoor report \cite{chamberlain2017analyze} indeed recommends to only include full-time employees in the gender pay gap analysis (or in case of equal amounts of full-time and part-time employees to conduct two separate analyses) because of the big differences between full-time and part-time workers in the labor market. We initially decided to exclude part-time employees from the datasets, by removing their tuples and subsequently also the \textit{Status} attribute. This choice resulted to be penalizing in both our cases for different reasons:
 \begin{itemize}
 \item \textbf{Chicago}: for the preprocessed dataset, the number of male employees decreased from 16,146 to 15,880 (\(-\)1.65\%), while the number of female employees decreased from 4,163 to 3,790 (\(-\)8.96\%). Even though the reduction in the number of tuples is not excessive, most of the records removed are related to women, already underrepresented when compared to the number of men.
 \item \textbf{San Francisco}: for the preprocessed dataset, the number of male employees decreased from 13,688 to 9,082 (\(-\)33.65\%), while the number of female employees decreased from 9,308 to 4,696 (\(-\)49.55\%). Even if the number of male and female employees removed is similar, we found the removal of 9,308 tuples from the dataset to have too much impact on the dataset itself.
@@ -507,7 +507,7 @@ We will now briefly summarize our results, without going too much into the detai
 \label{fig:chicago_8bins_fair-db1}
 \end{figure}
 
-Since the dataset is the same as that used for the 2-bin analysis, we ran the \textit{ACFD Discovery} algorithm keeping the same parameter values: \textit{maximum~antecedent~size}~=~2, \textit{minimum~confidence}~=~0.8, and \textit{minimum~support}~=~100. The algorithm generated 759 dependencies, and the number shrinked to 193 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB further reduced this number from 193 to 64.
+Since the dataset is the same as that used for the 2-bin analysis, we ran the \textit{ACFD Discovery} algorithm keeping the same parameter values: \textit{maximum~antecedent~size}~=~2, \textit{minimum~confidence}~=~0.8, and \textit{minimum~support}~=~100. The algorithm generated 759 dependencies, and the number shrank to 193 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB further reduced this number from 193 to 64.
 
 We decided to keep \textit{minimum~difference}~=~0.02 during the ACFD selection phase, in order to be able to compare the results of the two analyses and evaluate the impact of the different discretization processes performed. The first automatic selection resulted in a reduction in the number of dependencies from 64 to 28. The subsequent ACFD completion and further selection generated 172 dependencies (including the original 28), 66 of which have a difference above the threshold.
 
@@ -523,7 +523,7 @@ Lastly, we applied the same criterion used in the previous cases for manually ch
 \label{fig:chicago_8bins_fair-db2}
 \end{figure}
 
-As we can see, both rules refer to the ADMINISTRATIVE ASST II job title, and they suggest a discriminatory behavior in favor of women, who seem to be more paid for this specific role (even though the support of 0.00 indicates a really low percentage of tuples involved). This situation did not show up in the 2-bin analysis, because even if apparently there is a gap between salaries of men and women, all the incomes fall below the threshold of \$90K, and therefore no dependencies could have been generated. On the other side, the discriminatory behaviors detected in the 2-bin analysis, related to the AVIATION and OEMC departments, and to female employees paid on a hourly basis, were not detected here, presumibly because the annual salary values reside all in the 80--99 bin.
+As we can see, both rules refer to the ADMINISTRATIVE ASST II job title, and they suggest a discriminatory behavior in favor of women, who seem to be more paid for this specific role (even though the support of 0.00 indicates a really low percentage of tuples involved). This situation did not show up in the 2-bin analysis, because even if apparently there is a gap between salaries of men and women, all the incomes fall below the threshold of \$90K, and therefore no dependencies could have been generated. On the other side, the discriminatory behaviors detected in the 2-bin analysis, related to the AVIATION and OEMC departments, and to female employees paid on a hourly basis, were not detected here, presumably because the annual salary values reside all in the 80--99 bin.
 \item \textbf{San Francisco}: the preprocessed dataset is the same used for the 2-bin analysis, with 22,996 tuples of which 13,688 males and 9,308 females. The histogram of Figure~\ref{fig:san_francisco_8bins_fair-db1} shows the distribution of the annual salary of employees over their \textit{Gender} attribute. We can see that the ratio of the number of men to women tends to increase: in lower bins there is a balanced proportion of male and female employees, while for higher-paying jobs men are much more numerous than women.
 
 \begin{figure}[t!]
@@ -533,7 +533,7 @@ As we can see, both rules refer to the ADMINISTRATIVE ASST II job title, and the
 \label{fig:san_francisco_8bins_fair-db1}
 \end{figure}
 
-Again, we kept \textit{maximum~antecedent~size}~=~2, \textit{minimum~confidence}~=~0.8, and \textit{minimum~support}~=~100 for \textit{ACFD Discovery}. The algorithm generated 465 dependencies, and the number shrinked to 144 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB further reduced this number from 144 to 40.
+Again, we kept \textit{maximum~antecedent~size}~=~2, \textit{minimum~confidence}~=~0.8, and \textit{minimum~support}~=~100 for \textit{ACFD Discovery}. The algorithm generated 465 dependencies, and the number shrank to 144 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB further reduced this number from 144 to 40.
 
 By keeping \textit{minimum~difference}~=~0.02, the first automatic ACFD selection resulted in a reduction in the number of dependencies from 40 to 20. The subsequent ACFD completion and further selection generated 154 dependencies (including the original 20), 62 of which with a difference above the threshold.
 
@@ -577,7 +577,7 @@ Another recommendation from the Glassdoor report \cite{chamberlain2017analyze} i
 \item[8.] Process, plant and machine operatives
 \item[9.] Elementary occupations
 \end{itemize}
-The index then provides correspondencies between each job title and the major group to which it belongs. Figure~\ref{fig:encodings} shows the correspondencies between our job titles and the related major groups, together with the index entries of reference. It is worth to mention that we decided to overwrite the previous \textit{Job Title} values with the corresponding major group numbers, transforming the categorical attribute into numeric.
+The index then provides correspondences between each job title and the major group to which it belongs. Figure~\ref{fig:encodings} shows the correspondences between our job titles and the related major groups, together with the index entries of reference. It is worth to mention that we decided to overwrite the previous \textit{Job Title} values with the corresponding major group numbers, transforming the categorical attribute into numeric.
 
 \begin{figure}[t!]
 \centering
@@ -585,7 +585,7 @@ The index then provides correspondencies between each job title and the major gr
 %\resizebox{\linewidth}{!}{%
 \scalebox{.9}{\BVerbatimInput{figures/encodings.txt}}
 \noindent\rule{\linewidth}{0.4pt}
-\caption{Correspondencies between \textrm{Job Title} values for the Chicago dataset and related major groups, together with index entries of reference.}
+\caption{Correspondences between \textrm{Job Title} values for the Chicago dataset and related major groups, together with index entries of reference.}
 \label{fig:encodings}
 \end{figure}
 
@@ -596,7 +596,7 @@ We will now provide the results of the analysis of the modified dataset:
 These differences slightly impacted the \textit{Male} coefficient of the ``adjusted pay gap'', bringing its value from 0.004 (standard Chicago dataset) to 0.034, meaning that men on average earn 3,4\% more than women. The result, however, remains not statistically significant, and we cannot infer the presence of a systematic gender pay gap.
 \item \textbf{FAIR-DB}: we conducted a 2-bin analysis with the usual \$90K threshold, keeping the same parameter values used in previous scenarios and applying the same criterion for the manual selection of the rules (target attribute in the RHS).
 
-\textit{ACFD Discovery} detected 547 dependencies, whose number shrinked to 122 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB further reduced this number from 122 to 38.
+\textit{ACFD Discovery} detected 547 dependencies, whose number shrank to 122 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB further reduced this number from 122 to 38.
 
 The first automatic ACFD selection resulted in a reduction in the number of dependencies from 38 to 18, while the subsequent ACFD completion and further selection generated 68 dependencies (including the original 18), 31 of which with a difference above the threshold.
 
@@ -626,7 +626,7 @@ The cumulative support is obviously higher than the one of the standard Chicago 
 \item \textbf{Pairwise}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 1.0, and \textit{unfair for females}, with an approximate \(p\)-value of 0.0. The grouping operation resulted, for this metric, in a change in the female-related outcome in comparison with the standard Chicago case.
 \end{itemize}
 Similarly to the standard Chicago case, the results seem to be oriented towards a fair dataset, even though the pairwise measure reported the presence of bias in favor of men.
-\item \textbf{Diversity}: Figure~\ref{fig:chicago_grouped_rankingfacts} shows the \textit{Gender} diversity widget for the top-10 and overall rankings. As we can notice, even though there is still a predominancy of the male group over the female one, in the top-10 ranking women seem to be slightly more represented than in the standard Chicago case, in which the whole chart was occupied by men.
+\item \textbf{Diversity}: Figure~\ref{fig:chicago_grouped_rankingfacts} shows the \textit{Gender} diversity widget for the top-10 and overall rankings. As we can notice, even though there is still a predominance of the male group over the female one, in the top-10 ranking women seem to be slightly more represented than in the standard Chicago case, in which the whole chart was occupied by men.
 
 \begin{figure}[t!]
 \centering
@@ -669,7 +669,7 @@ Apart for the change in wage values of female employees, the preprocessed datase
 Figure~\ref{fig:chicago_biased_glassdoor} shows instead our results: a coefficient of 0.935 on the male-female dummy variable means there is approximately 93.5\% ``unadjusted'' pay gap (therefore, men on average earn 93.5\% more than women), and adding to the model all of the controls available in the data the coefficient value shrinks to 69.7\%, remaining statistically significant. As we expected, the final outcome is significantly different from the standard Chicago case, and there is clear evidence of a systematic gender pay gap even on an ``adjusted'' basis.
 \item \textbf{FAIR-DB}: we conducted a 2-bin analysis with the usual \$90K threshold, keeping the same parameter values used in previous scenarios and applying the same criterion for the manual selection of the rules (target attribute in the RHS).
 
-\textit{ACFD Discovery} detected 785 dependencies, whose number shrinked to 161 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB further reduced this number from 161 to 35.
+\textit{ACFD Discovery} detected 785 dependencies, whose number shrank to 161 when we filtered the results keeping only the rules containing the target attribute and its value. The automatic filtering operations performed by FAIR-DB further reduced this number from 161 to 35.
 
 The first automatic ACFD selection resulted in a reduction in the number of dependencies from 35 to 20, while the subsequent ACFD completion and further selection generated 79 dependencies (including the original 20), 39 of which with a difference above the threshold.
 
