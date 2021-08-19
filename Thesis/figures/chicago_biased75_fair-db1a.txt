@@ -1,0 +1,50 @@
+
+                                        Rule  Supp  Conf  Diff  GenderDiff  Mean
+43  {`lhs': {`Gender': `female',
+             `Department': `FIRE'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.02  0.96  0.69        0.69  0.35
+31  {`lhs': {`Status': `F',
+             `Gender': `female'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.18  0.96  0.43        0.43  0.30
+15  {`lhs': {`Salary or Hourly': `Salary',
+             `Gender': `female'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.16  0.95  0.44        0.44  0.30
+28  {`lhs': {`Status': `F',
+             `Gender': `male'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.45  0.58  0.10        0.10  0.28
+12  {`lhs': {`Salary or Hourly': `Salary',
+             `Gender': `male'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.38  0.61  0.12        0.12  0.25
+59  {`lhs': {`Department': `POLICE',
+             `Gender': `female'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.12  0.94  0.38        0.38  0.25
+91  {`lhs': {`Gender': `female',
+             `Job Title': `POLICE OFFICER'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.10  1.00  0.31        0.31  0.21
+11  {`lhs': {`Gender': `female',
+             `Salary or Hourly': `Hourly'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.04  1.00  0.33        0.33  0.18
+56  {`lhs': {`Department': `POLICE',
+             `Gender': `male'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.24  0.55  0.11        0.11  0.17
+88  {`lhs': {`Gender': `male',
+             `Job Title': `POLICE OFFICER'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.13  0.41  0.10        0.10  0.11
+40  {`lhs': {`Gender': `male',
+             `Department': `FIRE'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.14  0.79  0.06        0.06  0.10
+47  {`lhs': {`Gender': `female',
+             `Department': `AVIATION'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.01  1.00  0.19        0.19  0.10
+84  {`lhs': {`Gender': `male',
+             `Job Title': `POLICE COMMUNICATIONS OPERATOR II'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.00  0.23  0.19        0.19  0.09
+8   {`lhs': {`Gender': `male',
+             `Salary or Hourly': `Hourly'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.07  0.41  0.08        0.08  0.07
+87  {`lhs': {`Gender': `female',
+             `Job Title': `POLICE COMMUNICATIONS OPERATOR II'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.01  1.00  0.04        0.04  0.03
+44  {`lhs': {`Gender': `male',
+             `Department': `AVIATION'},
+     `rhs': {`Annual Salary Bin': `> 90K'}}   0.01  0.23  0.04        0.04  0.02

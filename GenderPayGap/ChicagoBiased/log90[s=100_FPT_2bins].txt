@@ -1,0 +1,340 @@
+Enter CSV file path:	--- STATISTICAL ANALYSIS ---
+                        Name                               Job Title Department Status Salary or Hourly  Annual Salary  Gender
+0          AARON,  JEFFERY M                                SERGEANT     POLICE      F           Salary      118998.00    male
+1             AARON,  KARINA  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE      F           Salary       87696.00  female
+2         ABARCA,  FRANCES J                          POLICE OFFICER     POLICE      F           Salary       65259.00  female
+3          ABASCAL,  REECE E             TRAFFIC CONTROL AIDE-HOURLY       OEMC      P           Hourly       22474.40    male
+4      ABBATACOLA,  ROBERT J                     ELECTRICAL MECHANIC   AVIATION      F           Hourly      104000.00    male
+...                      ...                                     ...        ...    ...              ...            ...     ...
+20304   ZYLINSKA,  KATARZYNA                          POLICE OFFICER     POLICE      F           Salary       75648.60  female
+20305     ZYLINSKA,  KLAUDIA                          POLICE OFFICER     POLICE      F           Salary       68639.40  female
+20306     ZYMANTAS,  LAURA C                          POLICE OFFICER     POLICE      F           Salary       72014.40  female
+20307      ZYMANTAS,  MARK E                          POLICE OFFICER     POLICE      F           Salary       90024.00    male
+20308    ZYRKOWSKI,  CARLO E                          POLICE OFFICER     POLICE      F           Salary       93354.00    male
+
+[20309 rows x 7 columns] 
+
+Males:  16146 		Females:  4163 
+Number of different Job Titles (total):  35 
+
+       Annual Salary  Log Annual Salary     Male
+count       20309.00           20309.00 20309.00
+mean        87879.26              11.33     0.80
+std         22417.90               0.43     0.40
+min          2808.00               7.94     0.00
+25%         79768.00              11.29     1.00
+50%         87006.00              11.37     1.00
+75%        100764.00              11.52     1.00
+max        151026.00              11.93     1.00
+
+             average        median           len
+       Annual Salary Annual Salary Annual Salary
+Gender                                          
+female      71811.75      75648.60       4163.00
+male        92022.03      91338.00      16146.00
+
+                                                                     average           len
+                                                               Annual Salary Annual Salary
+Job Title                                        Gender Status                            
+ADMINISTRATIVE ASST II                           female F           61117.94        102.00
+                                                 male   F           61292.00          9.00
+AVIATION SECURITY OFFICER                        female F           65860.20         42.00
+                                                 male   F           73126.63        149.00
+CAPTAIN-EMT                                      female F          131884.20          4.00
+                                                 male   F          147328.84        160.00
+CONSTRUCTION LABORER                             female F           83116.80         54.00
+                                                 male   F           92352.00        337.00
+DETENTION AIDE                                   female F           64557.43         50.00
+                                                 male   F           69382.60        131.00
+ELECTRICAL MECHANIC                              female F           93600.00         12.00
+                                                 male   F          104000.00        194.00
+FIRE ENGINEER-EMT                                female F          102511.67         14.00
+                                                 male   F          114411.09        344.00
+FIREFIGHTER                                      female F           92093.40          3.00
+                                                 male   F          102630.77        217.00
+FIREFIGHTER-EMT                                  female F           91863.91         67.00
+                                                 male   F          102374.82       1256.00
+FIREFIGHTER-EMT (RECRUIT)                        female F           66688.80         45.00
+                                                 male   F           74030.41        588.00
+FIREFIGHTER/PARAMEDIC                            female F           90448.20         24.00
+                                                 male   F           99874.02        248.00
+FOSTER GRANDPARENT                               female P            2808.00        131.00
+                                                 male   P            3120.00         14.00
+GENERAL LABORER - DSS                            female F           44062.61         57.00
+                                                 male   F           48824.93        176.00
+HOISTING ENGINEER                                female F           96857.28          5.00
+                                                 male   F          108163.96        210.00
+LIBRARIAN I                                      female F           62906.22         80.00
+                                                 male   F           70957.67         43.00
+LIBRARY PAGE                                     female P           13175.76         90.00
+                                                 male   P           14647.07         43.00
+LIEUTENANT                                       female F          125988.86         37.00
+                                                 male   F          134657.98        282.00
+LIEUTENANT-EMT                                   female F          118763.28         10.00
+                                                 male   F          130344.11        371.00
+MACHINIST (AUTOMOTIVE)                           female F           93000.96          2.00
+                                                 male   F          103334.40        158.00
+MOTOR TRUCK DRIVER                               female F           71760.14         91.00
+                                                 male   F           79810.82        820.00
+OPERATING ENGINEER-GROUP A                       female F           98186.40          3.00
+                                                 male   F          109096.00        183.00
+OPERATING ENGINEER-GROUP C                       female F           93281.76          7.00
+                                                 male   F          103646.40        143.00
+PARAMEDIC                                        female F           78540.92         78.00
+                                                 male   F           85262.14        236.00
+PARAMEDIC I/C                                    female F           93129.52         72.00
+                                                 male   F          102847.48        174.00
+PLUMBER                                          female F           97344.00          4.00
+                                                 male   F          108160.00        112.00
+POLICE COMMUNICATIONS OPERATOR I                 female F           64311.00        133.00
+                                                 male   F           67141.66         29.00
+POLICE COMMUNICATIONS OPERATOR II                female F           73196.84        167.00
+                                                 male   F           74765.85         39.00
+POLICE OFFICER                                   female F           75704.10       2014.00
+                                                 male   F           84892.23       6475.00
+POLICE OFFICER (ASSIGNED AS DETECTIVE)           female F           88737.97        184.00
+                                                 male   F           99188.30        849.00
+POLICE OFFICER (ASSIGNED AS EVIDENCE TECHNICIAN) female F           87018.51         26.00
+                                                 male   F           96836.62         87.00
+POLICE OFFICER / FLD TRNG OFFICER                female F           83500.54         32.00
+                                                 male   F           93088.37        166.00
+POOL MOTOR TRUCK DRIVER                          female F           70475.96         90.00
+                                                        P           14852.10         40.00
+                                                 male   F           78482.91        400.00
+                                                        P           16552.40        130.00
+SANITATION LABORER                               female F           73833.12         91.00
+                                                 male   F           82115.90        299.00
+SERGEANT                                         female F          109487.36        190.00
+                                                 male   F          121925.65        995.00
+TRAFFIC CONTROL AIDE-HOURLY                      female P           20226.96        112.00
+                                                 male   P           22474.40         79.00
+
+Dependent Variable: Log Annual Salary
++-----------------+--------+--------+
+|                 |  (1)   |  (2)   |
++-----------------+--------+--------+
+|       Male      | 0.347  | 0.109  |
+|    Job Title    |        | 0.115  |
+|    Department   |        | 0.726  |
+|      Status     |        | 0.362  |
+|     Constant    | 11.049 | 10.965 |
+|     Controls    |        |        |
+|     - Job Title |   No   |  Yes   |
+|    - Department |   No   |  Yes   |
+|      - Status   |   No   |  Yes   |
+|   Observations  | 20309  | 20309  |
+|       R^2       | 0.104  | 0.952  |
++-----------------+--------+--------+
+'Unadjusted' pay gap: men on average earn 34.7 % more than women 
+'Adjusted' pay gap: men on average earn 10.9 % more than women
+
+Encoding Job Title:
+ {'ADMINISTRATIVE ASST II': 0, 'AVIATION SECURITY OFFICER': 1, 'CAPTAIN-EMT': 2, 'CONSTRUCTION LABORER': 3, 'DETENTION AIDE': 4, 'ELECTRICAL MECHANIC': 5, 'FIRE ENGINEER-EMT': 6, 'FIREFIGHTER': 7, 'FIREFIGHTER-EMT': 8, 'FIREFIGHTER-EMT (RECRUIT)': 9, 'FIREFIGHTER/PARAMEDIC': 10, 'FOSTER GRANDPARENT': 11, 'GENERAL LABORER - DSS': 12, 'HOISTING ENGINEER': 13, 'LIBRARIAN I': 14, 'LIBRARY PAGE': 15, 'LIEUTENANT': 16, 'LIEUTENANT-EMT': 17, 'MACHINIST (AUTOMOTIVE)': 18, 'MOTOR TRUCK DRIVER': 19, 'OPERATING ENGINEER-GROUP A': 20, 'OPERATING ENGINEER-GROUP C': 21, 'PARAMEDIC': 22, 'PARAMEDIC I/C': 23, 'PLUMBER': 24, 'POLICE COMMUNICATIONS OPERATOR I': 25, 'POLICE COMMUNICATIONS OPERATOR II': 26, 'POLICE OFFICER': 27, 'POLICE OFFICER (ASSIGNED AS DETECTIVE)': 28, 'POLICE OFFICER (ASSIGNED AS EVIDENCE TECHNICIAN)': 29, 'POLICE OFFICER / FLD TRNG OFFICER': 30, 'POOL MOTOR TRUCK DRIVER': 31, 'SANITATION LABORER': 32, 'SERGEANT': 33, 'TRAFFIC CONTROL AIDE-HOURLY': 34}
+
+Encoding Department:
+ {'ADMIN HEARNG': 0, 'AVIATION': 1, 'BUILDINGS': 2, 'BUSINESS AFFAIRS': 3, 'CITY CLERK': 4, 'COPA': 5, 'DAIS': 6, 'FAMILY & SUPPORT': 7, 'FINANCE': 8, 'FIRE': 9, 'HEALTH': 10, 'HUMAN RESOURCES': 11, 'LAW': 12, 'OEMC': 13, 'POLICE': 14, 'PUBLIC LIBRARY': 15, 'PUBLIC SAFETY ADMIN': 16, 'STREETS & SAN': 17, 'TRANSPORTN': 18, 'WATER MGMNT': 19}
+
+
+--- FAIR-DB ---
+                        Name                               Job Title Department Status Salary or Hourly  Annual Salary  Gender  Log Annual Salary  Male
+0          AARON,  JEFFERY M                                SERGEANT     POLICE      F           Salary      118998.00    male              11.69     1
+1             AARON,  KARINA  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE      F           Salary       87696.00  female              11.38     0
+2         ABARCA,  FRANCES J                          POLICE OFFICER     POLICE      F           Salary       65259.00  female              11.09     0
+3          ABASCAL,  REECE E             TRAFFIC CONTROL AIDE-HOURLY       OEMC      P           Hourly       22474.40    male              10.02     1
+4      ABBATACOLA,  ROBERT J                     ELECTRICAL MECHANIC   AVIATION      F           Hourly      104000.00    male              11.55     1
+...                      ...                                     ...        ...    ...              ...            ...     ...                ...   ...
+20304   ZYLINSKA,  KATARZYNA                          POLICE OFFICER     POLICE      F           Salary       75648.60  female              11.23     0
+20305     ZYLINSKA,  KLAUDIA                          POLICE OFFICER     POLICE      F           Salary       68639.40  female              11.14     0
+20306     ZYMANTAS,  LAURA C                          POLICE OFFICER     POLICE      F           Salary       72014.40  female              11.18     0
+20307      ZYMANTAS,  MARK E                          POLICE OFFICER     POLICE      F           Salary       90024.00    male              11.41     1
+20308    ZYRKOWSKI,  CARLO E                          POLICE OFFICER     POLICE      F           Salary       93354.00    male              11.44     1
+
+[20309 rows x 9 columns]
+
+Total number of tuples in df:  20309 
+
+                                Job Title Department Status Salary or Hourly  Gender Annual Salary Bin
+0                                SERGEANT     POLICE      F           Salary    male             > 90K
+1  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE      F           Salary  female            <= 90K
+2                          POLICE OFFICER     POLICE      F           Salary  female            <= 90K
+3             TRAFFIC CONTROL AIDE-HOURLY       OEMC      P           Hourly    male            <= 90K
+4                     ELECTRICAL MECHANIC   AVIATION      F           Hourly    male             > 90K
+
+Annual Salary Bin values:  ['> 90K' '<= 90K']
+
+Enter path of the file containing the dependencies (obtained applying CFDDiscovery):	
+Total number of dependencies found:  761
+Total number of dependencies found (grep):  169
+Dependency n. 0 :	 (Gender=female) => Annual Salary Bin=<= 90K
+Dependency n. 1 :	 (Annual Salary Bin=> 90K) => Gender=male
+Dependency n. 2 :	 (Annual Salary Bin=> 90K) => Salary or Hourly=Salary
+Dependency n. 3 :	 (Gender=female, Salary or Hourly=Hourly) => Annual Salary Bin=<= 90K
+Dependency n. 4 :	 (Salary or Hourly=Salary, Gender=female) => Annual Salary Bin=<= 90K
+Dependency n. 5 :	 (Salary or Hourly, Annual Salary Bin=> 90K) => Gender
+Dependency n. 6 :	 (Annual Salary Bin=> 90K, Salary or Hourly=Hourly) => Gender=male
+Dependency n. 7 :	 (Salary or Hourly=Salary, Annual Salary Bin=> 90K) => Gender=male
+
+CFDs ([rawLHS, rawRHS]):
+[['Gender=female'], ['Annual Salary Bin=< 90K']]
+[['Annual Salary Bin=> 90K'], ['Gender=male']]
+[['Annual Salary Bin=> 90K'], ['Salary or Hourly=Salary']]
+[['Gender=female', 'Salary or Hourly=Hourly'], ['Annual Salary Bin=< 90K']]
+[['Salary or Hourly=Salary', 'Gender=female'], ['Annual Salary Bin=< 90K']]
+[['Annual Salary Bin=> 90K', 'Salary or Hourly=Hourly'], ['Gender=male']]
+[['Salary or Hourly=Salary', 'Annual Salary Bin=> 90K'], ['Gender=male']]
+[['Annual Salary Bin=> 90K', 'Gender=female'], ['Salary or Hourly=Salary']]
+
+Total number of dependencies in the dictionary:  154
+
+ACFDs ({'lhs', 'rhs'}):
+ACFD n. 0 :	 {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 1 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 2 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+ACFD n. 3 :	 {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 4 :	 {'lhs': {'Salary or Hourly': 'Salary', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 5 :	 {'lhs': {'Annual Salary Bin': '> 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 6 :	 {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 7 :	 {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}
+
+Total number of tuples in df2:  58
+                                                                                                  Rule  Support  Confidence  Diff  GenderDiff
+0                                {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.18        0.87  0.35        0.35
+1                                   {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.95  0.15         NaN
+2  {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.04        0.96  0.29        0.29
+3  {'lhs': {'Salary or Hourly': 'Salary', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.14        0.85  0.36        0.36
+4     {'lhs': {'Annual Salary Bin': '> 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.07        0.98  0.17         NaN
+
+Total number of tuples in df3:  25
+                                                                                                  Rule  Support  Confidence  Diff  GenderDiff
+0                                {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.18        0.87  0.35        0.35
+1                                   {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.95  0.15         NaN
+2  {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.04        0.96  0.29        0.29
+3  {'lhs': {'Salary or Hourly': 'Salary', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.14        0.85  0.36        0.36
+4     {'lhs': {'Annual Salary Bin': '> 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.07        0.98  0.17         NaN
+
+Total number of combinations found:  96
+ACFD n. 0 :	 {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}
+ACFD n. 1 :	 {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 2 :	 {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '> 90K'}}
+ACFD n. 3 :	 {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}
+ACFD n. 4 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 5 :	 {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'female'}}
+ACFD n. 6 :	 {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'male'}}
+ACFD n. 7 :	 {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}
+
+Total number of tuples in df4:  96
+                                                                    Rule  Support  Confidence  Diff  GenderDiff
+0     {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.45        0.57  0.09        0.09
+1    {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.34        0.43 -0.09       -0.09
+2   {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.03        0.13 -0.35       -0.35
+3  {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.18        0.87  0.35        0.35
+4     {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.95  0.15         NaN 
+
+/home/corona/PycharmProjects/MSc-Thesis/GenderPayGap/Methodologies.py:616: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df4_1['Mean'] = 0
+/home/corona/.local/lib/python3.9/site-packages/pandas/core/indexing.py:1720: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  self._setitem_single_column(loc, value, pi)
+
+Number of original CFDs: 25 
+Number of combinations rules:  96 
+Number of final rules found:  48
+                                                                                                                       Rule  Support  Confidence  Diff  GenderDiff  Mean
+87                    {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Gender': 'female'}}     0.00        1.00  0.95         NaN  0.48
+91               {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Gender': 'female'}}     0.00        1.00  0.86         NaN  0.43
+79               {'lhs': {'Gender': 'female', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.86        0.86  0.43
+4                                                        {'lhs': {'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.95  0.15         NaN  0.30
+32                                        {'lhs': {'Status': 'F', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.45        0.95  0.14         NaN  0.29
+43                       {'lhs': {'Gender': 'female', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.80  0.57        0.57  0.29
+0                                                        {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.45        0.57  0.09        0.09  0.27
+28                                        {'lhs': {'Status': 'F', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.45        0.58  0.08        0.08  0.27
+20                         {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.38        0.94  0.15         NaN  0.27
+3                                                     {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.18        0.87  0.35        0.35  0.26
+31                                     {'lhs': {'Status': 'F', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.16        0.86  0.35        0.35  0.26
+71                    {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.54  0.51        0.51  0.26
+15                      {'lhs': {'Salary or Hourly': 'Salary', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.14        0.85  0.36        0.36  0.25
+12                         {'lhs': {'Salary or Hourly': 'Salary', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.38        0.61  0.10        0.10  0.24
+24                         {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'male'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.38        0.85  0.06       -0.00  0.22
+47                            {'lhs': {'Department': 'POLICE', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.11        0.88  0.33        0.33  0.22
+67                     {'lhs': {'Gender': 'female', 'Job Title': 'POLICE OFFICER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.10        1.00  0.31        0.31  0.21
+60                               {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '> 90K'}, 'rhs': {'Gender': 'male'}}     0.24        0.94  0.16         NaN  0.20
+80                        {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': 'POLICE OFFICER'}, 'rhs': {'Gender': 'male'}}     0.13        1.00  0.24         NaN  0.18
+44                               {'lhs': {'Department': 'POLICE', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.24        0.55  0.09        0.09  0.17
+11                      {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.04        0.96  0.29        0.29  0.17
+7                                                     {'lhs': {'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.18        0.34  0.14         NaN  0.16
+23                      {'lhs': {'Salary or Hourly': 'Salary', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.14        0.36  0.16         NaN  0.15
+35                                     {'lhs': {'Status': 'F', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.16        0.33  0.13         NaN  0.15
+63                            {'lhs': {'Department': 'POLICE', 'Annual Salary Bin': '<= 90K'}, 'rhs': {'Gender': 'female'}}     0.11        0.36  0.13         NaN  0.12
+16                         {'lhs': {'Annual Salary Bin': '> 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'male'}}     0.07        0.98  0.17         NaN  0.12
+64                        {'lhs': {'Gender': 'male', 'Job Title': 'POLICE OFFICER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.13        0.41  0.10        0.10  0.11
+51                       {'lhs': {'Annual Salary Bin': '<= 90K', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'female'}}     0.00        0.30  0.21         NaN  0.11
+83                     {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': 'POLICE OFFICER'}, 'rhs': {'Gender': 'female'}}     0.10        0.34  0.11         NaN  0.10
+95  {'lhs': {'Annual Salary Bin': '<= 90K', 'Job Title': 'POLICE OFFICER / FLD TRNG OFFICER'}, 'rhs': {'Gender': 'female'}}     0.00        0.36  0.20         NaN  0.10
+52                                 {'lhs': {'Annual Salary Bin': '> 90K', 'Department': 'FIRE'}, 'rhs': {'Gender': 'male'}}     0.14        0.95  0.03         NaN  0.09
+39                          {'lhs': {'Gender': 'female', 'Department': 'AVIATION'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.97  0.16        0.16  0.09
+25                       {'lhs': {'Annual Salary Bin': '> 90K', 'Gender': 'female'}, 'rhs': {'Salary or Hourly': 'Salary'}}     0.02        0.94  0.14        0.08  0.08
+88                  {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Gender': 'male'}}     0.02        1.00  0.14         NaN  0.08
+76                  {'lhs': {'Gender': 'male', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.14        0.14  0.08
+92     {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': 'POLICE OFFICER / FLD TRNG OFFICER'}, 'rhs': {'Gender': 'male'}}     0.01        0.98  0.14         NaN  0.07
+56                             {'lhs': {'Annual Salary Bin': '> 90K', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'male'}}     0.01        0.97  0.14         NaN  0.07
+8                          {'lhs': {'Gender': 'male', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.07        0.41  0.07        0.07  0.07
+19                      {'lhs': {'Annual Salary Bin': '<= 90K', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Gender': 'female'}}     0.04        0.28  0.09         NaN  0.06
+55                              {'lhs': {'Annual Salary Bin': '<= 90K', 'Department': 'FIRE'}, 'rhs': {'Gender': 'female'}}     0.01        0.18  0.10         NaN  0.05
+48                          {'lhs': {'Annual Salary Bin': '> 90K', 'Department': 'WATER MGMNT'}, 'rhs': {'Gender': 'male'}}     0.04        0.98  0.06         NaN  0.05
+40                          {'lhs': {'Gender': 'male', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.04        0.82  0.05        0.05  0.05
+68                       {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.06        1.00  0.03        0.03  0.04
+84                       {'lhs': {'Annual Salary Bin': '> 90K', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Gender': 'male'}}     0.06        0.98  0.03         NaN  0.04
+75                      {'lhs': {'Gender': 'female', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.08  0.06        0.06  0.03
+36                             {'lhs': {'Gender': 'male', 'Department': 'AVIATION'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.23  0.03        0.03  0.02
+59                          {'lhs': {'Annual Salary Bin': '<= 90K', 'Department': 'AVIATION'}, 'rhs': {'Gender': 'female'}}     0.01        0.20  0.03         NaN  0.02
+72                         {'lhs': {'Gender': 'male', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02
+
+Enter the indexes of the interesting rules (one by one). Write 'exit' to continue or write 'all' to select all the rules
+
+Problematic tuples:  12781
+                                Job Title Department Status Salary or Hourly  Gender Annual Salary Bin  Marked
+0                                SERGEANT     POLICE      F           Salary    male             > 90K       4
+1  POLICE OFFICER (ASSIGNED AS DETECTIVE)     POLICE      F           Salary  female            <= 90K       4
+2                          POLICE OFFICER     POLICE      F           Salary  female            <= 90K       5
+4                     ELECTRICAL MECHANIC   AVIATION      F           Hourly    male             > 90K       4
+5                       FIRE ENGINEER-EMT       FIRE      F           Salary    male             > 90K       3
+
+Number of tuples interested by the rules:  12781 
+Total number of tuples:  20309 
+
+Cumulative Support:  0.629 
+Difference Mean:  0.226
+Gender - Difference Mean:  0.226 
+
+
+Total number of ACFDs selected:  22 
+                                                                                                           Rule  Support  Confidence  Diff  GenderDiff  Mean
+79  {'lhs': {'Gender': 'female', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        1.00  0.86        0.86  0.43
+43          {'lhs': {'Gender': 'female', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.80  0.57        0.57  0.29
+0                                           {'lhs': {'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.45        0.57  0.09        0.09  0.27
+28                           {'lhs': {'Status': 'F', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.45        0.58  0.08        0.08  0.27
+3                                        {'lhs': {'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.18        0.87  0.35        0.35  0.26
+31                        {'lhs': {'Status': 'F', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.16        0.86  0.35        0.35  0.26
+71       {'lhs': {'Gender': 'female', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.54  0.51        0.51  0.26
+15         {'lhs': {'Salary or Hourly': 'Salary', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.14        0.85  0.36        0.36  0.25
+12            {'lhs': {'Salary or Hourly': 'Salary', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.38        0.61  0.10        0.10  0.24
+47               {'lhs': {'Department': 'POLICE', 'Gender': 'female'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.11        0.88  0.33        0.33  0.22
+67        {'lhs': {'Gender': 'female', 'Job Title': 'POLICE OFFICER'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.10        1.00  0.31        0.31  0.21
+44                  {'lhs': {'Department': 'POLICE', 'Gender': 'male'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.24        0.55  0.09        0.09  0.17
+11         {'lhs': {'Gender': 'female', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.04        0.96  0.29        0.29  0.17
+64           {'lhs': {'Gender': 'male', 'Job Title': 'POLICE OFFICER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.13        0.41  0.10        0.10  0.11
+39             {'lhs': {'Gender': 'female', 'Department': 'AVIATION'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.01        0.97  0.16        0.16  0.09
+76     {'lhs': {'Gender': 'male', 'Job Title': 'CONSTRUCTION LABORER'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.02        1.00  0.14        0.14  0.08
+8             {'lhs': {'Gender': 'male', 'Salary or Hourly': 'Hourly'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.07        0.41  0.07        0.07  0.07
+40             {'lhs': {'Gender': 'male', 'Department': 'WATER MGMNT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.04        0.82  0.05        0.05  0.05
+68          {'lhs': {'Gender': 'male', 'Job Title': 'FIREFIGHTER-EMT'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.06        1.00  0.03        0.03  0.04
+75         {'lhs': {'Gender': 'female', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '<= 90K'}}     0.00        0.08  0.06        0.06  0.03
+36                {'lhs': {'Gender': 'male', 'Department': 'AVIATION'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        0.23  0.03        0.03  0.02
+72            {'lhs': {'Gender': 'male', 'Job Title': 'PARAMEDIC I/C'}, 'rhs': {'Annual Salary Bin': '> 90K'}}     0.01        1.00  0.02        0.02  0.02

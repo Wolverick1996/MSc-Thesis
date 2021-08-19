@@ -166,7 +166,7 @@ For the Chicago dataset, the filtering operation resulted in a reduction in the 
 
 The selection of the most relevant rules takes place automatically, since the algorithm only keeps the dependencies with a difference parameter value higher than a minimum threshold imposed by the user. We decided to set \textit{minimum~difference}~=~0.02, in order to keep the majority of the unfair dependencies, avoiding unintentionally ignoring some rules that could instead be relevant for us. This operation resulted in a reduction in the number of dependencies from 49 to 10.
 
-After that, the algorithm performs what the authors call \textbf{ACFD completion}. Given the selected ACFDs, the framework computes all the possible combinations for each rule over the protected attributes and the target attribute (performing a Cartesian product between the attribute values). Taking as an example ACFD n.0 of Figure~\ref{fig:chicago_fair-db2}: \[\mathit{Annual Salary Bin} = \mlq > 90K \mrq \rightarrow \mathit{Gender} = \mlq \mathrm{male} \mrq\] we identify \textit{Annual Salary Bin} as target attribute, whose possible values are \(\leq\)~90K and >~90K, and \textit{Gender} as protected attribute, whose possible values are male and female. Therefore, the possible combinations for the rule are:
+After that, the algorithm performs what the authors call \textbf{ACFD completion}. Given the selected ACFDs, the framework computes all the possible combinations for each rule over the protected attributes and the target attribute (performing a Cartesian product between the attribute values). Taking as an example rule 0 of Figure~\ref{fig:chicago_fair-db2}: \[\mathit{Annual Salary Bin} = \mlq > 90K \mrq \rightarrow \mathit{Gender} = \mlq \mathrm{male} \mrq\] we identify \textit{Annual Salary Bin} as target attribute, whose possible values are \(\leq\)~90K and >~90K, and \textit{Gender} as protected attribute, whose possible values are male and female. Therefore, the possible combinations for the rule are:
 \begingroup\belowdisplayskip=\belowdisplayshortskip
 \[\mathit{Annual Salary Bin} = \mlq > 90K \mrq \rightarrow \mathit{Gender} = \mlq \mathrm{male} \mrq\]\endgroup
 \[\mathit{Annual Salary Bin} = \mlq \leq 90K \mrq \rightarrow \mathit{Gender} = \mlq \mathrm{male} \mrq\]
@@ -454,7 +454,7 @@ The following list summarizes our results by following the widget description li
 \item \textbf{Proportion}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 0.99, and \textit{unfair for females}, with an approximate \(p\)-value of 0.01.
 \item \textbf{Pairwise}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 1.0, and \textit{unfair for females}, with an approximate \(p\)-value of 0.0.
 \end{itemize}
-The results seem to be oriented towards a biased dataset in favor of men, in contrast with the generally fair outcomes of the other tools.
+The results seem to be oriented towards a biased dataset in favor of men, in contrast with the generally fair outcomes of the other tools. Following an analysis of the code and some tests, we then concluded that the proportion of women in the top-\(k\) results to be effectively very low, even bringing \(k\) from the standard value used in the algorithm (100) to 1000.
 \item \textbf{Diversity}: Figure~\ref{fig:san_francisco_rankingfacts3} shows the predominance of the male group over the female one, especially in the top-10 of the ranking, highlighting again a problem of gender representation.
 
 \begin{figure}[t!]
@@ -725,4 +725,41 @@ As we expected, the results seem to be oriented towards an unfair dataset, in wh
 \end{figure}
 
 \end{itemize}
+\end{itemize}
+
+Lastly, we decided to examine the behavior of the tools on two other synthetic datasets, generated from the standard Chicago one, in which we maintained respectively the 75\% and the 90\% of the \textit{Annual Salary} value of female employees, generating in fact two datasets ``a little less biased'' than the case just analyzed.
+
+Again, apart for the change in wage values of female employees, the preprocessed datasets are the same used in the standard Chicago case, with 20,309 tuples of which 16,146 males and 4,163 females. Without going too much into detail, we will now provide the results of the analysis of the modified datasets:
+\begin{itemize}
+\item \textbf{The ``Glassdoor Method''}: the algorithm detected an ``adjusted pay gap'' of 29.1\% and 10.9\% respectively, in line with our predictions. Indeed, we were expecting a more or less linear progression from the halved salary case (69.7\%) to the standard case (0.4\%). Both the results remain statistically significant.
+\item \textbf{FAIR-DB}: we conducted a 2-bin analysis with the usual \$90K threshold, keeping the same parameter values used in previous scenarios and applying the same criterion for the manual selection of the rules (target attribute in the RHS). At the end, we got respectively 43 and 22 dependencies.
+
+The fact that the algorithm detected more dependencies in the 75\% scenario than in the 50\% one (in which we got 32) may seem a little surprising, but by looking more closely at the rules generated we found the reasons for this behavior.
+
+First of all, most of the dependencies are the same as the halved salary case, showed in Figure~\ref{fig:chicago_biased_fair-db}, with the exception of rules 50, 46, 66, 63, 43, and 47, which do not appear in the 75\% case. On the other hand, in addition to the preexisting 26 rules (the 32 of the 50\% case minus the 6 just mentioned), also the ones displayed in Figure~\ref{fig:chicago_biased75_fair-db} are generated, bringing the total to 43.
+
+\begin{figure}[p]
+\centering
+\noindent\rule{\linewidth}{0.4pt}\par
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/chicago_biased75_fair-db1a.txt}}
+\phantomcaption
+\end{figure}
+\begin{figure}[t!]
+\ContinuedFloat
+\centering
+%\resizebox{\linewidth}{!}{%
+\scalebox{.9}{\BVerbatimInput{figures/chicago_biased75_fair-db1b.txt}}
+\noindent\rule{\linewidth}{0.4pt}
+\caption{Additional final selected rules and scores for the biased Chicago dataset with 75\% of the \textrm{Annual Salary} value of female employees (2 bins).}
+\label{fig:chicago_biased75_fair-db}
+\end{figure}
+
+The 6 rules of the halved salary case which do not show up here are related to the CAPTAIN-EMT, LIEUTENANT-EMT, and LIEUTENANT job titles, because for those jobs women are paid less than the threshold, while men are not. In the 75\% case, these rules are no longer generally valid, because 163 women employed in these professions earn more than \$90K. Therefore, the algorithm detects rules related to the ``side attributes'' of those tuples, because for them women generally earn less than \$90K and men earn more.
+Specifically, even if for example rules 50 and 47 of Figure~\ref{fig:chicago_biased_fair-db} (related to the CAPTAIN-EMT profession) are no longer valid, because many women employed in this job earn more than the threshold, this is generally not true for other employees in the FIRE department (of which captains emeritus are also part), and consequently rules 43 and 40 of Figure~\ref{fig:chicago_biased75_fair-db} are generated; and it is generally not true even with regard to full-time employees (rules 31 and 28), and salary paid employees (rules 15 and 12). The same holds for the POLICE department (rules 59 and 56) and for the POLICE OFFICER (rules 91 and 88) and POLICE COMMUNICATIONS OPERATOR II (rules 84 and 87) job titles, connected to the POLICE department.
+
+Furthermore, since some women earn more than \$90K, the confidence of rule 3 of Figure~\ref{fig:chicago_biased_fair-db} decreases from 1.0 to 0.96, and therefore the rule does not involve automatically the whole group of female employees. For this reason, the algorithm detects further dependencies related to hourly paid employees (rules 11 and 8) and departments for which the majority (or even the totality) of the employees are paid on a hourly basis, namely AVIATION (rules 47 and 44) and STREETS \& SAN (rule 39).
+
+For what concerns the 90\% scenario, as we expected, the 22 dependencies obtained are a subset of the ones we got from the 50\% and 75\% cases, and therefore we avoid to report them again. Instead, it is important to highlight that the cumulative support decreases coherently with the reduction of the \textit{Annual Salary} value of female employees, going from 0.655 (50\% case) to 0.647 (75\% case), then to 0.629 (90\% case) and finally to 0.114 (standard case). As we can notice, even if the reduction of the \textit{Annual Salary} value of female employees is not particularly dramatic (``just'' 10\% less than the standard case), the number of tuples involved is very significant, which is to the advantage of FAIR-DB, thus making it able to detect even gaps that are not incredibly wide.
+\item \textbf{Ranking Facts}: the tool did not provide us with different results than the halved salary case, neither from the point of view of fairness nor with regard to diversity. However, unlike in the previous case, the ranking was found to be unstable even at top-10 for both the 75\% case (stability at 0.07) and the 90\% one (stability at 0.08).
 \end{itemize}

@@ -1,0 +1,4 @@
+
+39  {`lhs': {`Gender': `female',
+             `Department': `STREETS & SAN'},
+     `rhs': {`Annual Salary Bin': `<= 90K'}}  0.01  1.00  0.02        0.02  0.02
