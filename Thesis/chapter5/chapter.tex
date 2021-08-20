@@ -7,13 +7,13 @@ The aim of this chapter is to provide the reader with an overview on the tools a
 
 We will describe the functioning behind:
 \begin{itemize}
-\item \textit{The ``Glassdoor Method''}, a framework for evaluating gender pay gap which relies on linear regression.
+\item \textit{The `Glassdoor Method'}, a framework for evaluating gender pay gap which relies on linear regression.
 \item \textit{FAIR-DB}, an algorithm based on functional dependencies and the related evaluation metrics.
 \item \textit{Ranking Facts}, an application built on the idea of ranking which makes use, among other things, of some statistical concepts previously introduced.
 \end{itemize}
 
 
-\section{The ``Glassdoor Method''}
+\section{The `Glassdoor Method'}
 \label{section:the_glassdoor_method}
 After having explored the technical basics in Chapter~\ref{chapter:technical_preliminaries}, we will now make an overview of the tools used for this research. The first one is a technical guide to analyze gender pay gap in a company, provided by \textbf{Glassdoor} in \cite{chamberlain2017analyze}.
 
@@ -21,15 +21,15 @@ Glassdoor is a website in which employees and ex-employees of companies anonymou
 
 As specified in the introduction of the guide \cite[p.~2]{chamberlain2017analyze}, according to a 2016 Glassdoor survey, 67\% of the U.S. employees would not apply for jobs at employers where they believe a gender pay gap exists. The purpose of the report is therefore to help HR practitioners in analyzing the internal gender pay gap of their companies, by providing them specific technical knowledge.
 
-First of all, by ``gender pay gap'' Chamberlain means:
+First of all, by `gender pay gap' Chamberlain means:
 \begin{quote}\emph{The difference between average pay for men and women, both before and after we've accounted for differences among workers in education, experience, job roles, employee performance and other factors aside from gender that affect pay.} \cite[p.~3]{chamberlain2017analyze}\end{quote}
-Two measures are proposed in the report, respectively referred as ``unadjusted'' and ``adjusted'' pay gap:
+Two measures are proposed in the report, respectively referred as `unadjusted' and `adjusted' pay gap:
 \begin{itemize}
-\item \textbf{``Unadjusted'' pay gap}:
+\item \textbf{`Unadjusted' pay gap}:
 \begin{quote}\emph{Average pay for men as a group, compared to average pay for women as a group.} \cite[p.~3]{chamberlain2017analyze}\end{quote}
-Therefore, the formula for estimating ``unadjusted'' gender pay gap is: \[U = \frac{\mathrm{avg}(BasePay)_m - \mathrm{avg}(BasePay)_f}{\mathrm{avg}(BasePay)_m}\] where \(\mathrm{avg}(BasePay)_m\) is the average pay (arithmetic mean of salaries) of male employees, while \(\mathrm{avg}(BasePay)_f\) is the average pay of female employees.
+Therefore, the formula for estimating `unadjusted' gender pay gap is: \[U = \frac{\mathrm{avg}(BasePay)_m - \mathrm{avg}(BasePay)_f}{\mathrm{avg}(BasePay)_m}\] where \(\mathrm{avg}(BasePay)_m\) is the average pay (arithmetic mean of salaries) of male employees, while \(\mathrm{avg}(BasePay)_f\) is the average pay of female employees.
 For the sake of completeness, despite being a basic mathematical concept, we define the \textit{mean} as the sum of a collections of numbers (in this case, salaries) divided by the count of numbers in the collection (the total amount of males or females). Taking \(n\) as total number of male employees: \[\mathrm{avg}(BasePay)_m = \frac{\sum\limits_{i=1}^n BasePay_i}{n}\] and the same holds for female employees.
-\item \textbf{``Adjusted'' pay gap}: while the ``unadjusted'' pay gap is basically a simple comparison of all women with all men, the ``adjusted'' pay gap compares similarly situated male and female employees, in order to include in the calculation the numerous factors that affect the pay (e.g. job title, or educational level). The estimation of the ``adjusted'' pay gap is based on linear regression, a concept presented in Section~\ref{section:linear_regression}, and the reference formula is: \[y_i = \beta_1\textit{Male}_i + \beta_2X_i + \epsilon_i\] where \(y_i\) is the annual salary of worker \(i\), \(\textit{Male}_i\) is a dummy indicator equal to 1 for males and 0 for females, and \(X_i\) is a collection of attributes of employees which may be relevant for the calculation (job title, educational level, etc.). The estimated coefficient \(\beta_1\) represents the approximate pay advantage for men compared to women.
+\item \textbf{`Adjusted' pay gap}: while the `unadjusted' pay gap is basically a simple comparison of all women with all men, the `adjusted' pay gap compares similarly situated male and female employees, in order to include in the calculation the numerous factors that affect the pay (e.g. job title, or educational level). The estimation of the `adjusted' pay gap is based on linear regression, a concept presented in Section~\ref{section:linear_regression}, and the reference formula is: \[y_i = \beta_1\textit{Male}_i + \beta_2X_i + \epsilon_i\] where \(y_i\) is the annual salary of worker \(i\), \(\textit{Male}_i\) is a dummy indicator equal to 1 for males and 0 for females, and \(X_i\) is a collection of attributes of employees which may be relevant for the calculation (job title, educational level, etc.). The estimated coefficient \(\beta_1\) represents the approximate pay advantage for men compared to women.
 \end{itemize}
 
 
@@ -48,7 +48,7 @@ Figure~\ref{fig:fair-db_framework} shows the framework workflow, while a brief e
 \begin{itemize}
 \item \textbf{Data preparation and exploration}: data are imported and data integration is eventually performed. Data cleaning, feature selection and discretization techniques are also applied in this phase, in order to deal with missing values, select the smallest set of attributes relevant for the analysis and transform data from numerical to nominal data type. Data are finally plotted in order to help the user in identifying groups in the dataset and eventually majority and minority classes.
 \item \textbf{ACFD Discovery and filtering}: the \textit{ACFD Discovery} algorithm, presented in \cite{rammelaere2018revisiting}, is applied to extract approximate conditional functional dependencies from the dataset. The algorithm takes as input the dataset and three threshold parameters: \textit{minimum support}, \textit{minimum confidence} and \textit{maximum antecedent size} of the ACFD sought. From the output, dependencies not involving at least one of the protected attributes and the target attribute (the one used as reference to search for discrimination, e.g. \(\mathit{Income}\)) are removed, as well as dependencies containing variables (in which one or more attributes are not assigned to a specific value, e.g. the attribute \(\mathit{Ideal}\) in \(\mathit{Temperature} = \mlq 28 \mrq, \mathit{pH} = \mlq 7 \mrq \rightarrow \mathit{Ideal}\)).
-\item \textbf{ACFD selection}: for each ACFD, some metrics are computed to capture the ``ethical level'' of the dependency. In particular, the \textit{difference} metric described in Section~\ref{section:evaluation_metrics}, as already mentioned, is a novel score introduced for this purpose, and a second measure called \textit{p-Difference} is calculated for each protected attribute. The p-Difference indicates how much a dependency shows bias with respect to a specific protected attribute, and it is computed in the same way as the difference, but excluding the attribute from the antecedent of the rule. According to the values of the metrics, the most interesting ACFDs are selected.
+\item \textbf{ACFD selection}: for each ACFD, some metrics are computed to capture the `ethical level' of the dependency. In particular, the \textit{difference} metric described in Section~\ref{section:evaluation_metrics}, as already mentioned, is a novel score introduced for this purpose, and a second measure called \textit{p-Difference} is calculated for each protected attribute. The p-Difference indicates how much a dependency shows bias with respect to a specific protected attribute, and it is computed in the same way as the difference, but excluding the attribute from the antecedent of the rule. According to the values of the metrics, the most interesting ACFDs are selected.
 \item \textbf{ACFD ranking}: the ACFDs are ranked in descending order of importance according to \textit{support}, \textit{difference}, or \textit{mean}. The support emphasize the \textit{pervasiveness} of a rule, because it indicates the number of tuples involved by the dependency, so the higher the value, the more tuples are affected by the ACFD. The difference privileges the \textit{unethical aspect} of a rule, because it highlights dependencies where the values of the protected attributes influence most their RHS. The mean is computed as mean of support and difference, and therefore it gives more importance to the rules with the \textit{best trade-off} between pervasiveness and unethical perspective.
 \item \textbf{ACFD user selection and scoring}: the user selects \(N\) ACFDs perceived as the most problematic, and the system computes metrics (based on support, difference, and p-Difference of the selected rules) to summarize the level of unfairness of the dataset.
 \end{itemize}
@@ -67,7 +67,7 @@ As documented in \cite{yang2018nutritional}, Ranking Facts is a collection of vi
 \begin{itemize}
 \item \textbf{FA*IR} \cite{zehlike2017fa*ir}: ranking algorithm based on the assumption that on a ranking, the desired good for an individual is to appear in the result and to be ranked among the top-\(k\) positions. The outcome is therefore unfair if members of a protected group are systematically ranked lower than those of a privileged group, and a ranking algorithm discriminates unfairly if this ranking decision is based fully or partially on a protected feature.
 
-The \textit{ranked group fairness} criterion used by the algorithm compares the number of protected elements in every prefix of the ranking (i.e. the top-\(i\) positions of the ranking, with \(i \in [1, k]\)) with the expected number of protected elements if they were picked at random using Bernoulli trials (independent ``coin tosses'') with success probability \(p\). The statistical test also includes a significance parameter \(\alpha\), corresponding to the probability of a type I error, which means rejecting a fair ranking. A clarifying example is provided in Table~\ref{table:fa*ir_example}.
+The \textit{ranked group fairness} criterion used by the algorithm compares the number of protected elements in every prefix of the ranking (i.e. the top-\(i\) positions of the ranking, with \(i \in [1, k]\)) with the expected number of protected elements if they were picked at random using Bernoulli trials (independent `coin tosses') with success probability \(p\). The statistical test also includes a significance parameter \(\alpha\), corresponding to the probability of a type I error, which means rejecting a fair ranking. A clarifying example is provided in Table~\ref{table:fa*ir_example}.
 
 \begin{table}
 \begin{tabular}{|p{.85cm}|p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}|}
@@ -88,7 +88,7 @@ The \textit{ranked group fairness} criterion used by the algorithm compares the 
 \label{table:fa*ir_example}
 \end{table}
 
-The algorithm produces a top-\(k\) ranking that satisfies the ranking group fairness criterion mentioned above while maximizing \textit{utility}, which means selecting the ``best'' tuples, assigning them a score based on the relevant attributes used for the evaluation (e.g. picking the most qualified candidates for a job position by looking at their educational level).
+The algorithm produces a top-\(k\) ranking that satisfies the ranking group fairness criterion mentioned above while maximizing \textit{utility}, which means selecting the `best' tuples, assigning them a score based on the relevant attributes used for the evaluation (e.g. picking the most qualified candidates for a job position by looking at their educational level).
 
 \item \textbf{Proportion} \cite{vzliobaite2017measuring}: this measure is based on the concept of z-test, as described in Section~\ref{section:statistical_concepts}.
 
