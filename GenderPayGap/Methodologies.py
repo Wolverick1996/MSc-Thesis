@@ -182,11 +182,11 @@ stats_df['pmf'] = stats_df['frequency'] / sum(stats_df['frequency'])
 stats_df['cdf'] = stats_df['pmf'].cumsum()
 stats_df = stats_df.reset_index()
 ax2 = stats_df.plot(x='Annual Salary', y=['cdf'], grid=True)
+ax1.get_shared_x_axes().join(ax1, ax2)
+ax2.autoscale()
 plt.title("CDF for Annual Salary (Females)")
 plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_cdf_annual_salary_females.pdf', format='pdf')
 
-ax1.get_shared_x_axes().join(ax1, ax2)
-ax2.autoscale()
 plt.show()
 
 # Removing useless columns
