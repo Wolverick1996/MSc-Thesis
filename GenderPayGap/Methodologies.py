@@ -164,29 +164,29 @@ else:
                 format='pdf', bbox_inches='tight')
 
 dfPlot = df[df['Gender'] == 'male']
-# Get the frequency, PMF (Probability Mass Function) and CDF (Cumulative Distribution Function)
-# for each value in the Annual Salary column (males)
+# Get the frequency and CDF (Cumulative Distribution Function) for each value in the Annual Salary column (males)
 stats_df = dfPlot.groupby('Annual Salary')['Annual Salary']\
     .agg('count').pipe(pd.DataFrame).rename(columns={'Annual Salary': 'frequency'})
 stats_df['pmf'] = stats_df['frequency'] / sum(stats_df['frequency'])
 stats_df['cdf'] = stats_df['pmf'].cumsum()
 stats_df = stats_df.reset_index()
-stats_df.plot(x='Annual Salary', y=['pmf', 'cdf'], grid=True)
-plt.title("PMF and CDF for Annual Salary (Males)")
-plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_pmf_cdf_annual_salary_males.pdf', format='pdf')
+ax1 = stats_df.plot(x='Annual Salary', y=['cdf'], grid=True)
+plt.title("CDF for Annual Salary (Males)")
+plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_cdf_annual_salary_males.pdf', format='pdf')
 
 dfPlot = df[df['Gender'] == 'female']
-# Get the frequency, PMF (Probability Mass Function) and CDF (Cumulative Distribution Function)
-# for each value in the Annual Salary column (females)
+# Get the frequency and CDF (Cumulative Distribution Function) for each value in the Annual Salary column (females)
 stats_df = dfPlot.groupby('Annual Salary')['Annual Salary']\
     .agg('count').pipe(pd.DataFrame).rename(columns={'Annual Salary': 'frequency'})
 stats_df['pmf'] = stats_df['frequency'] / sum(stats_df['frequency'])
 stats_df['cdf'] = stats_df['pmf'].cumsum()
 stats_df = stats_df.reset_index()
-stats_df.plot(x='Annual Salary', y=['pmf', 'cdf'], grid=True)
-plt.title("PMF and CDF for Annual Salary (Females)")
-plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_pmf_cdf_annual_salary_females.pdf', format='pdf')
+ax2 = stats_df.plot(x='Annual Salary', y=['cdf'], grid=True)
+plt.title("CDF for Annual Salary (Females)")
+plt.savefig('MethodologiesResults/' + path.split('/')[0] + '_cdf_annual_salary_females.pdf', format='pdf')
 
+ax1.get_shared_x_axes().join(ax1, ax2)
+ax2.autoscale()
 plt.show()
 
 # Removing useless columns
