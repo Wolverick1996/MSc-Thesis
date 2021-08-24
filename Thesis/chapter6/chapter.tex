@@ -3,7 +3,7 @@
 \label{chapter:experiments}
 \thispagestyle{empty}
 
-The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{chapter:techniques}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{chapter:socio-ethical_preliminaries} and the sociological background explored in Chapter~\ref{chapter:sociological_research}.
+The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{chapter:techniques}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{chapter:socio-ethical_preliminaries} and the sociological background explored in Chapter~\ref{chapter:sociological_perspective}.
 
 For each case study, we will provide a \textit{dataset description}, in order to allow the reader to understand how the original dataset looks like, then we will discuss about our \textit{data preprocessing} choices, and finally about how the tools performed on the preprocessed dataset, providing further details on the algorithms when needed. Lastly, we will question the results obtained by considering the impact of \textit{other design choices}, checking the impact on the used tools when different decisions are made.
 
@@ -59,9 +59,9 @@ Lastly, we decided to plot the \textit{Cumulative Distribution Function (CDF)} o
 
 \begin{figure}[t!]
 \centering
-\includegraphics[width=0.75\textwidth]{figures/chicago_pmf_cdf_annual_salary_males.pdf}
+\includegraphics[width=0.75\textwidth]{figures/chicago_cdf_annual_salary_males.pdf}
 \caption*{(a)}
-\includegraphics[width=0.75\textwidth]{figures/chicago_pmf_cdf_annual_salary_females.pdf}
+\includegraphics[width=0.75\textwidth]{figures/chicago_cdf_annual_salary_females.pdf}
 \caption*{(b)}
 \caption{Cumulative distribution function of male (a) and female (b) employees, for each \textrm{Annual Salary} value of the Chicago dataset.}
 \label{fig:chicago_preprocessing2}
@@ -322,9 +322,9 @@ Lastly, Figure~\ref{fig:chicago_preprocessing2}(a) and Figure~\ref{fig:chicago_p
 
 \begin{figure}[t!]
 \centering
-\includegraphics[width=0.75\textwidth]{figures/san_francisco_pmf_cdf_annual_salary_males.pdf}
+\includegraphics[width=0.75\textwidth]{figures/san_francisco_cdf_annual_salary_males.pdf}
 \caption*{(a)}
-\includegraphics[width=0.75\textwidth]{figures/san_francisco_pmf_cdf_annual_salary_females.pdf}
+\includegraphics[width=0.75\textwidth]{figures/san_francisco_cdf_annual_salary_females.pdf}
 \caption*{(b)}
 \caption{Cumulative distribution function of male (a) and female (b) employees, for each \textrm{Annual Salary} value of the San Francisco dataset.}
 \label{fig:san_francisco_preprocessing2}
