@@ -211,7 +211,7 @@ Even though the support is very low -- and therefore not many tuples out of the 
 
 As for the scoring measures, a cumulative support of 0.114 means that 11.4\% of the dataset is `problematic' (2,310 tuples out of 20,309), while difference mean and gender difference mean (equal because in our dataset \textit{Gender} is the only protected attribute) have a value of 0.094 because of the gap between the difference metric values of the selected ACFDs (above 0.1 for rule 27, above 0.2 for rule 7, below 0.1 for the other rules).
 
-To conclude, we can say that the dataset seems to be quite fair with respect to the group fairness criterion, that is the one on which the tool is based, but more than 10\% of the tuples show bias. Furthermore, the representation problem is not taken into account, and therefore the tendency of women to be employed in less profitable jobs than men, displayed in Figure~\ref{fig:chicago_preprocessing2} and Figure~\ref{fig:chicago_fair-db2}, is ignored.
+To conclude, we can say that the dataset seems to be quite fair with respect to the group fairness criterion, that is the one on which the tool is based, but more than 10\% of the tuples show bias. Furthermore, the representation problem is not taken into account, and therefore the tendency of women to be employed in less profitable jobs than men, displayed in Figure~\ref{fig:chicago_preprocessing2} and Figure~\ref{fig:chicago_fair-db1}, is ignored.
 
 
 \subsection{Ranking Facts}
@@ -318,7 +318,7 @@ Figure~\ref{fig:san_francisco_preprocessing1} shows the \textit{Annual Salary} v
 \label{fig:san_francisco_preprocessing1}
 \end{figure}
 
-Lastly, Figure~\ref{fig:chicago_preprocessing2}(a) and Figure~\ref{fig:chicago_preprocessing2}(b) display the Cumulative Distribution Function (CDF) of male and female employees, for each \textit{Annual Salary} value, showing that the higher-paying jobs are done almost exclusively by men. Again, women are more likely than men to earn less, since the curve on the female graph increases more rapidly compared to the male one (representing a higher probability to have a lower income).
+Lastly, Figure~\ref{fig:san_francisco_preprocessing2}(a) and Figure~\ref{fig:san_francisco_preprocessing2}(b) display the Cumulative Distribution Function (CDF) of male and female employees, for each \textit{Annual Salary} value, showing that the higher-paying jobs are done almost exclusively by men. Again, women are more likely than men to earn less, since the curve on the female graph increases more rapidly compared to the male one (representing a higher probability to have a lower income).
 
 \begin{figure}[t!]
 \centering
