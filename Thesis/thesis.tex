@@ -7,6 +7,7 @@
 %\usepackage{amsmath}
 \usepackage{graphicx,subfigure}
 \usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 \usepackage{afterpage}
 \usepackage{amsmath,amssymb}
 \DeclareMathSymbol{\mlq}{\mathrel}{operators}{``}
@@ -23,9 +24,11 @@
 \usepackage{color,soul}
 \usepackage{pdfpages}
 \usepackage[hyphens]{xurl}
+\usepackage{hyphenat}
 %\usepackage[hyphens]{url}
 \usepackage[pdfborder={0 0 0}]{hyperref}
 \usepackage[title,toc]{appendix}
+\usepackage{enumitem}
 
 % redefine \BVerbatimInput
 \RecustomVerbatimCommand{\BVerbatimInput}{BVerbatimInput}%
@@ -99,6 +102,7 @@ commentchar=*         % comment character
 \include{chapter5/chapter}
 \include{chapter6/chapter}
 \include{chapter7/chapter}
+\include{chapter8/chapter}
 
 \cleardoublepage
 % ---- Bibliography ----
@@ -123,6 +127,5 @@ commentchar=*         % comment character
 
 % % Use as many appendixes as you need
 \include{appendixA/appendix}
-%\include{appendixB/appendix}
 
 \end{document}

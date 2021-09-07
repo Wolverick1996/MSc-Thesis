@@ -69,8 +69,8 @@ As documented in \cite{yang2018nutritional}, Ranking Facts is a collection of vi
 
 The \textit{ranked group fairness} criterion used by the algorithm compares the number of protected elements in every prefix of the ranking (i.e. the top-\(i\) positions of the ranking, with \(i \in [1, k]\)) with the expected number of protected elements if they were picked at random using Bernoulli trials (independent `coin tosses') with success probability \(p\). The statistical test also includes a significance parameter \(\alpha\), corresponding to the probability of a type I error, which means rejecting a fair ranking. A clarifying example is provided in Table~\ref{table:fa*ir_example}.
 
-\begin{table}
-\begin{tabular}{|p{.85cm}|p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}p{.5cm}|}
+\begin{table}[t!]
+\begin{tabularx}{\columnwidth}{|p{.85cm}|YYYYYYYYYYYY|}
 \hline
 \diagbox{\(p\)}{\(k\)} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
 \hline
@@ -82,7 +82,7 @@ The \textit{ranked group fairness} criterion used by the algorithm compares the 
 0.6 & 0 & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 4 & 4 & 5 & 5\\
 0.7 & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 4 & 5 & 5 & 6 & 6\\
 \hline
-\end{tabular}
+\end{tabularx}
 \centering
 \caption{Minimum number of candidates in the protected group that must appear in the top-\(k\) positions to pass the ranked group fairness criterion with \(\alpha = 0.1\). Considering for example \(\mathit{gender}\) as a protected attribute with values \(\mlq M \mrq\) and \(\mlq F \mrq\), the minimum number of females (or eventually males) appearing in the top-5 with \(p=0.4\) is \(1\). Table based on the one shown in \cite{zehlike2017fa*ir}.}
 \label{table:fa*ir_example}
@@ -94,8 +94,8 @@ The algorithm produces a top-\(k\) ranking that satisfies the ranking group fair
 
 \item \textbf{Pairwise}: also known as \textit{pairwise comparison}, it is a tool for prioritizing and ranking multiple options relative to each other. A matrix is generally used to compare each option in pairs and determine which is the preferred choice or has the highest level of importance based on defined criteria. At the end of the comparison process, each option has a rank or relative rating as compared to the rest of the options. Table~\ref{table:pairwise_comparison_example} provides an example: scores are assigned based on how strongly the consumption of a drink on the left dominates that of a drink at the top. For example, when coffee on the left is compared with wine at the top, since coffee appears to be extremely more consumed, 9 is entered in the first row and second column position. A score of $\frac{1}{9}$ is automatically entered in the second row and first column position. According to the matrix, the final ranking would be:\\\(\mathit{Sodas}:~0.252\), \(\mathit{Water}:~0.228\), \(\mathit{Beer}:~0.164\), \(\mathit{Milk}:~0.148\), \(\mathit{Coffee}:~0.142\), \(\mathit{Tea}:~0.046\), \(\mathit{Wine}:~0.019\).
 
-\begin{table}
-\begin{tabular}{|p{1cm}|p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}|}
+\begin{table}[t!]
+\begin{tabularx}{\columnwidth}{|Y|YYYYYYY|}
 \hline
 & Coffee & Wine & Tea & Beer & Sodas & Milk & Water\\
 \hline
@@ -107,7 +107,7 @@ Sodas & 2 & 9 & 5 & 2 & 1 & 2 & 1\\
 Milk & 1 & 9 & 4 & 1 & $\frac{1}{2}$ & 1 & $\frac{1}{2}$\\
 Water & 2 & 9 & 5 & 1 & 1 & 2 & 1\\
 \hline
-\end{tabular}
+\end{tabularx}
 \centering
 \caption{Drink consumption in the U.S. represented in a pairwise comparison matrix. Table based on the one shown in \cite{saaty2003magic}.}
 \label{table:pairwise_comparison_example}
