@@ -1,19 +1,19 @@
 % !TEX root = ../thesis.tex
-\chapter{Results}
-\label{chapter:results}
+\chapter{Outcomes \& Contributions}
+\label{chapter:outcomes_contributions}
 \thispagestyle{empty}
 
-The aim of this chapter is to discuss the results obtained from our experiments described in Chapter~\ref{chapter:experiments}, mixing them with the sociological background depicted in Chapter~\ref{chapter:sociological_perspective}, and recalling some preliminaries exposed in Chapter~\ref{chapter:socio-ethical_preliminaries} and Chapter~\ref{chapter:technical_preliminaries} when needed.
+The aim of this chapter is to discuss the results obtained from our experiments described in Chapter~\ref{chapter:experiments}, in the light of the sociological background depicted in Chapter~\ref{chapter:sociological_perspective}, and recalling some preliminaries exposed in Chapter~\ref{chapter:socio-ethical_preliminaries} and Chapter~\ref{chapter:technical_preliminaries} when needed.
 
-We will first list and discuss the \textit{outcomes and contributions} of our research, providing the reader with a summary of our results, and we will then emphasize the \textit{limitations} to which we were subjected, in order to clarify to what extent these results are generalizable.
+We first list and discuss the \textit{outcomes} and \textit{contributions} of our research, providing the reader with a summary of our results, and we then emphasize the \textit{limitations} to which we were subjected, in order to clarify to what extent these findings are generalizable. It is worth to specify that by `outcomes' we mean the experimental results more closely related to the tests carried out (i.e. to the specific datasets or tools in use), while we indicate as `contributions' the considerations arising from the research but extendable outside our specific case studies, which may result as possible new knowledge to be included in the state of art.
 
 
-\section{Outcomes \& Contributions}
-\label{section:outcomes_contributions}
+\section{Outcomes}
+\label{section:outcomes}
 \begin{table}[t!]
 \begin{tabularx}{\columnwidth}{|Y|Y|}
 \hline
-Strengths & Weaknesses\\
+Strength & Weakness\\
 \hline
 \multicolumn{2}{|c|}{\textit{The `Glassdoor Method'}}\\
 \hline
@@ -46,7 +46,7 @@ Strengths & Weaknesses\\
 \item \nohyphens{User-friendly (Web).}
 \end{itemize} & \begin{itemize}[topsep=0pt,leftmargin=*]
 \item \nohyphens{No use of categorical attributes (conversion required).}
-\item \nohyphens{Lack of documentation.} \newline\newline
+\item \nohyphens{Lack of documentation.}\vspace{2\baselineskip}
 \item \nohyphens{Unclear stability information.}
 \item \nohyphens{Not scalable (Web).}
 \end{itemize}\\
@@ -57,7 +57,9 @@ Strengths & Weaknesses\\
 \label{table:recap_strengths_weaknesses}
 \end{table}
 
-Table~\ref{table:recap_strengths_weaknesses} provides an overview of the main strengths and weaknesses of the tools adopted for our experiments. It is important to point out that, although this information is expressed as a bulleted list, the tool with the fewest bullet points is not necessarily the most simplistic, and the one with the most weaknesses is not necessarily the least preferable or complete. In addition, we are aware that the table is probably not exhaustive, and we emphasize that the points listed, as well as the considerations that follow, derive from our experiments and may therefore be partial or not very generalizable.
+Table~\ref{table:recap_strengths_weaknesses} provides an overview of the main strengths and weaknesses of the tools adopted for our experiments -- the `Glassdoor Method', FAIR-DB, and Ranking Facts. It is important to point out that, although this information is expressed as a bulleted list, the tool with the fewest bullet points is not necessarily the most simplistic, and the one with the most weaknesses is not necessarily the least preferable or complete. In addition, we are aware that the table is probably not exhaustive, and we emphasize that the points listed, as well as the considerations that follow, derive from our experiments and may therefore be partial or not completely generalizable.
+
+The most impactful limitation of the tools -- which we report here as it is part of the outcomes of our research -- in any case, is the fact that even though they all aim to achieve fairness not only through equality but also by taking equity into account (by privileging the group fairness criterion over the individual fairness one), they practically fail in capturing the several facets of equity. Recalling the classification made in Section~\ref{section:equality_equity}, we proved how inefficient these instruments are in capturing \textit{representation equity} (disparities rooted in historical discrimination can lead to representation inequities); \textit{feature equity} (not all the features needed to represent a marginalized group and required for a particular analysis are available in the data) is not addressed at all, since the tools do not have knowledge on the context, and therefore they cannot, for example, infer what the relevant attributes for the specific analysis may be and inform the user on what is missing; and neither are addressed \textit{access equity} (bias may arise because of a non-equitable and participatory access to data and data products across domains and levels of expertise) and \textit{outcome equity} (bias may arise because of a lack of monitoring and mitigation of unintended consequences for any group affected by the system after deployment).
 
 Shifting the focus from tools to datasets, and combining the sociological research with the technological results of our analysis, we can highlight two main issues related to gender discrimination: a \textit{representation problem}, related to the disproportion in the percentage of women employed in different sectors, and a \textit{part-time problem}, due to the higher number of women employed in part-time jobs, typically less paid than full-time ones.
 
@@ -66,32 +68,74 @@ For what concerns representation, we want to recall the data and statistics prov
 The part-time condition, for which we recall Figure~\ref{fig:dol_full-_and_part-time_workers_by_sex}, is instead more perceptible from the tools, since the information is encoded in our datasets under the \textit{Status} attribute, and therefore could be used for estimating the `adjusted' pay gap in the `Glassdoor Method', as constituent of functional dependencies in FAIR-DB, and as a ranking parameter in Ranking Facts. Recalling the reflections made in Chapter~\ref{chapter:sociological_perspective} (women are more likely to be employed part-time; employers are able to adjust women's wages on the basis of their previous -- often part-time -- work experiences, also leading to the `devaluation' of some jobs), our experiments confirm the trend of part-time working women, and the correlation between \textit{Annual Salary} and \textit{Status} (clearly visible in Figure~\ref{fig:chicago_rankingfacts1} and Figure~\ref{fig:san_francisco_rankingfacts1}) can be significant at the moment when a new employer has the power to adjust the compensation for a newly hired woman with previous part-time experiences.
 Removal of part-time employees from the datasets instead resulted to be penalizing both from the technical point of view, as underlined in Section~\ref{section:part-time_employees_removal}, and from the sociological one, given the background provided in Chapter~\ref{chapter:sociological_perspective}.
 
-The most impactful limitation of the tools, in any case, is the fact that even though they all aim to achieve fairness not only through equality but also by taking equity into account (by privileging the group fairness criterion over the individual fairness one), they practically fail in capturing the several facets of equity. Recalling the classification made in Section~\ref{section:equality_equity}, we proved how inefficient these instruments are in capturing \textit{representation equity} (disparities rooted in historical discrimination can lead to representation inequities); \textit{feature equity} (not all the features needed to represent a marginalized group and required for a particular analysis are available in the data) is not addressed at all, since the tools do not have knowledge on the context, and therefore they cannot, for example, infer what the relevant attributes for the specific analysis may be and inform the user on what is missing; and neither are addressed \textit{access equity} (bias may arise because of a non-equitable and participatory access to data and data products across domains and levels of expertise) and \textit{outcome equity} (bias may arise because of a lack of monitoring and mitigation of unintended consequences for any group affected by the system after deployment).
 
+\section{Contributions}
 Moving from outcomes to contributions: first of all we confirmed, in accordance with Chouldechova's impossibility theorem \cite{chouldechova2017fair} and however trivial it may be, that fairness is a multifaceted concept which cannot be exhausted by providing a single definition and pursuing that specific definition experimentally. In this context, we believe that the simultaneous use of several tools for the same analysis represents an undoubted advantage, since each of them provides a different approach and hence a different perspective on the same problem. Indeed, the `Glassdoor Method' constitutes a straightforward statistical approach, helpful in understanding how the different independent variables impact on the \textit{Annual Salary} dependent one; FAIR-DB provides useful insights about bias in datasets, showing correlations between attribute values and potentially reporting information about subgroups (supposing to have both \textit{Gender} and \textit{Race} as protected attributes, the generated rules could involve both of them, giving specific information about, for example, the subgroup of Black women); Ranking Facts, especially in the Web-based application version, is quite user-friendly, and it does not require user interaction, providing also some (very high-level) information about representativeness.
 
 We also demonstrated how these `fairness measurement tools' are susceptible to decisional choices, and therefore how important it is to properly train users on the specific area of analysis. A question that might arise is: `Since human intervention (which takes the form of choices in the use of these tools) necessarily introduces, being human, bias, does it make sense to keep humans in the loop?'. On the other hand, we could ask ourselves: `Given the problems involved in developing a universal instrument that can address the issue in all its facets, does it make sense to manage decision-making processes with these tools?'. We claim the answer to be yes in both cases: fairness indeed is a complex human concept of abstract nature, with impactful concrete social implications, and as such it requires a non-automatable human intervention; on the other hand it is not possible to do without the tools -- that it is necessary to continue to build and improve -- since the amount of data to handle is absolutely excessive and not manageable otherwise.
 
-Lastly, we believe that the main contribution of this research is given by the double perspective on the gender pay gap issue, which we hope will set a precedent for data scientists and the other professionals in the IT sector for approaching other social problems. We strongly believe in multidisciplinarity and in the potentials of facing challenges not only by looking at the knowledge available in one's field of study but also in other, possibly interconnected, disciplines. Indeed, the study and research in sociology have allowed us to obtain useful information to understand how much of the bias in the data could be preexisting, while through our experiments we have verified which technological choices are more responsible for the introduction of technical bias. The sociological investigation provides important insights about the \textbf{context} in which data are embedded, and for this reason we think that \textit{context-awareness} would be an interesting path to follow, and some techniques may be used to provide the tools with knowledge on the context of use. We believe that such an improvement would mitigate (even if not extinguish) problems, like the representation one, encapsulated in the data but not currently detectable. It is worth reporting here a couple of contributions that we think may be good starting points for addressing data quality issues. In particular, in \cite{canali2020towards}, Canali argues that:
+Lastly, we believe that the main contribution of this research is given by the double perspective on the gender pay gap issue, which we hope will set a precedent for data scientists and the other professionals in the IT sector for approaching other social problems. We strongly believe in multidisciplinarity and in the potentials of facing challenges not only by looking at the knowledge available in one's field of study but also in other, possibly interconnected, disciplines. Indeed, the study and research in sociology have allowed us to obtain useful information to understand how much of the bias in the data could be preexisting, while through our experiments we have verified which design choices are more responsible for the introduction of technical bias.
+
+The sociological investigation provides important insights about the context in which data are embedded, and for this reason we think that \textit{context-awareness} would be an interesting path to follow, and some techniques may be used to provide the tools with knowledge on the context of use. We believe that such an improvement would mitigate (even if not extinguish) problems, like the representation one, encapsulated in the data but not currently detectable. In this regard, knowledge on women's part-time status may for example influence the context, because while we might, by taking this variable into account, believe their pay to be adequate, on the other hand it is reasonable to wonder why women represent the majority of part-time workers. Another example of context-awareness is provided by a study conducted on a dataset related to the Titanic shipwreck, in which, according to the data, more women than men survived. Although the information may seem alienating, especially for a time when women had fewer rights and were far more distant from equality than they are today, a closer look at the context made it possible to understand that the statistic derived in large part from the application of the `women and children first' policy.
+
+It is worth reporting here a couple of contributions that we think may represent good starting points for addressing data quality issues, since the ethical dimension discussed above is certainly an important aspect of data quality, and it must be taken into account in a contextual manner. In particular, in \cite{canali2020towards}, Canali argues that:
 \begin{quote}\emph{Quality is a contextual feature of data: it is a result of the relations established between a dataset and the questions, aims and tools employed in the context of the use of data; the assessment of the quality of a dataset needs to focus on the features of this context as much as the dataset itself.} \cite[p.~4]{canali2020towards}\end{quote}
 He then delineates some guidelines according to which the contextual approach indicates quality criteria and assessment methods, and provides three practical examples in support of it. In \cite{leonelli2017global} instead, Leonelli examines some models of data quality evaluation that have been employed within the sciences, highlighting strengths and weaknesses of each and ultimately emphasizing again the importance of the context and of having exhaustive metadata in support of the mere data, in order also to facilitate international cooperation and the development of different projects on the same, accessible, data.
 
 
 \section{Limitations}
 \label{section:limitations}
-Although our research provided us with some significant results, there are of course aspects of our work which limit the impact or generalizability of our contributions, starting with the fact, already pointed out in Section~\ref{section:outcomes_contributions}, that our experiments were conducted on only two datasets.
+Although our research provided us with some significant results, there are of course aspects of our work which limit the impact or generalizability of our contributions, starting with the fact, already pointed out in Section~\ref{section:outcomes}, that our experiments were conducted on only two datasets.
+
+We tried to group limitations according to their nature (sociological, technological, design), even though the source of a constraint is usually not unique and well defined but heterogeneous. Table~\ref{table:recap_limitations} displays a summary of the main limitations to which we were subjected, while a more detailed description of the same is provided below.
+
+\begin{table}[t!]
+\begin{tabularx}{\columnwidth}{|Y|>{\centering\arraybackslash}p{1.5cm}|}
+\hline
+Limitation & Nature\\
+\hline
+\begin{itemize}[topsep=0pt,leftmargin=*]
+\item \nohyphens{Non-specific literature.}
+\item \nohyphens{No direct insights from U.S. workers.}
+\item \nohyphens{Original datasets already partial or possibly grouped.}
+\item \nohyphens{\texttt{gender-guesser}: accuracy; assumptions on mostly\_male and mostly\_female names; andy and unknown occurrences.}
+\item \nohyphens{Removal of job titles with less than 100 occurrences.}
+\item \nohyphens{Representation and other facets of equity (feature, access, outcome) not taken into account.}
+\item \nohyphens{FAIR-DB: parameter values; manual selection of rules; number of bins. [Table~\ref{table:recap_strengths_weaknesses}]}
+\item \nohyphens{Ranking Facts: lack of documentation; notebook version. [Table~\ref{table:recap_strengths_weaknesses}]}
+\item \nohyphens{Manual grouping of job titles performed using a non-U.S.-specific document.}
+\item \nohyphens{Voluntary introduction of bias produces synthetic dataset.}
+\end{itemize} & \begin{itemize}[label={},topsep=0pt,leftmargin=*]
+\centering
+\item \nohyphens{S}
+\item \nohyphens{S}
+\item \nohyphens{T}
+\item \nohyphens{T/D}\vspace{\baselineskip}
+\item \nohyphens{D}
+\item \nohyphens{T}\vspace{\baselineskip}
+\item \nohyphens{T/D}\vspace{\baselineskip}
+\item \nohyphens{T/D}\vspace{\baselineskip}
+\item \nohyphens{S/D}\vspace{\baselineskip}
+\item \nohyphens{T}
+\end{itemize}\\
+\hline
+\end{tabularx}
+\centering
+\caption{Recap of the main limitations to which we were subjected, with an indication of their nature (S~=~Sociological, T~=~Technological, D~=~Design).}
+\label{table:recap_limitations}
+\end{table}
 
 From the sociological point of view, the most important limitation is given by the fact that the literature of reference is usually non-specific, and although the majority of our sources is related to the U.S. society, the United States is a very wide country which also presents significant differences between the various states that make it, and none of the papers specifically refers to Illinois or California, and neither goes into detail of the cities of Chicago or San Francisco. Furthermore, we had to rely on publicly available data and resources, and we did not get any insight from employees or employers working in the U.S., so our view on the overall situation may be partial or incomplete.
 
-From the technical perspective, we already mentioned throughout Chapter~\ref{chapter:experiments} some of the most impactful choices we had to deal with, which potentially lead to the introduction of bias, but we will now recapitulate providing a more exhaustive summary.
+From the technological (and design) perspective, we already mentioned throughout Chapter~\ref{chapter:experiments} some of the most impactful choices we had to deal with, which potentially lead to the introduction of bias, but we now recapitulate providing a more exhaustive summary.
 \begin{itemize}
 \item The original datasets are already partial, because they contain a limited number of job titles, and we are not aware of possible preexisting groupings of employees who may work on some specific tasks but be grouped in the same category, or of external employees who just temporarily work for the federal government.
 \item The \texttt{gender-guesser} package we used to infer employees' gender is obviously not 100\% accurate, and even if we assumed mostly male names to be effectively related to males and mostly female names to be effectively related to females, we may have been mistaken in some cases. Furthermore, the package produced a non-negligible number of unknown and androgynous occurrences, possibly related to employees of various ethnicities with not typically Western names, and even if we decided to remove them in order to work on more reliable data, they may have had an impact on the results.
 \item The data cleaning processes we performed by removing job titles with less than 100 occurrences significantly reduced the number of tuples of our datasets, and even if this choice led to a reduction of complexity, the downside is that a lot of categories of employees were excluded from the analysis.
-\item As previously pointed out, none of the adopted tools takes into account overrepresentation of men (or underrepresentation of women) in the specific job title in which they are employed, and although we can see it is as an outcome for the purpose of our research, it is certainly also a limitation, being a hidden bias source.
-\item The parameter values required for the FAIR-DB analysis have an impact on the number of dependencies detected and selected, and even if we used what we believe to be the best values, a deeper knowledge of the underlying concepts may have led to a refinement of the results. The same holds for the manual selection of the rules, that is a crucial phase of the framework, with the power to overturn the final results and for which, given the lack of documentation, we adopted what we think is the most sensible and suitable criterion. Choosing instead all the detected rules, as shown in Section~\ref{section:fair-db_choice_different_dependencies}, strongly impact the final outcomes, reversing the perspective on the fairness of data.
-\item Given the lack of documentation for Ranking Facts, we followed the approach of the authors of the tool by trying to laboriously follow the examples they provided in setting up the ranking parameters and their weights, but again a deeper knowledge of the underlying concepts may have led to a refinement of the results. Furthermore, given the size of our datasets, we were forced to use the notebook version of the tool, which is undoubtedly less user-friendly than the Web-based application.
+\item As previously pointed out, none of the adopted tools takes into account overrepresentation of men (or underrepresentation of women) in the specific job title in which they are employed, and although we can see it is as an outcome for the purpose of our research, it is certainly also a limitation, being a hidden bias source. The same holds for the other facets of data equity, as mentioned in Section~\ref{section:outcomes}.
+\item The parameter values required for the FAIR-DB analysis have an impact on the number of dependencies detected and selected, and even if we used what we believe to be the best values, a deeper knowledge of the underlying concepts might have led to a refinement of the results. The same holds for the manual selection of the rules, that is a crucial phase of the framework, with the power to overturn the final results and for which, given the lack of documentation, we adopted what we think is the most sensible and suitable criterion. Choosing instead all the detected rules, as shown in Section~\ref{section:fair-db_choice_different_dependencies}, strongly impact the final outcomes, reversing the perspective on the fairness of data.
 \item The number of bins used for the FAIR-DB analysis and the values specified for the thresholds have an impact on the results. We tried to overcome this limit by conducting two different analyses, with respectively 2 and 8 bins (Section~\ref{section:fair-db_discretization_8_bins}), but other choices may have led to different outcomes.
+\item Given the lack of documentation for Ranking Facts, we followed the approach of the authors of the tool by trying to laboriously follow the examples they provided in setting up the ranking parameters and their weights, but again a deeper knowledge of the underlying concepts may have led to a refinement of the results. Furthermore, given the size of our datasets, we were forced to use the notebook version of the tool, which is undoubtedly less user-friendly than the Web-based application.
 \item As already mentioned in Section~\ref{section:grouping_job_titles}, for grouping job titles we relied on a document published by the Equality Commission for Northern Ireland in 2013 \cite{equality2013index}. Despite the exhaustiveness of the index, it is important to underline that the document was not made with the purpose of being used for grouping job titles outside Northern Ireland.
 \item As already mentioned in Section~\ref{section:voluntary_introduction_of_bias}, the voluntary introduction of bias in our data produced a synthetic dataset, that is, a dataset containing fake data, not reflecting the real world in which we live.
 \end{itemize}

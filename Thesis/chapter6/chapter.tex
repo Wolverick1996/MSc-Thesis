@@ -3,9 +3,9 @@
 \label{chapter:experiments}
 \thispagestyle{empty}
 
-The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{chapter:techniques}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{chapter:socio-ethical_preliminaries} and the sociological background explored in Chapter~\ref{chapter:sociological_perspective}.
+The aim of this chapter is to describe the experiments conducted using the tools introduced in Chapter~\ref{chapter:tools_for_assessing_fairness}, in order to verify the presence (and the nature) of bias in our datasets and discuss their fairness, according to the concepts introduced in Chapter~\ref{chapter:socio-ethical_preliminaries} and the sociological background explored in Chapter~\ref{chapter:sociological_perspective}.
 
-For each case study, we will provide a \textit{dataset description}, in order to allow the reader to understand how the original dataset looks like, then we will discuss about our \textit{data preprocessing} choices, and finally about how the tools performed on the preprocessed dataset, providing further details on the algorithms when needed. Lastly, we will question the results obtained by considering the impact of \textit{other design choices}, checking the impact on the used tools when different decisions are made.
+For each case study, we provide a \textit{dataset description}, in order to allow the reader to understand how the original dataset looks like, then we discuss about our \textit{data preprocessing} choices, and finally about how the tools performed on the preprocessed dataset, providing further details on the algorithms when needed. Lastly, we question the results obtained by considering the impact of \textit{other design choices}, checking the impact on the used tools when different decisions are made.
 
 
 \section{Case Study 1: Chicago}
@@ -38,7 +38,7 @@ Since our focus is gender pay gap but the original datasets do not contain a \te
 \item mostly\_male: 775 values.
 \item mostly\_female: 730 values.
 \end{itemize}
-In order to get coherent results in case of multiple experiments on the same dataset, we decided to remove the tuples related to unknown and androgynous names instead of randomly assign a gender to them (otherwise, we would have get different numbers at each execution of the preprocessing algorithm). Furthermore, we assumed mostly male names to be effectively related to males and mostly female names to be effectively related to females, and therefore we got 21,337 male values and 7,684 female values for a newly generated \textit{Gender} attribute as a result of this first \textbf{data cleaning} process. As we will further discuss in Section~\ref{section:limitations}, these decisions, together with the adoption of the \texttt{gender-guesser} library itself, represent some of the most critical choices we had to deal with, because they can lead to the introduction of technical bias, that is, as discussed in Section~\ref{section:bias}, bias originated from (or exacerbated by) design choices, constraints, and technological tools.
+In order to get coherent results in case of multiple experiments on the same dataset, we decided to remove the tuples related to unknown and androgynous names instead of randomly assign a gender to them (otherwise, we would have get different numbers at each execution of the preprocessing algorithm). Furthermore, we assumed mostly male names to be effectively related to males and mostly female names to be effectively related to females, and therefore we got 21,337 male values and 7,684 female values for a newly generated \textit{Gender} attribute as a result of this first \textbf{data cleaning} process. As we further discuss in Section~\ref{section:limitations}, these decisions, together with the adoption of the \texttt{gender-guesser} library itself, represent some of the most critical choices we had to deal with, because they can lead to the introduction of technical bias, that is, as discussed in Section~\ref{section:bias}, bias originated from (or exacerbated by) design choices, constraints, and technological tools.
 
 We also operated \textbf{data reduction} by removing the \textit{Typical Hours}, \textit{Hourly Rate}, and \textit{First Name} columns, not relevant for our analysis.
 
@@ -127,10 +127,10 @@ The histogram of Figure~\ref{fig:chicago_fair-db1} shows instead the distributio
 \label{fig:chicago_fair-db1}
 \end{figure}
 
-Lastly, we performed a new \textbf{data reduction} operation by removing from the dataset the attributes \textit{Name} and \textit{Annual Salary}, not relevant anymore for our analysis, since the tool will make use of the \textit{Annual Salary Bin} variable.
+Lastly, we performed a new \textbf{data reduction} operation by removing from the dataset the attributes \textit{Name} and \textit{Annual Salary}, not relevant anymore for our analysis, since the tool makes use of the \textit{Annual Salary Bin} variable.
 \item \textbf{ACFD Discovery and filtering}: as specified in Section~\ref{section:fair-db}, this phase makes use of the \textit{ACFD Discovery} algorithm, presented in \cite{rammelaere2018revisiting}. The authors of the algorithm made available a compute capsule on Code Ocean\footnote{Available at: \url{https://codeocean.com/capsule/6146641/tree}.}, which works basically as a Web-based application, allowing the user to upload a CSV file (in our case, we exported and uploaded the modified Chicago dataset), set the values of the required parameters (\textit{minimum support}, \textit{minimum confidence}, \textit{maximum antecedent size}), run the algorithm and download the results in the form of a text file. The software also allows the choice of different algorithm implementations to be used to extract the dependencies but, as reported in the documentation, the default option FD-First-DFS-dfs is generally the fastest and there are no particular reasons, apart from performances, to choose one implementation over another one.
 
-Since our dataset does not contain a large amount of attributes, we decided to keep \textit{maximum~antecedent~size}~=~2 (meaning that at most 2 variables will appear in the LHS of the computed rules).
+Since our dataset does not contain a large amount of attributes, we decided to keep \textit{maximum~antecedent~size}~=~2 (meaning that at most 2 variables appear in the LHS of the computed rules).
 For what concerns the confidence, its value is computed as the ratio between the frequency of the dependency over the frequency of the LHS of the rule, and therefore a \textit{minimum~confidence}~=~0.8 seemed to be a reasonable threshold, since the lower the parameter, the more dependencies are generated at each round increasing the computational complexity and making more difficult the subsequent choice of the most interesting ACFDs.
 Finally, we had to deal with the choice of a proper minimum support, which is quite a delicate operation: if it is too high the risk is to lose information about small groups, if it is too low there could be too many dependencies to analyze. We set \textit{minimum~support}~=~100, because it is a reasonably low number if compared to the total number of tuples in the dataset and to the average amount of tuples for each \textit{Job Title} value (\(\frac{20,309}{35} \simeq 580\)).
 
@@ -192,7 +192,7 @@ For each newly generated dependency, the evaluation metrics are computed, and a 
 \item \textbf{Protected attribute difference mean}: for each protected attribute, arithmetic mean of the p-Difference measure over all the selected ACFDs. It indicates how much the dataset is ethical over the protected attribute according to the chosen rules -- the higher the value, the more the dataset is discriminatory with respect to the specific protected attribute.
 \end{itemize}
 
-For our research, we selected all the dependencies in which the target attribute appears in the RHS of the rule (\(N\) = 6 out of 18). This choice is due to the fact that the authors did not specify any criteria or suggestion for the manual selection of the rules, and the algorithm does not consider rules in which the protected attribute appears in the RHS as biased with respect to the protected attribute itself, in fact, as can be noticed in Figure~\ref{fig:chicago_fair-db3}, rules in which the protected attribute is in the RHS have a NaN (not computed) p-Difference value, while the same statistical measure is never NaN when the protected attribute is in the LHS. Other dependencies, in which both target attribute and protected attribute appear in the RHS, are not particularly relevant for us, precisely because none of our variables of interest is functionally dependent upon the other. We will further discuss about the impact of this choice in Section~\ref{section:limitations}. The chosen ACFDs, together with the final scores, are displayed in Figure~\ref{fig:chicago_fair-db4}.
+For our research, we selected all the dependencies in which the target attribute appears in the RHS of the rule (\(N\) = 6 out of 18). This choice is due to the fact that the authors did not specify any criteria or suggestion for the manual selection of the rules, and the algorithm does not consider rules in which the protected attribute appears in the RHS as biased with respect to the protected attribute itself, in fact, as can be noticed in Figure~\ref{fig:chicago_fair-db3}, rules in which the protected attribute is in the RHS have a NaN (not computed) p-Difference value, while the same statistical measure is never NaN when the protected attribute is in the LHS. Other dependencies, in which both target attribute and protected attribute appear in the RHS, are not particularly relevant for us, precisely because none of our variables of interest is functionally dependent upon the other. We further discuss about the impact of this choice in Section~\ref{section:limitations}. The chosen ACFDs, together with the final scores, are displayed in Figure~\ref{fig:chicago_fair-db4}.
 
 \begin{figure}[t!]
 \centering
@@ -231,10 +231,10 @@ Once imported the dataset, the tool initially plots the distribution of some att
 The tool then requires the user to specify some attributes to be used for the ranking, together with their weights. The reference formula is: \[f(x) = w_1 \times \mathit{Attribute}_1(x) + \ldots + w_n \times \mathit{Attribute}_n(x)\]
 In our case, the attributes used are \textit{Job Title}, \textit{Department}, \textit{Status}, \textit{Salary or Hourly}, and \textit{Annual Salary}, because they are numerical (even though for \textit{Job Title} and \textit{Department} the numbering does not have an intrinsic meaning) and none of them is a protected variable. By following the examples provided by the authors of the tool, we decided to set the weights all equal to 1, giving the same importance to each attribute.
 
-By following the widget description list provided in Section~\ref{section:ranking_facts}, we will now summarize our results.
+By following the widget description list provided in Section~\ref{section:ranking_facts}, we now summarize our results.
 \begin{itemize}
 \item \textbf{Recipe} and \textbf{Ingredients}: the notebook version of the tool unfortunately does not provide any visual representation. As for the recipe, a couple of summary tables display some statistical measures (median, mean, minimum and maximum value) for the 5 attributes used in the ranking, respectively for the top-10 one and overall. These tables are not particularly useful, and neither is the information related to the ingredients, which tells us that the importance of each attribute used for the ranking is effectively equal to 1.
-\item \textbf{Stability}: this parameter explains whether the ranking methodology is robust on the specific dataset in use. Since an unstable ranking is one where slight changes to the data or to the methodology could lead to a significant change in the output, the label reports a stability score, as a single number that indicates the extent of the change required for the ranking to change. The stability of the ranking is quantified as the slope of the line that is fit to the score distribution, at the top-10 and overall. A score distribution is unstable if scores of items in adjacent ranks are close to each other (\(|\mathit{slope}| \leq 0.25\)), and so a very small change in scores will lead to a change in the ranking. The ranking used to analyze the Chicago dataset resulted to be unstable both at top-10 (stability at 0.08) and overall (stability at 0.0), and the score distribution is displayed in Figure~\ref{fig:chicago_rankingfacts2}.
+\item \textbf{Stability}: this parameter explains whether the ranking methodology is robust on the specific dataset in use. Since an unstable ranking is one where slight changes to the data or to the methodology could lead to a significant change in the output, the label reports a stability score, as a single number that indicates the extent of the change required for the ranking to change. The stability of the ranking is quantified as the slope of the line that is fit to the score distribution, at the top-10 and overall. A score distribution is unstable if scores of items in adjacent ranks are close to each other (\(|\mathit{slope}| \leq 0.25\)), and so a very small change in scores leads to a change in the ranking. The ranking used to analyze the Chicago dataset resulted to be unstable both at top-10 (stability at 0.08) and overall (stability at 0.0), and the score distribution is displayed in Figure~\ref{fig:chicago_rankingfacts2}.
 
 \begin{figure}[t!]
 \centering
@@ -381,7 +381,7 @@ The histogram of Figure~\ref{fig:san_francisco_fair-db1} shows the distribution 
 \label{fig:san_francisco_fair-db1}
 \end{figure}
 
-Lastly, we performed a new \textbf{data reduction} operation by removing from the dataset the attributes \textit{Name} and \textit{Annual Salary}, since the tool will make use of the \textit{Annual Salary Bin} variable.
+Lastly, we performed a new \textbf{data reduction} operation by removing from the dataset the attributes \textit{Name} and \textit{Annual Salary}, since the tool makes use of the \textit{Annual Salary Bin} variable.
 \item \textbf{ACFD Discovery and filtering}: we used the compute capsule of the \textit{ACFD Discovery} algorithm as we did for the Chicago case, and we decided to keep the same parameter values: \textit{maximum~antecedent~size}~=~2 because the dataset does not contain many attributes, \textit{minimum~confidence}~=~0.8 to generate not too high a number of dependencies, and \textit{minimum~support}~=~100 because it is a reasonably low number if compared to the total number of tuples in the dataset and to the average amount of tuples for each \textit{Job Title} value (\(\frac{22,996}{81} \simeq 284\)).
 
 The text file generated by \textit{ACFD Discovery}, containing 586 dependencies, was then imported, parsed, and filtered in order to discard the rules not containing the target attribute and its value. This operation resulted in a reduction in the number of dependencies from 586 to 220. The automatic filtering operations performed by FAIR-DB further reduced this number from 220 to 61.
@@ -448,7 +448,7 @@ The following list summarizes our results by following the widget description li
 \label{fig:san_francisco_rankingfacts2}
 \end{figure}
 
-\item \textbf{Fairness}: recalling the fact that, for the statistical measures adopted, a ranking is considered unfair when the \(p\)-value of the corresponding test falls below 0.05, we will now recapitulate our fairness results:
+\item \textbf{Fairness}: recalling the fact that, for the statistical measures adopted, a ranking is considered unfair when the \(p\)-value of the corresponding test falls below 0.05, we now recapitulate our fairness results:
 \begin{itemize}
 \item \textbf{FA*IR}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 1.0, and \textit{unfair for females}, with an approximate \(p\)-value of 0.0.
 \item \textbf{Proportion}: the ranking resulted to be \textit{fair for males}, with an approximate \(p\)-value of 1.0, and \textit{unfair for females}, with an approximate \(p\)-value of 0.0.
@@ -478,7 +478,7 @@ The results seem to be oriented towards a biased dataset in favor of men, in con
 
 \section{Other Design Choices}
 The aim of this section is to document in a technical way some experiments made on the datasets previously analyzed -- Chicago and San Francisco -- in which different design decisions were taken. It is worth to emphasize once more the importance of human choices behind computer systems, in particular when dealing with sensitive concepts such as fairness, and we believe that by looking at the impact of other design decisions we can get a broader perspective on how the tools should be used.
-Because of the technical nature of this chapter, the socio-ethical impact of these choices, as well as the impact of other ones not mentioned in this section, will not be discussed here but in Chapter~\ref{chapter:results}.
+Because of the technical nature of this chapter, the socio-ethical impact of these choices, as well as the impact of other ones not mentioned in this section, are not discussed here but in Chapter~\ref{chapter:outcomes_contributions}.
 
 
 \subsection{Part-Time Employees Removal}
@@ -495,7 +495,7 @@ Furthermore, it is important to note that the Glassdoor report is meant to be a 
 \label{section:fair-db_discretization_8_bins}
 For both the Chicago and the San Francisco datasets, we decided to conduct a FAIR-DB analysis using more than just 2 bins. Therefore, we split the \textit{Annual Salary} values in 8 different interval levels (the K specification is implied): 0--39, 40--59, 60--79, 80--99, 100--119, 120--139, 140+.
 
-We will now briefly summarize our results, without going too much into the details of the algorithm but describing the most relevant differences in comparison with the 2-bin analysis.
+We now briefly summarize our results, without going too much into the details of the algorithm but describing the most relevant differences in comparison with the 2-bin analysis.
 
 \begin{itemize}
 \item \textbf{Chicago}: the preprocessed dataset is the same used for the 2-bin analysis, with 20,309 tuples of which 16,146 males and 4,163 females. The histogram of Figure~\ref{fig:chicago_8bins_fair-db1} shows the distribution of the \textit{Annual Salary} of employees over their \textit{Gender} attribute. As we can notice, most women are concentrated in the 80--99 bin, which is the most numerous overall, but the proportion between men and women in lower bins is unbalanced: more than 50\% of the employees in the 0--39 bin are females, even though women represent about \(\frac{1}{5}\) of the population of the dataset.
@@ -589,7 +589,7 @@ The index then provides correspondences between each job title and the major gro
 \label{fig:encodings}
 \end{figure}
 
-We will now provide the results of the analysis of the modified dataset:
+We now provide the results of the analysis of the modified dataset:
 \begin{itemize}
 \item \textbf{The `Glassdoor Method'}: we detected a bigger gap (in favor of men) in the average salaries of male and female employees for a few job title values. In particular, the most significant differences are related to job title 2 (professional occupations), in which the average income for men is \$102,539.79 while for women is \$73,827.52, and job title 6 (personal service occupations), in which the average income for men is \$75,868.14 while for women is \$42,134.53.
 
@@ -652,7 +652,7 @@ In contrast to the standard Chicago case and the outcomes of the other tools, th
 \label{section:voluntary_introduction_of_bias}
 In order to test the tools on a clearly biased dataset, we decided to modify the Chicago one by halving the \textit{Annual Salary} value of female employees. This kind of operations generates a \textbf{synthetic dataset}, that is, a dataset containing fake data, not reflecting the real world in which we live. In other words, from the tools perspective, modifying the dataset means modifying the reality, and even if this consideration is applicable to every operation performed on data, in this specific context the original dataset undergoes such an impactful change that it becomes, as mentioned before, synthetic. Recalling the concepts discussed in Chapter~\ref{chapter:socio-ethical_preliminaries}, we can say we voluntarily introduced some technical bias with the aim of simulating the presence of preexisting bias in the society. Our main reason for generating a synthetic dataset is, in fact, to test the tools on data that we know for sure to be discriminatory.
 
-Apart for the change in wage values of female employees, the preprocessed dataset is the same used in the standard Chicago case, with 20,309 tuples of which 16,146 males and 4,163 females. We will now provide the results of the analysis of the modified dataset:
+Apart for the change in wage values of female employees, the preprocessed dataset is the same used in the standard Chicago case, with 20,309 tuples of which 16,146 males and 4,163 females. We now provide the results of the analysis of the modified dataset:
 \begin{itemize}
 \item \textbf{The `Glassdoor Method'}: for the sake of brevity, we avoid reporting summary table, pivot table, and average salaries for men and women, since the information provided by them reflects the dramatic modification on the income of female employees.
 
@@ -729,7 +729,7 @@ The voluntary introduction of bias resulted, for each metric, in a change in the
 
 Lastly, we decided to examine the behavior of the tools on two other synthetic datasets, generated from the standard Chicago one, in which we retained respectively 75\% and 90\% of the \textit{Annual Salary} value of female employees, generating in fact two datasets `a little less biased' than the case just analyzed.
 
-Again, apart for the change in wage values of female employees, the preprocessed datasets are the same used in the standard Chicago case, with 20,309 tuples of which 16,146 males and 4,163 females. Without going too much into detail, we will now provide the results of the analysis of the modified datasets:
+Again, apart for the change in wage values of female employees, the preprocessed datasets are the same used in the standard Chicago case, with 20,309 tuples of which 16,146 males and 4,163 females. Without going too much into detail, we now provide the results of the analysis of the modified datasets:
 \begin{itemize}
 \item \textbf{The `Glassdoor Method'}: the algorithm detected an `adjusted' pay gap of 29.1\% and 10.9\% respectively, in line with our predictions. Indeed, we were expecting a more or less linear progression from the halved salary case (69.7\%) to the standard case (0.4\%). Both the results remain statistically significant.
 \item \textbf{FAIR-DB}: we conducted a 2-bin analysis with the usual \$90K threshold, keeping the same parameter values used in previous scenarios and applying the same criterion for the manual selection of the rules (target attribute in the RHS). At the end, we got respectively 43 and 22 dependencies.

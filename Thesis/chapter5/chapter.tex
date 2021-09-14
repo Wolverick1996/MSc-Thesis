@@ -1,21 +1,22 @@
 % !TEX root = ../thesis.tex
-\chapter{Techniques}
-\label{chapter:techniques}
+\chapter{Tools for Assessing Fairness}
+\label{chapter:tools_for_assessing_fairness}
 \thispagestyle{empty}
 
 The aim of this chapter is to provide the reader with an overview on the tools adopted in our experiments, recalling the technical concepts addressed in Chapter~\ref{chapter:technical_preliminaries}.
 
-We will describe the functioning behind:
+We describe the functioning behind:
 \begin{itemize}
 \item \textit{The `Glassdoor Method'}, a framework for evaluating gender pay gap which relies on linear regression.
 \item \textit{FAIR-DB}, an algorithm based on functional dependencies and the related evaluation metrics.
-\item \textit{Ranking Facts}, an application built on the idea of ranking which makes use, among other things, of some statistical concepts previously introduced.
+\item \textit{Ranking Facts}, an application built on the idea of ranking which makes use, among other things, of some of the statistical concepts previously introduced.
 \end{itemize}
+It is worth to specify that those mentioned above are not the only tools available with the aim of discovering bias and assessing fairness in data, but we decided to focus on them because they are recent and provide us with interesting and diversified points of view.
 
 
 \section{The `Glassdoor Method'}
 \label{section:the_glassdoor_method}
-After having explored the technical basics in Chapter~\ref{chapter:technical_preliminaries}, we will now make an overview of the tools used for this research. The first one is a technical guide to analyze gender pay gap in a company, provided by \textbf{Glassdoor} in \cite{chamberlain2017analyze}.
+After having explored the technical basics in Chapter~\ref{chapter:technical_preliminaries}, we now make an overview of the tools used for this research. The first one is a technical guide to analyze gender pay gap in a company, provided by \textbf{Glassdoor} in \cite{chamberlain2017analyze}.
 
 Glassdoor is a website in which employees and ex-employees of companies anonymously review enterprises and their superiors, with the overall aim of providing insights about jobs and companies and helping people find the most suitable working position for them. The society was founded in 2007 in the U.S. and the website was made available in 2008; since then, the company has grown to become the worldwide leader in the sector.
 
@@ -70,7 +71,7 @@ As documented in \cite{yang2018nutritional}, Ranking Facts is a collection of vi
 The \textit{ranked group fairness} criterion used by the algorithm compares the number of protected elements in every prefix of the ranking (i.e. the top-\(i\) positions of the ranking, with \(i \in [1, k]\)) with the expected number of protected elements if they were picked at random using Bernoulli trials (independent `coin tosses') with success probability \(p\). The statistical test also includes a significance parameter \(\alpha\), corresponding to the probability of a type I error, which means rejecting a fair ranking. A clarifying example is provided in Table~\ref{table:fa*ir_example}.
 
 \begin{table}[t!]
-\begin{tabularx}{\columnwidth}{|p{.85cm}|YYYYYYYYYYYY|}
+\begin{tabularx}{\columnwidth}{|>{\centering\arraybackslash}p{.85cm}|YYYYYYYYYYYY|}
 \hline
 \diagbox{\(p\)}{\(k\)} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
 \hline
