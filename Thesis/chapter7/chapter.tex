@@ -11,44 +11,44 @@ We first list and discuss the \textit{outcomes} and \textit{contributions} of ou
 \section{Outcomes}
 \label{section:outcomes}
 \begin{table}[t!]
-\begin{tabularx}{\columnwidth}{|Y|Y|}
+\begin{tabularx}{\columnwidth}{|>{\RaggedRight\arraybackslash}Y>{\RaggedRight\arraybackslash}Y|}
 \hline
-Strength & Weakness\\
+\multicolumn{1}{|c}{\textbf{Strength}} & \multicolumn{1}{c|}{\textbf{Weakness}}\\
 \hline
 \multicolumn{2}{|c|}{\textit{The `Glassdoor Method'}}\\
 \hline
-\begin{itemize}[topsep=0pt,leftmargin=*]
-\item \nohyphens{Shows impact of attributes on the dependent variable.}
-\item \nohyphens{Statistical approach precise and reliable.}
-\end{itemize} & \begin{itemize}[topsep=0pt,leftmargin=*]
-\item \nohyphens{No insights on attributes or attribute values.}
-\item \nohyphens{More useful for a company than for a broader analysis.}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+\item Shows impact of attributes on the dependent variable
+\item Statistical approach precise and reliable
+\end{itemize} & \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+\item No insights on attributes or attribute values
+\item More useful for a small scale analysis within a company than for a population analysis
 \end{itemize}\\
 \hline
 \multicolumn{2}{|c|}{\textit{FAIR-DB}}\\
 \hline
-\begin{itemize}[topsep=0pt,leftmargin=*]
-\item \nohyphens{Shows correlations between attribute values.}
-\item \nohyphens{Capable of detecting subgroup fairness.}
-\end{itemize} & \begin{itemize}[topsep=0pt,leftmargin=*]
-\item \nohyphens{Limited use of numerical attributes (bins required).}
-\item \nohyphens{Requires in-depth knowledge of the parameters.}
-\item \nohyphens{Undefined criterion for manual selection of rules.}
-\item \nohyphens{ACFD Discovery algorithm not embedded.}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+\item Shows correlations between attribute values
+\item Capable of detecting subgroup fairness
+\end{itemize} & \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+\item Limited use of numerical attributes (bins required)
+\item Requires in-depth knowledge of the parameters
+\item Undefined criterion for manual selection of rules
+\item ACFD Discovery algorithm not embedded
 \end{itemize}\\
 \hline
 \multicolumn{2}{|c|}{\textit{Ranking Facts}}\\
 \hline
-\begin{itemize}[topsep=0pt,leftmargin=*]
-\item \nohyphens{Diversity widget tries to address representativeness.}
-\item \nohyphens{Heatmap provides an overview of the correlations between attributes.}
-\item \nohyphens{Interesting top-\(k\) approach.}
-\item \nohyphens{User-friendly (Web).}
-\end{itemize} & \begin{itemize}[topsep=0pt,leftmargin=*]
-\item \nohyphens{No use of categorical attributes (conversion required).}
-\item \nohyphens{Lack of documentation.}\vspace{2\baselineskip}
-\item \nohyphens{Unclear stability information.}
-\item \nohyphens{Not scalable (Web).}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+\item Diversity widget tries to address representativeness
+\item Heatmap provides an overview of the correlations between attributes
+\item Interesting top-\(k\) approach
+\item User-friendly (Web)
+\end{itemize} & \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+\item No use of categorical attributes (conversion required)
+\item Lack of documentation\vspace{2\baselineskip}
+\item Unclear stability information
+\item Not scalable (Web)
 \end{itemize}\\
 \hline
 \end{tabularx}
@@ -59,7 +59,7 @@ Strength & Weakness\\
 
 Table~\ref{table:recap_strengths_weaknesses} provides an overview of the main strengths and weaknesses of the tools adopted for our experiments -- the `Glassdoor Method', FAIR-DB, and Ranking Facts. It is important to point out that, although this information is expressed as a bulleted list, the tool with the fewest bullet points is not necessarily the most simplistic, and the one with the most weaknesses is not necessarily the least preferable or complete. In addition, we are aware that the table is probably not exhaustive, and we emphasize that the points listed, as well as the considerations that follow, derive from our experiments and may therefore be partial or not completely generalizable.
 
-The most impactful limitation of the tools -- which we report here as it is part of the outcomes of our research -- in any case, is the fact that even though they all aim to achieve fairness not only through equality but also by taking equity into account (by privileging the group fairness criterion over the individual fairness one), they practically fail in capturing the several facets of equity. Recalling the classification made in Section~\ref{section:equality_equity}, we proved how inefficient these instruments are in capturing \textit{representation equity} (disparities rooted in historical discrimination can lead to representation inequities); \textit{feature equity} (not all the features needed to represent a marginalized group and required for a particular analysis are available in the data) is not addressed at all, since the tools do not have knowledge on the context, and therefore they cannot, for example, infer what the relevant attributes for the specific analysis may be and inform the user on what is missing; and neither are addressed \textit{access equity} (bias may arise because of a non-equitable and participatory access to data and data products across domains and levels of expertise) and \textit{outcome equity} (bias may arise because of a lack of monitoring and mitigation of unintended consequences for any group affected by the system after deployment).
+The most impactful limitation of the tools -- which we report here as it is part of the outcomes of our research -- in any case, is the fact that even though they all aim to achieve fairness not only through equality but also by taking equity into account (by privileging the group fairness criterion over the individual fairness one), they practically fail in capturing the several facets of equity. Recalling the classification made in Section~\ref{section:equality_equity}, we proved how inefficient these instruments are in capturing \textit{representation equity} (disparities rooted in historical discrimination can lead to representation inequities); \textit{feature equity} (not all the features needed to represent a marginalized group and required for a particular analysis are available in the data) is not addressed at all, since the tools do not have knowledge on the context, and therefore they cannot, for example, infer what the relevant attributes for the specific analysis may be and inform the user on what is missing; and neither are addressed \textit{access equity} (bias may arise because of a non-equitable and participatory access to data and data products across domains and levels of expertise) nor \textit{outcome equity} (bias may arise because of a lack of monitoring and mitigation of unintended consequences for any group affected by the system after deployment).
 
 Shifting the focus from tools to datasets, and combining the sociological research with the technological results of our analysis, we can highlight two main issues related to gender discrimination: a \textit{representation problem}, related to the disproportion in the percentage of women employed in different sectors, and a \textit{part-time problem}, due to the higher number of women employed in part-time jobs, typically less paid than full-time ones.
 
@@ -90,33 +90,33 @@ Although our research provided us with some significant results, there are of co
 We tried to group limitations according to their nature (sociological, technological, design), even though the source of a constraint is usually not unique and well defined but heterogeneous. Table~\ref{table:recap_limitations} displays a summary of the main limitations to which we were subjected, while a more detailed description of the same is provided below.
 
 \begin{table}[t!]
-\begin{tabularx}{\columnwidth}{|Y|>{\centering\arraybackslash}p{1.5cm}|}
+\begin{tabularx}{\columnwidth}{|>{\RaggedRight\arraybackslash}Y>{\centering\arraybackslash}p{1.5cm}|}
 \hline
-Limitation & Nature\\
+\multicolumn{1}{|c}{\textbf{Limitation}} & \textbf{Nature}\\
 \hline
-\begin{itemize}[topsep=0pt,leftmargin=*]
-\item \nohyphens{Non-specific literature.}
-\item \nohyphens{No direct insights from U.S. workers.}
-\item \nohyphens{Original datasets already partial or possibly grouped.}
-\item \nohyphens{\texttt{gender-guesser}: accuracy; assumptions on mostly\_male and mostly\_female names; andy and unknown occurrences.}
-\item \nohyphens{Removal of job titles with less than 100 occurrences.}
-\item \nohyphens{Representation and other facets of equity (feature, access, outcome) not taken into account.}
-\item \nohyphens{FAIR-DB: parameter values; manual selection of rules; number of bins. [Table~\ref{table:recap_strengths_weaknesses}]}
-\item \nohyphens{Ranking Facts: lack of documentation; notebook version. [Table~\ref{table:recap_strengths_weaknesses}]}
-\item \nohyphens{Manual grouping of job titles performed using a non-U.S.-specific document.}
-\item \nohyphens{Voluntary introduction of bias produces synthetic dataset.}
-\end{itemize} & \begin{itemize}[label={},topsep=0pt,leftmargin=*]
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
+\item Non-specific literature
+\item No direct insights from U.S. workers
+\item Original datasets already partial or possibly grouped
+\item \texttt{gender-guesser}: accuracy; assumptions on mostly male and mostly female names; andy and unknown occurrences
+\item Removal of job titles with less than 100 occurrences
+\item Representation and other facets of equity (feature, access, outcome) not taken into account
+\item FAIR-DB: parameter values; manual selection of rules; number of bins [Table~\ref{table:recap_strengths_weaknesses}]
+\item Ranking Facts: lack of documentation; notebook version [Table~\ref{table:recap_strengths_weaknesses}]
+\item Manual grouping of job titles performed using a non-U.S.-specific document
+\item Synthetic dataset generated through voluntary introduction of bias not reflecting real world
+\end{itemize} & \begin{itemize}[label={},noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,leftmargin=*]
 \centering
-\item \nohyphens{S}
-\item \nohyphens{S}
-\item \nohyphens{T}
-\item \nohyphens{T/D}\vspace{\baselineskip}
-\item \nohyphens{D}
-\item \nohyphens{T}\vspace{\baselineskip}
-\item \nohyphens{T/D}\vspace{\baselineskip}
-\item \nohyphens{T/D}\vspace{\baselineskip}
-\item \nohyphens{S/D}\vspace{\baselineskip}
-\item \nohyphens{T}
+\item S
+\item S
+\item T
+\item T/D\vspace{\baselineskip}
+\item D
+\item T\vspace{\baselineskip}
+\item T/D\vspace{\baselineskip}
+\item T/D\vspace{\baselineskip}
+\item S/D\vspace{\baselineskip}
+\item T
 \end{itemize}\\
 \hline
 \end{tabularx}

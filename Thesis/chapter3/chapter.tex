@@ -135,11 +135,11 @@ One of the tools adopted, FAIR-DB, uses specific classes of integrity constraint
 \textbf{Functional Dependencies (FDs)} are a specific type of dependency, involving two (sets of) attributes of the same relation in which the first uniquely determines the second or, in other words, knowing the value of one attribute (or set of attributes) is enough to tell the value of the other one. The notation to indicate a functional dependency is: \[A \rightarrow B\] which can be read as `\(B\) is functionally dependent upon \(A\)', or `\(A\) uniquely determines \(B\)', whereas \(A\) and \(B\) are attributes (or eventually sets of attributes) of a table. \(A\) is called antecedent, or \textit{left-hand-side (LHS)}, and \(B\) consequent, or \textit{right-hand-side (RHS)}. An example of functional dependency could be the one of a table containing the information about the employees of a company, as in Figure~\ref{fig:relational_model}. Here the \(\mathit{ID}\) attribute uniquely identifies the \(\mathit{Name}\) one, because by knowing the employee's ID we can tell what the employee's name is. Therefore, \(\mathit{ID} \rightarrow \mathit{Name}\). More specifically, since also the employee's surname and gender are uniquely identified by the ID, we can write \(\mathit{ID} \rightarrow \mathit{Name}, \mathit{Surname}, \mathit{Gender}\). Another example is provided in Table~\ref{table:orange_plantation}, in which \(\mathit{Temperature}, \mathit{pH}, \mathit{Season} \rightarrow \mathit{Ideal}\).
 
 \begin{table}[t!]
-\begin{tabularx}{\columnwidth}{|Y|Y|Y|Y|}
+\begin{tabularx}{\columnwidth}{|YYYY|}
 \hline
-\multicolumn{4}{|c|}{Orange Plantation}\\
+\multicolumn{4}{|c|}{\textbf{Orange Plantation}}\\
 \hline
-Temperature & pH & Season & Ideal\\
+\textbf{Temperature} & \textbf{pH} & \textbf{Season} & \textbf{Ideal}\\
 \hline
 28 & 7 & Autumn & Y\\
 20 & 7 & Autumn & N\\
