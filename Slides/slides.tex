@@ -23,11 +23,6 @@
     \end{frame}
     
     
-    \begin{frame}{Table of contents}
-      \tableofcontents
-    \end{frame}
-    
-    
     \begin{frame}{Research Context}
         \begin{block}{Data analysis}
             Set of processes for inspecting, cleaning, transforming, and modeling data with the aim of discovering useful information, informing conclusions, and supporting decision making.
@@ -69,6 +64,64 @@
             \hfill
             \subfloat{\includegraphics[width=0.475\textwidth]{figures/dol_stem_percent_women.pdf}}
         \end{figure}
+    \end{frame}
+    
+    
+    \begin{frame}{Tools for Assessing Fairness}
+        \begin{itemize}
+            \item \textit{The `Glassdoor Method'}: a framework for evaluating gender pay gap which relies on \textbf{linear regression}.
+            \item \textit{FAIR-DB}: an algorithm to detect bias in data based on \textbf{functional dependencies} and the related evaluation metrics.
+            \item \textit{Ranking Facts}: an application built on the idea of \textbf{ranking} which makes use of three statistical measures to evaluate fairness.
+        \end{itemize}
+    \end{frame}
+    
+    
+    \begin{frame}{Case Study 1: Chicago}
+        \begin{itemize}
+            \item \textbf{Data Preprocessing}: 20,309 tuples, of which 16,146 males and 4,163 females, and with 35 distinct \textit{Job Title} values and 20 distinct \textit{Department} values.\newline
+            \item \textbf{The `Glassdoor Method'}: 24.2\% `unadjusted' pay gap; 0.4\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap.
+            \item \textbf{FAIR-DB}: 6 final functional dependencies; 11.4\% of the dataset `problematic' $\rightarrow$ dataset quite fair.
+            \item \textbf{Ranking Facts}: dataset fair for both males and females, for each statistical measure.
+        \end{itemize}
+    \end{frame}
+    
+    
+    \begin{frame}{Case Study 1: Chicago}
+        \begin{figure}
+            \subfloat{\includegraphics[width=0.475\textwidth]{figures/chicago_2bins_annual_salary_over_gender.pdf}}
+            \hfill
+            \subfloat{\includegraphics[width=0.475\textwidth]{figures/chicago_rankingfacts1.png}}
+        \end{figure}
+    \end{frame}
+    
+    
+    \begin{frame}{Case Study 2: San Francisco}
+        \begin{itemize}
+            \item \textbf{Data Preprocessing}: 22,996 tuples, of which 13,688 males and 9,308 females, and with 81 distinct \textit{Job Title} values.\newline
+            \item \textbf{The `Glassdoor Method'}: 30.4\% `unadjusted' pay gap; -0.5\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap.
+            \item \textbf{FAIR-DB}: 10 final functional dependencies; 24.3\% of the dataset `problematic' $\rightarrow$ dataset quite fair because of the low values of \textit{difference} (`unfairness level') and \textit{support} (number of tuples involved), but for higher-paying jobs men seem to have an economic advantage over women.
+            \item \textbf{Ranking Facts}: dataset fair for males and unfair for females, for each statistical measure $\rightarrow$ proportion of women in the top-\(k\) ranking effectively very low.
+        \end{itemize}
+    \end{frame}
+    
+    
+    \begin{frame}{Case Study 2: San Francisco}
+        \begin{figure}
+            \subfloat{\includegraphics[width=0.475\textwidth]{figures/san_francisco_2bins_annual_salary_over_gender.pdf}}
+            \hfill
+            \subfloat{\includegraphics[width=0.475\textwidth]{figures/san_francisco_rankingfacts1.png}}
+        \end{figure}
+    \end{frame}
+    
+    
+    \begin{frame}{Other Design Choices}
+        \begin{itemize}
+            \item \textbf{Part-time employees removal}: most of the tuples removed related to women (Chicago); excessive amount of tuples removed (San Francisco).
+            \item \textbf{FAIR-DB: discretization using more bins}: less and different final dependencies detected (Chicago and San Francisco).
+            \item \textbf{FAIR-DB: choice of different dependencies}: 85.6\% (Chicago) and 92.5\% (San Francisco) of the dataset `problematic'.
+            \item \textbf{Grouping of job titles}: overturning of the outcomes for Ranking Facts (Chicago dataset unfair for males and fair for females, for each statistical measure).
+            \item \textbf{Voluntary introduction of bias}: results from each tool oriented toward unfair Chicago dataset, in which women are discriminated against (retaining 50\%, 75\%, and 90\% of the \textit{Annual Salary} value of female employees).
+        \end{itemize}
     \end{frame}
 
     
