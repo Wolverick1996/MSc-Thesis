@@ -8,10 +8,10 @@ Gender - Difference Mean:  0.124
 
 
 Total number of ACFDs selected:  2
-                                        Rule  Supp  Conf  Diff  GenderDiff  Mean
+                                       Rule  Supp  Conf  Diff  GenderDiff  Mean
 156 {`lhs': {`Gender': `male',
-              `Job Title': `ADMINISTRATIVE ASST II'},
-      `rhs': {`Annual Salary Bin': `40-59'}}  0.00  0.44  0.23        0.23  0.11
+             `Job Title': `ADMINISTRATIVE ASST II'},
+     `rhs': {`Annual Salary Bin': `40-59'}}  0.00  0.44  0.23        0.23  0.11
 161 {`lhs': {`Gender': `female',
-              `Job Title': `ADMINISTRATIVE ASST II'},
-      `rhs': {`Annual Salary Bin': `60-79'}}  0.00  0.80  0.02        0.02  0.01
+             `Job Title': `ADMINISTRATIVE ASST II'},
+     `rhs': {`Annual Salary Bin': `60-79'}}  0.00  0.80  0.02        0.02  0.01
