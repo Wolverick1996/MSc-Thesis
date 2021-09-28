@@ -7,7 +7,27 @@
 \usepackage{array,multirow,booktabs}
 \usepackage{lipsum}
 \usepackage[font=scriptsize]{caption}
+\usepackage{microtype}
 \usepackage{subfig}
+\usepackage[hyphens]{xurl}
+\usepackage{hyperref}
+\setbeamertemplate{frametitle continuation}{}
+
+\usepackage[natbib=true,citestyle=authoryear,bibstyle=numeric,backend=bibtex]{biblatex}
+\setlength\bibitemsep{1.5\itemsep}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+\renewcommand*{\bibfont}{\footnotesize}
+%\setbeamertemplate{bibliography item}{}
+\defbibenvironment{bibliography}
+  {\list
+     {}
+     {\setlength{\leftmargin}{\bibhang}%
+      \setlength{\itemindent}{-\leftmargin}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+\addbibresource{references.bib}
 
 % Full instructions available at:
 % https://github.com/elauksap/beamerthemepolimi
@@ -30,7 +50,7 @@
         \begin{block}{Gender discrimination}
             Specific (sub)category of social problems, here expressed in the form of the so-called `\textbf{gender gap}', definable as:
             \begin{quote}
-            \emph{A difference between the way men and women are treated in society, or between what men and women do and achieve.}
+            \emph{A difference between the way men and women are treated in society, or between what men and women do and achieve.} \parencite{cambridge2013gender}
             \end{quote}
         \end{block}
     \end{frame}
@@ -42,10 +62,23 @@
         \end{block}
         \begin{exampleblock}{Example scenarios}
             \begin{itemize}
-                \item \textcolor{greenPolimi}{COMPAS} tool used in the U.S. to predict recidivism risk biased against Black people (2016).
-                \item \textcolor{greenPolimi}{Amazon} software to screen candidates for employment biased against women (2015).
+                \item \textcolor{greenPolimi}{COMPAS} tool used in the U.S. to predict recidivism risk biased against Black people. \emph{\parencite{angwin2016machine}}
+                \item \textcolor{greenPolimi}{Amazon} software to screen candidates for employment biased against women. \emph{\parencite{dastin2018amazon}}
             \end{itemize}
         \end{exampleblock}
+    \end{frame}
+    
+    
+    \begin{frame}{Sociological Perspective}
+        \begin{block}{Global Gender Gap Index}
+            Cumulative measure for ranking countries which benchmarks national gender gaps on economic, education, health, and political criteria.
+        \end{block}
+        U.S. ranking: 49/144, overall score: 0.718 (1 = gender parity)\newline $\rightarrow$ men more participatory in labor force; women tend to earn less than men, be employed part-time, or not to be paid for their work, and are underrepresented in managerial and higher-paying jobs.\newline\newline Some possible reasons:
+        \begin{itemize}
+            \item Statistical discrimination.
+            \item Institutional environment.
+            \item Unequal bargaining power.
+        \end{itemize}
     \end{frame}
     
     
@@ -69,9 +102,9 @@
     
     \begin{frame}{Tools for Assessing Fairness}
         \begin{itemize}
-            \item \textit{The `Glassdoor Method'}: a framework for evaluating gender pay gap which relies on \textbf{linear regression}.
-            \item \textit{FAIR-DB}: an algorithm to detect bias in data based on \textbf{functional dependencies} and the related evaluation metrics.
-            \item \textit{Ranking Facts}: an application built on the idea of \textbf{ranking} which makes use of three statistical measures to evaluate fairness.
+            \item \textit{The `Glassdoor Method'}: a framework for evaluating gender pay gap which relies on \textbf{linear regression}. \emph{\parencite{chamberlain2017analyze}}
+            \item \textit{FAIR-DB}: an algorithm to detect bias in data based on \textbf{functional dependencies} and the related evaluation metrics. \emph{\parencite{azzalini2021fair}}
+            \item \textit{Ranking Facts}: an application built on the idea of \textbf{ranking} which makes use of three statistical measures to evaluate fairness. \emph{\parencite{yang2018nutritional}}
         \end{itemize}
     \end{frame}
     
@@ -98,7 +131,7 @@
     \begin{frame}{Case Study 2: San Francisco}
         \begin{itemize}
             \item \textbf{Data Preprocessing}: 22,996 tuples, of which 13,688 males and 9,308 females, and with 81 distinct \textit{Job Title} values.\newline
-            \item \textbf{The `Glassdoor Method'}: 30.4\% `unadjusted' pay gap; -0.5\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap.
+            \item \textbf{The `Glassdoor Method'}: 30.4\% `unadjusted' pay gap; \(-\)5\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap.
             \item \textbf{FAIR-DB}: 10 final functional dependencies; 24.3\% of the dataset `problematic' $\rightarrow$ dataset quite fair because of the low values of \textit{difference} (`unfairness level') and \textit{support} (number of tuples involved), but for higher-paying jobs men seem to have an economic advantage over women.
             \item \textbf{Ranking Facts}: dataset fair for males and unfair for females, for each statistical measure $\rightarrow$ proportion of women in the top-\(k\) ranking effectively very low.
         \end{itemize}
@@ -123,58 +156,54 @@
             \item \textbf{Voluntary introduction of bias}: results from each tool oriented toward unfair Chicago dataset, in which women are discriminated against (retaining 50\%, 75\%, and 90\% of the \textit{Annual Salary} value of female employees).
         \end{itemize}
     \end{frame}
-
-    
-    \section{Section 1}
-    % Section page.
-    \begin{frame}[plain]{}
-        \sectionpage
-    \end{frame}
     
     
-    \begin{frame}{Slide 1}
-        \lipsum[1]
-    \end{frame}
-    
-    
-    \subsection{Subsection 1.1}
-    \begin{frame}[plain]{}
-        \subsectionpage
-    \end{frame}
-    \begin{frame}
-        This frame has an empty title.
-        \vfill
+    \begin{frame}{Outcomes}
         \begin{itemize}
-            \item item 1
-            \begin{itemize}
-                \item item 1.1
-                \item item 1.2
-            \end{itemize}
-            \item item 2
-            \item item 3
+            \item Strengths and weaknesses of the tools highlight their non-exhaustiveness and complementarity.
+            \item Tools practically fail in capturing the several facets of \textit{equity}.
+            \item \textbf{Representation problem}: disproportion in the percentage of women employed in different sectors.
+            \item \textbf{Part-time problem}: higher number of women employed in part-time jobs, typically less paid than full-time ones.
         \end{itemize}
     \end{frame}
     
     
-    \subsection{Subsection 1.2}
-    % Slide without numbering.
-    \begin{frame}[nonumber]{Slide 1.2 without numbering}
-        \lipsum[2]
+    \begin{frame}{Contributions}
+        \begin{itemize}
+            \item Fairness is a multifaceted concept which cannot be exhausted by providing a single definition and pursuing that specific definition experimentally (Chouldechova's impossibility theorem).
+            \item Tools are susceptible to decisional choices, and therefore users must be properly trained on the specific area of analysis.
+            \item Double perspective on the gender pay gap issue emphasized the importance of multidisciplinarity, especially when dealing with problems of an ethical and sociological nature.
+        \end{itemize}
     \end{frame}
     
     
-    \section[Short]{Section 2}
-    \begin{frame}{Slide 2}
-        \begin{block}{Block}
-            Text.
-        \end{block}
-        \pause
-        \begin{alertblock}{Alert block}
-            Alert \alert{text}.
-        \end{alertblock}
-        \pause
-        \begin{exampleblock}{Example block}
-            Example \textcolor{greenPolimi}{text}.
-        \end{exampleblock}
+    \begin{frame}{Limitations}
+        \begin{itemize}
+            \item Non-specific literature.
+            \item No direct insights from U.S. workers.
+            \item Original datasets already partial or possibly grouped.
+            \item \texttt{gender-guesser} (package to infer employees' gender).
+            \item Removal of job titles with less than 100 occurrences.
+            \item Representation and other facets of equity not taken into account.
+            \item FAIR-DB: parameter values; manual selection of rules; number of bins.
+            \item Ranking Facts: lack of documentation; notebook version.
+            \item Manual grouping of job titles performed using a non-U.S.-specific document.
+            \item Synthetic dataset generated through voluntary introduction of bias not reflecting the real world.
+        \end{itemize}
+    \end{frame}
+    
+    
+    \begin{frame}{Future Work}
+        \begin{itemize}
+            \item Combine all the tools in a unique, more complete instrument, possibly trying to encompass even more facets of equity, or more definitions of fairness.
+            \item Support analyses of these kind by sociological research.
+            \item Enrich sociological research by conducting an interview with workers and HR practitioners of the cities under study.
+            \item Retrieve further information in support of the mere data and create effective documentation, possibly pointing at \textbf{context-awareness} (provide the tools with knowledge on the context of use).
+        \end{itemize}
+    \end{frame}
+    
+    
+    \begin{frame}[allowframebreaks]{References}
+        \printbibliography
     \end{frame}
 \end{document}
