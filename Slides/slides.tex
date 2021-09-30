@@ -11,6 +11,9 @@
 \usepackage{subfig}
 \usepackage[hyphens]{xurl}
 \usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+\DeclareMathSymbol{\mlq}{\mathrel}{operators}{``}
+\DeclareMathSymbol{\mrq}{\mathrel}{operators}{`'}
 \setbeamertemplate{frametitle continuation}{}
 
 \usepackage[natbib=true,citestyle=authoryear,bibstyle=numeric,backend=bibtex]{biblatex}
@@ -69,15 +72,26 @@
     \end{frame}
     
     
+    \begin{frame}{Methodology}
+        \textbf{Dual perspective} on the problem: qualitative and conceptual approach typical of sociology combined with technical and pragmatic approach of engineering and computer science.
+        	\begin{itemize}
+        	    \item Systematic literature review.
+        	    \item Experimental case studies through Python and Jupyter Notebook to verify not only whether or not men and women are paid fairly, but also if there are other collateral issues related to gender discrimination in the data and what tools can possibly catch them.
+        	    \item Technical results discussed in the light of the sociological background.
+        	\end{itemize}
+        	 We try to understand to what extent the problem is to be found in the \textit{instrumentation and technical choices} and to what extent it is instead rooted in \textit{society}.
+    \end{frame}
+    
+    
     \begin{frame}{Sociological Perspective}
         \begin{block}{Global Gender Gap Index}
             Cumulative measure for ranking countries which benchmarks national gender gaps on economic, education, health, and political criteria.
         \end{block}
         U.S. ranking: 49/144, overall score: 0.718 (1 = gender parity)\newline $\rightarrow$ men more participatory in labor force; women tend to earn less than men, be employed part-time, or not to be paid for their work, and are underrepresented in managerial and higher-paying jobs.\newline\newline Some possible reasons:
         \begin{itemize}
-            \item Statistical discrimination.
-            \item Institutional environment.
-            \item Unequal bargaining power.
+            \item Statistical discrimination \emph{\parencite{tilcsik2021statistical}}
+            \item Institutional environment \emph{\parencite{beggs1995institutional}}
+            \item Unequal bargaining power \emph{\parencite{folbre2021gender}}
         \end{itemize}
     \end{frame}
     
@@ -103,15 +117,51 @@
     \begin{frame}{Tools for Assessing Fairness}
         \begin{itemize}
             \item \textit{The `Glassdoor Method'}: a framework for evaluating gender pay gap which relies on \textbf{linear regression}. \emph{\parencite{chamberlain2017analyze}}
+        \end{itemize}
+        \begin{block}{Linear regression}
+            \begin{columns}
+                \begin{column}{0.4715\textwidth}
+                    Preprocessing technique used to smooth out noise or to find patterns within a dataset, which attempts to model the relationship between two or more variables by fitting data to a linear equation. \[y = \beta_0 + \beta_1x + \epsilon\]
+                \end{column}
+                \begin{column}{0.4715\textwidth}
+                    \begin{center}
+                        \includegraphics[width=\textwidth]{figures/simple_linear_regression.pdf}
+                    \end{center}
+                \end{column}
+            \end{columns}
+        \end{block}
+    \end{frame}
+    
+    
+    \begin{frame}{Tools for Assessing Fairness}
+        \begin{itemize}
             \item \textit{FAIR-DB}: an algorithm to detect bias in data based on \textbf{functional dependencies} and the related evaluation metrics. \emph{\parencite{azzalini2021fair}}
+        \end{itemize}
+        \begin{block}{Functional Dependencies (FDs)}
+            Constraint involving two (sets of) attributes of the same relation in which the first \textit{uniquely determines} the second.
+        \end{block}
+        \begin{block}{Approximate Conditional Functional Dependencies (ACFDs)}
+            FDs holding on a subset of tuples (Approximate) which use conditions on attribute values to specify the subset on which they hold (Conditional).
+            \[\mathit{Status} = \mlq \mathrm{F} \mrq, \mathit{Gender} = \mlq \mathrm{female} \mrq \rightarrow \mathit{Annual Salary Bin} = \mlq \leq \mathrm{90K} \mrq\]
+        \end{block}
+    \end{frame}
+    
+    
+    \begin{frame}{Tools for Assessing Fairness}
+        \begin{itemize}
             \item \textit{Ranking Facts}: an application built on the idea of \textbf{ranking} which makes use of three statistical measures to evaluate fairness. \emph{\parencite{yang2018nutritional}}
+            \begin{itemize}
+                \item \textbf{FA*IR}: compares the number of protected elements in every prefix of the ranking (i.e., the top-\(i\) positions, with \(i \in [1, k]\)) with the expected number of protected elements if they were picked at random using Bernoulli trials with success probability \(p\).
+                \item \textbf{Proportion}: statistical measure based on the concept of \textit{(two sample) z-test} -- particular type of hypothesis test which allows to compare two proportions to check whether they are the same or not.
+                \item \textbf{Pairwise}: compares options in pairs and determines which is the preferred choice or has the highest level of importance based on defined criteria. At the end of the comparison process, each option has a rank or relative rating as compared to the others.
+            \end{itemize}
         \end{itemize}
     \end{frame}
     
     
     \begin{frame}{Case Study 1: Chicago}
         \begin{itemize}
-            \item \textbf{Data Preprocessing}: 20,309 tuples, of which 16,146 males and 4,163 females, and with 35 distinct \textit{Job Title} values and 20 distinct \textit{Department} values.\newline
+            \item \textbf{Data preprocessing}: 20,309 tuples, of which 16,146 males and 4,163 females, and with 35 distinct \textit{Job Title} values and 20 distinct \textit{Department} values.\newline
             \item \textbf{The `Glassdoor Method'}: 24.2\% `unadjusted' pay gap; 0.4\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap.
             \item \textbf{FAIR-DB}: 6 final functional dependencies; 11.4\% of the dataset `problematic' $\rightarrow$ dataset quite fair.
             \item \textbf{Ranking Facts}: dataset fair for both males and females, for each statistical measure.
@@ -130,7 +180,7 @@
     
     \begin{frame}{Case Study 2: San Francisco}
         \begin{itemize}
-            \item \textbf{Data Preprocessing}: 22,996 tuples, of which 13,688 males and 9,308 females, and with 81 distinct \textit{Job Title} values.\newline
+            \item \textbf{Data preprocessing}: 22,996 tuples, of which 13,688 males and 9,308 females, and with 81 distinct \textit{Job Title} values.\newline
             \item \textbf{The `Glassdoor Method'}: 30.4\% `unadjusted' pay gap; \(-\)5\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap.
             \item \textbf{FAIR-DB}: 10 final functional dependencies; 24.3\% of the dataset `problematic' $\rightarrow$ dataset quite fair because of the low values of \textit{difference} (`unfairness level') and \textit{support} (number of tuples involved), but for higher-paying jobs men seem to have an economic advantage over women.
             \item \textbf{Ranking Facts}: dataset fair for males and unfair for females, for each statistical measure $\rightarrow$ proportion of women in the top-\(k\) ranking effectively very low.
@@ -162,6 +212,9 @@
         \begin{itemize}
             \item Strengths and weaknesses of the tools highlight their non-exhaustiveness and complementarity.
             \item Tools practically fail in capturing the several facets of \textit{equity}.
+            \begin{block}{Equity}
+                The idea that people should have access to resources (possibly of a different nature and to a different extent) in order to be able to reach the same condition.
+            \end{block}
             \item \textbf{Representation problem}: disproportion in the percentage of women employed in different sectors.
             \item \textbf{Part-time problem}: higher number of women employed in part-time jobs, typically less paid than full-time ones.
         \end{itemize}
@@ -170,25 +223,30 @@
     
     \begin{frame}{Contributions}
         \begin{itemize}
-            \item Fairness is a multifaceted concept which cannot be exhausted by providing a single definition and pursuing that specific definition experimentally (Chouldechova's impossibility theorem).
+            \item Fairness is a multifaceted concept which cannot be exhausted by providing a single definition and pursuing that specific definition experimentally.
             \item Tools are susceptible to decisional choices, and therefore users must be properly trained on the specific area of analysis.
             \item Double perspective on the gender pay gap issue emphasized the importance of multidisciplinarity, especially when dealing with problems of an ethical and sociological nature.
         \end{itemize}
     \end{frame}
     
     
-    \begin{frame}{Limitations}
+    \begin{frame}{(Some) Limitations}
         \begin{itemize}
-            \item Non-specific literature.
-            \item No direct insights from U.S. workers.
-            \item Original datasets already partial or possibly grouped.
-            \item \texttt{gender-guesser} (package to infer employees' gender).
-            \item Removal of job titles with less than 100 occurrences.
-            \item Representation and other facets of equity not taken into account.
-            \item FAIR-DB: parameter values; manual selection of rules; number of bins.
-            \item Ranking Facts: lack of documentation; notebook version.
-            \item Manual grouping of job titles performed using a non-U.S.-specific document.
-            \item Synthetic dataset generated through voluntary introduction of bias not reflecting the real world.
+            \item Sociological
+            \begin{itemize}
+                \item Non-specific literature
+                \item No direct insights from U.S. workers
+            \end{itemize}
+            \item Technical
+            \begin{itemize}
+                \item Original datasets already partial or possibly grouped
+                \item \texttt{gender-guesser} (package to infer employees' gender)
+            \end{itemize}
+            \item Design
+            \begin{itemize}
+                \item Removal of job titles with less than 100 occurrences
+                \item FAIR-DB: parameter values; manual selection of rules; number of bins
+            \end{itemize}
         \end{itemize}
     \end{frame}
     
@@ -196,10 +254,17 @@
     \begin{frame}{Future Work}
         \begin{itemize}
             \item Combine all the tools in a unique, more complete instrument, possibly trying to encompass even more facets of equity, or more definitions of fairness.
-            \item Support analyses of these kind by sociological research.
+            \item Support analyses of this kind by sociological research.
             \item Enrich sociological research by conducting an interview with workers and HR practitioners of the cities under study.
             \item Retrieve further information in support of the mere data and create effective documentation, possibly pointing at \textbf{context-awareness} (provide the tools with knowledge on the context of use).
         \end{itemize}
+    \end{frame}
+    
+    
+    \begin{frame}
+        \centering \huge Thank you!\\
+        \vspace{\baselineskip}
+        \centering \Large Any question?
     \end{frame}
     
     
