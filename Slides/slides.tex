@@ -1,14 +1,16 @@
 \documentclass[usenames,dvipsnames]{beamer}
 
 \usetheme[bgphoto]{polimi}
+\definecolor{defaultBlue}{rgb}{0.2,0.2,0.7}
 % \usetheme{Madrid}
 \usepackage[utf8]{inputenc}
 \usepackage{appendixnumberbeamer}
 \usepackage{array,multirow,booktabs}
 \usepackage{lipsum}
 \usepackage[font=scriptsize]{caption}
+\usepackage{subcaption}
 \usepackage{microtype}
-\usepackage{subfig}
+\usepackage{soul}
 \usepackage[hyphens]{xurl}
 \usepackage{hyperref}
 \usepackage{amsmath,amssymb}
@@ -20,7 +22,6 @@
 \setlength\bibitemsep{1.5\itemsep}
 \renewcommand*{\nameyeardelim}{\addcomma\space}
 \renewcommand*{\bibfont}{\footnotesize}
-%\setbeamertemplate{bibliography item}{}
 \defbibenvironment{bibliography}
   {\list
      {}
@@ -51,7 +52,7 @@
             Set of processes for inspecting, cleaning, transforming, and modeling data with the aim of discovering useful information, informing conclusions, and supporting decision making.
         \end{block}
         \begin{block}{Gender discrimination}
-            Specific (sub)category of social problems, here expressed in the form of the so-called `\textbf{gender gap}', definable as:
+            Specific (sub)category of social problems, here expressed in the form of the so-called `{\usebeamercolor[fg]{structure}gender gap}', definable as:
             \begin{quote}
             \emph{A difference between the way men and women are treated in society, or between what men and women do and achieve.} \parencite{cambridge2013gender}
             \end{quote}
@@ -61,33 +62,46 @@
     
     \begin{frame}{Scenarios \& Problem Statement}
         \begin{block}{Problem}
-            Data and datasets, on which a lot of actions of our daily routine are based, can be \textbf {unfair}. Unfair, or better to say, \textbf{biased} data, may influence, directly or indirectly, our perception of reality, and lead us to make decisions that, although seemingly fair and just, contain in turn bias, and discriminate against individuals or groups of individuals.
+            Data and datasets, on which algorithms that regulate our daily life are based, can be {\usebeamercolor[fg]{structure}unfair}. Unfair, or better to say, {\usebeamercolor[fg]{structure}biased} data, may influence our perception of reality, and lead us (or the algorithms in our place) to make decisions that, although seemingly fair and just, contain in turn bias, and discriminate against individuals or groups of individuals.
         \end{block}
         \begin{exampleblock}{Example scenarios}
             \begin{itemize}
-                \item \textcolor{greenPolimi}{COMPAS} tool used in the U.S. to predict recidivism risk biased against Black people. \emph{\parencite{angwin2016machine}}
-                \item \textcolor{greenPolimi}{Amazon} software to screen candidates for employment biased against women. \emph{\parencite{dastin2018amazon}}
+                \setbeamercolor{itemize item}{fg=greenPolimi}
+                \item \textcolor{greenPolimi}{COMPAS} tool used in the U.S. to predict recidivism risk biased against Black people \emph{\parencite{angwin2016machine}}
+                \item \textcolor{greenPolimi}{Amazon} software to screen candidates for employment biased against women \emph{\parencite{dastin2018amazon}}
             \end{itemize}
         \end{exampleblock}
     \end{frame}
     
     
+    \begin{frame}{Goal}
+        \begin{itemize}
+            \item \st{Solve the huge and multifaceted problem of discrimination in data} $\rightarrow$ \alert{practically impossible}
+            \item Take a look at the current state of the art
+            \item Observe some tools in action, trying to highlight their strengths and weaknesses and to understand which design choices have the greatest impact on the so-called `\textcolor{defaultBlue}{fairness}' of the results
+            \item Provide a non-technical perspective, since the technical one alone is partial and not sufficient to understand phenomena of a social nature, which are reflected and may be exacerbated by technology but which in fact originate in society
+        \end{itemize}
+We try to understand to what extent the problem is found in the \textcolor{defaultBlue}{instrumentation and technical choices} and to what extent it is instead rooted in \textcolor{defaultBlue}{society} (specifically, the U.S. one).
+    \end{frame}
+    
+    
     \begin{frame}{Methodology}
-        \textbf{Dual perspective} on the problem: qualitative and conceptual approach typical of sociology combined with technical and pragmatic approach of engineering and computer science.
+        \textcolor{defaultBlue}{Dual perspective} on the problem: qualitative and conceptual approach typical of sociology combined with technical and pragmatic approach of engineering and computer science.
         	\begin{itemize}
-        	    \item Systematic literature review.
-        	    \item Experimental case studies through Python and Jupyter Notebook to verify not only whether or not men and women are paid fairly, but also if there are other collateral issues related to gender discrimination in the data and what tools can possibly catch them.
-        	    \item Technical results discussed in the light of the sociological background.
+        	    \item Systematic literature review
+        	    \item Experimental case studies to verify not only whether men and women are paid fairly, but also if there are other collateral issues related to gender discrimination in the data and what tools can possibly catch them
+        	    \item Technical results discussed in the light of the sociological background
         	\end{itemize}
-        	 We try to understand to what extent the problem is to be found in the \textit{instrumentation and technical choices} and to what extent it is instead rooted in \textit{society}.
     \end{frame}
     
     
     \begin{frame}{Sociological Perspective}
-        \begin{block}{Global Gender Gap Index}
+        \begin{block}{Global Gender Gap Index \emph{\parencite{schwab2017global}}}
             Cumulative measure for ranking countries which benchmarks national gender gaps on economic, education, health, and political criteria.
         \end{block}
-        U.S. ranking: 49/144, overall score: 0.718 (1 = gender parity)\newline $\rightarrow$ men more participatory in labor force; women tend to earn less than men, be employed part-time, or not to be paid for their work, and are underrepresented in managerial and higher-paying jobs.\newline\newline Some possible reasons:
+        U.S. ranking: 49/144, overall score: 0.718 (1 = gender parity)\newline
+        $\rightarrow$ men more participatory in labor force; women tend to earn less than men, be employed part-time, or not to be paid for their work, and are underrepresented in managerial and higher-paying jobs\newline\newline
+        Some possible reasons:
         \begin{itemize}
             \item Statistical discrimination \emph{\parencite{tilcsik2021statistical}}
             \item Institutional environment \emph{\parencite{beggs1995institutional}}
@@ -96,27 +110,45 @@
     \end{frame}
     
     
-    \begin{frame}{Sociological Perspective -- Data \& Statistics}
+    \begin{frame}<0>[noframenumbering]{Sociological Perspective -- Data \& Statistics}
         \begin{figure}
-            \subfloat{\includegraphics[width=0.475\textwidth]{figures/dol_earnings_by_sex.pdf}}
+            \medskip\centering
+            \subcaptionbox{Median annual earnings by sex (1960-2017).\newline
+            U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}{\includegraphics[width=0.475\textwidth]{figures/dol_earnings_by_sex.pdf}}
             \hfill
-            \subfloat{\includegraphics[width=0.475\textwidth]{figures/dol_full-_and_part-time_workers_by_sex.pdf}}
+            \subcaptionbox{Percent distribution of workers employed full- and part-time by sex (2020).\newline
+            U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}{\includegraphics[width=0.475\textwidth]{figures/dol_full-_and_part-time_workers_by_sex.pdf}}
+        \end{figure}
+    \end{frame}
+    
+    
+    \begin{frame}<0>[noframenumbering]{Sociological Perspective -- Data \& Statistics}
+        \begin{figure}
+            \medskip\centering
+            \subcaptionbox{Most common occupations for women in the labor force (2019).\newline
+            U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}{\includegraphics[width=0.475\textwidth]{figures/dol_most_common_occupations_women.pdf}}
+            \hfill
+            \subcaptionbox{Percentage of Science, Technology, Engineering, and Math (STEM) workers who are women (1970-2019).\newline
+            U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}{\includegraphics[width=0.475\textwidth]{figures/dol_stem_percent_women.pdf}}
         \end{figure}
     \end{frame}
     
     
     \begin{frame}{Sociological Perspective -- Data \& Statistics}
         \begin{figure}
-            \subfloat{\includegraphics[width=0.475\textwidth]{figures/dol_most_common_occupations_women.pdf}}
+            \medskip\centering
+            \subcaptionbox{Percent distribution of workers employed full- and part-time by sex (2020).\newline
+            U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}{\includegraphics[width=0.475\textwidth]{figures/dol_full-_and_part-time_workers_by_sex.pdf}}
             \hfill
-            \subfloat{\includegraphics[width=0.475\textwidth]{figures/dol_stem_percent_women.pdf}}
+            \subcaptionbox{Percentage of Science, Technology, Engineering, and Math (STEM) workers who are women (1970-2019).\newline
+            U.S. Department of Labor. Source: \upshape\protect\url{https://www.dol.gov/agencies/wb/data}.}{\includegraphics[width=0.475\textwidth]{figures/dol_stem_percent_women.pdf}}
         \end{figure}
     \end{frame}
     
     
     \begin{frame}{Tools for Assessing Fairness}
         \begin{itemize}
-            \item \textit{The `Glassdoor Method'}: a framework for evaluating gender pay gap which relies on \textbf{linear regression}. \emph{\parencite{chamberlain2017analyze}}
+            \item \alert{The `Glassdoor Method'}: a framework for evaluating gender pay gap which relies on \textcolor{defaultBlue}{linear regression} \emph{\parencite{chamberlain2017analyze}}
         \end{itemize}
         \begin{block}{Linear regression}
             \begin{columns}
@@ -125,7 +157,10 @@
                 \end{column}
                 \begin{column}{0.4715\textwidth}
                     \begin{center}
-                        \includegraphics[width=\textwidth]{figures/simple_linear_regression.pdf}
+                        \begin{figure}
+                            \subcaptionbox*{Simple linear regression graph.\newline
+                            Source: \upshape\protect\url{https://www.reneshbedre.com/assets/posts/reg/mlr/residual.svg}.}{\includegraphics[width=0.95\textwidth]{figures/simple_linear_regression.pdf}}
+                        \end{figure}
                     \end{center}
                 \end{column}
             \end{columns}
@@ -135,10 +170,10 @@
     
     \begin{frame}{Tools for Assessing Fairness}
         \begin{itemize}
-            \item \textit{FAIR-DB}: an algorithm to detect bias in data based on \textbf{functional dependencies} and the related evaluation metrics. \emph{\parencite{azzalini2021fair}}
+            \item \alert{FAIR-DB}: an algorithm to detect bias in data based on \textcolor{defaultBlue}{functional dependencies} and the related evaluation metrics \emph{\parencite{azzalini2021fair}}
         \end{itemize}
         \begin{block}{Functional Dependencies (FDs)}
-            Constraint involving two (sets of) attributes of the same relation in which the first \textit{uniquely determines} the second.
+            Constraint involving two (sets of) attributes of the same relation in which the first {\usebeamercolor[fg]{bibliography entry note}uniquely determines} the second.
         \end{block}
         \begin{block}{Approximate Conditional Functional Dependencies (ACFDs)}
             FDs holding on a subset of tuples (Approximate) which use conditions on attribute values to specify the subset on which they hold (Conditional).
@@ -149,11 +184,11 @@
     
     \begin{frame}{Tools for Assessing Fairness}
         \begin{itemize}
-            \item \textit{Ranking Facts}: an application built on the idea of \textbf{ranking} which makes use of three statistical measures to evaluate fairness. \emph{\parencite{yang2018nutritional}}
+            \item \alert{Ranking Facts}: an application built on the idea of \textcolor{defaultBlue}{ranking} which makes use of three statistical measures to evaluate fairness \emph{\parencite{yang2018nutritional}}
             \begin{itemize}
-                \item \textbf{FA*IR}: compares the number of protected elements in every prefix of the ranking (i.e., the top-\(i\) positions, with \(i \in [1, k]\)) with the expected number of protected elements if they were picked at random using Bernoulli trials with success probability \(p\).
-                \item \textbf{Proportion}: statistical measure based on the concept of \textit{(two sample) z-test} -- particular type of hypothesis test which allows to compare two proportions to check whether they are the same or not.
-                \item \textbf{Pairwise}: compares options in pairs and determines which is the preferred choice or has the highest level of importance based on defined criteria. At the end of the comparison process, each option has a rank or relative rating as compared to the others.
+                \item \textcolor{defaultBlue}{FA*IR}: compares the number of protected elements in every prefix of the ranking (i.e., the top-\(i\) positions, with \(i \in [1, k]\)) with the expected number of protected elements if they were picked at random using Bernoulli trials with success probability \(p\)
+                \item \textcolor{defaultBlue}{Proportion}: statistical measure based on the concept of {\usebeamercolor[fg]{bibliography entry note}(two-sample) z-test} -- particular type of hypothesis test which allows to compare two proportions to check whether they are the same
+                \item \textcolor{defaultBlue}{Pairwise}: compares options in pairs and determines which is the preferred choice or has the highest level of importance based on defined criteria, ultimately ranking the options
             \end{itemize}
         \end{itemize}
     \end{frame}
@@ -161,76 +196,78 @@
     
     \begin{frame}{Case Study 1: Chicago}
         \begin{itemize}
-            \item \textbf{Data preprocessing}: 20,309 tuples, of which 16,146 males and 4,163 females, and with 35 distinct \textit{Job Title} values and 20 distinct \textit{Department} values.\newline
-            \item \textbf{The `Glassdoor Method'}: 24.2\% `unadjusted' pay gap; 0.4\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap.
-            \item \textbf{FAIR-DB}: 6 final functional dependencies; 11.4\% of the dataset `problematic' $\rightarrow$ dataset quite fair.
-            \item \textbf{Ranking Facts}: dataset fair for both males and females, for each statistical measure.
+            \item \textcolor{defaultBlue}{Data preprocessing}: 20,309 tuples, of which 16,146 males and 4,163 females, and with 35 distinct \textit{Job Title} values and 20 distinct \textit{Department} values\newline
+            \item \textcolor{defaultBlue}{The `Glassdoor Method'}: 24.2\% `unadjusted' pay gap; 0.4\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap
+            \item \textcolor{defaultBlue}{FAIR-DB}: 6 final functional dependencies; 11.4\% of the dataset `problematic' $\rightarrow$ dataset quite fair
+            \item \textcolor{defaultBlue}{Ranking Facts}: dataset fair for both males and females, for each statistical measure
         \end{itemize}
     \end{frame}
     
     
-    \begin{frame}{Case Study 1: Chicago}
+    \begin{frame}<0>[noframenumbering]{Case Study 1: Chicago}
         \begin{figure}
-            \subfloat{\includegraphics[width=0.475\textwidth]{figures/chicago_2bins_annual_salary_over_gender.pdf}}
+            \medskip\centering
+            \subcaptionbox{Distribution of the \textit{Annual Salary} values for the Chicago dataset (2 bins).}{\includegraphics[width=0.475\textwidth]{figures/chicago_2bins_annual_salary_over_gender.pdf}}
             \hfill
-            \subfloat{\includegraphics[width=0.475\textwidth]{figures/chicago_rankingfacts1.png}}
+            \subcaptionbox{Heatmap showing attribute correlations for the Chicago dataset.}{\includegraphics[width=0.475\textwidth]{figures/chicago_rankingfacts1.png}}
         \end{figure}
     \end{frame}
     
     
     \begin{frame}{Case Study 2: San Francisco}
         \begin{itemize}
-            \item \textbf{Data preprocessing}: 22,996 tuples, of which 13,688 males and 9,308 females, and with 81 distinct \textit{Job Title} values.\newline
-            \item \textbf{The `Glassdoor Method'}: 30.4\% `unadjusted' pay gap; \(-\)5\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap.
-            \item \textbf{FAIR-DB}: 10 final functional dependencies; 24.3\% of the dataset `problematic' $\rightarrow$ dataset quite fair because of the low values of \textit{difference} (`unfairness level') and \textit{support} (number of tuples involved), but for higher-paying jobs men seem to have an economic advantage over women.
-            \item \textbf{Ranking Facts}: dataset fair for males and unfair for females, for each statistical measure $\rightarrow$ proportion of women in the top-\(k\) ranking effectively very low.
+            \item \textcolor{defaultBlue}{Data preprocessing}: 22,996 tuples, of which 13,688 males and 9,308 females, and with 81 distinct \textit{Job Title} values\newline
+            \item \textcolor{defaultBlue}{The `Glassdoor Method'}: 30.4\% `unadjusted' pay gap; \(-\)5\% `adjusted' pay gap $\rightarrow$ no evidence of a systematic gender pay gap
+            \item \textcolor{defaultBlue}{FAIR-DB}: 10 final functional dependencies; 24.3\% of the dataset `problematic' $\rightarrow$ dataset quite fair because of the low values of {\usebeamercolor[fg]{bibliography entry note}difference} (`unfairness level') and {\usebeamercolor[fg]{bibliography entry note}support} (number of tuples involved), but for higher-paying jobs men seem to have an economic advantage over women
+            \item \textcolor{defaultBlue}{Ranking Facts}: dataset fair for males and unfair for females, for each statistical measure $\rightarrow$ proportion of women in the top-\(k\) ranking effectively very low
         \end{itemize}
     \end{frame}
     
     
     \begin{frame}{Case Study 2: San Francisco}
         \begin{figure}
-            \subfloat{\includegraphics[width=0.475\textwidth]{figures/san_francisco_2bins_annual_salary_over_gender.pdf}}
+            \medskip\centering
+            \subcaptionbox{Distribution of the \textit{Annual Salary} values for the San Francisco dataset (2 bins).}{\includegraphics[width=0.475\textwidth]{figures/san_francisco_2bins_annual_salary_over_gender.pdf}}
             \hfill
-            \subfloat{\includegraphics[width=0.475\textwidth]{figures/san_francisco_rankingfacts1.png}}
+            \subcaptionbox{Heatmap showing attribute correlations for the San Francisco dataset.}{\includegraphics[width=0.475\textwidth]{figures/san_francisco_rankingfacts1.png}}
         \end{figure}
     \end{frame}
     
     
     \begin{frame}{Other Design Choices}
         \begin{itemize}
-            \item \textbf{Part-time employees removal}: most of the tuples removed related to women (Chicago); excessive amount of tuples removed (San Francisco).
-            \item \textbf{FAIR-DB: discretization using more bins}: less and different final dependencies detected (Chicago and San Francisco).
-            \item \textbf{FAIR-DB: choice of different dependencies}: 85.6\% (Chicago) and 92.5\% (San Francisco) of the dataset `problematic'.
-            \item \textbf{Grouping of job titles}: overturning of the outcomes for Ranking Facts (Chicago dataset unfair for males and fair for females, for each statistical measure).
-            \item \textbf{Voluntary introduction of bias}: results from each tool oriented toward unfair Chicago dataset, in which women are discriminated against (retaining 50\%, 75\%, and 90\% of the \textit{Annual Salary} value of female employees).
+            \item \textcolor{defaultBlue}{Part-time employees removal}: most of the tuples removed related to women (Chicago); excessive amount of tuples removed (San Francisco)
+            \item \textcolor{defaultBlue}{FAIR-DB: discretization using more bins}: less and different final dependencies detected (Chicago and San Francisco)
+            \item \textcolor{defaultBlue}{FAIR-DB: choice of different dependencies}: 85.6\% (Chicago) and 92.5\% (San Francisco) of the dataset `problematic'
+            \item \textcolor{defaultBlue}{Grouping of job titles}: overturning of the outcomes for Ranking Facts (Chicago dataset unfair for males and fair for females, for each statistical measure)
+            \item \textcolor{defaultBlue}{Voluntary introduction of bias}: results from each tool oriented toward unfair Chicago dataset, in which women are discriminated against (retaining 50\%, 75\%, and 90\% of the \textit{Annual Salary} value of female employees)
         \end{itemize}
     \end{frame}
     
     
     \begin{frame}{Outcomes}
         \begin{itemize}
-            \item Strengths and weaknesses of the tools highlight their non-exhaustiveness and complementarity.
-            \item Tools practically fail in capturing the several facets of \textit{equity}.
+            \item Strengths and weaknesses of the tools highlight their non-exhaustiveness and complementarity
+            \item Tools practically fail in capturing the several facets of \alert{equity}
             \begin{block}{Equity}
                 The idea that people should have access to resources (possibly of a different nature and to a different extent) in order to be able to reach the same condition.
             \end{block}
-            \item \textbf{Representation problem}: disproportion in the percentage of women employed in different sectors.
-            \item \textbf{Part-time problem}: higher number of women employed in part-time jobs, typically less paid than full-time ones.
+            \item \textcolor{defaultBlue}{Representation problem}: disproportion in the percentage of women employed in different sectors
+            \item \textcolor{defaultBlue}{Part-time problem}: higher number of women employed in part-time jobs, typically less paid than full-time ones
         \end{itemize}
     \end{frame}
     
     
     \begin{frame}{Contributions}
         \begin{itemize}
-            \item Fairness is a multifaceted concept which cannot be exhausted by providing a single definition and pursuing that specific definition experimentally.
-            \item Tools are susceptible to decisional choices, and therefore users must be properly trained on the specific area of analysis.
-            \item Double perspective on the gender pay gap issue emphasized the importance of multidisciplinarity, especially when dealing with problems of an ethical and sociological nature.
+            \item Fairness is a multifaceted concept which cannot be exhausted by providing a single definition and pursuing that specific definition experimentally
+            \item Tools are susceptible to decisional choices, and therefore users must be properly trained on the specific area of analysis
+            \item Double perspective on the gender pay gap issue emphasized the importance of multidisciplinarity, especially when dealing with problems of an ethical and sociological nature
         \end{itemize}
     \end{frame}
     
     
-    \begin{frame}{(Some) Limitations}
+    \begin{frame}<0>[noframenumbering]{(Some) Limitations}
         \begin{itemize}
             \item Sociological
             \begin{itemize}
@@ -253,10 +290,10 @@
     
     \begin{frame}{Future Work}
         \begin{itemize}
-            \item Combine all the tools in a unique, more complete instrument, possibly trying to encompass even more facets of equity, or more definitions of fairness.
-            \item Support analyses of this kind by sociological research.
-            \item Enrich sociological research by conducting an interview with workers and HR practitioners of the cities under study.
-            \item Retrieve further information in support of the mere data and create effective documentation, possibly pointing at \textbf{context-awareness} (provide the tools with knowledge on the context of use).
+            \item Combine all the tools in a unique, more complete instrument, possibly trying to encompass even more facets of equity, or more definitions of fairness
+            \item Support analyses of this kind by sociological research
+            \item Enrich sociological research by conducting an interview with workers and HR practitioners of the cities under study
+            \item Retrieve further information in support of the mere data and create effective documentation, possibly pointing at \textcolor{defaultBlue}{context-awareness} (provide the tools with knowledge on the context of use)
         \end{itemize}
     \end{frame}
     
@@ -268,7 +305,7 @@
     \end{frame}
     
     
-    \begin{frame}[allowframebreaks]{References}
+    \begin{frame}[allowframebreaks,noframenumbering]{References}
         \printbibliography
     \end{frame}
 \end{document}
